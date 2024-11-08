@@ -1,0 +1,205 @@
+/* General Styling */
+:root {
+  --bg-color: #292929;
+  --text-color: #f1f1f1;
+  --button-bg: #333;
+  --button-text: #f1f1f1;
+  --border-color: #333;
+  --rule-bg: #444;
+  --green: #01b200;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.btn-header {
+  background-color: var(--button-bg);
+  color: var(--text-color);
+}
+
+/* Header section fixed at the top */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.span-btn-header{
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.btn-header {
+  padding: 3px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#name {
+  font-size: large;
+  min-width: 470px;
+}
+
+h1, h4 {
+  margin: 0;
+}
+
+h3 {
+  margin-bottom: 10px;
+  border-bottom: 1px solid black;
+}
+
+/* Page Layout */
+.content {
+  display: flex;
+  margin-top: 130px; /* To prevent overlap with fixed header */
+  width: 100%;
+}
+
+.column {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.left-column {
+  border-right: 1px solid var(--text-color);
+}
+
+/* Change checkbox color when checked */
+input[type="checkbox"] {
+  accent-color: var(--green);
+  justify-self: start;
+}
+
+/* General Layout for Rule Items */
+.rule-item {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  background-color: var(--rule-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  column-gap: 10px;
+  transition: transform 0.4s ease-in-out;
+  grid-template-rows: auto; /* Allows flexible row height for the header */
+}
+
+/* Full-width header for each rule */
+.rule-item h3 {
+  grid-column: span 2; /* Make the header span both columns */
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.rule-item h4 {
+  margin: 0 5px 0 0;
+  grid-column: span 2
+}
+
+/* Only apply two-column layout for fields above Params */
+.rule-item > label {
+  display: contents;
+}
+
+/* Alignment of fields in Params section */
+.params-section span label {
+  display: flex;
+  align-items: center;
+}
+
+.params-section label input[type="radio"] {
+  margin-right: 5px;
+}
+
+.params-section label input[type="number"] {
+  margin-left: 10px;
+  width: 100px;
+}
+
+button {
+  padding: 3px 3px;
+  border: 1px solid black;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.move-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  grid-column: span 2;
+  padding: 2px;
+  margin-top: 5px;
+}
+
+.move-buttons button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+}
+
+.move-buttons .delete-button {
+  color: #ff6b6b;
+  margin-left: auto;
+}
+
+.input-item-type{
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Animation class for move */
+.move-up {
+  transform: translateY(calc(-1 * var(--move-distance)));
+}
+
+.move-down {
+  transform: translateY(calc(var(--move-distance)));
+}
+
+.material-symbols-outlined {
+  font-size: 20px;
+}
+
+.collapse-button {
+  user-select: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 25px;
+  margin-left: auto;
+}
+
+body input,
+body select {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: 1px solid #555;
+  padding: 2px;
+  margin-bottom: 2px;
+}
+
+body input[type="checkbox"] {
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+}

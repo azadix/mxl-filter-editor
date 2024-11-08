@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MXL Filter editor</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+  <script src="tables.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- Fixed Header with Buttons -->
+  <div class="header">
+    <h1>MXL Filter editor</h1>
+    <h4>by Azadi</h4>
+    <br>
+    <label style="font-size: larger;">
+      Default Show Items:
+      <input type="checkbox" id="defaultShowItems" checked>
+    </label>
+    <label>
+      Name:
+      <input type="text" id="name" value="New filter">
+    </label>
+    
+    <span class="span-btn-header">
+      <button class="btn-header" onclick="addRule()">
+        <span class="material-symbols-outlined">add</span>
+        Add New Rule
+      </button>
+      <button class="btn-header" onclick="pasteFromClipboard()">
+        <span class="material-symbols-outlined">content_paste</span>
+        Paste from Clipboard
+      </button>
+      <button class="btn-header" onclick="generateOutput()">
+        <span class="material-symbols-outlined">data_object</span>
+        Generate JSON Output
+      </button>
+      <button class="btn-header" onclick="copyToClipboard()">
+        <span class="material-symbols-outlined">content_copy</span>
+        Copy to Clipboard
+      </button>
+    </span>
+  </div>
+
+  <!-- Page Content Split into Two Columns -->
+  <div class="content">
+    <!-- Left Column: Rule Editor -->
+    <div class="column left-column">
+      <h2>Rules</h2>
+      <div id="rulesContainer"></div>
+    </div>
+
+    <!-- Right Column: JSON Output -->
+    <div class="column right-column">
+      <h2>Output</h2>
+      <pre id="output"></pre>
+    </div>
+  </div>
+</body>
+</html>
