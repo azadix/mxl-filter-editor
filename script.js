@@ -1,12 +1,11 @@
-//TODO
-//[ ] metody w js sa zadeklarowene inline a oddzielic je od htmla ( zeby byly funkcja )
-
 // Initial JSON structure
 let jsonData = {
     "default_show_items": true,
     "name": "New filter",
     "rules": []
 };
+
+let draggedIndex = null;
 
 // Show/hide input elements based on selected radio
 function switchInput(index, type) {
@@ -72,6 +71,20 @@ function getSelectedRuleType(rule) {
 function toggleCollapse(index) {
     jsonData.rules[index].collapsed = !jsonData.rules[index].collapsed;
     renderSingleRule(index);
+}
+
+function toggleAllCollapse() {
+    if (jsonData.rules && jsonData.rules.length > 0) {
+        // Check the current state of the first rule's collapsed property
+        const shouldCollapse = !jsonData.rules[0].collapsed;
+
+        // Loop through all the rules and set the collapsed state accordingly
+        for (let i = 0; i < jsonData.rules.length; i++) {
+            jsonData.rules[i].collapsed = shouldCollapse; // Set collapsed to true or false
+            renderSingleRule(i); // Call the render function to update the UI (if needed)
+        }
+    }
+    document.getElementById("collapse-all").innerText = jsonData.rules[0].collapsed ? 'expand_content' : 'collapse_content';
 }
 
 function renderSingleRule(index) {
@@ -161,6 +174,11 @@ function renderSingleRule(index) {
             </div>
         `;
     }
+
+    ruleDiv.draggable = true;
+    ruleDiv.addEventListener('dragstart', () => handleDragStart(index));
+    ruleDiv.addEventListener('dragover', handleDragOver);
+    ruleDiv.addEventListener('drop', (event) => handleDrop(event, index));
 
     rulesContainer.insertBefore(ruleDiv, rulesContainer.children[index]);
 
@@ -367,6 +385,30 @@ function populateDatalist() {
         option.value = key; // Shows the name, but can use value for actual usage
         datalist.appendChild(option);
     });
+}
+
+function handleDragStart(index) {
+    draggedIndex = index;
+}
+
+function handleDragOver(event) {
+    event.preventDefault(); // Allows the drop event to fire
+}
+
+function handleDrop(event, dropIndex) {
+    event.preventDefault();
+    if (draggedIndex === null || draggedIndex === dropIndex) return;
+
+    // Reorder jsonData.rules based on the dragged and drop indexes
+    const draggedRule = jsonData.rules[draggedIndex];
+    jsonData.rules.splice(draggedIndex, 1); // Remove the dragged rule
+    jsonData.rules.splice(dropIndex, 0, draggedRule); // Insert it at the drop index
+
+    // Re-render the rules
+    renderRules();
+
+    // Reset the dragged index
+    draggedIndex = null;
 }
 
 window.onload = function() {
