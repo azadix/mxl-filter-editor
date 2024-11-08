@@ -74,17 +74,17 @@ function toggleCollapse(index) {
 }
 
 function toggleAllCollapse() {
+    const shouldCollapse = (document.getElementById("collapse-all").innerText == "collapse_content");
     if (jsonData.rules && jsonData.rules.length > 0) {
         // Check the current state of the first rule's collapsed property
-        const shouldCollapse = !jsonData.rules[0].collapsed;
-
+        
         // Loop through all the rules and set the collapsed state accordingly
         for (let i = 0; i < jsonData.rules.length; i++) {
             jsonData.rules[i].collapsed = shouldCollapse; // Set collapsed to true or false
             renderSingleRule(i); // Call the render function to update the UI (if needed)
         }
     }
-    document.getElementById("collapse-all").innerText = jsonData.rules[0].collapsed ? 'expand_content' : 'collapse_content';
+    document.getElementById("collapse-all").innerText = shouldCollapse ? 'expand_content' : 'collapse_content';
 }
 
 function renderSingleRule(index) {
