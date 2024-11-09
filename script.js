@@ -5,8 +5,6 @@ let jsonData = {
     "rules": []
 };
 
-let draggedIndex = null;
-
 // Show/hide input elements based on selected radio
 function switchInput(index, type) {
     const selectInput = document.querySelector(`#selectInput${index}`);
@@ -104,7 +102,8 @@ function renderSingleRule(index) {
 
     const ruleDiv = document.createElement('div');
     ruleDiv.className = 'rule-item';
-  
+    ruleDiv.dataset.index = index;
+    
     // Determine colors for rule state
     const isRuleShownColor = rule.show_item ? "var(--green)" : "red";
     const isRuleActiveColor = rule.active ? "var(--green)" : "red";
@@ -134,15 +133,17 @@ function renderSingleRule(index) {
     const itemQualityText = matchedQuality === "Any" ? "" : matchedQuality || "Unknown";
 
     const ruleDescriptor = `
-        <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
-            ${ruleStatusBadge}#${index + 1}: <span style="color: ${isRuleShownColor}; margin-left: 5px; margin-right: 5px;"> ${rule.show_item ? "Show" : "Hide"}</span>
-            ${itemQualityText}
-	        ${(paramType === "class") ? itemTypeText : (paramType === "code") ? "item ID-" + rule.params[paramType] : ""}
-            <span class="material-symbols-outlined collapse-button" onclick="toggleCollapse(${index})">${rule.collapsed ? 'expand_content' : 'collapse_content'}</span>
-        </div>
+        <h3 class="rule-descriptor" style="cursor: move;">
+            <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                ${ruleStatusBadge}#${index + 1}: <span style="color: ${isRuleShownColor}; margin-left: 5px; margin-right: 5px;"> ${rule.show_item ? "Show" : "Hide"}</span>
+                ${itemQualityText}
+                ${(paramType === "class") ? itemTypeText : (paramType === "code") ? "item ID-" + rule.params[paramType] : ""}
+                <span class="material-symbols-outlined collapse-button" onclick="toggleCollapse(${index})">${rule.collapsed ? 'expand_content' : 'collapse_content'}</span>
+            </div>
+        </h3>
     `;
 
-    ruleDiv.innerHTML = `<h3>${ruleDescriptor}</h3>`;
+    ruleDiv.innerHTML = ruleDescriptor;
     if (!rule.collapsed) {
         ruleDiv.innerHTML += `
             <label>Active: <input type="checkbox" ${rule.active ? 'checked' : ''} onchange="updateRule(${index}, 'active', this.checked)"></label>
@@ -174,11 +175,6 @@ function renderSingleRule(index) {
             </div>
         `;
     }
-
-    ruleDiv.draggable = true;
-    ruleDiv.addEventListener('dragstart', () => handleDragStart(index));
-    ruleDiv.addEventListener('dragover', handleDragOver);
-    ruleDiv.addEventListener('drop', (event) => handleDrop(event, index));
 
     rulesContainer.insertBefore(ruleDiv, rulesContainer.children[index]);
 
@@ -315,8 +311,28 @@ function removeRule(index) {
     }
 }
 
+// function addRule() {
+//     const newRule = {
+//         "active": true,
+//         "automap": true,
+//         "ethereal": 0,
+//         "item_quality": -1,
+//         "max_clvl": 0,
+//         "max_ilvl": 0,
+//         "min_clvl": 0,
+//         "min_ilvl": 0,
+//         "notify": true,
+//         "params": {class: 1},
+//         "rule_type": 0,
+//         "show_item": true
+//     }
+//     jsonData.rules.unshift(newRule);
+//     renderRules();
+// }
+
 function addRule() {
     const newRule = {
+        id: Date.now(), // Unique ID based on timestamp
         "active": true,
         "automap": true,
         "ethereal": 0,
@@ -326,17 +342,37 @@ function addRule() {
         "min_clvl": 0,
         "min_ilvl": 0,
         "notify": true,
-        "params": {class: 1},
+        "params": { class: 1 },
         "rule_type": 0,
-        "show_item": true
-    }
+        "show_item": true,
+        "collapsed": false // Set collapsed to false by default
+    };
     jsonData.rules.unshift(newRule);
     renderRules();
+}
+
+function cleanRules(rule) {
+    return {
+        active: rule.active,
+        automap: rule.automap,
+        ethereal: rule.ethereal,
+        item_quality: rule.item_quality,
+        max_clvl: rule.max_clvl,
+        max_ilvl: rule.max_ilvl,
+        min_clvl: rule.min_clvl,
+        min_ilvl: rule.min_ilvl,
+        notify: rule.notify,
+        params: rule.params,
+        rule_type: rule.rule_type,
+        show_item: rule.show_item
+    };
 }
 
 function generateOutput() {
     jsonData.default_show_items = document.getElementById('defaultShowItems').checked;
     jsonData.name = document.getElementById('name').value;
+    jsonData.rules = jsonData.rules.map(cleanRules);
+
     document.getElementById('output').textContent = JSON.stringify(jsonData, null, 2);
 }
 
@@ -387,30 +423,30 @@ function populateDatalist() {
     });
 }
 
-function handleDragStart(index) {
-    draggedIndex = index;
-}
+function addSortables() {
+    const rulesContainer = document.getElementById('rulesContainer');
+    
+    new Sortable(rulesContainer, {
+        handle: 'h3', // Drag handle
+        animation: 150,
+        ghostClass: 'sortable-ghost',
+        onEnd: function () {
+            // Create a new sorted list based on current DOM order
+            const newOrder = Array.from(rulesContainer.children).map(ruleItem => {
+                const originalIndex = ruleItem.dataset.index;
+                return jsonData.rules[originalIndex];
+            });
 
-function handleDragOver(event) {
-    event.preventDefault(); // Allows the drop event to fire
-}
+            // Reorder jsonData.rules based on the new DOM order
+            jsonData.rules = newOrder;
 
-function handleDrop(event, dropIndex) {
-    event.preventDefault();
-    if (draggedIndex === null || draggedIndex === dropIndex) return;
-
-    // Reorder jsonData.rules based on the dragged and drop indexes
-    const draggedRule = jsonData.rules[draggedIndex];
-    jsonData.rules.splice(draggedIndex, 1); // Remove the dragged rule
-    jsonData.rules.splice(dropIndex, 0, draggedRule); // Insert it at the drop index
-
-    // Re-render the rules
-    renderRules();
-
-    // Reset the dragged index
-    draggedIndex = null;
+            // Re-render the rules to reflect the new order
+            renderRules();
+        }
+    });
 }
 
 window.onload = function() {
     renderRules();
+    addSortables();
 }
