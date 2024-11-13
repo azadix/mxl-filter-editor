@@ -88,98 +88,182 @@ function renderSingleRule(index) {
     const rulesContainer = document.getElementById('rulesContainer');
   
     // Remove any existing instance of the rule at the given index
-    if (rulesContainer.children[index]) {
-        rulesContainer.removeChild(rulesContainer.children[index]);
-    }
+    removeExistingRule(rulesContainer, index);
 
     const rule = jsonData.rules[index];
-
-    // Ensure rule has a `collapsed` property
-    if (rule.collapsed === undefined) {
-        rule.collapsed = false; // Default to expanded
-    }
+    ensureRuleDefaults(rule);
 
     const ruleDiv = document.createElement('div');
     ruleDiv.className = 'rule-item';
     ruleDiv.dataset.index = index;
-    
-    // Determine colors for rule state
+
+    // Rule status colors
+    const { isRuleShownColor, isRuleActiveColor } = getRuleColors(rule);
+
+    // Generate rule descriptor
+    ruleDiv.innerHTML = createRuleDescriptor(index, rule, isRuleActiveColor, isRuleShownColor);
+
+    // If the rule is not collapsed, render additional inputs
+    if (!rule.collapsed) {
+        ruleDiv.innerHTML += createRuleInputs(index, rule);
+    }
+
+    // Insert the new rule into the container
+    rulesContainer.insertBefore(ruleDiv, rulesContainer.children[index]);
+
+    // Render the correct input for the selected param type
+    renderParamInput(rule, index);
+}
+
+// Function to remove the existing rule at the given index
+function removeExistingRule(rulesContainer, index) {
+    if (rulesContainer.children[index]) {
+        rulesContainer.removeChild(rulesContainer.children[index]);
+    }
+}
+
+// Function to ensure the rule has default values
+function ensureRuleDefaults(rule) {
+    if (rule.collapsed === undefined) {
+        rule.collapsed = false; // Default to expanded
+    }
+}
+
+// Function to get the rule colors based on the show and active status
+function getRuleColors(rule) {
     const isRuleShownColor = rule.show_item ? "var(--green)" : "red";
     const isRuleActiveColor = rule.active ? "var(--green)" : "red";
+    return { isRuleShownColor, isRuleActiveColor };
+}
 
-    // Descriptor for the rule, with color-coded status and badge depending if rule is active or not
-    const ruleStatusBadge = `
+// Function to generate the rule descriptor HTML
+function createRuleDescriptor(index, rule, isRuleActiveColor, isRuleShownColor) {
+    const ruleStatusBadge = createRuleStatusBadge(rule, isRuleActiveColor);
+    const itemTypeText = getItemTypeText(rule);
+    const itemQualityText = getItemQualityText(rule);
+
+    const mapIcon = rule.automap ? `
+        <span class="material-symbols-outlined" style="color: var(--green);">
+            map
+        </span>
+    ` : "";
+
+    const alertIcon = rule.notify ? `
+        <span class="material-symbols-outlined" style="color: var(--green);">
+            notifications_active
+        </span>
+    ` : "";
+
+    return `
+        <h3 class="rule-descriptor" style="cursor: move;">
+            <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                <div style="flex-grow: 1;">
+                    ${ruleStatusBadge}#${index + 1}: 
+                    <span style="color: ${isRuleShownColor}; margin-left: 5px; margin-right: 5px;">
+                        ${rule.show_item ? "Show" : "Hide"}
+                    </span>
+                    ${itemQualityText}
+                    ${itemTypeText}
+                </div>
+                <!-- Icon container aligned to the right -->
+                <div style="display: flex; align-items: center;">
+                    ${alertIcon}
+                    ${mapIcon}
+                    <span class="material-symbols-outlined collapse-button" onclick="toggleCollapse(${index})">
+                        ${rule.collapsed ? 'expand_content' : 'collapse_content'}
+                    </span>
+                </div>
+            </div>
+        </h3>
+    `;
+}
+
+
+// Function to create the rule status badge
+function createRuleStatusBadge(rule, isRuleActiveColor) {
+    return `
         <span style="padding: 2px 6px;
             border-radius: 4px;
             font-size: 0.85em;
             margin-right: 5px;
             background-color: ${isRuleActiveColor};
-            color: ${rule.active ? '#a6dfb6' : '#f8d7da'};">
-            ${rule.active ? "✔ " : "✘ "}
+            color: ${rule.active ? '#a6dfb6' : '#f8d7da'};">${rule.active ? "ACTIVE" : "DISABLED"}</span>
+    `;
+}
+
+function createMapStatusBadge(rule, isShownOnMap) {
+    return `
+        <span class="material-symbols-outlined"
+            style="color:'#a6dfb6'">
+            map
         </span>
     `;
+}
 
-    let itemTypeText = "";
-    const paramType = rule.params ? Object.keys(rule.params)[0] : null;
-
-    if (rule.params) {
-        itemTypeText = (paramType === "class") 
-    	    ? (Object.entries(itemTypes).find(([key, value]) => value === rule.params[paramType])?.[0] || 'Gold')
-            : rule.params[paramType];
+// Function to determine the item type text
+function getItemTypeText(rule) {
+    if (!rule.params) return '';
+    const paramType = Object.keys(rule.params)[0];
+    if (paramType === "class") {
+        return (Object.entries(itemTypes).find(([key, value]) => value === rule.params[paramType])?.[0] || 'Gold');
     }
+    return rule.params[paramType];
+}
 
+// Function to get the item quality text
+function getItemQualityText(rule) {
     const matchedQuality = Object.entries(itemQuality).find(([key, value]) => value === rule.item_quality)?.[0];
-    const itemQualityText = matchedQuality === "Any" ? "" : matchedQuality || "Unknown";
+    return matchedQuality === "Any" ? "" : matchedQuality || "Unknown";
+}
 
-    const ruleDescriptor = `
-        <h3 class="rule-descriptor" style="cursor: move;">
-            <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
-                ${ruleStatusBadge}#${index + 1}: <span style="color: ${isRuleShownColor}; margin-left: 5px; margin-right: 5px;"> ${rule.show_item ? "Show" : "Hide"}</span>
-                ${itemQualityText}
-                ${(paramType === "class") ? itemTypeText : (paramType === "code") ? "item ID-" + rule.params[paramType] : ""}
-                <span class="material-symbols-outlined collapse-button" onclick="toggleCollapse(${index})">${rule.collapsed ? 'expand_content' : 'collapse_content'}</span>
-            </div>
-        </h3>
+// Function to create the input fields for the rule
+function createRuleInputs(index, rule) {
+    return `
+        <label>Active: <input type="checkbox" ${rule.active ? 'checked' : ''} onchange="updateRule(${index}, 'active', this.checked)"></label>
+        <label>Show Item: <input type="checkbox" ${rule.show_item ? 'checked' : ''} onchange="updateRule(${index}, 'show_item', this.checked)"></label>
+        <label>Notify: <input type="checkbox" ${rule.notify ? 'checked' : ''} onchange="updateRule(${index}, 'notify', this.checked)"></label>
+        <label>Show on map: <input type="checkbox" ${rule.automap ? 'checked' : ''} onchange="updateRule(${index}, 'automap', this.checked)"></label>
+        <label>Ethereal:</label>
+        <select onchange="updateRule(${index}, 'ethereal', this.value)">
+            ${Object.entries(etherealState).map(([key, value]) => `
+                <option value="${value}" ${rule.ethereal === value ? 'selected' : ''}>${key}</option>
+            `).join('')}
+        </select>
+
+        <label>Item Quality:</label>
+        <select value=${Object.entries(itemQuality).find(([key, value]) => (value === rule.item_quality ? key : -1))[1]} onchange="updateRule(${index}, 'item_quality', this.value)">
+            ${Object.entries(itemQuality).map(([key, value]) => `<option ${value === rule.item_quality ? "selected" : ""} value="${value}">${key}</option>`).join('')}
+        </select>
+
+        <label>Min ILVL: <input type="number" value="${rule.min_ilvl}" onchange="updateRule(${index}, 'min_ilvl', this.value)"></label>
+        <label>Max ILVL: <input type="number" value="${rule.max_ilvl}" onchange="updateRule(${index}, 'max_ilvl', this.value)"></label>
+        <label>Min CLVL: <input type="number" value="${rule.min_clvl}" onchange="updateRule(${index}, 'min_clvl', this.value)"></label>
+        <label>Max CLVL: <input type="number" value="${rule.max_clvl}" onchange="updateRule(${index}, 'max_clvl', this.value)"></label>
+
+        <h4>Params</h4>
+        <div class="params-section">
+            ${createParamRadioButtons(index, rule)}
+        </div>
+        <span id="paramInputWrapper${index}"></span>
+
+        <div class="move-buttons">
+            <button class="delete-button" onclick="removeRule(${index})">Delete</button>
+        </div>
     `;
+}
 
-    ruleDiv.innerHTML = ruleDescriptor;
-    if (!rule.collapsed) {
-        ruleDiv.innerHTML += `
-            <label>Active: <input type="checkbox" ${rule.active ? 'checked' : ''} onchange="updateRule(${index}, 'active', this.checked)"></label>
-            <label>Show Item: <input type="checkbox" ${rule.show_item ? 'checked' : ''} onchange="updateRule(${index}, 'show_item', this.checked)"></label>
-            <label>Notify: <input type="checkbox" ${rule.notify ? 'checked' : ''} onchange="updateRule(${index}, 'notify', this.checked)"></label>
-            <label>Show on map: <input type="checkbox" ${rule.automap ? 'checked' : ''} onchange="updateRule(${index}, 'automap', this.checked)"></label>
-            <label>Ethereal: <input type="number" value="${rule.ethereal}" onchange="updateRule(${index}, 'ethereal', this.value)"></label>
-            <label>Item Quality:</label>
-            <select value=${Object.entries(itemQuality).find(([key, value]) => (value === rule.item_quality ? key : -1))[1]} onchange="updateRule(${index}, 'item_quality', this.value)">
-                ${Object.entries(itemQuality).map(([key, value]) => `<option ${value === rule.item_quality ? "selected" : ""} value="${value}">${key}</option>`).join('')}
-            </select>
-            <label>Min ILVL: <input type="number" value="${rule.min_ilvl}" onchange="updateRule(${index}, 'min_ilvl', this.value)"></label>
-            <label>Max ILVL: <input type="number" value="${rule.max_ilvl}" onchange="updateRule(${index}, 'max_ilvl', this.value)"></label>
-            <label>Min CLVL: <input type="number" value="${rule.min_clvl}" onchange="updateRule(${index}, 'min_clvl', this.value)"></label>
-            <label>Max CLVL: <input type="number" value="${rule.max_clvl}" onchange="updateRule(${index}, 'max_clvl', this.value)"></label>
+// Function to create the radio buttons for the parameters
+function createParamRadioButtons(index, rule) {
+    return `
+        <label><input type="radio" name="paramType${index}" value="null" ${getSelectedRuleType(rule) == "null" ? 'checked' : ''} onchange="updateParamType(${index}, 'null')"> None</label>
+        <label><input type="radio" name="paramType${index}" value="code" ${getSelectedRuleType(rule) == "code" ? 'checked' : ''} onchange="updateParamType(${index}, 'code')"> Item</label>
+        <label><input type="radio" name="paramType${index}" value="class" ${getSelectedRuleType(rule) == "class" ? 'checked' : ''} onchange="updateParamType(${index}, 'class')"> Category</label>
+    `;
+}
 
-            <h4>Params</h4>
-            <div class="params-section">
-                <label><input type="radio" name="paramType${index}" value="null" ${getSelectedRuleType(rule) == "null" ? 'checked' : ''} onchange="updateParamType(${index}, 'null')"> None</label>
-                <label><input type="radio" name="paramType${index}" value="code" ${getSelectedRuleType(rule) == "code" ? 'checked' : ''} onchange="updateParamType(${index}, 'code')"> Item</label>
-                <label><input type="radio" name="paramType${index}" value="class" ${getSelectedRuleType(rule) == "class" ? 'checked' : ''} onchange="updateParamType(${index}, 'class')"> Category</label>
-            </div>
-            <span id="paramInputWrapper${index}"></span>
-
-            <div class="move-buttons">
-                <button onclick="moveRule(${index}, -1)">Move Up</button>
-                <button onclick="moveRule(${index}, 1)">Move Down</button>
-                <button class="delete-button" onclick="removeRule(${index})">Delete</button>
-            </div>
-        `;
-    }
-
-    rulesContainer.insertBefore(ruleDiv, rulesContainer.children[index]);
-
-    // Render the correct input for the selected param type
-    const ruleType = getSelectedRuleType(rule)
-
+// Function to render the correct parameter input based on the rule type
+function renderParamInput(rule, index) {
+    const ruleType = getSelectedRuleType(rule);
     if (!rule.collapsed) {
         const paramWrapper = document.getElementById(`paramInputWrapper${index}`);
         if (paramWrapper) {
@@ -190,7 +274,7 @@ function renderSingleRule(index) {
                 const paramType = rule.params ? Object.keys(rule.params)[0] : null;
                 if (rule.params) {
                     paramInput.value = (paramType === "class") 
-                        ? itemTypeText 
+                        ? getItemTypeText(rule) 
                         : rule.params[paramType];
                 }
 
@@ -209,6 +293,7 @@ function renderSingleRule(index) {
         }
     }
 }
+
 
 // Render all rules in the `rulesContainer`
 function renderRules() {
@@ -272,40 +357,6 @@ function updateParamValue(index, inputElement) {
 
     renderSingleRule(index);
   }
-  
-function moveRule(index, direction) {
-    const newIndex = index + direction;
-    const rulesContainer = document.getElementById('rulesContainer').children;
-
-    if (newIndex >= 0 && newIndex < jsonData.rules.length) {
-    // Swap the rules in the data model
-    const temp = jsonData.rules[index];
-    jsonData.rules[index] = jsonData.rules[newIndex];
-    jsonData.rules[newIndex] = temp;
-
-    // Get the height of the rule item to calculate the translation distance
-    const currentRuleElement = rulesContainer[index];
-    const targetRuleElement = rulesContainer[newIndex];
-    const moveDistance = `${currentRuleElement.offsetHeight+2}px`;
-
-    // Set the CSS variable --move-distance for the translation
-    currentRuleElement.style.setProperty('--move-distance', moveDistance);
-    targetRuleElement.style.setProperty('--move-distance', moveDistance);
-
-    // Apply animation classes
-    currentRuleElement.classList.add(direction > 0 ? 'move-down' : 'move-up');
-    targetRuleElement.classList.add(direction > 0 ? 'move-up' : 'move-down');
-
-    // Remove animation classes after animation duration
-    setTimeout(() => {
-        currentRuleElement.classList.remove('move-up', 'move-down');
-        targetRuleElement.classList.remove('move-up', 'move-down');
-
-        // Re-render the list only after the animation finishes
-        renderRules();
-    }, 400); // Matches the CSS transition duration
-    }
-}
 
 function removeRule(index) {
     if (index >= 0 && index < jsonData.rules.length) {

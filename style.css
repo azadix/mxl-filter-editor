@@ -52,6 +52,20 @@ body {
   align-items: center;
 }
 
+.rule-descriptor > div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.rule-descriptor .material-symbols-outlined {
+  margin-left: 5px; /* Adds space between the icons */
+}
+
+.rule-descriptor .collapse-button {
+  margin-left: 15px; /* Space the collapse button a little bit further */
+}
+
 #name {
   font-size: large;
   min-width: 470px;
@@ -113,12 +127,13 @@ input[type="checkbox"] {
 
 .rule-item h4 {
   margin: 0 5px 0 0;
-  grid-column: span 2
+  grid-column: span 2;
 }
 
-/* Only apply two-column layout for fields above Params */
+/* Ensure that labels inside rule items are aligned vertically */
 .rule-item > label {
   display: contents;
+  flex-direction: column; /* Stack label and input vertically */
 }
 
 /* Alignment of fields in Params section */
@@ -153,28 +168,16 @@ button {
   margin-top: 5px;
 }
 
-.move-buttons button {
-  background-color: var(--button-bg);
-  color: var(--button-text);
-}
-
 .move-buttons .delete-button {
+  background-color: var(--button-bg);
   color: #ff6b6b;
   margin-left: auto;
+  font-weight: bold;
 }
 
 .input-item-type{
   width: 100%;
   box-sizing: border-box;
-}
-
-/* Animation class for move */
-.move-up {
-  transform: translateY(calc(-1 * var(--move-distance)));
-}
-
-.move-down {
-  transform: translateY(calc(var(--move-distance)));
 }
 
 .material-symbols-outlined {
@@ -200,8 +203,8 @@ body select {
 
 body input[type="checkbox"] {
   cursor: pointer;
-  width: 15px;
-  height: 15px;
+  width: 19px;
+  height: 19px;
 }
 
 .sortable-ghost {

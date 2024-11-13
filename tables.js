@@ -91,3 +91,10 @@ const itemQuality =
     "Crafted": 8,
     "Honorific": 9
 }
+
+const etherealState =
+{
+    "Either": 0,
+    "Yes": 1,
+    "No": 2
+}
