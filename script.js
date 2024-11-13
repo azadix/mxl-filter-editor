@@ -27,24 +27,23 @@ function createInput(type, index) {
         case "code":
             inputElem.id = `selectInput${index}`;
             inputElem.type = "number";
-            inputElem.setAttribute("value", 1);
+            inputElem.value = jsonData.rules[index].params?.code || 1; // Default to 1 if undefined
             inputElem.setAttribute("onchange", `updateParamValue(${index}, this)`);
-    
+
             return inputElem;
         case "class":
             const datalistElem = document.createElement("datalist");
             inputElem.id = `selectInput${index}`;
             inputElem.setAttribute("list", "itemTypesList");
-            inputElem.setAttribute("value", "Gold");
-            jsonData.rules[index].params.class = 1;
-
+            inputElem.value = Object.keys(itemTypes).find(key => itemTypes[key] === jsonData.rules[index].params?.class) || "Gold";
             inputElem.setAttribute("onchange", `updateParamValue(${index}, this)`);
+            
             datalistElem.id = "itemTypesList";
-            Object.keys(itemTypes).map(itemType => {
-                let childItem = document.createElement("option");
-                childItem.setAttribute("value", itemType);
-                childItem.innerText = itemType;
-                datalistElem.appendChild(childItem);
+            Object.keys(itemTypes).forEach(itemType => {
+                const option = document.createElement("option");
+                option.value = itemType;
+                option.innerText = itemType;
+                datalistElem.appendChild(option);
             });
 
             inputElem.appendChild(datalistElem);
@@ -198,10 +197,13 @@ function renderSingleRule(index) {
                 switch (ruleType) {
                     case "null":
                         rule.rule_type = -1;
+                        break;
                     case "code":
                         rule.rule_type = 1;
+                        break;
                     case "class":
                         rule.rule_type = 0;
+                        break;
                 }
             }
         }
@@ -259,9 +261,10 @@ function updateParamValue(index, inputElement) {
     const value = inputElement.value;
     const paramType = Object.keys(jsonData.rules[index].params)[0];
 
-    if (paramType == "class") {
-        jsonData.rules[index].params[paramType] = itemTypes[value];
-    } else if (paramType == "code") {
+    if (paramType === "class") {
+        // Map the selected text (e.g., "Gold") to its corresponding value in itemTypes
+        jsonData.rules[index].params[paramType] = itemTypes[value] || 1;
+    } else if (paramType === "code") {
         jsonData.rules[index].params[paramType] = Math.max(Number(value), 0);
     } else {
         jsonData.rules[index].params = null;
@@ -311,25 +314,6 @@ function removeRule(index) {
     }
 }
 
-// function addRule() {
-//     const newRule = {
-//         "active": true,
-//         "automap": true,
-//         "ethereal": 0,
-//         "item_quality": -1,
-//         "max_clvl": 0,
-//         "max_ilvl": 0,
-//         "min_clvl": 0,
-//         "min_ilvl": 0,
-//         "notify": true,
-//         "params": {class: 1},
-//         "rule_type": 0,
-//         "show_item": true
-//     }
-//     jsonData.rules.unshift(newRule);
-//     renderRules();
-// }
-
 function addRule() {
     const newRule = {
         id: Date.now(), // Unique ID based on timestamp
@@ -369,12 +353,15 @@ function cleanRules(rule) {
 }
 
 function generateOutput() {
-    jsonData.default_show_items = document.getElementById('defaultShowItems').checked;
-    jsonData.name = document.getElementById('name').value;
-    jsonData.rules = jsonData.rules.map(cleanRules);
+    const cleanedRules = jsonData.rules.map(cleanRules);
 
-    document.getElementById('output').textContent = JSON.stringify(jsonData, null, 2);
+    document.getElementById('output').textContent = JSON.stringify({
+        default_show_items: document.getElementById('defaultShowItems').checked,
+        name: document.getElementById('name').value,
+        rules: cleanedRules
+    }, null, 2);
 }
+
 
 // Copy to clipboard function
 function copyToClipboard() {
