@@ -24,23 +24,23 @@
     </label>
     <label>
       Name:
-      <input type="text" id="name" value="New filter">
+      <input type="text" id="filterName" value="New filter">
     </label>
     
     <span class="span-btn-header">
-      <button class="btn-header" onclick="addRule()">
+      <button id="addRule" class="btn-header">
         <span class="material-symbols-outlined">add</span>
         Add New Rule
       </button>
-      <button class="btn-header" onclick="pasteFromClipboard()">
+      <button id="pasteFromClipboard" class="btn-header">
         <span class="material-symbols-outlined">content_paste</span>
         Paste from Clipboard
       </button>
-      <button class="btn-header" onclick="generateOutput()">
+      <button id="generateOutput" class="btn-header">
         <span class="material-symbols-outlined">data_object</span>
         Generate JSON Output
       </button>
-      <button class="btn-header" onclick="copyToClipboard()">
+      <button id="copyToClipboard" class="btn-header">
         <span class="material-symbols-outlined">content_copy</span>
         Copy to Clipboard
       </button>

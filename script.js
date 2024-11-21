@@ -27,7 +27,7 @@ function createInput(type, index) {
         case "code":
             inputElem.id = `selectInput${index}`;
             inputElem.type = "number";
-            inputElem.value = jsonData.rules[index].params?.code || 1; // Default to 1 if undefined
+            inputElem.value = jsonData.rules[index].params?.code || 0;
             inputElem.setAttribute("onchange", `updateParamValue(${index}, this)`);
 
             return inputElem;
@@ -35,7 +35,7 @@ function createInput(type, index) {
             const datalistElem = document.createElement("datalist");
             inputElem.id = `selectInput${index}`;
             inputElem.setAttribute("list", "itemTypesList");
-            inputElem.value = Object.keys(itemTypes).find(key => itemTypes[key] === jsonData.rules[index].params?.class) || "Gold";
+            inputElem.value = Object.keys(itemTypes).find(key => itemTypes[key] === jsonData.rules[index].params?.class) || "";
             inputElem.setAttribute("onchange", `updateParamValue(${index}, this)`);
             
             datalistElem.id = "itemTypesList";
@@ -52,17 +52,12 @@ function createInput(type, index) {
 }
 
 function getSelectedRuleType(rule) {
-    let returnType;
-
-    if (rule.params == null) {
-        returnType = "null";
-    } else if (rule.params && 'code' in rule.params) {
-        returnType = "code";
-    } else if (rule.params && 'class' in rule.params) {
-        returnType = "class";
-    }
-    return returnType;
+    if (!rule.params) return "null";
+    if ('code' in rule.params) return "code";
+    if ('class' in rule.params) return "class";
+    return "null";
 }
+
 
 // Toggle the collapse state of a rule
 function toggleCollapse(index) {
@@ -202,12 +197,15 @@ function createMapStatusBadge(rule, isShownOnMap) {
 
 // Function to determine the item type text
 function getItemTypeText(rule) {
+    //Early return for param.none
     if (!rule.params) return '';
+
     const paramType = Object.keys(rule.params)[0];
     if (paramType === "class") {
-        return (Object.entries(itemTypes).find(([key, value]) => value === rule.params[paramType])?.[0] || 'Gold');
-    }
-    return rule.params[paramType];
+        return (Object.entries(itemTypes).find(([key, value]) => value === rule.params[paramType])?.[0] || '');
+    } else {
+        return `ID-${rule.params[paramType]}`;
+    };
 }
 
 // Function to get the item quality text
@@ -219,28 +217,42 @@ function getItemQualityText(rule) {
 // Function to create the input fields for the rule
 function createRuleInputs(index, rule) {
     return `
-        <label>Active: <input type="checkbox" ${rule.active ? 'checked' : ''} onchange="updateRule(${index}, 'active', this.checked)"></label>
-        <label>Show Item: <input type="checkbox" ${rule.show_item ? 'checked' : ''} onchange="updateRule(${index}, 'show_item', this.checked)"></label>
-        <label>Notify: <input type="checkbox" ${rule.notify ? 'checked' : ''} onchange="updateRule(${index}, 'notify', this.checked)"></label>
-        <label>Show on map: <input type="checkbox" ${rule.automap ? 'checked' : ''} onchange="updateRule(${index}, 'automap', this.checked)"></label>
-        <label>Ethereal:</label>
-        <select onchange="updateRule(${index}, 'ethereal', this.value)">
+        <label for="active${index}">Active: </label>
+        <input id="active${index}" name="active" type="checkbox" ${rule.active ? 'checked' : ''} onchange="updateRule(${index}, 'active', this.checked)">
+        
+        <label for="show_item${index}">Show Item: </label>
+        <input id="show_item${index}" type="checkbox" ${rule.show_item ? 'checked' : ''} onchange="updateRule(${index}, 'show_item', this.checked)">
+        
+        <label for="notify${index}">Notify: </label>
+        <input id="notify${index}" type="checkbox" ${rule.notify ? 'checked' : ''} onchange="updateRule(${index}, 'notify', this.checked)">
+        
+        <label for="automap${index}">Show on map: </label>
+        <input id="automap${index}" type="checkbox" ${rule.automap ? 'checked' : ''} onchange="updateRule(${index}, 'automap', this.checked)">
+
+        <label for="ethereal${index}">Ethereal:</label>
+        <select id="ethereal${index}" onchange="updateRule(${index}, 'ethereal', this.value)">
             ${Object.entries(etherealState).map(([key, value]) => `
                 <option value="${value}" ${rule.ethereal === value ? 'selected' : ''}>${key}</option>
             `).join('')}
         </select>
 
-        <label>Item Quality:</label>
-        <select value=${Object.entries(itemQuality).find(([key, value]) => (value === rule.item_quality ? key : -1))[1]} onchange="updateRule(${index}, 'item_quality', this.value)">
+        <label for="item_quality${index}">Item Quality:</label>
+        <select id="item_quality${index}" value=${Object.entries(itemQuality).find(([key, value]) => (value === rule.item_quality ? key : -1))[1]} onchange="updateRule(${index}, 'item_quality', this.value)">
             ${Object.entries(itemQuality).map(([key, value]) => `<option ${value === rule.item_quality ? "selected" : ""} value="${value}">${key}</option>`).join('')}
         </select>
 
-        <label>Min ILVL: <input type="number" value="${rule.min_ilvl}" onchange="updateRule(${index}, 'min_ilvl', this.value)"></label>
-        <label>Max ILVL: <input type="number" value="${rule.max_ilvl}" onchange="updateRule(${index}, 'max_ilvl', this.value)"></label>
-        <label>Min CLVL: <input type="number" value="${rule.min_clvl}" onchange="updateRule(${index}, 'min_clvl', this.value)"></label>
-        <label>Max CLVL: <input type="number" value="${rule.max_clvl}" onchange="updateRule(${index}, 'max_clvl', this.value)"></label>
+        <label for="min_ilvl${index}">Min ILVL: </label>
+        <input id="min_ilvl${index}" type="number" value="${rule.min_ilvl}" onchange="updateRule(${index}, 'min_ilvl', this.value)">
 
-        <h4>Params</h4>
+        <label for="max_ilvl${index}">Max ILVL: </label>
+        <input id="max_ilvl${index}" type="number" value="${rule.max_ilvl}" onchange="updateRule(${index}, 'max_ilvl', this.value)">
+
+        <label for="min_clvl${index}">Min CLVL: </label>
+        <input id="min_clvl${index}" type="number" value="${rule.min_clvl}" onchange="updateRule(${index}, 'min_clvl', this.value)">
+        
+        <label for="max_clvl${index}">Max CLVL: </label>
+        <input id="max_clvl${index}" type="number" value="${rule.max_clvl}" onchange="updateRule(${index}, 'max_clvl', this.value)">
+
         <div class="params-section">
             ${createParamRadioButtons(index, rule)}
         </div>
@@ -264,6 +276,7 @@ function createParamRadioButtons(index, rule) {
 // Function to render the correct parameter input based on the rule type
 function renderParamInput(rule, index) {
     const ruleType = getSelectedRuleType(rule);
+
     if (!rule.collapsed) {
         const paramWrapper = document.getElementById(`paramInputWrapper${index}`);
         if (paramWrapper) {
@@ -278,21 +291,15 @@ function renderParamInput(rule, index) {
                         : rule.params[paramType];
                 }
 
-                switch (ruleType) {
-                    case "null":
-                        rule.rule_type = -1;
-                        break;
-                    case "code":
-                        rule.rule_type = 1;
-                        break;
-                    case "class":
-                        rule.rule_type = 0;
-                        break;
+                // Do not override rule_type for "null"
+                if (ruleType !== "null") {
+                    rule.rule_type = ruleType === "code" ? 1 : 0;
                 }
             }
         }
     }
 }
+
 
 
 // Render all rules in the `rulesContainer`
@@ -322,12 +329,17 @@ function updateRule(index, key, value) {
   
 // Update parameter type and re-render the input type accordingly
 function updateParamType(index, type) {
-    jsonData.rules[index].params = type === "null" ? null : { [type]: 0 };
-    // Set default item quality text if switching to 'class' paramType
-    if (type === "class" && !jsonData.rules[index].item_quality) {
-        jsonData.rules[index].params.class = itemTypes["Gold"]; // Default to 'Gold'
+    const rule = jsonData.rules[index];
+    
+    if (type === "null") {
+        rule.params = null;
+        rule.rule_type = -1; // Explicitly set to -1 for "None"
+    } else {
+        const paramKey = type === "class" ? "class" : "code";
+        rule.params = { [paramKey]: 0 }; // Initialize with default value 0
+        rule.rule_type = type === "class" ? 0 : 1; // Set rule_type based on type
     }
-
+    
     renderSingleRule(index);
 
     const paramWrapper = document.getElementById(`paramInputWrapper${index}`);
@@ -343,20 +355,21 @@ function updateParamType(index, type) {
 
 // Update parameter value based on the selected input type
 function updateParamValue(index, inputElement) {
-    const value = inputElement.value;
-    const paramType = Object.keys(jsonData.rules[index].params)[0];
+    const value = inputElement.value; 
+    const rule = jsonData.rules[index];
+    const paramType = rule.params ? Object.keys(rule.params)[0] : null;
 
     if (paramType === "class") {
         // Map the selected text (e.g., "Gold") to its corresponding value in itemTypes
-        jsonData.rules[index].params[paramType] = itemTypes[value] || 1;
+        rule.params[paramType] = itemTypes[value] || 0;
     } else if (paramType === "code") {
-        jsonData.rules[index].params[paramType] = Math.max(Number(value), 0);
+        rule.params[paramType] = Math.max(Number(value), 1);
     } else {
-        jsonData.rules[index].params = null;
+        rule.params = null;
     }
 
     renderSingleRule(index);
-  }
+}
 
 function removeRule(index) {
     if (index >= 0 && index < jsonData.rules.length) {
@@ -377,7 +390,7 @@ function addRule() {
         "min_clvl": 0,
         "min_ilvl": 0,
         "notify": true,
-        "params": { class: 1 },
+        "params": { class: 0 },
         "rule_type": 0,
         "show_item": true,
         "collapsed": false // Set collapsed to false by default
@@ -408,7 +421,7 @@ function generateOutput() {
 
     document.getElementById('output').textContent = JSON.stringify({
         default_show_items: document.getElementById('defaultShowItems').checked,
-        name: document.getElementById('name').value,
+        name: document.getElementById('filterName').value,
         rules: cleanedRules
     }, null, 2);
 }
@@ -439,7 +452,7 @@ async function pasteFromClipboard() {
         if (data && typeof data === "object" && data.rules) {
             jsonData = data;
             document.getElementById('defaultShowItems').checked = jsonData.default_show_items;
-            document.getElementById('name').value = jsonData.name;
+            document.getElementById('filterName').value = jsonData.name;
             
             data.rules.forEach(rule => {rule.collapsed = true;});
             renderRules();
@@ -484,7 +497,31 @@ function addSortables() {
     });
 }
 
+function addEventsToHeaderButtons() {
+    const addRuleButton = document.getElementById("addRule");
+    addRuleButton.addEventListener("click", () => {
+        addRule();
+    });
+
+    const pasteFromClipboardButton = document.getElementById("pasteFromClipboard");
+    pasteFromClipboardButton.addEventListener("click", () => {
+        pasteFromClipboard();
+    });
+
+    const generateOutputButton = document.getElementById("generateOutput");
+    generateOutputButton.addEventListener("click", () => {
+        generateOutput();
+    });
+
+    const copyToClipboardButton = document.getElementById("copyToClipboard");
+    copyToClipboardButton.addEventListener("click", () => {
+        copyToClipboard();
+    });
+}
+
+
 window.onload = function() {
+    addEventsToHeaderButtons();
     renderRules();
     addSortables();
 }
