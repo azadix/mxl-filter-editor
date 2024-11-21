@@ -261,9 +261,20 @@ input[type="radio"]:checked::after {
   align-items: center;
 }
 
-#intermediate {
+.intermediateWrapper {
+  width:100%;
+  margin:0 auto;
+}
+
+textbox {
   display: block;
   min-height: 1rem;
   color: white;
   font-size: 1.2rem;
+  float:left;
 }
+
+#intermediate {
+  margin-left: 1ch;
+}
+

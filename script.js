@@ -97,12 +97,16 @@ function getRuleDescription(index) {
 
 function updateIntermediateContent() {
     const intermediateContainer = document.getElementById('intermediate');
+    const lineCounter = document.getElementById('lineCounter');
     let imText = "";
+    let lineCount = "";
 
     jsonData.rules.forEach((_, index) => {
+        lineCount += `${index+1}: \n`
         imText += `${getRuleDescription(index)}\n`;
     });
 
+    lineCounter.innerText = lineCount;;
     intermediateContainer.innerText = imText;
 }
 
