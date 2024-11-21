@@ -1,4 +1,3 @@
-/* General Styling */
 :root {
   --bg-color: #292929;
   --text-color: #f1f1f1;
@@ -31,7 +30,6 @@ body {
   color: var(--text-color);
 }
 
-/* Header section fixed at the top */
 .header {
   position: fixed;
   top: 0;
@@ -65,11 +63,11 @@ body {
 }
 
 .rule-descriptor .material-symbols-outlined {
-  margin-left: 0.5rem; /* Adds space between the icons */
+  margin-left: 0.5rem;
 }
 
 .rule-descriptor .collapse-button {
-  margin-left: 1rem; /* Space the collapse button a little bit further */
+  margin-left: 1rem;
 }
 
 #filterName {
@@ -96,20 +94,20 @@ h3 {
   border-bottom: 1px solid var(--border-color);
 }
 
-/* Page Layout */
 .content {
   display: flex;
-  margin-top: 10rem; /* To prevent overlap with fixed header */
+  margin-top: 10rem;
   width: 100%;
 }
 
 .column {
-  flex: 2 1 auto;
+  flex: 1;
   padding: 1.5rem;
   box-sizing: border-box;
 }
 
 .left-column {
+  flex-grow: 1.5;
   border-right: 1px solid var(--text-color);
 }
 
@@ -117,13 +115,11 @@ h3 {
   border-right: 1px solid var(--text-color);
 }
 
-/* Change checkbox color when checked */
 input[type="checkbox"] {
   accent-color: var(--green);
   justify-self: start;
 }
 
-/* General Layout for Rule Items */
 .rule-item {
   padding: 0.7rem;
   margin: 0.7rem 0;
@@ -135,23 +131,20 @@ input[type="checkbox"] {
   grid-template-columns: 1.5fr 1fr;
   column-gap: 10px;
   transition: transform 0.4s ease-in-out;
-  grid-template-rows: auto; /* Allows flexible row height for the header */
+  grid-template-rows: auto;
 }
 
-/* Full-width header for each rule */
 .rule-item h3 {
-  grid-column: span 2; /* Make the header span both columns */
+  grid-column: span 2;
   font-size: 1.2rem;
   margin: 0;
 }
 
-/* Ensure that labels inside rule items are aligned vertically */
 .rule-item > label {
   display: flex;
   align-self: center;
 }
 
-/* Alignment of fields in Params section */
 .params-section {
     display: grid;
     min-width: 13ch;
@@ -230,20 +223,18 @@ body input[type="checkbox"] {
 }
 
 input[type="radio"] {
-  appearance: none; /* Removes default styling */
+  appearance: none;
   cursor: pointer;
   width: 19px;
   height: 19px;
   border-radius: 2px;
 }
 
-/* Style for the checked state */
 input[type="radio"]:checked {
   background-color: var(--green);
   border-color: var(--green);
 }
 
-/* Circle in the center when radio is checked */
 input[type="radio"]:checked::after {
   content: "✓";
   font-weight: bolder;
