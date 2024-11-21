@@ -79,6 +79,33 @@ function toggleAllCollapse() {
     document.getElementById("collapse-all").innerText = shouldCollapse ? 'expand_content' : 'collapse_content';
 }
 
+function getRuleDescription(index) {
+    let returnValue = "";
+    
+    const rule = jsonData.rules[index];
+    const itemQuality = getItemQualityText(rule);
+    const itemType = getItemTypeText(rule);
+
+    returnValue += rule.active ? "" : "# ";
+    returnValue += rule.show_item ? "show " : "hide ";
+    returnValue += rule.ethereal === 1 ? "eth " : "";
+    returnValue += itemQuality != "" ? `${itemQuality.toLowerCase()} ` : "";
+    returnValue += itemType != "" ? `"${itemType}" ` : "";
+
+    return returnValue;
+}
+
+function updateIntermediateContent() {
+    const intermediateContainer = document.getElementById('intermediate');
+    let imText = "";
+
+    jsonData.rules.forEach((_, index) => {
+        imText += `${getRuleDescription(index)}\n`;
+    });
+
+    intermediateContainer.innerText = imText;
+}
+
 function renderSingleRule(index) {
     const rulesContainer = document.getElementById('rulesContainer');
   
@@ -108,6 +135,7 @@ function renderSingleRule(index) {
 
     // Render the correct input for the selected param type
     renderParamInput(rule, index);
+    updateIntermediateContent()
 }
 
 // Function to remove the existing rule at the given index
@@ -126,8 +154,8 @@ function ensureRuleDefaults(rule) {
 
 // Function to get the rule colors based on the show and active status
 function getRuleColors(rule) {
-    const isRuleShownColor = rule.show_item ? "var(--green)" : "red";
-    const isRuleActiveColor = rule.active ? "var(--green)" : "red";
+    const isRuleShownColor = rule.show_item ? "var(--green)" : "var(--red)";
+    const isRuleActiveColor = rule.active ? "var(--green)" : "var(--red)";
     return { isRuleShownColor, isRuleActiveColor };
 }
 
@@ -151,8 +179,8 @@ function createRuleDescriptor(index, rule, isRuleActiveColor, isRuleShownColor) 
 
     return `
         <h3 class="rule-descriptor" style="cursor: move;">
-            <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
-                <div style="flex-grow: 1;">
+            <div style="display: flex; justify-content: space-between; width: 100%;">
+                <div style="flex-grow: 1;font-weight:500;">
                     ${ruleStatusBadge}#${index + 1}: 
                     <span style="color: ${isRuleShownColor}; margin-left: 5px; margin-right: 5px;">
                         ${rule.show_item ? "Show" : "Hide"}
@@ -161,7 +189,7 @@ function createRuleDescriptor(index, rule, isRuleActiveColor, isRuleShownColor) 
                     ${itemTypeText}
                 </div>
                 <!-- Icon container aligned to the right -->
-                <div style="display: flex; align-items: center;">
+                <div style="display: flex;">
                     ${alertIcon}
                     ${mapIcon}
                     <span class="material-symbols-outlined collapse-button" onclick="toggleCollapse(${index})">
@@ -181,8 +209,8 @@ function createRuleStatusBadge(rule, isRuleActiveColor) {
             border-radius: 4px;
             font-size: 0.85em;
             margin-right: 5px;
-            background-color: ${isRuleActiveColor};
-            color: ${rule.active ? '#a6dfb6' : '#f8d7da'};">${rule.active ? "ACTIVE" : "DISABLED"}</span>
+            background-color: ${isRuleActiveColor};">
+            ${rule.active ? "ACTIVE" : "DISABLED"}</span>
     `;
 }
 
@@ -256,7 +284,7 @@ function createRuleInputs(index, rule) {
         <div class="params-section">
             ${createParamRadioButtons(index, rule)}
         </div>
-        <span id="paramInputWrapper${index}"></span>
+        <span id="paramInputWrapper${index}" class="paramInputWrapper"></span>
 
         <div class="move-buttons">
             <button class="delete-button" onclick="removeRule(${index})">Delete</button>
@@ -267,9 +295,9 @@ function createRuleInputs(index, rule) {
 // Function to create the radio buttons for the parameters
 function createParamRadioButtons(index, rule) {
     return `
-        <label><input type="radio" name="paramType${index}" value="null" ${getSelectedRuleType(rule) == "null" ? 'checked' : ''} onchange="updateParamType(${index}, 'null')"> None</label>
-        <label><input type="radio" name="paramType${index}" value="code" ${getSelectedRuleType(rule) == "code" ? 'checked' : ''} onchange="updateParamType(${index}, 'code')"> Item</label>
-        <label><input type="radio" name="paramType${index}" value="class" ${getSelectedRuleType(rule) == "class" ? 'checked' : ''} onchange="updateParamType(${index}, 'class')"> Category</label>
+        <label>None <input type="radio" name="paramType${index}" value="null" ${getSelectedRuleType(rule) == "null" ? 'checked' : ''} onchange="updateParamType(${index}, 'null')"></label>
+        <label>Item <input type="radio" name="paramType${index}" value="code" ${getSelectedRuleType(rule) == "code" ? 'checked' : ''} onchange="updateParamType(${index}, 'code')"></label>
+        <label>Category <input type="radio" name="paramType${index}" value="class" ${getSelectedRuleType(rule) == "class" ? 'checked' : ''} onchange="updateParamType(${index}, 'class')"></label>
     `;
 }
 
@@ -431,8 +459,8 @@ function generateOutput() {
 function copyToClipboard() {
     const outputText = document.getElementById('output').textContent;
     navigator.clipboard.writeText(outputText)
-        .then(() => alert("Filter copied to clipboard!"))
-        .catch(err => alert("Failed to copy: " + err));
+        .then(() => showToast("Filter copied to clipboard!", true))
+        .catch(err => showToast("Failed to copy: " + err));
 }
 
 // Paste from clipboard function with fallback
@@ -442,7 +470,7 @@ async function pasteFromClipboard() {
         // Fallback for browsers without clipboard API support
         text = prompt("Please paste the JSON data here:");
         if (!text) {
-            alert("No data pasted.");
+            showToast("No data pasted.");
             return;
         }
 
@@ -457,10 +485,10 @@ async function pasteFromClipboard() {
             data.rules.forEach(rule => {rule.collapsed = true;});
             renderRules();
         } else {
-            alert("Invalid JSON format.");
+            showToast("Invalid JSON format.");
         }
     } catch (error) {
-        alert("Failed to paste: " + error);
+        showToast("Failed to paste: " + error);
     }
 }
 
@@ -517,6 +545,49 @@ function addEventsToHeaderButtons() {
     copyToClipboardButton.addEventListener("click", () => {
         copyToClipboard();
     });
+}
+
+
+// Function to create and show a toast message
+function showToast(message, autoRemove = false) {
+    // Create a container for the toast if it doesn't exist
+    if (!document.querySelector('.toast-container')) {
+        const container = document.createElement('div');
+        container.classList.add('toast-container');
+        document.body.appendChild(container);
+    }
+
+    // Create the toast message element
+    const toast = document.createElement('div');
+    toast.classList.add('toast-message');
+    toast.innerText = message;
+
+    // Add event listener for the close button to remove the toast when clicked
+    toast.addEventListener('click', () => {
+        fadeOutAndRemove(toast);
+    });
+
+    // If autoRemove is true, the toast will disappear automatically after 2.5 seconds
+    if (autoRemove) {
+        setTimeout(() => {
+            fadeOutAndRemove(toast);
+        }, 2500); // Show for 2.5 seconds
+    } else {
+        // Change background color or add a label to show that it requires manual removal
+        toast.classList.add('manual-close-toast');
+        toast.innerHTML += '<div class="manual-toast-label">Click to dismiss</div>';
+    }
+
+    // Append the toast to the container
+    document.querySelector('.toast-container').appendChild(toast);
+}
+
+// Function to fade out and remove the toast after the animation
+function fadeOutAndRemove(toast) {
+    toast.style.opacity = 0;
+    setTimeout(() => {
+        toast.remove();
+    }, 500); // Match the duration of the fade-out animation
 }
 
 

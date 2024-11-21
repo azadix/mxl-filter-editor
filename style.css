@@ -7,6 +7,7 @@
   --border-color: #333;
   --rule-bg: #444;
   --green: #01b200;
+  --red: #ff3131;
 }
 
 @font-face {
@@ -80,13 +81,19 @@ h1, h2, h3, h4 {
   font-family: "Exocet", sans-serif;
 }
 
-h1, h4 {
+h1 {
   margin: 0;
+  font-size: 3rem
+}
+
+h4 {
+  margin: 0;
+  font-size: 1.5rem;
 }
 
 h3 {
   margin-bottom: 1rem;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--border-color);
 }
 
 /* Page Layout */
@@ -103,6 +110,10 @@ h3 {
 }
 
 .left-column {
+  border-right: 1px solid var(--text-color);
+}
+
+.middle-column {
   border-right: 1px solid var(--text-color);
 }
 
@@ -130,24 +141,26 @@ input[type="checkbox"] {
 /* Full-width header for each rule */
 .rule-item h3 {
   grid-column: span 2; /* Make the header span both columns */
-  margin: 0;
   font-size: 1.2rem;
+  margin: 0;
 }
 
 /* Ensure that labels inside rule items are aligned vertically */
 .rule-item > label {
-  display: contents;
-  flex-direction: column; /* Stack label and input vertically */
+  display: flex;
+  align-self: center;
 }
 
 /* Alignment of fields in Params section */
-.params-section span label {
-  display: flex;
-  align-items: center;
+.params-section {
+    display: grid;
+    min-width: 13ch;
+    justify-items: end;
 }
 
-.params-section label input[type="radio"] {
-  margin-right: 5px;
+.params-section label {
+  display: flex;
+  align-items: center;
 }
 
 .params-section label input[type="number"] {
@@ -173,7 +186,7 @@ button {
 
 .move-buttons .delete-button {
   background-color: var(--button-bg);
-  color: #ff6b6b;
+  color: var(--red);
   margin-left: auto;
   font-weight: bold;
 }
@@ -214,4 +227,42 @@ body input[type="checkbox"] {
   opacity: 0.5;
   border: 2px dashed #999;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+input[type="radio"] {
+  appearance: none; /* Removes default styling */
+  cursor: pointer;
+  width: 19px;
+  height: 19px;
+  border-radius: 2px;
+}
+
+/* Style for the checked state */
+input[type="radio"]:checked {
+  background-color: var(--green);
+  border-color: var(--green);
+}
+
+/* Circle in the center when radio is checked */
+input[type="radio"]:checked::after {
+  content: "✓";
+  font-weight: bolder;
+  color: var(--rule-bg);
+  display: block;
+  position: relative;
+  top: -3px;
+  left: 2px;
+  width: 19px;
+  height: 19px;
+}
+
+.paramInputWrapper  {
+  display: flex;
+  align-items: center;
+}
+
+textbox {
+  display: block;
+  min-height: 1rem;
+  color: white;
 }
