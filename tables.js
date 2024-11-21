@@ -59,6 +59,7 @@ const itemTypes =
         "Rune Enchanted": 29,
         "Rune Great": 30,
         "Scroll": 88,
+        "Shield": 92,
         "Shrine": 48,
         "Shrine Abandoned": 50,
         "Shrine Creepy": 49,
