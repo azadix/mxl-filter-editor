@@ -450,10 +450,11 @@ function cleanRules(rule) {
 
 function generateOutput() {
     const cleanedRules = jsonData.rules.map(cleanRules);
+    const filterName = document.getElementById('filterName').value.trim()
 
     document.getElementById('output').textContent = JSON.stringify({
         default_show_items: document.getElementById('defaultShowItems').checked,
-        name: document.getElementById('filterName').value,
+        name: filterName == "" ? `UnnamedFilter${Date.now().toString()}` : filterName,
         rules: cleanedRules
     }, null, 2);
 }
