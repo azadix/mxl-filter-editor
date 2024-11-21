@@ -261,8 +261,9 @@ input[type="radio"]:checked::after {
   align-items: center;
 }
 
-textbox {
+#intermediate {
   display: block;
   min-height: 1rem;
   color: white;
+  font-size: 1.2rem;
 }
