@@ -19,33 +19,45 @@ function switchInput(index, type) {
 
 function createInput(type, index) {
     const inputElem = document.createElement("input");
+    const datalistElem = document.createElement("datalist");
     inputElem.classList.add("input-item-type");
-
+    
+    inputElem.id = `selectInput${index}`;
+    inputElem.autocomplete = "off";
+    inputElem.setAttribute("onchange", `updateParamValue(${index}, this)`);
+    inputElem.lazyLoading = true;
+    inputElem.multiple = true;
     switch (type){
         case "null":
             return;
         case "code":
-            inputElem.id = `selectInput${index}`;
-            inputElem.type = "number";
-            inputElem.value = jsonData.rules[index].params?.code || 0;
-            inputElem.setAttribute("onchange", `updateParamValue(${index}, this)`);
-
+            inputElem.setAttribute("list", "itemCodesList");
+            inputElem.setAttribute("placeholder", "Arcane Crystal");
+            inputElem.value = Object.keys(itemCodes).find(key => itemCodes[key] === jsonData.rules[index].params?.code) || "";
+            datalistElem.id = "itemCodesList";
+            
+            Object.keys(itemCodes).forEach(itemCode => {
+                const option = document.createElement("option");
+                option.value = itemCode;
+                option.innerText = itemCode;
+                datalistElem.appendChild(option);
+            });
+            
+            inputElem.appendChild(datalistElem);
             return inputElem;
         case "class":
-            const datalistElem = document.createElement("datalist");
-            inputElem.id = `selectInput${index}`;
             inputElem.setAttribute("list", "itemTypesList");
+            inputElem.placeholder = "Gold";
             inputElem.value = Object.keys(itemTypes).find(key => itemTypes[key] === jsonData.rules[index].params?.class) || "";
-            inputElem.setAttribute("onchange", `updateParamValue(${index}, this)`);
-            
             datalistElem.id = "itemTypesList";
+
             Object.keys(itemTypes).forEach(itemType => {
                 const option = document.createElement("option");
                 option.value = itemType;
                 option.innerText = itemType;
                 datalistElem.appendChild(option);
             });
-
+            
             inputElem.appendChild(datalistElem);
             return inputElem;
     }
@@ -156,14 +168,12 @@ function ensureRuleDefaults(rule) {
     }
 }
 
-// Function to get the rule colors based on the show and active status
 function getRuleColors(rule) {
     const isRuleShownColor = rule.show_item ? "var(--green)" : "var(--red)";
     const isRuleActiveColor = rule.active ? "var(--green)" : "var(--red)";
     return { isRuleShownColor, isRuleActiveColor };
 }
 
-// Function to generate the rule descriptor HTML
 function createRuleDescriptor(index, rule, isRuleActiveColor, isRuleShownColor) {
     const ruleStatusBadge = createRuleStatusBadge(rule, isRuleActiveColor);
     const itemTypeText = getItemTypeText(rule);
@@ -205,8 +215,6 @@ function createRuleDescriptor(index, rule, isRuleActiveColor, isRuleShownColor) 
     `;
 }
 
-
-// Function to create the rule status badge
 function createRuleStatusBadge(rule, isRuleActiveColor) {
     return `
         <span style="padding: 2px 6px;
@@ -227,26 +235,22 @@ function createMapStatusBadge(rule, isShownOnMap) {
     `;
 }
 
-// Function to determine the item type text
 function getItemTypeText(rule) {
-    //Early return for param.none
     if (!rule.params) return '';
 
     const paramType = Object.keys(rule.params)[0];
     if (paramType === "class") {
         return (Object.entries(itemTypes).find(([key, value]) => value === rule.params[paramType])?.[0] || '');
     } else {
-        return `ID-${rule.params[paramType]}`;
+        return (Object.entries(itemCodes).find(([key, value]) => value === rule.params[paramType])?.[0] || '');
     };
 }
 
-// Function to get the item quality text
 function getItemQualityText(rule) {
     const matchedQuality = Object.entries(itemQuality).find(([key, value]) => value === rule.item_quality)?.[0];
     return matchedQuality === "Any" ? "" : matchedQuality || "Unknown";
 }
 
-// Function to create the input fields for the rule
 function createRuleInputs(index, rule) {
     return `
         <label for="active${index}">Active: </label>
@@ -296,7 +300,6 @@ function createRuleInputs(index, rule) {
     `;
 }
 
-// Function to create the radio buttons for the parameters
 function createParamRadioButtons(index, rule) {
     return `
         <label>None <input type="radio" name="paramType${index}" value="null" ${getSelectedRuleType(rule) == "null" ? 'checked' : ''} onchange="updateParamType(${index}, 'null')"></label>
@@ -305,7 +308,6 @@ function createParamRadioButtons(index, rule) {
     `;
 }
 
-// Function to render the correct parameter input based on the rule type
 function renderParamInput(rule, index) {
     const ruleType = getSelectedRuleType(rule);
 
@@ -318,9 +320,7 @@ function renderParamInput(rule, index) {
                 
                 const paramType = rule.params ? Object.keys(rule.params)[0] : null;
                 if (rule.params) {
-                    paramInput.value = (paramType === "class") 
-                        ? getItemTypeText(rule) 
-                        : rule.params[paramType];
+                    paramInput.value = getItemTypeText(rule);
                 }
 
                 // Do not override rule_type for "null"
@@ -332,25 +332,18 @@ function renderParamInput(rule, index) {
     }
 }
 
-
-
-// Render all rules in the `rulesContainer`
 function renderRules() {
     const rulesContainer = document.getElementById('rulesContainer');
-    rulesContainer.innerHTML = ''; // Clear the container before rendering
+    rulesContainer.innerHTML = '';
 
-    // Loop through each rule and render it individually
     jsonData.rules.forEach((_, index) => {
         renderSingleRule(index);
     });
 }
 
-// Toggle specific rule properties based on inputs (with clamping for ilvl and clvl)
 function updateRule(index, key, value) {
-    // Convert value to a number if it's for a numerical field
     const numericValue = typeof value === 'string' ? Number(value) : value;
 
-    // Apply clamping for specific fields
     if (['min_ilvl', 'max_ilvl', 'min_clvl', 'max_clvl'].includes(key)) {
         jsonData.rules[index][key] = Math.min(Math.max(numericValue, 0), 150);
     } else {
@@ -359,17 +352,16 @@ function updateRule(index, key, value) {
     renderSingleRule(index);
 }
   
-// Update parameter type and re-render the input type accordingly
 function updateParamType(index, type) {
     const rule = jsonData.rules[index];
     
     if (type === "null") {
         rule.params = null;
-        rule.rule_type = -1; // Explicitly set to -1 for "None"
+        rule.rule_type = -1;
     } else {
         const paramKey = type === "class" ? "class" : "code";
-        rule.params = { [paramKey]: 0 }; // Initialize with default value 0
-        rule.rule_type = type === "class" ? 0 : 1; // Set rule_type based on type
+        rule.params = { [paramKey]: 0 };
+        rule.rule_type = type === "class" ? 0 : 1;
     }
     
     renderSingleRule(index);
@@ -392,10 +384,9 @@ function updateParamValue(index, inputElement) {
     const paramType = rule.params ? Object.keys(rule.params)[0] : null;
 
     if (paramType === "class") {
-        // Map the selected text (e.g., "Gold") to its corresponding value in itemTypes
         rule.params[paramType] = itemTypes[value] || 0;
     } else if (paramType === "code") {
-        rule.params[paramType] = Math.max(Number(value), 1);
+        rule.params[paramType] = itemCodes[value] || 0;
     } else {
         rule.params = null;
     }
@@ -408,11 +399,12 @@ function removeRule(index) {
         jsonData.rules.splice(index, 1)
         renderRules();
     }
+    updateIntermediateContent()
 }
 
 function addRule() {
     const newRule = {
-        id: Date.now(), // Unique ID based on timestamp
+        id: Date.now(),
         "active": true,
         "automap": true,
         "ethereal": 0,
@@ -425,7 +417,7 @@ function addRule() {
         "params": { class: 0 },
         "rule_type": 0,
         "show_item": true,
-        "collapsed": false // Set collapsed to false by default
+        "collapsed": false
     };
     jsonData.rules.unshift(newRule);
     renderRules();
@@ -501,6 +493,16 @@ function populateDatalist() {
     // Populate the datalist with itemTypes
     let datalist = document.getElementById('itemTypesList');
     Object.entries(itemTypes).forEach(([key, value]) => {
+        let option = document.createElement('option');
+        option.value = key; // Shows the name, but can use value for actual usage
+        datalist.appendChild(option);
+    });
+}
+
+function populateCodeslist() {
+    // Populate the datalist with itemTypes
+    let datalist = document.getElementById('itemCodesList');
+    Object.entries(itemCodes).forEach(([key, value]) => {
         let option = document.createElement('option');
         option.value = key; // Shows the name, but can use value for actual usage
         datalist.appendChild(option);
