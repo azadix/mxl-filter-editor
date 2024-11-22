@@ -27,6 +27,23 @@ function createInput(type, index) {
     inputElem.setAttribute("onchange", `updateParamValue(${index}, this)`);
     inputElem.lazyLoading = true;
     inputElem.multiple = true;
+
+    // Constants for batching
+    const batchSize = 400; // Number of options to load at a time
+    let currentIndex = 0; // Tracks the current position in the dataset
+
+    function loadBatch(dataSource, datalist) {
+        // Load a batch of options into the datalist
+        const keys = Object.keys(dataSource);
+        const batch = keys.slice(currentIndex, currentIndex + batchSize);
+        batch.forEach(item => {
+            const option = document.createElement("option");
+            option.value = item;
+            datalist.appendChild(option);
+        });
+        currentIndex += batchSize;
+    }
+
     switch (type){
         case "null":
             return;
@@ -36,13 +53,24 @@ function createInput(type, index) {
             inputElem.value = Object.keys(itemCodes).find(key => itemCodes[key] === jsonData.rules[index].params?.code) || "";
             datalistElem.id = "itemCodesList";
             
-            Object.keys(itemCodes).forEach(itemCode => {
-                const option = document.createElement("option");
-                option.value = itemCode;
-                option.innerText = itemCode;
-                datalistElem.appendChild(option);
+            loadBatch(itemCodes, datalistElem);
+
+            inputElem.addEventListener("input", () => {
+                // Filter datalist options based on input
+                const query = inputElem.value.toLowerCase();
+                const filteredKeys = Object.keys(itemCodes).filter(key =>
+                    key.toLowerCase().includes(query)
+                );
+
+                // Clear and reload options with filtered results
+                datalistElem.innerHTML = "";
+                currentIndex = 0; // Reset index for filtered results
+                loadBatch(
+                    Object.fromEntries(filteredKeys.map(key => [key, itemCodes[key]])),
+                    datalistElem
+                );
             });
-            
+
             inputElem.appendChild(datalistElem);
             return inputElem;
         case "class":
@@ -57,7 +85,7 @@ function createInput(type, index) {
                 option.innerText = itemType;
                 datalistElem.appendChild(option);
             });
-            
+
             inputElem.appendChild(datalistElem);
             return inputElem;
     }
@@ -69,7 +97,6 @@ function getSelectedRuleType(rule) {
     if ('class' in rule.params) return "class";
     return "null";
 }
-
 
 // Toggle the collapse state of a rule
 function toggleCollapse(index) {
