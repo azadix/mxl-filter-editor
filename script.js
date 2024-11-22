@@ -29,7 +29,7 @@ function createInput(type, index) {
     inputElem.multiple = true;
 
     // Constants for batching
-    const batchSize = 400; // Number of options to load at a time
+    const batchSize = 4000; // Number of options to load at a time
     let currentIndex = 0; // Tracks the current position in the dataset
 
     function loadBatch(dataSource, datalist) {
@@ -52,7 +52,7 @@ function createInput(type, index) {
             inputElem.setAttribute("placeholder", "Arcane Crystal");
             inputElem.value = Object.keys(itemCodes).find(key => itemCodes[key] === jsonData.rules[index].params?.code) || "";
             datalistElem.id = "itemCodesList";
-            
+            datalistElem.style.overflowY = "scroll";
             loadBatch(itemCodes, datalistElem);
 
             inputElem.addEventListener("input", () => {
@@ -64,6 +64,7 @@ function createInput(type, index) {
 
                 // Clear and reload options with filtered results
                 datalistElem.innerHTML = "";
+                
                 currentIndex = 0; // Reset index for filtered results
                 loadBatch(
                     Object.fromEntries(filteredKeys.map(key => [key, itemCodes[key]])),
