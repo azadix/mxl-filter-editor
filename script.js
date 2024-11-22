@@ -18,78 +18,106 @@ function switchInput(index, type) {
 }
 
 function createInput(type, index) {
+    if (type === "null") {
+        return;
+    }
+
     const inputElem = document.createElement("input");
-    const datalistElem = document.createElement("datalist");
+    const dropdownWrapper = document.createElement("div");
+    const dropdownList = document.createElement("ul");
+
+    // Basic input properties
     inputElem.classList.add("input-item-type");
-    
     inputElem.id = `selectInput${index}`;
     inputElem.autocomplete = "off";
     inputElem.setAttribute("onchange", `updateParamValue(${index}, this)`);
-    inputElem.lazyLoading = true;
-    inputElem.multiple = true;
+
+    // Styling for dropdown
+    dropdownWrapper.classList.add("dropdown-wrapper");
+    dropdownList.classList.add("dropdown-list");
 
     // Constants for batching
-    const batchSize = 4000; // Number of options to load at a time
+    const batchSize = 5000; // Number of options to load at a time
     let currentIndex = 0; // Tracks the current position in the dataset
+    let filteredData = []; // Stores the filtered dataset
 
-    function loadBatch(dataSource, datalist) {
-        // Load a batch of options into the datalist
-        const keys = Object.keys(dataSource);
-        const batch = keys.slice(currentIndex, currentIndex + batchSize);
-        batch.forEach(item => {
-            const option = document.createElement("option");
-            option.value = item;
-            datalist.appendChild(option);
+    // Load a batch of data into the dropdown
+    function loadBatch(dataSource) {
+        const batch = dataSource.slice(currentIndex, currentIndex + batchSize);
+
+        batch.forEach(([key, value]) => {
+            const listItem = document.createElement("li");
+            listItem.textContent = key; // Display the key
+            listItem.style.padding = "2px";
+            listItem.style.cursor = "pointer";
+
+            // Set the input value on item click
+            listItem.addEventListener("click", () => {
+                inputElem.value = key; // Set input value to the selected key
+                dropdownList.style.display = "none"; // Hide dropdown
+                updateParamValue(index, inputElem); // Call onchange handler
+            });
+
+            dropdownList.appendChild(listItem);
         });
-        currentIndex += batchSize;
+
+        currentIndex += batchSize; // Update the currentIndex to load subsequent batches
     }
 
-    switch (type){
-        case "null":
-            return;
-        case "code":
-            inputElem.setAttribute("list", "itemCodesList");
-            inputElem.setAttribute("placeholder", "Arcane Crystal");
-            inputElem.value = Object.keys(itemCodes).find(key => itemCodes[key] === jsonData.rules[index].params?.code) || "";
-            datalistElem.id = "itemCodesList";
-            datalistElem.style.overflowY = "scroll";
-            loadBatch(itemCodes, datalistElem);
+    // Event handler to filter data on input
+    function filterData(dataSource) {
+        const query = inputElem.value.toLowerCase();
+        filteredData = Object.entries(dataSource).filter(([key, value]) =>
+            key.toLowerCase().includes(query)
+        );
 
-            inputElem.addEventListener("input", () => {
-                // Filter datalist options based on input
-                const query = inputElem.value.toLowerCase();
-                const filteredKeys = Object.keys(itemCodes).filter(key =>
-                    key.toLowerCase().includes(query)
-                );
-
-                // Clear and reload options with filtered results
-                datalistElem.innerHTML = "";
-                
-                currentIndex = 0; // Reset index for filtered results
-                loadBatch(
-                    Object.fromEntries(filteredKeys.map(key => [key, itemCodes[key]])),
-                    datalistElem
-                );
-            });
-
-            inputElem.appendChild(datalistElem);
-            return inputElem;
-        case "class":
-            inputElem.setAttribute("list", "itemTypesList");
-            inputElem.placeholder = "Gold";
-            inputElem.value = Object.keys(itemTypes).find(key => itemTypes[key] === jsonData.rules[index].params?.class) || "";
-            datalistElem.id = "itemTypesList";
-
-            Object.keys(itemTypes).forEach(itemType => {
-                const option = document.createElement("option");
-                option.value = itemType;
-                option.innerText = itemType;
-                datalistElem.appendChild(option);
-            });
-
-            inputElem.appendChild(datalistElem);
-            return inputElem;
+        // Reset dropdown list
+        dropdownList.innerHTML = "";
+        currentIndex = 0;
+        loadBatch(filteredData);
     }
+
+    // Add scrolling event for infinite loading
+    dropdownList.addEventListener("scroll", () => {
+        if (
+            dropdownList.scrollTop + dropdownList.clientHeight >=
+            dropdownList.scrollHeight
+        ) {
+            loadBatch(filteredData); // Load next batch when scrolled to the bottom
+        }
+    });
+
+    // Show dropdown when input is focused
+    inputElem.addEventListener("focus", () => {
+        dropdownList.style.display = "block";
+        dropdownList.innerHTML = ""; // Clear previous content
+        currentIndex = 0;
+
+        const dataSource =
+            type === "code" ? itemCodes : itemTypes;
+        filteredData = Object.entries(dataSource); // Reset filtered data
+        loadBatch(filteredData);
+    });
+
+    // Hide dropdown when clicking outside
+    document.addEventListener("click", event => {
+        if (!dropdownWrapper.contains(event.target)) {
+            dropdownList.style.display = "none";
+        }
+    });
+
+    // Filter data when typing
+    inputElem.addEventListener("input", () => {
+        const dataSource =
+            type === "code" ? itemCodes : itemTypes;
+        filterData(dataSource);
+    });
+
+    // Assemble the component
+    dropdownWrapper.appendChild(inputElem);
+    dropdownWrapper.appendChild(dropdownList);
+
+    return dropdownWrapper;
 }
 
 function getSelectedRuleType(rule) {
@@ -346,9 +374,9 @@ function renderParamInput(rule, index) {
             if (paramInput) {
                 paramWrapper.appendChild(paramInput);
                 
-                const paramType = rule.params ? Object.keys(rule.params)[0] : null;
+                //const paramType = rule.params ? Object.keys(rule.params)[0] : null;
                 if (rule.params) {
-                    paramInput.value = getItemTypeText(rule);
+                    paramInput.firstElementChild.value = getItemTypeText(rule);
                 }
 
                 // Do not override rule_type for "null"
