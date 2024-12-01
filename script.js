@@ -87,8 +87,8 @@ $(document).ready(function () {
         let datalistWrapper = document.createElement('div');
         let datalist = document.createElement('select');
     
-        datalistWrapper.classList.add("select");
-        datalist.classList.add("rule-param-value");
+        datalistWrapper.classList.add("select", "width-100");
+        datalist.classList.add("rule-param-value", "min-width-100");
     
         groupWrapper.appendChild(createParamsDropdown(ruleType));
         groupWrapper.appendChild(datalistWrapper);
@@ -127,6 +127,7 @@ $(document).ready(function () {
                 return groupWrapper;
     
             default:
+                datalistWrapper.classList.remove("width-100");
                 return groupWrapper;
         }
     }

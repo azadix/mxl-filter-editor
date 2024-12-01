@@ -125,3 +125,11 @@ td {
 select, input {
     background: linear-gradient(45deg, #101010, transparent);
 }
+
+.width-100 {
+    width: 100%;
+}
+
+.min-width-100 {
+    min-width: 100%;
+}
