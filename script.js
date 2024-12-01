@@ -1,661 +1,492 @@
-// Initial JSON structure
-let jsonData = {
-    "default_show_items": true,
-    "name": "New filter",
-    "rules": []
-};
+$(document).ready(function () {
+    // Initial JSON structure
+    let jsonData = [];
 
-// Show/hide input elements based on selected radio
-function switchInput(index, type) {
-    const selectInput = document.querySelector(`#selectInput${index}`);
-
-    if (type === 'null') {
-        selectInput.style.display = 'none';
-    } else {
-        selectInput.style.display = 'inline-block';
-    }
-    renderSingleRule(index)
-}
-
-function createInput(type, index) {
-    if (type === "null") {
-        return;
-    }
-
-    const inputElem = document.createElement("input");
-    const dropdownWrapper = document.createElement("div");
-    const dropdownList = document.createElement("ul");
-
-    // Basic input properties
-    inputElem.classList.add("input-item-type");
-    inputElem.id = `selectInput${index}`;
-    inputElem.autocomplete = "off";
-    inputElem.setAttribute("onchange", `updateParamValue(${index}, this)`);
-
-    // Styling for dropdown
-    dropdownWrapper.classList.add("dropdown-wrapper");
-    dropdownList.classList.add("dropdown-list");
-
-    // Constants for batching
-    const batchSize = 5000; // Number of options to load at a time
-    let currentIndex = 0; // Tracks the current position in the dataset
-    let filteredData = []; // Stores the filtered dataset
-
-    // Load a batch of data into the dropdown
-    function loadBatch(dataSource) {
-        const batch = dataSource.slice(currentIndex, currentIndex + batchSize);
-
-        batch.forEach(([key, value]) => {
-            const listItem = document.createElement("li");
-            listItem.textContent = key; // Display the key
-            listItem.style.padding = "2px";
-            listItem.style.cursor = "pointer";
-
-            // Set the input value on item click
-            listItem.addEventListener("click", () => {
-                inputElem.value = key; // Set input value to the selected key
-                dropdownList.style.display = "none"; // Hide dropdown
-                updateParamValue(index, inputElem); // Call onchange handler
-            });
-
-            dropdownList.appendChild(listItem);
-        });
-
-        currentIndex += batchSize; // Update the currentIndex to load subsequent batches
-    }
-
-    // Event handler to filter data on input
-    function filterData(dataSource) {
-        const query = inputElem.value.toLowerCase();
-        filteredData = Object.entries(dataSource).filter(([key, value]) =>
-            key.toLowerCase().includes(query)
-        );
-
-        // Reset dropdown list
-        dropdownList.innerHTML = "";
-        currentIndex = 0;
-        loadBatch(filteredData);
-    }
-
-    // Add scrolling event for infinite loading
-    dropdownList.addEventListener("scroll", () => {
-        if (
-            dropdownList.scrollTop + dropdownList.clientHeight >=
-            dropdownList.scrollHeight
-        ) {
-            loadBatch(filteredData); // Load next batch when scrolled to the bottom
-        }
-    });
-
-    // Show dropdown when input is focused
-    inputElem.addEventListener("focus", () => {
-        dropdownList.style.display = "block";
-        dropdownList.innerHTML = ""; // Clear previous content
-        currentIndex = 0;
-
-        const dataSource =
-            type === "code" ? itemCodes : itemTypes;
-        filteredData = Object.entries(dataSource); // Reset filtered data
-        loadBatch(filteredData);
-    });
-
-    // Hide dropdown when clicking outside
-    document.addEventListener("click", event => {
-        if (!dropdownWrapper.contains(event.target)) {
-            dropdownList.style.display = "none";
-        }
-    });
-
-    // Filter data when typing
-    inputElem.addEventListener("input", () => {
-        const dataSource =
-            type === "code" ? itemCodes : itemTypes;
-        filterData(dataSource);
-    });
-
-    // Assemble the component
-    dropdownWrapper.appendChild(inputElem);
-    dropdownWrapper.appendChild(dropdownList);
-
-    return dropdownWrapper;
-}
-
-function getSelectedRuleType(rule) {
-    if (!rule.params) return "null";
-    if ('code' in rule.params) return "code";
-    if ('class' in rule.params) return "class";
-    return "null";
-}
-
-// Toggle the collapse state of a rule
-function toggleCollapse(index) {
-    jsonData.rules[index].collapsed = !jsonData.rules[index].collapsed;
-    renderSingleRule(index);
-}
-
-function toggleAllCollapse() {
-    const shouldCollapse = (document.getElementById("collapse-all").innerText == "collapse_content");
-    if (jsonData.rules && jsonData.rules.length > 0) {
-        // Check the current state of the first rule's collapsed property
-        
-        // Loop through all the rules and set the collapsed state accordingly
-        for (let i = 0; i < jsonData.rules.length; i++) {
-            jsonData.rules[i].collapsed = shouldCollapse; // Set collapsed to true or false
-            renderSingleRule(i); // Call the render function to update the UI (if needed)
-        }
-    }
-    document.getElementById("collapse-all").innerText = shouldCollapse ? 'expand_content' : 'collapse_content';
-}
-
-function getRuleDescription(index) {
-    let returnValue = "";
-    
-    const rule = jsonData.rules[index];
-    const itemQuality = getItemQualityText(rule);
-    const itemType = getItemTypeText(rule);
-
-    returnValue += rule.active ? "" : "# ";
-    returnValue += rule.show_item ? "show " : "hide ";
-    returnValue += rule.ethereal === 1 ? "eth " : "";
-    returnValue += itemQuality != "" ? `${itemQuality.toLowerCase()} ` : "";
-    returnValue += itemType != "" ? `"${itemType}" ` : "";
-
-    return returnValue;
-}
-
-function updateIntermediateContent() {
-    const intermediateContainer = document.getElementById('intermediate');
-    const lineCounter = document.getElementById('lineCounter');
-    let imText = "";
-    let lineCount = "";
-
-    jsonData.rules.forEach((_, index) => {
-        lineCount += `${index+1}: \n`
-        imText += `${getRuleDescription(index)}\n`;
-    });
-
-    lineCounter.innerText = lineCount;;
-    intermediateContainer.innerText = imText;
-}
-
-function renderSingleRule(index) {
-    const rulesContainer = document.getElementById('rulesContainer');
-  
-    // Remove any existing instance of the rule at the given index
-    removeExistingRule(rulesContainer, index);
-
-    const rule = jsonData.rules[index];
-    ensureRuleDefaults(rule);
-
-    const ruleDiv = document.createElement('div');
-    ruleDiv.className = 'rule-item';
-    ruleDiv.dataset.index = index;
-
-    // Rule status colors
-    const { isRuleShownColor, isRuleActiveColor } = getRuleColors(rule);
-
-    // Generate rule descriptor
-    ruleDiv.innerHTML = createRuleDescriptor(index, rule, isRuleActiveColor, isRuleShownColor);
-
-    // If the rule is not collapsed, render additional inputs
-    if (!rule.collapsed) {
-        ruleDiv.innerHTML += createRuleInputs(index, rule);
-    }
-
-    // Insert the new rule into the container
-    rulesContainer.insertBefore(ruleDiv, rulesContainer.children[index]);
-
-    // Render the correct input for the selected param type
-    renderParamInput(rule, index);
-    updateIntermediateContent()
-}
-
-// Function to remove the existing rule at the given index
-function removeExistingRule(rulesContainer, index) {
-    if (rulesContainer.children[index]) {
-        rulesContainer.removeChild(rulesContainer.children[index]);
-    }
-}
-
-// Function to ensure the rule has default values
-function ensureRuleDefaults(rule) {
-    if (rule.collapsed === undefined) {
-        rule.collapsed = false; // Default to expanded
-    }
-}
-
-function getRuleColors(rule) {
-    const isRuleShownColor = rule.show_item ? "var(--green)" : "var(--red)";
-    const isRuleActiveColor = rule.active ? "var(--green)" : "var(--red)";
-    return { isRuleShownColor, isRuleActiveColor };
-}
-
-function createRuleDescriptor(index, rule, isRuleActiveColor, isRuleShownColor) {
-    const ruleStatusBadge = createRuleStatusBadge(rule, isRuleActiveColor);
-    const itemTypeText = getItemTypeText(rule);
-    const itemQualityText = getItemQualityText(rule);
-
-    const mapIcon = rule.automap ? `
-        <span class="material-symbols-outlined" style="color: var(--green);">
-            map
-        </span>
-    ` : "";
-
-    const alertIcon = rule.notify ? `
-        <span class="material-symbols-outlined" style="color: var(--green);">
-            notifications_active
-        </span>
-    ` : "";
-
-    return `
-        <h3 class="rule-descriptor" style="cursor: move;">
-            <div style="display: flex; justify-content: space-between; width: 100%;">
-                <div style="flex-grow: 1;font-weight:500;">
-                    ${ruleStatusBadge}#${index + 1}: 
-                    <span style="color: ${isRuleShownColor}; margin-left: 5px; margin-right: 5px;">
-                        ${rule.show_item ? "Show" : "Hide"}
-                    </span>
-                    ${itemQualityText}
-                    ${itemTypeText}
-                </div>
-                <!-- Icon container aligned to the right -->
-                <div style="display: flex;">
-                    ${alertIcon}
-                    ${mapIcon}
-                    <span class="material-symbols-outlined collapse-button" onclick="toggleCollapse(${index})">
-                        ${rule.collapsed ? 'expand_content' : 'collapse_content'}
-                    </span>
-                </div>
-            </div>
-        </h3>
-    `;
-}
-
-function createRuleStatusBadge(rule, isRuleActiveColor) {
-    return `
-        <span style="padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 0.85em;
-            margin-right: 5px;
-            background-color: ${isRuleActiveColor};">
-            ${rule.active ? "ACTIVE" : "DISABLED"}</span>
-    `;
-}
-
-function createMapStatusBadge(rule, isShownOnMap) {
-    return `
-        <span class="material-symbols-outlined"
-            style="color:'#a6dfb6'">
-            map
-        </span>
-    `;
-}
-
-function getItemTypeText(rule) {
-    if (!rule.params) return '';
-
-    const paramType = Object.keys(rule.params)[0];
-    if (paramType === "class") {
-        return (Object.entries(itemTypes).find(([key, value]) => value === rule.params[paramType])?.[0] || '');
-    } else {
-        return (Object.entries(itemCodes).find(([key, value]) => value === rule.params[paramType])?.[0] || '');
-    };
-}
-
-function getItemQualityText(rule) {
-    const matchedQuality = Object.entries(itemQuality).find(([key, value]) => value === rule.item_quality)?.[0];
-    return matchedQuality === "Any" ? "" : matchedQuality || "Unknown";
-}
-
-function createRuleInputs(index, rule) {
-    return `
-        <label for="active${index}">Active: </label>
-        <input id="active${index}" name="active" type="checkbox" ${rule.active ? 'checked' : ''} onchange="updateRule(${index}, 'active', this.checked)">
-        
-        <label for="show_item${index}">Show Item: </label>
-        <input id="show_item${index}" type="checkbox" ${rule.show_item ? 'checked' : ''} onchange="updateRule(${index}, 'show_item', this.checked)">
-        
-        <label for="notify${index}">Notify: </label>
-        <input id="notify${index}" type="checkbox" ${rule.notify ? 'checked' : ''} onchange="updateRule(${index}, 'notify', this.checked)">
-        
-        <label for="automap${index}">Show on map: </label>
-        <input id="automap${index}" type="checkbox" ${rule.automap ? 'checked' : ''} onchange="updateRule(${index}, 'automap', this.checked)">
-
-        <label for="ethereal${index}">Ethereal:</label>
-        <select id="ethereal${index}" onchange="updateRule(${index}, 'ethereal', this.value)">
-            ${Object.entries(etherealState).map(([key, value]) => `
-                <option value="${value}" ${rule.ethereal === value ? 'selected' : ''}>${key}</option>
-            `).join('')}
-        </select>
-
-        <label for="item_quality${index}">Item Quality:</label>
-        <select id="item_quality${index}" value=${Object.entries(itemQuality).find(([key, value]) => (value === rule.item_quality ? key : -1))[1]} onchange="updateRule(${index}, 'item_quality', this.value)">
-            ${Object.entries(itemQuality).map(([key, value]) => `<option ${value === rule.item_quality ? "selected" : ""} value="${value}">${key}</option>`).join('')}
-        </select>
-
-        <label for="min_ilvl${index}">Min ILVL: </label>
-        <input id="min_ilvl${index}" type="number" value="${rule.min_ilvl}" onchange="updateRule(${index}, 'min_ilvl', this.value)">
-
-        <label for="max_ilvl${index}">Max ILVL: </label>
-        <input id="max_ilvl${index}" type="number" value="${rule.max_ilvl}" onchange="updateRule(${index}, 'max_ilvl', this.value)">
-
-        <label for="min_clvl${index}">Min CLVL: </label>
-        <input id="min_clvl${index}" type="number" value="${rule.min_clvl}" onchange="updateRule(${index}, 'min_clvl', this.value)">
-        
-        <label for="max_clvl${index}">Max CLVL: </label>
-        <input id="max_clvl${index}" type="number" value="${rule.max_clvl}" onchange="updateRule(${index}, 'max_clvl', this.value)">
-
-        <div class="params-section">
-            ${createParamRadioButtons(index, rule)}
-        </div>
-        <span id="paramInputWrapper${index}" class="paramInputWrapper"></span>
-
-        <div class="move-buttons">
-            <button class="delete-button" onclick="removeRule(${index})">Delete</button>
-        </div>
-    `;
-}
-
-function createParamRadioButtons(index, rule) {
-    return `
-        <label>None <input type="radio" name="paramType${index}" value="null" ${getSelectedRuleType(rule) == "null" ? 'checked' : ''} onchange="updateParamType(${index}, 'null')"></label>
-        <label>Item <input type="radio" name="paramType${index}" value="code" ${getSelectedRuleType(rule) == "code" ? 'checked' : ''} onchange="updateParamType(${index}, 'code')"></label>
-        <label>Category <input type="radio" name="paramType${index}" value="class" ${getSelectedRuleType(rule) == "class" ? 'checked' : ''} onchange="updateParamType(${index}, 'class')"></label>
-    `;
-}
-
-function renderParamInput(rule, index) {
-    const ruleType = getSelectedRuleType(rule);
-
-    if (!rule.collapsed) {
-        const paramWrapper = document.getElementById(`paramInputWrapper${index}`);
-        if (paramWrapper) {
-            const paramInput = createInput(ruleType, index);
-            if (paramInput) {
-                paramWrapper.appendChild(paramInput);
-                
-                //const paramType = rule.params ? Object.keys(rule.params)[0] : null;
-                if (rule.params) {
-                    paramInput.firstElementChild.value = getItemTypeText(rule);
-                }
-
-                // Do not override rule_type for "null"
-                if (ruleType !== "null") {
-                    rule.rule_type = ruleType === "code" ? 1 : 0;
+    let table = new DataTable('#rulesTable', {
+        autoWidth: true,
+        paging: false,
+        order: [],
+        fixedHeader: true,
+        targets: 'no-sort',
+        scrollY: 550,
+        scrollCollapse: false,
+        columnDefs: [
+            {
+                visible: false,
+                targets: 0
+            }
+        ],
+        layout: {
+            topStart: function () {
+                return createAddRuleButton();
+            },
+            topEnd: '', //search
+            bottomStart: {
+                info: {
+                    empty: '',
+                    text: 'Rule count: _TOTAL_',
                 }
             }
         }
-    }
-}
-
-function renderRules() {
-    const rulesContainer = document.getElementById('rulesContainer');
-    rulesContainer.innerHTML = '';
-
-    jsonData.rules.forEach((_, index) => {
-        renderSingleRule(index);
     });
-}
 
-function updateRule(index, key, value) {
-    const numericValue = typeof value === 'string' ? Number(value) : value;
-
-    if (['min_ilvl', 'max_ilvl', 'min_clvl', 'max_clvl'].includes(key)) {
-        jsonData.rules[index][key] = Math.min(Math.max(numericValue, 0), 150);
-    } else {
-        jsonData.rules[index][key] = numericValue;
-    }
-    renderSingleRule(index);
-}
-  
-function updateParamType(index, type) {
-    const rule = jsonData.rules[index];
-    
-    if (type === "null") {
-        rule.params = null;
-        rule.rule_type = -1;
-    } else {
-        const paramKey = type === "class" ? "class" : "code";
-        rule.params = { [paramKey]: 0 };
-        rule.rule_type = type === "class" ? 0 : 1;
-    }
-    
-    renderSingleRule(index);
-
-    const paramWrapper = document.getElementById(`paramInputWrapper${index}`);
-    while (paramWrapper.firstChild) {
-        paramWrapper.removeChild(paramWrapper.lastChild);
-    }
-
-    const inputEl = createInput(type, index);
-    if (inputEl != null){
-        paramWrapper.appendChild(inputEl)
-    }
-}
-
-// Update parameter value based on the selected input type
-function updateParamValue(index, inputElement) {
-    const value = inputElement.value; 
-    const rule = jsonData.rules[index];
-    const paramType = rule.params ? Object.keys(rule.params)[0] : null;
-
-    if (paramType === "class") {
-        rule.params[paramType] = itemTypes[value] || 0;
-    } else if (paramType === "code") {
-        rule.params[paramType] = itemCodes[value] || 0;
-    } else {
-        rule.params = null;
-    }
-
-    renderSingleRule(index);
-}
-
-function removeRule(index) {
-    if (index >= 0 && index < jsonData.rules.length) {
-        jsonData.rules.splice(index, 1)
-        renderRules();
-    }
-    updateIntermediateContent()
-}
-
-function addRule() {
-    const newRule = {
+    const defaultRule = {
         id: Date.now(),
-        "active": true,
-        "automap": true,
-        "ethereal": 0,
-        "item_quality": -1,
-        "max_clvl": 0,
-        "max_ilvl": 0,
-        "min_clvl": 0,
-        "min_ilvl": 0,
-        "notify": true,
-        "params": { class: 0 },
-        "rule_type": 0,
-        "show_item": true,
-        "collapsed": false
+        active: true,
+        show_item: true,
+        item_quality: -1,
+        ethereal: 0,
+        min_clvl: 0,
+        max_clvl: 0,
+        min_ilvl: 0,
+        max_ilvl: 0,
+        rule_type: -1,
+        params: null,
+        notify: true,
+        automap: true
     };
-    jsonData.rules.unshift(newRule);
-    renderRules();
-}
 
-function cleanRules(rule) {
-    return {
-        active: rule.active,
-        automap: rule.automap,
-        ethereal: rule.ethereal,
-        item_quality: rule.item_quality,
-        max_clvl: rule.max_clvl,
-        max_ilvl: rule.max_ilvl,
-        min_clvl: rule.min_clvl,
-        min_ilvl: rule.min_ilvl,
-        notify: rule.notify,
-        params: rule.params,
-        rule_type: rule.rule_type,
-        show_item: rule.show_item
-    };
-}
+    // Define the Add Rule functionality
+    function createAddRuleButton() {
+        const addRuleButton = document.createElement('button');
+        addRuleButton.classList.add("button", "is-success", "is-outlined");
+        addRuleButton.innerHTML = '<span class="icon is-small"><i class="fas fa-plus"></i></span><span>Add new rule</span>';
 
-function generateOutput() {
-    const cleanedRules = jsonData.rules.map(cleanRules);
-    const filterName = document.getElementById('filterName').value.trim()
+        // Add click event to append a new row
+        addRuleButton.addEventListener("click", () => {
+            const newRule = JSON.parse(JSON.stringify(defaultRule));
+            newRule.id = Date.now();
 
-    document.getElementById('output').textContent = JSON.stringify({
-        default_show_items: document.getElementById('defaultShowItems').checked,
-        name: filterName == "" ? `UnnamedFilter${Date.now().toString()}` : filterName,
-        rules: cleanedRules
-    }, null, 2);
-}
+            jsonData.unshift(newRule);
+            renderTableFromJson();
+        });
 
-
-// Copy to clipboard function
-function copyToClipboard() {
-    const outputText = document.getElementById('output').textContent;
-    navigator.clipboard.writeText(outputText)
-        .then(() => showToast("Filter copied to clipboard!", true))
-        .catch(err => showToast("Failed to copy: " + err));
-}
-
-// Paste from clipboard function with fallback
-async function pasteFromClipboard() {
-    try {
-        let text;
-        // Fallback for browsers without clipboard API support
-        text = prompt("Please paste the JSON data here:");
-        if (!text) {
-            showToast("No data pasted.");
-            return;
-        }
-
-        const data = JSON.parse(text);
-
-        // Validate and update jsonData
-        if (data && typeof data === "object" && data.rules) {
-            jsonData = data;
-            document.getElementById('defaultShowItems').checked = jsonData.default_show_items;
-            document.getElementById('filterName').value = jsonData.name;
-            
-            data.rules.forEach(rule => {rule.collapsed = true;});
-            renderRules();
-        } else {
-            showToast("Invalid JSON format.");
-        }
-    } catch (error) {
-        showToast("Failed to paste: " + error);
+        return addRuleButton;
     }
-}
 
-function populateDatalist() {
-    // Populate the datalist with itemTypes
-    let datalist = document.getElementById('itemTypesList');
-    Object.entries(itemTypes).forEach(([key, value]) => {
-        let option = document.createElement('option');
-        option.value = key; // Shows the name, but can use value for actual usage
-        datalist.appendChild(option);
-    });
-}
+    function createParamsDropdown(ruleType) {
+        const outerWrapper = document.createElement('div');
+        const selectParams = document.createElement('select');
+        outerWrapper.classList.add("select");
+        selectParams.classList.add("rule-param-type")
 
-function populateCodeslist() {
-    // Populate the datalist with itemTypes
-    let datalist = document.getElementById('itemCodesList');
-    Object.entries(itemCodes).forEach(([key, value]) => {
-        let option = document.createElement('option');
-        option.value = key; // Shows the name, but can use value for actual usage
-        datalist.appendChild(option);
-    });
-}
+        Object.entries(ruleTypes).forEach(([key, value]) => {
+            let option = document.createElement("option");
+            option.value = value;
+            option.text = key;
+            selectParams.appendChild(option);
+        });
 
-function addSortables() {
-    const rulesContainer = document.getElementById('rulesContainer');
+        selectParams.value = ruleType;
+        outerWrapper.appendChild(selectParams);
+        return outerWrapper;
+    }
+
+    function createOptionParams(ruleType, jsonIndex ) {
+        let groupWrapper = document.createElement('div');
+        let datalistWrapper = document.createElement('div');
+        let datalist = document.createElement('select');
     
-    new Sortable(rulesContainer, {
-        handle: 'h3', // Drag handle
-        animation: 150,
-        ghostClass: 'sortable-ghost',
-        onEnd: function () {
-            // Create a new sorted list based on current DOM order
-            const newOrder = Array.from(rulesContainer.children).map(ruleItem => {
-                const originalIndex = ruleItem.dataset.index;
-                return jsonData.rules[originalIndex];
-            });
+        datalistWrapper.classList.add("select");
+        datalist.classList.add("rule-param-value");
+    
+        groupWrapper.appendChild(createParamsDropdown(ruleType));
+        groupWrapper.appendChild(datalistWrapper);
+        groupWrapper.classList.add("input-wrapper");
+    
+        // Populate the datalist based on the rule type
+        switch (Number(ruleType)) {
+            case 1: // Items
+                Object.entries(itemCodes).forEach(([key, value]) => {
+                    let option = document.createElement("option");
+                    option.value = value;
+                    option.text = key;
+                    datalist.appendChild(option);
+                });
+    
+                // Set the value of the datalist based on jsonData
+                if (jsonData[jsonIndex]?.params?.code !== undefined) {
+                    datalist.value = jsonData[jsonIndex].params.code;
+                }
+                datalistWrapper.appendChild(datalist);
+                return groupWrapper;
+    
+            case 0: // Class
+                Object.entries(itemTypes).forEach(([key, value]) => {
+                    let option = document.createElement("option");
+                    option.value = value;
+                    option.text = key;
+                    datalist.appendChild(option);
+                });
+    
+                // Set the value of the datalist based on jsonData
+                if (jsonData[jsonIndex]?.params?.class !== undefined) {
+                    datalist.value = jsonData[jsonIndex].params.class;
+                }
+                datalistWrapper.appendChild(datalist);
+                return groupWrapper;
+    
+            default:
+                return groupWrapper;
+        }
+    }
 
-            // Reorder jsonData.rules based on the new DOM order
-            jsonData.rules = newOrder;
-
-            // Re-render the rules to reflect the new order
-            renderRules();
+    $('#pasteFromClipboard').on('click', function () {
+        try {
+            let text;
+            // Fallback for browsers without clipboard API support
+            text = prompt("Please paste the JSON data here:");
+            if (!text) {
+                showToast("No data pasted.");
+                return;
+            }
+    
+            const data = JSON.parse(text);
+    
+            // Validate and update jsonData
+            if (data && typeof data === "object" && data.rules) {
+                jsonData = data.rules;
+    
+                // Update checkbox state using .prop()
+                $('#defaultShowItems').prop('checked', data.default_show_items);
+    
+                // Update filter name input
+                $('#filterName').val(data.name);
+    
+                // Re-render the table
+                renderTableFromJson();
+            } else {
+                showToast("Invalid JSON format.");
+            }
+        } catch (error) {
+            showToast("Failed to paste: " + error);
         }
     });
-}
+    $('#copyToClipboard').on('click', function () {
+        console.log(jsonData)
+        navigator.clipboard.writeText(generateOutput())
+            .then(() => showToast("Filter copied to clipboard!", true))
+            .catch(err => showToast("Failed to copy: " + err));
+    });
+    
+    table.on('change', '.rule-is-active', function () {
+        const paramValue = $(this).is(":checked");
+        const dataIndex =  $(this).closest('tr').data('index');
+        
+        if (dataIndex !== undefined) {
+            jsonData[dataIndex].active = paramValue;
+        } else {
+            console.warn('Row does not have a valid data-index');
+        }
+    });
+    table.on('change', '.rule-is-shown', function () {
+        const paramValue = $(this).val();
+        const dataIndex =  $(this).closest('tr').data('index');
+        
+        if (dataIndex !== undefined) {
+            jsonData[dataIndex].show_item = !Boolean(paramValue);
+        } else {
+            console.warn('Row does not have a valid data-index');
+        }
+    });
+    table.on('change', '.rule-quality', function () {
+        const paramValue = $(this).val();
+        const dataIndex =  $(this).closest('tr').data('index');
+        
+        if (dataIndex !== undefined) {
+            jsonData[dataIndex].item_quality = Number(paramValue);
+        } else {
+            console.warn('Row does not have a valid data-index');
+        }
+    });
+    table.on('change', '.rule-is-eth', function () {
+        const paramValue = $(this).val();
+        const dataIndex =  $(this).closest('tr').data('index');
+        
+        if (dataIndex !== undefined) {
+            jsonData[dataIndex].ethereal = Number(paramValue);
+        } else {
+            console.warn('Row does not have a valid data-index');
+        }
+    });
+    table.on('change', '.rule-param-type', function () {
+        const paramValue = $(this).val();
+        const dataIndex =  $(this).closest('tr').data('index');
+        
+        if (dataIndex !== undefined) {
+            jsonData[dataIndex].rule_type = Number(paramValue);
 
-function addEventsToHeaderButtons() {
-    const addRuleButton = document.getElementById("addRule");
-    addRuleButton.addEventListener("click", () => {
-        addRule();
+            switch (paramValue) {
+                case "-1":
+                    jsonData[dataIndex].params = null;
+                    break;
+                case "0":
+                    jsonData[dataIndex].params = {class: 0}
+                    break;
+                case "1":
+                    jsonData[dataIndex].params = {code: 0}
+                    break;
+            }
+        } else {
+            console.warn('Row does not have a valid data-index');
+        }
+        renderTableFromJson();
+    });
+    table.on('change', '.rule-param-value', function () {
+        const paramValue = $(this).val();
+        const dataIndex =  $(this).closest('tr').data('index');
+        
+        if (dataIndex !== undefined) {
+            if (Number(paramValue) <= findLargestValue(itemTypes)) {
+                jsonData[dataIndex].params.class = Number(paramValue)
+            } else {
+                jsonData[dataIndex].params.code = Number(paramValue)
+            }
+        } else {
+            console.warn('Row does not have a valid data-index');
+        }
+    });
+    table.on('change', '.rule-min-clvl', function () {
+        const paramValue = $(this).val();
+        $(this).val(clampLvlValues(paramValue))
+        const dataIndex =  $(this).closest('tr').data('index');
+        
+        if (dataIndex !== undefined) {
+            jsonData[dataIndex].min_clvl = clampLvlValues(paramValue);
+        } else {
+            console.warn('Row does not have a valid data-index');
+        }
+    });
+    table.on('change', '.rule-max-clvl', function () {
+        const paramValue = $(this).val();
+        $(this).val(clampLvlValues(paramValue))
+        const dataIndex =  $(this).closest('tr').data('index');
+        
+        if (dataIndex !== undefined) {
+            jsonData[dataIndex].max_clvl = clampLvlValues(paramValue);
+        } else {
+            console.warn('Row does not have a valid data-index');
+        }
+    });
+    table.on('change', '.rule-min-ilvl', function () {
+        const paramValue = $(this).val();
+        $(this).val(clampLvlValues(paramValue))
+        const dataIndex =  $(this).closest('tr').data('index');
+        
+        if (dataIndex !== undefined) {
+            jsonData[dataIndex].min_ilvl = clampLvlValues(paramValue);
+        } else {
+            console.warn('Row does not have a valid data-index');
+        }
+    });
+    table.on('change', '.rule-max-ilvl', function () {
+        const paramValue = $(this).val();
+        $(this).val(clampLvlValues(paramValue))
+        const dataIndex =  $(this).closest('tr').data('index');
+        
+        if (dataIndex !== undefined) {
+            jsonData[dataIndex].max_ilvl = clampLvlValues(paramValue);
+        } else {
+            console.warn('Row does not have a valid data-index');
+        }
+    });
+    table.on('change', '.rule-is-notify', function () {
+        const paramValue = $(this).is(":checked");
+        const dataIndex =  $(this).closest('tr').data('index');
+        
+        if (dataIndex !== undefined) {
+            jsonData[dataIndex].notify = paramValue;
+        } else {
+            console.warn('Row does not have a valid data-index');
+        }
+    });
+    table.on('change', '.rule-is-automap', function () {
+        const paramValue = $(this).is(":checked");
+        const dataIndex =  $(this).closest('tr').data('index');
+        
+        if (dataIndex !== undefined) {
+            jsonData[dataIndex].automap = paramValue;
+        } else {
+            console.warn('Row does not have a valid data-index');
+        }
     });
 
-    const pasteFromClipboardButton = document.getElementById("pasteFromClipboard");
-    pasteFromClipboardButton.addEventListener("click", () => {
-        pasteFromClipboard();
+    table.on('draw', function () {
+        table.rows().every(function (rowIdx) {
+            const rowNode = this.node(); // Get the DOM node of the row
+            rowNode.dataset.index = rowIdx; // Set dataset.index to the row index
+        });
     });
-
-    const generateOutputButton = document.getElementById("generateOutput");
-    generateOutputButton.addEventListener("click", () => {
-        generateOutput();
+    
+    // Event delegation for delete buttons
+    table.on('click', '.delete-rule', function () {
+        // Get the row that contains the delete button
+        const row = $(this).closest('tr');
+        
+        // Retrieve the row's dataset index
+        const index = row.data('index'); // Use jQuery's .data() to get the correct index
+        
+        // Check if the index is valid
+        if (index !== undefined && index >= 0 && index < jsonData.length) {
+            // Remove the corresponding item from jsonData
+            jsonData.splice(index, 1);
+    
+            // Re-render the table with updated jsonData
+            renderTableFromJson();
+        } else {
+            console.warn("Invalid index or index out of bounds.");
+        }
     });
+    
 
-    const copyToClipboardButton = document.getElementById("copyToClipboard");
-    copyToClipboardButton.addEventListener("click", () => {
-        copyToClipboard();
-    });
-}
+    function addSortables() {
+        const rulesTable = document.getElementById("rulesTable");
+        const tbody = rulesTable ? rulesTable.querySelector('tbody') : null;
+    
+        if (tbody) {
+            new Sortable(tbody, {
+                handle: '.handle', // Drag handle
+                animation: 150,
+                ghostClass: 'sortable-ghost',
+                onEnd: function () {
+                    // Create a new sorted list based on the current DOM order
+                    const newOrder = Array.from(tbody.children).map(ruleItem => {
+                        const updatedIndex = ruleItem.dataset.index; // Get the dataset.index
+                        return jsonData[updatedIndex]; // Map to jsonData using the updated index
+                    });
+    
+                    // Update jsonData to match the new order
+                    jsonData = newOrder;
+    
+                    // Optionally, refresh the table if needed
+                    renderTableFromJson()
+                }
+            });
+        } else {
+            console.warn("No tbody found");
+        }
+    }
+    function renderTableFromJson() {
+        table.clear();
+        jsonData.forEach((item, index) => {
+            table.row.add([
+                item.id | Date.now(),
+                `<span class="handle icon is-normal"><i class="fas fa-arrows-alt-v"></i></span>`,
+                `<div class="checkbox-container"><input id="active" class="checkbox-input rule-is-active" type="checkbox" ${item.active ? 'checked' : ''}></div>`,
+                `<div class="select">
+                    <select class="rule-is-shown">
+                        <option value="1" ${item.show_item == "1" ? 'selected' : ''}>Show</option>
+                        <option value="0" ${item.show_item == "0" ? 'selected' : ''}>Hide</option>
+                    </select>
+                </div>`,
+                `<div class="select">
+                    <select class="rule-is-eth">
+                        ${Object.entries(etherealState).map(([key, value]) => `
+                            <option value="${value}" ${item.ethereal === value ? 'selected' : ''}>${key}</option>
+                        `).join("")}
+                    </select>
+                </div>`,
+                `<div class="select">
+                    <select class="rule-quality">
+                        ${Object.entries(itemQuality).map(([key, value]) => `
+                            <option value="${value}" ${item.item_quality === value ? 'selected' : ''}>${key}</option>
+                        `).join("")}
+                    </select>
+                </div>`,
+                createOptionParams(item.rule_type, index),
+                `<div class="input-wrapper">
+                    <div><input class="input form-group-input rule-min-clvl" placeholder="0" id="min_clvl" type="number" value="${item.min_clvl}"></div>
+                    <div><input class="input form-group-input rule-max-clvl" placeholder="0" id="max_clvl" type="number" value="${item.max_clvl}"></div>
+                </div>`,
+                `<div class="input-wrapper">
+                    <div><input class="input form-group-input rule-min-ilvl" placeholder="0" id="min_ilvl" type="number" value="${item.min_ilvl}"></div>
+                    <div><input class="input form-group-input rule-max-ilvl" placeholder="0" id="max_ilvl" type="number" value="${item.max_ilvl}"></div>
+                </div>`,
+                `<div class="checkbox-container"><input id="notify" class="checkbox-input rule-is-notify" type="checkbox" ${item.notify ? 'checked' : ''}></div>`,
+                `<div class="checkbox-container"><input id="automap" class="checkbox-input rule-is-automap" type="checkbox" ${item.automap ? 'checked' : ''}></div>`,
+                `<a class="button is-danger is-outlined delete-rule"><i class="fas fa-trash pr-1"></i></a>`
+            ]);
+        })
 
+        table.draw();
 
-// Function to create and show a toast message
-function showToast(message, autoRemove = false) {
-    // Create a container for the toast if it doesn't exist
-    if (!document.querySelector('.toast-container')) {
-        const container = document.createElement('div');
-        container.classList.add('toast-container');
-        document.body.appendChild(container);
+        // Adjust columns for proper rendering
+        table.columns.adjust();
     }
 
-    // Create the toast message element
-    const toast = document.createElement('div');
-    toast.classList.add('toast-message');
-    toast.innerText = message;
+    function findLargestValue(jsonData) {
+        let largestValue = -Infinity; // Initialize with a very small value
+    
+        // Iterate through the JSON data object and find the largest value
+        Object.entries(jsonData).forEach(([key, value]) => {
+            if (value > largestValue) {
+                largestValue = value; // Update largest value
+            }
+        });
+    
+        // Return the largest value found
+        return largestValue;
+    }
+    function clampLvlValues(value) {
+        if (value !== "" && !isNaN(value)) {
+            let numericValue = Number(value);
+            return Math.min(Math.max(numericValue, 0), 150);
+        } else {
+            console.error("Invalid input: Value must be a non-empty number.");
+            return 0;
+        }
+    }
+    function generateOutput() {
+        const filterName = $('#filterName').val().trim();
+        let cleanedData = jsonData.map(rule => {
+            const { id, ...ruleWithoutId } = rule;  // destructure to remove 'id'
+            return ruleWithoutId;
+        });
 
-    // Add event listener for the close button to remove the toast when clicked
-    toast.addEventListener('click', () => {
-        fadeOutAndRemove(toast);
-    });
-
-    // If autoRemove is true, the toast will disappear automatically after 2.5 seconds
-    if (autoRemove) {
-        setTimeout(() => {
+        return JSON.stringify({
+            default_show_items: $('#defaultShowItems').is(":checked"),
+            name: filterName == "" ? `UnnamedFilter${Date.now().toString()}` : filterName,
+            rules: cleanedData
+        }, null, 2);
+    }
+    function showToast(message, autoRemove = false) {
+        // Create a container for the toast if it doesn't exist
+        if (!document.querySelector('.toast-container')) {
+            const container = document.createElement('div');
+            container.classList.add('toast-container');
+            document.body.appendChild(container);
+        }
+    
+        // Create the toast message element
+        const toast = document.createElement("div");
+        toast.classList.add("toast-message");
+        toast.innerText = message;
+    
+        // Add event listener for the close button to remove the toast when clicked
+        $(toast).on('click', () => {
             fadeOutAndRemove(toast);
-        }, 2500); // Show for 2.5 seconds
-    } else {
-        // Change background color or add a label to show that it requires manual removal
-        toast.classList.add('manual-close-toast');
-        toast.innerHTML += '<div class="manual-toast-label">Click to dismiss</div>';
+        });
+    
+        // If autoRemove is true, the toast will disappear automatically after 2.5 seconds
+        if (autoRemove) {
+            setTimeout(() => {
+                fadeOutAndRemove(toast);
+            }, 2500); // Show for 2.5 seconds
+        } else {
+            // Change background color or add a label to show that it requires manual removal
+            toast.classList.add("manual-close-toast");
+            toast.innerHTML += '<div class="manual-toast-label">Click to dismiss</div>';
+        }
+    
+        // Append the toast to the container
+        $('.toast-container').append(toast);
+    }
+    function fadeOutAndRemove(toast) {
+        toast.style.opacity = 0;
+        setTimeout(() => {
+            toast.remove();
+        }, 500); // Match the duration of the fade-out animation
     }
 
-    // Append the toast to the container
-    document.querySelector('.toast-container').appendChild(toast);
-}
-
-// Function to fade out and remove the toast after the animation
-function fadeOutAndRemove(toast) {
-    toast.style.opacity = 0;
-    setTimeout(() => {
-        toast.remove();
-    }, 500); // Match the duration of the fade-out animation
-}
-
-
-window.onload = function() {
-    addEventsToHeaderButtons();
-    renderRules();
     addSortables();
-}
+});

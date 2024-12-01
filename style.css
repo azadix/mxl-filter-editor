@@ -1,298 +1,127 @@
 :root {
-  --bg-color: #292929;
-  --text-color: #f1f1f1;
-  --button-bg: #333;
-  --button-text: #f1f1f1;
-  --border-color: #333;
-  --rule-bg: #444;
-  --green: #01b200;
-  --red: #ff3131;
+    --bg-color: #1b1c1d;
+    --text-color: #f1f1f1;
+    --button-bg: #333;
+    --button-text: #f1f1f1;
+    --border-color: #333;
+    --rule-bg: #444;
+    --green: hsl(153deg, 53%, 53%);
+    --red: hsl(348deg, 100%, 70%);
 }
 
 @font-face {
-  font-family: "Exocet";
-  src: url("exocet.ttf")
+    font-family: "Exocet";
+    src: url("exocet.ttf");
 }
 
-body {
-  font-family: "Arial",  sans-serif;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: var(--bg-color);
-  color: var(--text-color);
+html {
+    scrollbar-color: rgba(0, 0, 0, .25) rgba(0, 0, 0, 0);
+    box-sizing: border-box;
 }
 
-.btn-header {
-  background-color: var(--button-bg);
-  color: var(--text-color);
+*, *:before, *:after {
+    box-sizing: inherit;
 }
 
-.header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 999;
-  background: var(--bg-color);
-  color: var(--text-color);
+.diablo-font {
+    font-family: "Exocet", sans-serif !important;
 }
 
-.span-btn-header{
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-.btn-header {
-  padding: 0.5rem;
-  margin: 0.2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.rule-descriptor > div {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.rule-descriptor .material-symbols-outlined {
-  margin-left: 0.5rem;
-}
-
-.rule-descriptor .collapse-button {
-  margin-left: 1rem;
-}
-
-#filterName {
-  font-size: 1.2rem;
-  min-width: 30rem;
-}
-
-h1, h2, h3, h4 {
-  font-family: "Exocet", sans-serif;
-}
-
-h1 {
-  margin: 0;
-  font-size: 3rem
-}
-
-h4 {
-  margin: 0;
-  font-size: 1.5rem;
-}
-
-h3 {
-  margin-bottom: 1rem;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.content {
-  display: flex;
-  margin-top: 10rem;
-  width: 100%;
-}
-
-.column {
-  flex: 1;
-  padding: 1.5rem;
-  box-sizing: border-box;
-}
-
-.left-column {
-  flex-grow: 1.5;
-  border-right: 1px solid var(--text-color);
-}
-
-.middle-column {
-  border-right: 1px solid var(--text-color);
-}
-
-input[type="checkbox"] {
-  accent-color: var(--green);
-  justify-self: start;
-}
-
-.rule-item {
-  padding: 0.7rem;
-  margin: 0.7rem 0;
-  border-radius: 5px;
-  background-color: var(--rule-bg);
-  border: 1px solid var(--border-color);
-  color: var(--text-color);
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  column-gap: 10px;
-  transition: transform 0.4s ease-in-out;
-  grid-template-rows: auto;
-}
-
-.rule-item h3 {
-  grid-column: span 2;
-  font-size: 1.2rem;
-  margin: 0;
-}
-
-.rule-item > label {
-  display: flex;
-  align-self: center;
-}
-
-.params-section {
-    display: grid;
-    min-width: 13ch;
-    justify-items: end;
-}
-
-.params-section label {
-  display: flex;
-  align-items: center;
-}
-
-.params-section label input[type="number"] {
-  margin-left: 10px;
-  min-width: 100px;
-}
-
-button {
-  padding: 3px 3px;
-  border: 1px solid black;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.move-buttons {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  grid-column: span 2;
-  padding: 2px;
-}
-
-.move-buttons .delete-button {
-  background-color: var(--button-bg);
-  color: var(--red);
-  margin-left: auto;
-  font-weight: bold;
-}
-
-.input-item-type{
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.material-symbols-outlined {
-  font-size: 20px;
-}
-
-.collapse-button {
-  user-select: none;
-  outline: none;
-  cursor: pointer;
-  font-size: 25px;
-  margin-left: auto;
-}
-
-body input,
-body select {
-  background-color: var(--button-bg);
-  color: var(--button-text);
-  border: 1px solid #555;
-  padding: 2px;
-  margin-bottom: 2px;
-}
-
-body input[type="checkbox"] {
-  cursor: pointer;
-  width: 19px;
-  height: 19px;
+.bordered {
+    overflow: hidden;
+    border: 1px solid var(--border-color) !important;
+    padding: 0.5rem !important;
 }
 
 .sortable-ghost {
-  opacity: 0.5;
-  border: 2px dashed #999;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    opacity: 0.5;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-input[type="radio"] {
-  appearance: none;
-  cursor: pointer;
-  width: 19px;
-  height: 19px;
-  border-radius: 2px;
+body input[type="checkbox"] {
+    cursor: pointer;
 }
 
-input[type="radio"]:checked {
-  background-color: var(--green);
-  border-color: var(--green);
+.show-items {
+    color: var(--text-color) !important;
 }
 
-input[type="radio"]:checked::after {
-  content: "✓";
-  font-weight: bolder;
-  color: var(--rule-bg);
-  display: block;
-  position: relative;
-  top: -3px;
-  left: 2px;
-  width: 19px;
-  height: 19px;
+.form-group-input {
+    width: 6ch;
+    text-align: center;
 }
 
-.paramInputWrapper  {
-  display: flex;
-  align-items: center;
+.form-select {
+    width: 100%;
 }
 
-.intermediateWrapper {
-  width:100%;
-  margin:0 auto;
+.column {
+    padding: .5rem !important;
 }
 
-textbox {
-  display: block;
-  min-height: 1rem;
-  color: white;
-  font-size: 1.2rem;
-  float:left;
+.field-label {
+    flex-grow: 0 !important;
+    margin-inline-end: .5rem;
 }
 
-#intermediate {
-  margin-left: 1ch;
+.checkbox {
+    cursor: pointer;
+    user-select: none;
 }
 
-.dropdown-wrapper {
-  width: 100%;
-  position: relative;
+.checkbox-input {
+    width: 1rem;
+    height: 1rem;
+    accent-color: var(--green);
 }
 
-.dropdown-list {
-  position: absolute;
-  width: 100%;
-  max-height: 15rem;
-  overflow-y: auto;
-  background: var(--button-bg);
-  border: 1px solid var(--border-color);
-  z-index: 10;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: none;
+.no-scrollbar {
+    scrollbar-width: none;
 }
 
-.dropdown-list li {
-  padding: 5px 10px;
-  cursor: pointer;
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
 }
 
-.dropdown-list li:hover {
-  background: var(--rule-bg);
+/* Table cell styling */
+td, th {
+    vertical-align: middle !important;
+    text-align: center;
+    padding: 0.5rem !important;
+}
+
+/* Checkbox and input consistency */
+.checkbox-input,
+input {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+}
+
+/* Center checkboxes inside table cells */
+td {
+    padding: 0.1rem !important;
+}
+
+/* Flexbox for centering checkboxes */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.input-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+select, input {
+    background: linear-gradient(45deg, #101010, transparent);
 }

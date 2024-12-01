@@ -1,72 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MXL Filter editor</title>
+  <title>MedianXL Filter editor</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/1.0.1/css/bulma.min.css">
+  <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/plug-ins/2.1.8/integration/font-awesome/dataTables.fontAwesome.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.1.8/css/dataTables.bulma.css">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="toast.css">
+  
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+  <script src="https://cdn.datatables.net/2.1.8/js/dataTables.bulma.js"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
   <script src="tables.js"></script>
   <script src="itemCodes.js"></script>
   <script src="script.js" defer></script>
 </head>
-<body>
-  <div class="header">
-    <h1>MXL Filter editor</h1>
-    <h4>by Azadi</h4>
-    <br>
-    <label style="font-size: larger;">
-      Default Show Items:
-      <input type="checkbox" id="defaultShowItems" checked>
-    </label>
-    <label>
-      Name:
-      <input type="text" id="filterName" value="New filter">
-    </label>
-    
-    <span class="span-btn-header">
-      <button id="addRule" class="btn-header">
-        <span class="material-symbols-outlined">add</span>
-        Add New Rule
-      </button>
-      <button id="pasteFromClipboard" class="btn-header">
-        <span class="material-symbols-outlined">content_paste</span>
-        Paste from Clipboard
-      </button>
-      <button id="generateOutput" class="btn-header">
-        <span class="material-symbols-outlined">data_object</span>
-        Generate JSON Output
-      </button>
-      <button id="copyToClipboard" class="btn-header">
-        <span class="material-symbols-outlined">content_copy</span>
-        Copy to Clipboard
-      </button>
-    </span>
-  </div>
-
+<body class="section" class="no-scrollbar" style="padding-top: 0; padding-bottom: 0">
   <div class="content">
-    <div class="column left-column">
-      <h2>Rules<span id="collapse-all" class="material-symbols-outlined collapse-button" onclick="toggleAllCollapse()">collapse_content</span></h2>
-      
-      <div id="rulesContainer"></div>
-    </div>
+    <h1 class="is-size-2 diablo-font">
+      Median XL Filter editor
+      <div class="is-size-5">by Azadi</div>
+    </h1>
 
-    <div class="column middle-column">
-      <h2>Overview</h2>
-      <div class="intermediateWrapper">
-        <textbox id="lineCounter"></textbox>
-        <textbox contenteditable="true" id="intermediate"></textbox>
+    <div class="field is-horizontal">
+      <div class="field-body">
+        <label class="checkbox">
+          <input id="defaultShowItems" type="checkbox" class="checkbox-input" checked="">
+          Show Items by default
+        </label>
       </div>
-      
     </div>
 
-    <div class="column right-column">
-      <h2>Output</h2>
-      <pre id="output"></pre>
+    <div>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Name</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <input class="input" id="filterName" type="text" placeholder="New filter" />
+            </p>
+          </div>
+        </div>
+
+        <button class="button is-danger is-outlined" id="pasteFromClipboard">
+          <i class="fas fa-paste pr-1"></i>
+          Paste from clipboard
+        </button>
+        <button class="button is-danger is-outlined" id="copyToClipboard">
+          <i class="fas fa-clipboard pr-1"></i>
+          Copy to clipboard
+        </button>
+      </div>
     </div>
   </div>
+
+  <table id="rulesTable" class="table is-hoverable is-fullwidth">
+    <thead>
+        <tr>
+          <th data-dt-order="disable">ID</th>
+          <th data-dt-order="disable"></th>
+          <th data-dt-order="disable">Is active</th>
+          <th data-dt-order="disable">Action</th>
+          <th data-dt-order="disable">Quality</th>
+          <th data-dt-order="disable">Ethereal</th>
+          <th data-dt-order="disable">Condition</th>
+          <th data-dt-order="disable">CLVL</th>
+          <th data-dt-order="disable">ILVL</th>
+          <th data-dt-order="disable">Notify</th>
+          <th data-dt-order="disable">Map</th>
+          <th data-dt-order="disable">Function</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Data rows here -->
+    </tbody>
+</table>
+
 </body>
 </html>

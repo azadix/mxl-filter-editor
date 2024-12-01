@@ -114,3 +114,9 @@ const etherealState =
     "Yes": 1,
     "No": 2
 }
+
+const ruleTypes = {
+    "None": -1,
+    "Item": 1,
+    "Class": 0
+}
