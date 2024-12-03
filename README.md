@@ -11,5 +11,7 @@ Current item/class data: MXL 2.10.3
 
 ### TODO:
 - Add ability to save filters in localStorage
+- Add filtering in dropdowns (filter while typing)
+- Add working search bar for table data
 - Rule verification (so that an impossible rule cannot be created)
 - Different styling for inactive rules
