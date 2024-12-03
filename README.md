@@ -1,6 +1,7 @@
 # Filter editor for Median XL #
 
 This tool allows editing filter structure outside of Median XL - overhaul mod for Diablo 2.
+
 Current item/class data: MXL 2.10.3
 
 ### Features:
