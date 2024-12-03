@@ -212,6 +212,7 @@ $(document).ready(function () {
             console.warn('Row does not have a valid data-index');
         }
     });
+
     table.on('change', '.rule-param-type', function () {
         const paramValue = $(this).val();
         const dataIndex =  $(this).closest('tr').data('index');
@@ -369,10 +370,12 @@ $(document).ready(function () {
             console.warn("No tbody found");
         }
     }
+
     function renderTableFromJson() {
         table.clear();
         jsonData.forEach((item, index) => {
-            table.row.add([
+            // Prepare row data
+            const rowData = [
                 item.id | Date.now(),
                 `<span class="handle icon is-normal"><i class="fas fa-arrows-alt-v"></i></span>`,
                 `<div class="checkbox-container"><input id="active" class="checkbox-input rule-is-active" type="checkbox" ${item.active ? 'checked' : ''}></div>`,
@@ -408,11 +411,12 @@ $(document).ready(function () {
                 `<div class="checkbox-container"><input id="notify" class="checkbox-input rule-is-notify" type="checkbox" ${item.notify ? 'checked' : ''}></div>`,
                 `<div class="checkbox-container"><input id="automap" class="checkbox-input rule-is-automap" type="checkbox" ${item.automap ? 'checked' : ''}></div>`,
                 `<div class="checkbox-container"><a class="button is-danger is-outlined delete-rule"><i class="fas fa-trash pr-1"></i></a></div>`
-            ]);
-        })
-
+            ];
+            table.row.add(rowData).node();
+        });
+    
         table.draw();
-
+    
         // Adjust columns for proper rendering
         table.columns.adjust();
     }
@@ -462,7 +466,7 @@ $(document).ready(function () {
     
         // Create the toast message element
         const toast = document.createElement("div");
-        toast.classList.add("toast-message");
+        toast.classList.add("notification", "is-small");
         toast.innerText = message;
     
         // Add event listener for the close button to remove the toast when clicked
@@ -477,8 +481,8 @@ $(document).ready(function () {
             }, 2500); // Show for 2.5 seconds
         } else {
             // Change background color or add a label to show that it requires manual removal
-            toast.classList.add("manual-close-toast");
-            toast.innerHTML += '<div class="manual-toast-label">Click to dismiss</div>';
+            toast.classList.add("is-warning");
+            toast.innerHTML += '<div style="color: white;">Click to dismiss</div>';
         }
     
         // Append the toast to the container

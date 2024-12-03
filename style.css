@@ -25,6 +25,7 @@ html {
 
 .diablo-font {
     font-family: "Exocet", sans-serif !important;
+    margin-bottom: 0 !important;
 }
 
 .bordered {
@@ -158,3 +159,44 @@ a:hover svg {
 a svg {
     transition: fill 0.3s ease, transform 0.3s ease; /* Smooth transition for fill and transform */
 }
+
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.notification {
+    padding: 1rem;
+    cursor: pointer;
+    margin: 0.5rem !important;
+}
+
+.handle {
+    cursor:ns-resize;
+}
+
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
