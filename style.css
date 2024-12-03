@@ -133,3 +133,22 @@ select, input {
 .min-width-100 {
     min-width: 100%;
 }
+
+.v-center {
+    display: flex;
+    align-items: center;
+}
+
+.white-fill {
+    fill: #fff;
+}
+
+a:hover svg {
+    fill: #009bee; /* Change to your desired hover color */
+    transform: scale(1.1); /* Slight scaling effect */
+    transition: fill 0.3s ease, transform 0.3s ease;
+  }
+  
+  a svg {
+    transition: fill 0.3s ease, transform 0.3s ease; /* Smooth transition for fill and transform */
+  }
