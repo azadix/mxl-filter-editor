@@ -88,7 +88,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 /* Table cell styling */
-td, th {
+th {
     vertical-align: middle !important;
     text-align: center;
     padding: 0.5rem !important;
@@ -104,6 +104,8 @@ input {
 
 /* Center checkboxes inside table cells */
 td {
+    vertical-align: middle !important;
+    text-align: center;
     padding: 0.1rem !important;
 }
 
@@ -131,7 +133,11 @@ select, input {
 }
 
 .min-width-100 {
-    min-width: 100%;
+    min-width: 100px;
+}
+
+.min-width-500 {
+    min-width: 500px;
 }
 
 .v-center {
@@ -147,8 +153,8 @@ a:hover svg {
     fill: #009bee; /* Change to your desired hover color */
     transform: scale(1.1); /* Slight scaling effect */
     transition: fill 0.3s ease, transform 0.3s ease;
-  }
+}
   
-  a svg {
+a svg {
     transition: fill 0.3s ease, transform 0.3s ease; /* Smooth transition for fill and transform */
-  }
+}

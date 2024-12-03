@@ -5,6 +5,7 @@ $(document).ready(function () {
     let table = new DataTable('#rulesTable', {
         autoWidth: true,
         paging: false,
+        compact: true,
         order: [],
         fixedHeader: true,
         targets: 'no-sort',
@@ -88,11 +89,11 @@ $(document).ready(function () {
         let datalist = document.createElement('select');
     
         datalistWrapper.classList.add("select", "width-100");
-        datalist.classList.add("rule-param-value", "min-width-100");
+        datalist.classList.add("rule-param-value", "width-100");
     
         groupWrapper.appendChild(createParamsDropdown(ruleType));
         groupWrapper.appendChild(datalistWrapper);
-        groupWrapper.classList.add("input-wrapper");
+        groupWrapper.classList.add("input-wrapper", "min-width-500");
     
         // Populate the datalist based on the rule type
         switch (Number(ruleType)) {
@@ -173,12 +174,13 @@ $(document).ready(function () {
     table.on('change', '.rule-is-active', function () {
         const paramValue = $(this).is(":checked");
         const dataIndex =  $(this).closest('tr').data('index');
-        
+
         if (dataIndex !== undefined) {
             jsonData[dataIndex].active = paramValue;
         } else {
             console.warn('Row does not have a valid data-index');
         }
+        renderTableFromJson();
     });
     table.on('change', '.rule-is-shown', function () {
         const paramValue = $(this).val();
@@ -405,7 +407,7 @@ $(document).ready(function () {
                 </div>`,
                 `<div class="checkbox-container"><input id="notify" class="checkbox-input rule-is-notify" type="checkbox" ${item.notify ? 'checked' : ''}></div>`,
                 `<div class="checkbox-container"><input id="automap" class="checkbox-input rule-is-automap" type="checkbox" ${item.automap ? 'checked' : ''}></div>`,
-                `<a class="button is-danger is-outlined delete-rule"><i class="fas fa-trash pr-1"></i></a>`
+                `<div class="checkbox-container"><a class="button is-danger is-outlined delete-rule"><i class="fas fa-trash pr-1"></i></a></div>`
             ]);
         })
 
