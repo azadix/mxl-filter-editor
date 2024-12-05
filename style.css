@@ -6,7 +6,7 @@
     --border-color: #333;
     --rule-bg: #444;
     --green: hsl(153deg, 53%, 53%);
-    --red: hsl(348deg, 100%, 70%);
+    --red: hsl(348, 100%, 66%);
 }
 
 @font-face {
@@ -151,13 +151,13 @@ select, input {
 }
 
 a:hover svg {
-    fill: #009bee; /* Change to your desired hover color */
-    transform: scale(1.1); /* Slight scaling effect */
+    fill: #009bee;
+    transform: scale(1.1);
     transition: fill 0.3s ease, transform 0.3s ease;
 }
   
 a svg {
-    transition: fill 0.3s ease, transform 0.3s ease; /* Smooth transition for fill and transform */
+    transition: fill 0.3s ease, transform 0.3s ease;
 }
 
 .toast-container {
@@ -177,9 +177,8 @@ a svg {
 }
 
 .handle {
-    cursor:ns-resize;
+    cursor: ns-resize;
 }
-
 
 @keyframes fadeIn {
     from {
@@ -190,13 +189,13 @@ a svg {
       opacity: 1;
       transform: translateX(0);
     }
-  }
+}
   
-  @keyframes fadeOut {
+@keyframes fadeOut {
     from {
-      opacity: 1;
+        opacity: 1;
     }
     to {
-      opacity: 0;
+        opacity: 0;
     }
-  }
+}

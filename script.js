@@ -97,7 +97,6 @@ $(document).ready(function () {
         automap: true
     };
 
-    // Define the Add Rule functionality
     function createAddRuleButton() {
         const addRuleButton = document.createElement('button');
         addRuleButton.classList.add("button", "is-success", "is-outlined");
@@ -145,7 +144,6 @@ $(document).ready(function () {
         groupWrapper.appendChild(datalistWrapper);
         groupWrapper.classList.add("input-wrapper", "min-width-500");
     
-        // Populate the datalist based on the rule type
         switch (Number(ruleType)) {
             case 1: // Items
                 Object.entries(itemCodes).forEach(([key, value]) => {
@@ -185,9 +183,7 @@ $(document).ready(function () {
 
     $('#pasteFromClipboard').on('click', function () {
         try {
-            let text;
-            // Fallback for browsers without clipboard API support
-            text = prompt("Please paste the JSON data here:");
+            let text = prompt("Please paste the JSON data here:");
             if (!text) {
                 showToast("No data pasted.");
                 return;
@@ -195,17 +191,11 @@ $(document).ready(function () {
     
             const data = JSON.parse(text);
     
-            // Validate and update jsonData
             if (data && typeof data === "object" && data.rules) {
                 jsonData = data.rules;
-    
-                // Update checkbox state using .prop()
                 $('#defaultShowItems').prop('checked', data.default_show_items);
-    
-                // Update filter name input
                 $('#filterName').val(data.name);
-    
-                // Re-render the table
+
                 renderTableFromJson();
             } else {
                 showToast("Invalid JSON format.");
@@ -214,8 +204,8 @@ $(document).ready(function () {
             showToast("Failed to paste: " + error);
         }
     });
+
     $('#copyToClipboard').on('click', function () {
-        console.log(jsonData)
         navigator.clipboard.writeText(generateOutput())
             .then(() => showToast("Filter copied to clipboard!", true))
             .catch(err => showToast("Failed to copy: " + err));
@@ -367,52 +357,39 @@ $(document).ready(function () {
 
     table.on('draw', function () {
         table.rows().every(function (rowIdx) {
-            const rowNode = this.node(); // Get the DOM node of the row
-            rowNode.dataset.index = rowIdx; // Set dataset.index to the row index
+            const rowNode = this.node();
+            rowNode.dataset.index = rowIdx;
         });
     });
     
-    // Event delegation for delete buttons
     table.on('click', '.delete-rule', function () {
-        // Get the row that contains the delete button
-        const row = $(this).closest('tr');
+        const index = $(this).closest('tr').data('index');
         
-        // Retrieve the row's dataset index
-        const index = row.data('index'); // Use jQuery's .data() to get the correct index
-        
-        // Check if the index is valid
         if (index !== undefined && index >= 0 && index < jsonData.length) {
-            // Remove the corresponding item from jsonData
             jsonData.splice(index, 1);
-    
-            // Re-render the table with updated jsonData
             renderTableFromJson();
         } else {
             console.warn("Invalid index or index out of bounds.");
         }
     });
     
-
     function addSortables() {
         const rulesTable = document.getElementById("rulesTable");
         const tbody = rulesTable ? rulesTable.querySelector('tbody') : null;
     
         if (tbody) {
             new Sortable(tbody, {
-                handle: '.handle', // Drag handle
+                handle: '.handle',
                 animation: 150,
                 ghostClass: 'sortable-ghost',
                 onEnd: function () {
                     // Create a new sorted list based on the current DOM order
                     const newOrder = Array.from(tbody.children).map(ruleItem => {
-                        const updatedIndex = ruleItem.dataset.index; // Get the dataset.index
-                        return jsonData[updatedIndex]; // Map to jsonData using the updated index
+                        const updatedIndex = ruleItem.dataset.index;
+                        return jsonData[updatedIndex];
                     });
-    
-                    // Update jsonData to match the new order
+
                     jsonData = newOrder;
-    
-                    // Optionally, refresh the table if needed
                     renderTableFromJson()
                 }
             });
@@ -466,24 +443,20 @@ $(document).ready(function () {
         });
     
         table.draw();
-    
-        // Adjust columns for proper rendering
         table.columns.adjust();
     }
 
     function findLargestValue(jsonData) {
-        let largestValue = -Infinity; // Initialize with a very small value
+        let largestValue = -Infinity;
     
-        // Iterate through the JSON data object and find the largest value
         Object.entries(jsonData).forEach(([key, value]) => {
             if (value > largestValue) {
-                largestValue = value; // Update largest value
+                largestValue = value;
             }
         });
-    
-        // Return the largest value found
         return largestValue;
     }
+    
     function clampLvlValues(value) {
         if (value !== "" && !isNaN(value)) {
             let numericValue = Number(value);
@@ -493,10 +466,11 @@ $(document).ready(function () {
             return 0;
         }
     }
+
     function generateOutput() {
         const filterName = $('#filterName').val().trim();
         let cleanedData = jsonData.map(rule => {
-            const { id, ...ruleWithoutId } = rule;  // destructure to remove 'id'
+            const { id, ...ruleWithoutId } = rule;
             return ruleWithoutId;
         });
 
@@ -506,43 +480,38 @@ $(document).ready(function () {
             rules: cleanedData
         }, null, 2);
     }
+
     function showToast(message, autoRemove = false) {
-        // Create a container for the toast if it doesn't exist
         if (!document.querySelector('.toast-container')) {
             const container = document.createElement('div');
             container.classList.add('toast-container');
             document.body.appendChild(container);
         }
     
-        // Create the toast message element
         const toast = document.createElement("div");
         toast.classList.add("notification", "is-small");
         toast.innerText = message;
     
-        // Add event listener for the close button to remove the toast when clicked
         $(toast).on('click', () => {
             fadeOutAndRemove(toast);
         });
-    
-        // If autoRemove is true, the toast will disappear automatically after 2.5 seconds
+
         if (autoRemove) {
             setTimeout(() => {
                 fadeOutAndRemove(toast);
-            }, 2500); // Show for 2.5 seconds
+            }, 2500);
         } else {
-            // Change background color or add a label to show that it requires manual removal
             toast.classList.add("is-warning");
             toast.innerHTML += '<div style="color: white;">Click to dismiss</div>';
         }
-    
-        // Append the toast to the container
         $('.toast-container').append(toast);
     }
+
     function fadeOutAndRemove(toast) {
         toast.style.opacity = 0;
         setTimeout(() => {
             toast.remove();
-        }, 500); // Match the duration of the fade-out animation
+        }, 500);
     }
 
     addSortables();
