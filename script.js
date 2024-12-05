@@ -1,6 +1,56 @@
 $(document).ready(function () {
-    // Initial JSON structure
     let jsonData = [];
+    let itemQuality = {};
+    let itemCodes = {};
+    let itemClasses = {};
+
+    const etherealState = {
+        "Either": 0,
+        "Yes": 1,
+        "No": 2
+    }
+
+    const ruleTypes = {
+        "None": -1,
+        "Item": 1,
+        "Class": 0
+    }
+
+    $.ajax({
+        url: './data/itemQuality.json',
+        dataType: 'json',
+        success: function(data) {
+          itemQuality = data;
+        },
+        error: function(xhr, status, error) {
+          console.error('Error loading JSON file:', error);
+          itemQuality = {};
+        }
+    });
+
+    $.ajax({
+        url: './data/itemCode.json',
+        dataType: 'json',
+        success: function(data) {
+            itemCodes = data;
+        },
+        error: function(xhr, status, error) {
+            console.error('Error loading JSON file:', error);
+            itemCodes = {};
+        }
+    });
+
+    $.ajax({
+        url: './data/itemClass.json',
+        dataType: 'json',
+        success: function(data) {
+            itemClasses = data;
+        },
+        error: function(xhr, status, error) {
+            console.error('Error loading JSON file:', error);
+            itemClasses = {};
+        }
+    });
 
     let table = new DataTable('#rulesTable', {
         autoWidth: true,
@@ -113,7 +163,7 @@ $(document).ready(function () {
                 return groupWrapper;
     
             case 0: // Class
-                Object.entries(itemTypes).forEach(([key, value]) => {
+                Object.entries(itemClasses).forEach(([key, value]) => {
                     let option = document.createElement("option");
                     option.value = value;
                     option.text = key;
@@ -241,7 +291,7 @@ $(document).ready(function () {
         const dataIndex =  $(this).closest('tr').data('index');
         
         if (dataIndex !== undefined) {
-            if (Number(paramValue) <= findLargestValue(itemTypes)) {
+            if (Number(paramValue) <= findLargestValue(itemClasses)) {
                 jsonData[dataIndex].params.class = Number(paramValue)
             } else {
                 jsonData[dataIndex].params.code = Number(paramValue)

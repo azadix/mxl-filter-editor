@@ -1,0 +1,12 @@
+{
+    "Any": -1,
+    "Low Quality": 1,
+    "Normal": 2,
+    "High Quality": 3,
+    "Magic": 4,
+    "Set": 5,
+    "Rare": 6,
+    "Unique": 7,
+    "Crafted": 8,
+    "Honorific": 9
+}
