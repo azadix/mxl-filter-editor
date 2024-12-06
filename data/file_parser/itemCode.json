@@ -6972,7 +6972,7 @@
         "description": ""
     },
     {
-        "name": "Quest Item\\nSignet of Skill",
+        "name": "Signet of Skill",
         "value": 541212705,
         "hexCode": "!@B",
         "description": "(one use per character)\\nRight-click: Free Skill Points: %d\\n"
@@ -6984,229 +6984,229 @@
         "description": "80\\nNephalem's Sacrifice Trophy Challenge\\nRequirements: \\nKill Uldyssian within 4 minutes of \\nkilling Moreina the Corrupted\\nDo not fail Azmodan's or Baal's\\nchallenges on the path\\nDo not die\\n\\nCube Neutrality Pact within the time limit\\nGrants: \\n+4% Deadly Strike\\n+8% Innate Elemetal Damage\\nLocked to current character class\\n"
     },
     {
-        "name": "Cube Reagent (Secret)\\nEmblem of Suffering",
+        "name": "Emblem of Suffering",
         "value": 540104739,
         "hexCode": "#X1",
         "description": ""
     },
     {
-        "name": "Cube Reagent (Secret)\\nEmblem of Pain",
+        "name": "Emblem of Pain",
         "value": 540170275,
         "hexCode": "#X2",
         "description": ""
     },
     {
-        "name": "Cube Reagent (Secret)\\nEmblem of Hatred",
+        "name": "Emblem of Hatred",
         "value": 540235811,
         "hexCode": "#X3",
         "description": ""
     },
     {
-        "name": "Cube Reagent (Secret)\\nEmblem of Terror",
+        "name": "Emblem of Terror",
         "value": 540301347,
         "hexCode": "#X4",
         "description": ""
     },
     {
-        "name": "Cube Reagent (Secret)\\nEmblem of Destruction",
+        "name": "Emblem of Destruction",
         "value": 540366883,
         "hexCode": "#X5",
         "description": ""
     },
     {
-        "name": "Cube Reagent (Secret)\\nEmblem of Lies",
+        "name": "Emblem of Lies",
         "value": 540432419,
         "hexCode": "#X6",
         "description": ""
     },
     {
-        "name": "Cube Reagent\\nGriswold's Treasure",
+        "name": "Griswold's Treasure",
         "value": 540629027,
         "hexCode": "#X9",
         "description": "The items vary for each Hero Class\\nCube with Oil of Craft to Open Box\\n"
     },
     {
-        "name": "Mystic Orb\\nKara's Trinket",
+        "name": "Kara's Trinket",
         "value": 540423718,
         "hexCode": "&66",
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Mystic Orb\\nMonsterball",
+        "name": "Monsterball",
         "value": 540489254,
         "hexCode": "&67",
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Mystic Orb\\nHeart of Frost",
+        "name": "Heart of Frost",
         "value": 540554790,
         "hexCode": "&68",
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Mystic Orb\\nHand of Yaerius",
+        "name": "Hand of Yaerius",
         "value": 540620326,
         "hexCode": "&69",
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Mystic Orb\\nThe Endless Light",
+        "name": "The Endless Light",
         "value": 540030758,
         "hexCode": "&70",
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Mystic Orb\\nMarksman's Eye",
+        "name": "Marksman's Eye",
         "value": 540096294,
         "hexCode": "&71",
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Mystic Orb\\nFarnham's Lost Marble",
+        "name": "Farnham's Lost Marble",
         "value": 540161830,
         "hexCode": "&72",
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Mystic Orb\\nZayl's Soul Orb",
+        "name": "Zayl's Soul Orb",
         "value": 540227366,
         "hexCode": "&73",
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Mystic Orb\\nEye of Malic",
+        "name": "Eye of Malic",
         "value": 540292902,
         "hexCode": "&74",
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Mystic Orb\\nApple of Discord",
+        "name": "Apple of Discord",
         "value": 540358438,
         "hexCode": "&75",
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Mystic Orb\\nIdol of Stars",
+        "name": "Idol of Stars",
         "value": 540423974,
         "hexCode": "&76",
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Mystic Orb\\nNagapearl",
+        "name": "Nagapearl",
         "value": 540489510,
         "hexCode": "&77",
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Mystic Orb\\nThe Moon Crystal",
+        "name": "The Moon Crystal",
         "value": 540555046,
         "hexCode": "&78",
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Mystic Orb\\nAuriel's Focus",
+        "name": "Auriel's Focus",
         "value": 540620582,
         "hexCode": "&79",
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Mystic Orb\\nSolitude",
+        "name": "Solitude",
         "value": 540031014,
         "hexCode": "&80",
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Mystic Orb\\nLarzuk's Round Shot",
+        "name": "Larzuk's Round Shot",
         "value": 540096550,
         "hexCode": "&81",
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Mystic Orb\\nVizjun's Ball Bearing",
+        "name": "Vizjun's Ball Bearing",
         "value": 540162086,
         "hexCode": "&82",
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Mystic Orb\\nNor Tiraj's Flaming Sphere",
+        "name": "Nor Tiraj's Flaming Sphere",
         "value": 540227622,
         "hexCode": "&83",
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Mystic Orb\\nThe Demon Core",
+        "name": "The Demon Core",
         "value": 540293158,
         "hexCode": "&84",
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Mystic Orb\\nUldyssian's Spirit",
+        "name": "Uldyssian's Spirit",
         "value": 540358694,
         "hexCode": "&85",
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Mystic Orb\\nOrb of Annihilation",
+        "name": "Orb of Annihilation",
         "value": 540424230,
         "hexCode": "&86",
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Mystic Orb\\nWarbringer",
+        "name": "Warbringer",
         "value": 540489766,
         "hexCode": "&87",
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Mystic Orb\\nTen Pin Striker",
+        "name": "Ten Pin Striker",
         "value": 540555302,
         "hexCode": "&88",
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Mystic Orb\\nWrathspirit",
+        "name": "Wrathspirit",
         "value": 540620838,
         "hexCode": "&89",
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Mystic Orb\\nCrystal of Tears",
+        "name": "Crystal of Tears",
         "value": 540031270,
         "hexCode": "&90",
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Mystic Orb\\nEssence of Itherael",
+        "name": "Essence of Itherael",
         "value": 540096806,
         "hexCode": "&91",
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Mystic Orb\\nPeriapt of Life",
+        "name": "Periapt of Life",
         "value": 540162342,
         "hexCode": "&92",
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Mystic Orb\\nLodestone",
+        "name": "Lodestone",
         "value": 540227878,
         "hexCode": "&93",
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Mystic Orb\\nExplorer's Globe",
+        "name": "Explorer's Globe",
         "value": 540293414,
         "hexCode": "&94",
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Mystic Orb\\nEye of the Storm",
+        "name": "Eye of the Storm",
         "value": 540358950,
         "hexCode": "&95",
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Mystic Orb\\nInvisible",
+        "name": "Invisible",
         "value": 540424486,
         "hexCode": "&96",
         "description": "Right-Click to Apply"
@@ -7446,7 +7446,7 @@
         "description": "Right-click: Free Attribute Points: %d"
     },
     {
-        "name": "Cube Reagent\\nOil of Augmentation",
+        "name": "Oil of Augmentation",
         "value": 542863409,
         "hexCode": "1p[",
         "description": "75\\nThis oil will upgrade any magic weapon,\\narmor or jewellery item to a rare.\\n\\nDoes not work on Ethereal items.\\n"
@@ -7536,19 +7536,19 @@
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Cube Reagent\\nOil of Disjunction",
+        "name": "Oil of Disjunction",
         "value": 542863154,
         "hexCode": "2o[",
         "description": "80\\nThe Oil of Disjunction will unsocket \\nand return socket fillers from any \\nnon-runeword item.\\n\\nOil + Item\\n--> Item + Socket Fillers\\n"
     },
     {
-        "name": "Cube Reagent\\nOil of Intensity",
+        "name": "Oil of Intensity",
         "value": 542863410,
         "hexCode": "2p[",
         "description": "75\\nUse together with a full shrine to craft\\nor bless a rare item.\\n\\nShrine innate roll minimum value will be\\nincreased.\\n(Roll range reduced by 50%)\\n\\nUsage consumes both ingredients\\n"
     },
     {
-        "name": "Cube Reagent\\nPositronic Brain",
+        "name": "Positronic Brain",
         "value": 540047410,
         "hexCode": "2x0",
         "description": "50\\nPositronic Brains are used to create\\nand charge the Catalyst of Transference.\\n\\n5x Positronic Brain\\n--> Catalyst of Transference\\n\\nCatalyst + Positronic Brains (max 10)\\n--> Catalyst (+1-10 charges)\\n"
@@ -7638,7 +7638,7 @@
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Cube Reagent\\nOil of Enhancement",
+        "name": "Oil of Enhancement",
         "value": 542863156,
         "hexCode": "4o[",
         "description": "70\\nThe Oil of Enhancement can be used to\\ncreate Tiered Unique items.\\n\\nOil + Tiered Item + 2 Arcane Crystals\\n--> Tiered Unique Item\\n"
@@ -7698,7 +7698,7 @@
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Cube Reagent\\nOil of Renewal",
+        "name": "Oil of Renewal",
         "value": 542863157,
         "hexCode": "5o[",
         "description": "80\\nThe Oil of Renewal can be used to roll\\nany other quality to superior, \\nto prepare them for runeword bases.\\n\\nOil + Non-Superior Item\\n--> Superior Item\\n"
@@ -7740,7 +7740,7 @@
         "description": "Right-Click to Apply"
     },
     {
-        "name": "Cube Reagent\\nOil of Luck",
+        "name": "Oil of Luck",
         "value": 542863158,
         "hexCode": "6o[",
         "description": "75\\nThe Oil of Luck has a chance to add \\nan extra bonus to most items.\\n\\nDoes not work on normal/superior items\\n\\nOil + Item\\n--> Item with 20% Chance of Added Bonus\\n(Limit: 1)\\n\\nWeapons: +20% Enhanced Damage\\n                      or\\n+20% Attack Speed if Elemental Base\\nWeapons: 100% Bonus to Attack Rating\\nArmors: +20% Enhanced Defense\\nArmors: Physical Resist +1%\\nAmulets: +1 to All Skills\\nRings: +5% to Spell Damage\\nQuivers: 5% to All Attributes\\nJewels: +2 to Any Stat\\n"
@@ -7776,7 +7776,7 @@
         "description": ""
     },
     {
-        "name": "Cube Reagent\\nOil of Craft",
+        "name": "Oil of Craft",
         "value": 542863159,
         "hexCode": "7o[",
         "description": "90\\nThe Oil of Craft lets you create\\ncontainers of various items:\\n\\nOil + Arcane Crystal\\n--> Arcane Cluster (1)\\n\\nOil + Rune (up to Zod)\\n--> Rune Container (1)\\n\\nOil + Perfect Gem\\n--> Gem Cluster (1)\\n\\nOil + Portable Shrine\\n--> Shrine Vessel (1)\\n\\nOil + Corrupted Crystal\\n--> Corrupted Cluster (1)\\n"
@@ -7812,13 +7812,13 @@
         "description": ""
     },
     {
-        "name": "Cube Reagent\\nOil of Greater Luck",
+        "name": "Oil of Greater Luck",
         "value": 542863161,
         "hexCode": "9o[",
         "description": "75\\nThe Oil of Luck has a chance to add \\nan extra bonus to any item.\\n\\nOil + Item\\n--> Item with 40% Chance of Added Bonus\\n(Limit: 1)\\n\\nWeapons: +20% Enhanced Damage\\n                      or\\n+20% Attack Speed if Elemental Base\\nWeapons: 100% Bonus to Attack Rating\\nArmors: +20% Enhanced Defense\\nArmors: Physical Resist +1%\\nAmulets: +1 to All Skills\\nRings: +5% to Spell Damage\\nQuivers: 5% to All Attributes\\nJewels: +2 to Any Stat\\n"
     },
     {
-        "name": "Cube Reagent\\nDeity's Bow",
+        "name": "Deity's Bow",
         "value": 539173696,
         "hexCode": "@##",
         "description": "very rare Emblems that drop from Monsters\\nRecipes for this Item are Unknown, but said to use\\n"
@@ -9084,7 +9084,7 @@
         "description": "(Limit: 1)\\nMaximum Mana +5%\\nMaximum Life +2%\\n+10 to All Attributes\\n+1 to All Skills\\nCube With Corrupted Wormhole to Add Bonus\\n\\nCube Reagent"
     },
     {
-        "name": "Quest Item\\nTome of Possession",
+        "name": "Tome of Possession",
         "value": 540499036,
         "hexCode": "\\\\7",
         "description": ""
@@ -9180,7 +9180,7 @@
         "description": ""
     },
     {
-        "name": "Right Click to learn skill of your choice\\nBook of Skill",
+        "name": "Book of Skill",
         "value": 544437089,
         "hexCode": "ass",
         "description": ""
@@ -9216,7 +9216,7 @@
         "description": ""
     },
     {
-        "name": "Quest Item\\nScroll of Summoning",
+        "name": "Scroll of Summoning",
         "value": 1479554658,
         "hexCode": "b60X",
         "description": "Horror Under Tristram (Heroic)"
@@ -9228,7 +9228,7 @@
         "description": ""
     },
     {
-        "name": "Quest Item\\nScroll of Summoning",
+        "name": "Scroll of Summoning",
         "value": 1479620194,
         "hexCode": "b61X",
         "description": "Death Projector (Heroic)"
@@ -9240,19 +9240,19 @@
         "description": ""
     },
     {
-        "name": "Quest Item\\nScroll of Summoning",
+        "name": "Scroll of Summoning",
         "value": 1479685730,
         "hexCode": "b62X",
         "description": "Infernal Machine (Heroic)"
     },
     {
-        "name": "Quest Item\\nScroll of Summoning",
+        "name": "Scroll of Summoning",
         "value": 1479751266,
         "hexCode": "b63X",
         "description": "Area Level: 125\\nLibrary of Fate (Heroic)"
     },
     {
-        "name": "Quest Item\\nScroll of Summoning",
+        "name": "Scroll of Summoning",
         "value": 1479816802,
         "hexCode": "b64X",
         "description": "+50% Leech Resist\\n+25% Magic Resist\\n+20% Movement Speed\\n+10% Density\\nMonster modifiers:\\n\\n+25% Angelic Item drops\\n\\nArea Level: 130\\nLibrary of Fate (Heroic)"
@@ -9312,7 +9312,7 @@
         "description": "WARNING: UNCLAIMED REWARDS DUE TO OVERLEVELLING ARE LOST\\nTransmute in the cube at the correct level to get rewards"
     },
     {
-        "name": "(Sorceress Only)\\nMoon Symbol",
+        "name": "Moon Symbol",
         "value": 543375459,
         "hexCode": "c@c",
         "description": "A blessed symbol of the goddess..."
@@ -9360,97 +9360,97 @@
         "description": ""
     },
     {
-        "name": "Quest Item\\nCharged Riftstone (1)",
+        "name": "Charged Riftstone (1)",
         "value": 825258595,
         "hexCode": "cr01",
         "description": "Difficulty: Hard\\nArea Level: 121\\nDimensional Labyrinth 1\\n\\nRight click to open a portal\\n"
     },
     {
-        "name": "Quest Item\\nCharged Riftstone (2)",
+        "name": "Charged Riftstone (2)",
         "value": 842035811,
         "hexCode": "cr02",
         "description": "- Transmute for Full Monster Stats -\\n\\nDifficulty: Hard\\nArea Level: 122\\nDimensional Labyrinth 2\\n\\nRight click to open a portal\\n"
     },
     {
-        "name": "Quest Item\\nCharged Riftstone (3)",
+        "name": "Charged Riftstone (3)",
         "value": 858813027,
         "hexCode": "cr03",
         "description": "- Transmute for Full Monster Stats -\\n\\nDifficulty: Hard\\nArea Level: 123\\nDimensional Labyrinth 3\\n\\nRight click to open a portal\\n"
     },
     {
-        "name": "Quest Item\\nCharged Riftstone (4)",
+        "name": "Charged Riftstone (4)",
         "value": 875590243,
         "hexCode": "cr04",
         "description": "- Transmute for Full Monster Stats -\\n\\nDifficulty: Hard\\nArea Level: 124\\nDimensional Labyrinth 4\\n\\nRight click to open a portal\\n"
     },
     {
-        "name": "Quest Item\\nCharged Riftstone (5)",
+        "name": "Charged Riftstone (5)",
         "value": 892367459,
         "hexCode": "cr05",
         "description": "- Transmute for Full Monster Stats -\\n\\nDifficulty: Hard\\nArea Level: 125\\nDimensional Labyrinth 5\\n\\nRight click to open a portal\\n"
     },
     {
-        "name": "Quest Item\\nCharged Riftstone (1)",
+        "name": "Charged Riftstone (1)",
         "value": 909144675,
         "hexCode": "cr06",
         "description": "- Transmute for Full Monster Stats -\\n\\nDifficulty: Very Hard\\nArea Level: 131\\nDimensional Labyrinth 1\\n\\nRight click to open a portal\\n"
     },
     {
-        "name": "Quest Item\\nCharged Riftstone (2)",
+        "name": "Charged Riftstone (2)",
         "value": 925921891,
         "hexCode": "cr07",
         "description": "- Transmute for Full Monster Stats -\\n\\nDifficulty: Very Hard\\nArea Level: 132\\nDimensional Labyrinth 2\\n\\nRight click to open a portal\\n"
     },
     {
-        "name": "Quest Item\\nCharged Riftstone (3)",
+        "name": "Charged Riftstone (3)",
         "value": 942699107,
         "hexCode": "cr08",
         "description": "- Transmute for Full Monster Stats -\\n\\nDifficulty: Very Hard\\nArea Level: 133\\nDimensional Labyrinth 3\\n\\nRight click to open a portal\\n"
     },
     {
-        "name": "Quest Item\\nCharged Riftstone (4)",
+        "name": "Charged Riftstone (4)",
         "value": 959476323,
         "hexCode": "cr09",
         "description": "- Transmute for Full Monster Stats -\\n\\nDifficulty: Very Hard\\nArea Level: 134\\nDimensional Labyrinth 4\\n\\nRight click to open a portal\\n"
     },
     {
-        "name": "Quest Item\\nCharged Riftstone (5)",
+        "name": "Charged Riftstone (5)",
         "value": 808546915,
         "hexCode": "cr10",
         "description": "- Transmute for Full Monster Stats -\\n\\nDifficulty: Very Hard\\nArea Level: 135\\nDimensional Labyrinth 5\\n\\nRight click to open a portal\\n"
     },
     {
-        "name": "Quest Item\\nCharged Riftstone (6)",
+        "name": "Charged Riftstone (6)",
         "value": 825324131,
         "hexCode": "cr11",
         "description": "- Transmute for Full Monster Stats -\\n\\nDifficulty: Extreme\\nArea Level: 136\\nDimensional Labyrinth 6\\n\\nRight click to open a portal\\n"
     },
     {
-        "name": "Quest Item\\nCharged Riftstone (7)",
+        "name": "Charged Riftstone (7)",
         "value": 842101347,
         "hexCode": "cr12",
         "description": "- Transmute for Full Monster Stats -\\n\\nDifficulty: Extreme\\nArea Level: 137\\nDimensional Labyrinth 7\\n\\nRight click to open a portal\\n"
     },
     {
-        "name": "Quest Item\\nCharged Riftstone (8)",
+        "name": "Charged Riftstone (8)",
         "value": 858878563,
         "hexCode": "cr13",
         "description": "- Transmute for Full Monster Stats -\\n\\nDifficulty: Extreme\\nArea Level: 138\\nDimensional Labyrinth 8\\n\\nRight click to open a portal\\n"
     },
     {
-        "name": "Quest Item\\nCharged Riftstone (9)",
+        "name": "Charged Riftstone (9)",
         "value": 875655779,
         "hexCode": "cr14",
         "description": "- Transmute for Full Monster Stats -\\n\\nDifficulty: Extreme\\nArea Level: 139\\nDimensional Labyrinth 9\\n\\nRight click to open a portal\\n"
     },
     {
-        "name": "Quest Item\\nCharged Riftstone (10)",
+        "name": "Charged Riftstone (10)",
         "value": 892432995,
         "hexCode": "cr15",
         "description": "- Transmute for Full Monster Stats -\\n\\nDifficulty: Extreme\\nArea Level: 140\\nDimensional Labyrinth 10\\n\\nRight click to open a portal\\n"
     },
     {
-        "name": "Quest Item\\nCharged Riftstone (16)",
+        "name": "Charged Riftstone (16)",
         "value": 825389667,
         "hexCode": "cr21",
         "description": "Difficulty: Impossible\\nArea Level: 150\\nThe Heart of Darkness\\n\\nRight click to open a portal\\n"
@@ -9714,97 +9714,97 @@
         "description": "Regenerates 100 life per second for 10 minutes"
     },
     {
-        "name": "Quest Item\\nDepleted Riftstone (1)",
+        "name": "Depleted Riftstone (1)",
         "value": 825258596,
         "hexCode": "dr01",
         "description": "energy source and allow you to investigate further...\\nPerhaps transmuting it in the Horadric Cube could unleash the\\n\\nto resemble the Rift activators you have come to know well\\nIt certainly did not originate on Sanctuary, and yet it appears\\n\\ndread as you sense the latent otherworldly energy seeping from it\\nThe stone emits a faint glow. Holding it in your hand fills you with\\n"
     },
     {
-        "name": "Quest Item\\nDepleted Riftstone (2)",
+        "name": "Depleted Riftstone (2)",
         "value": 842035812,
         "hexCode": "dr02",
         "description": "Transmute in the Cube to Charge\\n"
     },
     {
-        "name": "Quest Item\\nDepleted Riftstone (3)",
+        "name": "Depleted Riftstone (3)",
         "value": 858813028,
         "hexCode": "dr03",
         "description": "Transmute in the Cube to Charge\\n"
     },
     {
-        "name": "Quest Item\\nDepleted Riftstone (4)",
+        "name": "Depleted Riftstone (4)",
         "value": 875590244,
         "hexCode": "dr04",
         "description": "Transmute in the Cube to Charge\\n"
     },
     {
-        "name": "Quest Item\\nDepleted Riftstone (5)",
+        "name": "Depleted Riftstone (5)",
         "value": 892367460,
         "hexCode": "dr05",
         "description": "Transmute in the Cube to Charge\\n"
     },
     {
-        "name": "Quest Item\\nDepleted Riftstone (1)",
+        "name": "Depleted Riftstone (1)",
         "value": 909144676,
         "hexCode": "dr06",
         "description": "Transmute With Arcane Crystal to Charge\\n"
     },
     {
-        "name": "Quest Item\\nDepleted Riftstone (2)",
+        "name": "Depleted Riftstone (2)",
         "value": 925921892,
         "hexCode": "dr07",
         "description": "Transmute With Arcane Crystal to Charge\\n"
     },
     {
-        "name": "Quest Item\\nDepleted Riftstone (3)",
+        "name": "Depleted Riftstone (3)",
         "value": 942699108,
         "hexCode": "dr08",
         "description": "Transmute With Arcane Crystal to Charge\\n"
     },
     {
-        "name": "Quest Item\\nDepleted Riftstone (4)",
+        "name": "Depleted Riftstone (4)",
         "value": 959476324,
         "hexCode": "dr09",
         "description": "Transmute With Arcane Crystal to Charge\\n"
     },
     {
-        "name": "Quest Item\\nDepleted Riftstone (5)",
+        "name": "Depleted Riftstone (5)",
         "value": 808546916,
         "hexCode": "dr10",
         "description": "Transmute With Arcane Crystal to Charge\\n"
     },
     {
-        "name": "Quest Item\\nDepleted Riftstone (6)",
+        "name": "Depleted Riftstone (6)",
         "value": 825324132,
         "hexCode": "dr11",
         "description": "Transmute With Arcane Crystal to Charge\\n"
     },
     {
-        "name": "Quest Item\\nDepleted Riftstone (7)",
+        "name": "Depleted Riftstone (7)",
         "value": 842101348,
         "hexCode": "dr12",
         "description": "Transmute With Arcane Crystal to Charge\\n"
     },
     {
-        "name": "Quest Item\\nDepleted Riftstone (8)",
+        "name": "Depleted Riftstone (8)",
         "value": 858878564,
         "hexCode": "dr13",
         "description": "Transmute With Arcane Crystal to Charge\\n"
     },
     {
-        "name": "Quest Item\\nDepleted Riftstone (9)",
+        "name": "Depleted Riftstone (9)",
         "value": 875655780,
         "hexCode": "dr14",
         "description": "Transmute With Arcane Crystal to Charge\\n"
     },
     {
-        "name": "Quest Item\\nDepleted Riftstone (10)",
+        "name": "Depleted Riftstone (10)",
         "value": 892432996,
         "hexCode": "dr15",
         "description": "Transmute With Arcane Crystal to Charge\\n"
     },
     {
-        "name": "Cube Reagent\\nDark Tome",
+        "name": "Dark Tome",
         "value": 544044132,
         "hexCode": "dtm",
         "description": "+1 to Dark Portal\\nCube with Class Charm to Add Bonus\\n"
@@ -9948,37 +9948,37 @@
         "description": ""
     },
     {
-        "name": "Cube Reagent\\nOil of Greater Alchemy (1)",
+        "name": "Oil of Greater Alchemy (1)",
         "value": 829645413,
         "hexCode": "ebs1",
         "description": "90\\nThe Oil of Greater Alchemy\\nallows you to craft amulets:\\n\\nOil + Set Amulet\\n--> Crafted Amulet\\nwith +1 to All Skills\\n\\nAdd one affix at random:\\n------------------------------\\n20% Movement Speed\\n+200 Life regenerated per Second\\n+15% Innate Elemental Damage\\n+10% Vitality\\n+10% Energy\\n-10% Enemy Elemental Resistances\\n+10% Physical Resist\\n+50% Weapon Physical Damage\\nPoison Length Reduced by 40%\\nCurse Length Reduced by 40%\\n"
     },
     {
-        "name": "Cube Reagent\\nOil of Greater Alchemy (2)",
+        "name": "Oil of Greater Alchemy (2)",
         "value": 846422629,
         "hexCode": "ebs2",
         "description": "90\\nThe Oil of Greater Alchemy\\nallows you to craft amulets:\\n\\nOil + Set Amulet\\n--> Crafted Amulet\\nwith +1 to All Skills\\n\\nAdd one affix at random:\\n------------------------------\\n20% Movement Speed\\n+200 Life regenerated per Second\\n+15% Innate Elemental Damage\\n+10% Vitality\\n+10% Energy\\n-10% Enemy Elemental Resistances\\n+10% Physical Resist\\n+50% Weapon Physical Damage\\nPoison Length Reduced by 40%\\nCurse Length Reduced by 40%\\n"
     },
     {
-        "name": "Cube Reagent\\nOil of Greater Alchemy (3)",
+        "name": "Oil of Greater Alchemy (3)",
         "value": 863199845,
         "hexCode": "ebs3",
         "description": "90\\nThe Oil of Greater Alchemy\\nallows you to craft amulets:\\n\\nOil + Set Amulet\\n--> Crafted Amulet\\nwith +1 to All Skills\\n\\nAdd one affix at random:\\n------------------------------\\n20% Movement Speed\\n+200 Life regenerated per Second\\n+15% Innate Elemental Damage\\n+10% Vitality\\n+10% Energy\\n-10% Enemy Elemental Resistances\\n+10% Physical Resist\\n+50% Weapon Physical Damage\\nPoison Length Reduced by 40%\\nCurse Length Reduced by 40%\\n"
     },
     {
-        "name": "Cube Reagent\\nOil of Lesser Alchemy (1)",
+        "name": "Oil of Lesser Alchemy (1)",
         "value": 829710949,
         "hexCode": "ebt1",
         "description": "90\\nThe Oil of Lesser Alchemy\\nallows you to craft amulets:\\n\\nOil + Set Amulet\\n--> Crafted Amulet\\nwith +1 to All Skills\\n\\nAdd one affix at random:\\n------------------------------\\n10% Movement Speed\\n+100 Life regenerated per Second\\n+7% Innate Elemental Damage\\n+5% Vitality\\n+5% Energy\\n-5% Enemy Elemental Resistances\\n+5% Physical Resist\\n+25% Weapon Physical Damage\\nPoison Length Reduced by 20%\\nCurse Length Reduced by 20%\\n"
     },
     {
-        "name": "Cube Reagent\\nOil of Lesser Alchemy (2)",
+        "name": "Oil of Lesser Alchemy (2)",
         "value": 846488165,
         "hexCode": "ebt2",
         "description": "90\\nThe Oil of Lesser Alchemy\\nallows you to craft amulets:\\n\\nOil + Set Amulet\\n--> Crafted Amulet\\nwith +1 to All Skills\\n\\nAdd one affix at random:\\n------------------------------\\n10% Movement Speed\\n+100 Life regenerated per Second\\n+7% Innate Elemental Damage\\n+5% Vitality\\n+5% Energy\\n-5% Enemy Elemental Resistances\\n+5% Physical Resist\\n+25% Weapon Physical Damage\\nPoison Length Reduced by 20%\\nCurse Length Reduced by 20%\\n"
     },
     {
-        "name": "Cube Reagent\\nOil of Lesser Alchemy (3)",
+        "name": "Oil of Lesser Alchemy (3)",
         "value": 863265381,
         "hexCode": "ebt3",
         "description": "90\\nThe Oil of Lesser Alchemy\\nallows you to craft amulets:\\n\\nOil + Set Amulet\\n--> Crafted Amulet\\nwith +1 to All Skills\\n\\nAdd one affix at random:\\n------------------------------\\n10% Movement Speed\\n+100 Life regenerated per Second\\n+7% Innate Elemental Damage\\n+5% Vitality\\n+5% Energy\\n-5% Enemy Elemental Resistances\\n+5% Physical Resist\\n+25% Weapon Physical Damage\\nPoison Length Reduced by 20%\\nCurse Length Reduced by 20%\\n"
@@ -10668,7 +10668,7 @@
         "description": ""
     },
     {
-        "name": "'The Goblin King'\\nEvent Award:",
+        "name": "Event Award:",
         "value": 543321959,
         "hexCode": "gob",
         "description": ""
@@ -10752,7 +10752,7 @@
         "description": ""
     },
     {
-        "name": "Cube Reagent\\nMark of Infusion",
+        "name": "Mark of Infusion",
         "value": 2020765288,
         "hexCode": "hnrx",
         "description": "which receive Double Bonuses from Mystic Orbs\\nHonorifics are Blank Items with Maximum Sockets\\nCube with Magic or Rare Weapon/Armor to create Honorific Item\\n"
@@ -10818,109 +10818,109 @@
         "description": ""
     },
     {
-        "name": "Keep it to thaw Anya\\nMalah's Potion",
+        "name": "Malah's Potion",
         "value": 543515497,
         "hexCode": "ice",
         "description": ""
     },
     {
-        "name": "Quest Item\\nCharged Riftstone (1)",
+        "name": "Charged Riftstone (1)",
         "value": 825258601,
         "hexCode": "ir01",
         "description": "- Transmute -\\n"
     },
     {
-        "name": "Quest Item\\nCharged Riftstone (2)",
+        "name": "Charged Riftstone (2)",
         "value": 842035817,
         "hexCode": "ir02",
         "description": "- Transmute -\\n\\nMonster Heroes may spawn\\n\\nElemental Resists: +3%\\nDamage: +10%\\nLife: +20%\\n"
     },
     {
-        "name": "Quest Item\\nCharged Riftstone (3)",
+        "name": "Charged Riftstone (3)",
         "value": 858813033,
         "hexCode": "ir03",
         "description": "- Transmute -\\n\\nMonster Heroes may spawn\\nCannot be Chilled or Frozen\\n\\nElemental Resists: +6%\\nDamage: +20%\\nLife: +40%\\n"
     },
     {
-        "name": "Quest Item\\nCharged Riftstone (4)",
+        "name": "Charged Riftstone (4)",
         "value": 875590249,
         "hexCode": "ir04",
         "description": "- Transmute -\\n\\nMonster Heroes may spawn\\nImmune to Crowd Control, Max Slow Effect: 25%\\nCannot be Chilled or Frozen\\n\\nElemental Resists: +9%\\nDamage: +30%\\nLife: +60%\\n"
     },
     {
-        "name": "Quest Item\\nCharged Riftstone (5)",
+        "name": "Charged Riftstone (5)",
         "value": 892367465,
         "hexCode": "ir05",
         "description": "- Transmute -\\n\\nMonster Heroes may spawn\\nImmune to Crushing Blow, 50% Less Poison Duration\\nImmune to Crowd Control, Max Slow Effect: 25%\\nCannot be Chilled or Frozen\\n\\nElemental Resists: +12%\\nDamage: +40%\\nLife: +80%\\n"
     },
     {
-        "name": "Quest Item\\nCharged Riftstone (1)",
+        "name": "Charged Riftstone (1)",
         "value": 909144681,
         "hexCode": "ir06",
         "description": "- Transmute -\\n\\nMonster Heroes and Champions may spawn\\nImmune to Crushing Blow, 50% Less Poison Duration\\nImmune to Crowd Control, Max Slow Effect: 25%\\nAbsorb 50% Fire, Cold and Lightning\\nCannot be Chilled or Frozen\\n\\nElemental Resists: +15%\\nDamage: +50%\\nLife: +100%\\n"
     },
     {
-        "name": "Quest Item\\nCharged Riftstone (2)",
+        "name": "Charged Riftstone (2)",
         "value": 925921897,
         "hexCode": "ir07",
         "description": "- Transmute -\\n\\nMonster Heroes and Champions may spawn\\nImmune to Crushing Blow, 50% Less Poison Duration\\nImmune to Crowd Control, Max Slow Effect: 25%\\nAbsorb 50% Fire, Cold and Lightning\\nCannot be Chilled or Frozen\\nDimensional Tear\\n\\nElemental Resists: +18%\\nMonster Density: +10%\\nDamage: +60%\\nLife: +120%\\n"
     },
     {
-        "name": "Quest Item\\nCharged Riftstone (3)",
+        "name": "Charged Riftstone (3)",
         "value": 942699113,
         "hexCode": "ir08",
         "description": "- Transmute -\\n\\nMonster Heroes and Champions may spawn\\nImmune to Crushing Blow, 50% Less Poison Duration\\nImmune to Crowd Control, Max Slow Effect: 25%\\nAbsorb 50% Fire, Cold and Lightning\\nCannot be Chilled or Frozen\\n70% Leech Resistance\\nDimensional Tear\\n\\nElemental Resists: +21%\\nMonster Density: +10%\\nDamage: +70%\\nLife: +140%\\n"
     },
     {
-        "name": "Quest Item\\nCharged Riftstone (4)",
+        "name": "Charged Riftstone (4)",
         "value": 959476329,
         "hexCode": "ir09",
         "description": "- Transmute -\\n\\nMonster Heroes and Champions may spawn\\nImmune to Crushing Blow, 50% Less Poison Duration\\nImmune to Crowd Control, Max Slow Effect: 25%\\nAbsorb 50% Fire, Cold and Lightning\\nCannot be Chilled or Frozen\\n+20% Movement Speed\\n70% Leech Resistance\\nDimensional Tear\\nCurse Redux\\n\\nElemental Resists: +24%\\nMonster Density: +10%\\nDamage: +80%\\nLife: +160%\\n"
     },
     {
-        "name": "Quest Item\\nCharged Riftstone (5)",
+        "name": "Charged Riftstone (5)",
         "value": 808546921,
         "hexCode": "ir10",
         "description": "- Transmute -\\n\\nMonster Heroes and Champions may spawn\\nImmune to Crushing Blow, 50% Less Poison Duration\\nImmune to Crowd Control, Max Slow Effect: 25%\\nAbsorb 50% Fire, Cold and Lightning\\nCannot be Chilled or Frozen\\n+20% Movement Speed\\n70% Leech Resistance\\nNo Monster Corpses\\nDimensional Tear\\nCurse Redux\\n\\nElemental Resists: +27%\\nMonster Density: +10%\\nDamage: +90%\\nLife: +180%\\n"
     },
     {
-        "name": "Quest Item\\nCharged Riftstone (6)",
+        "name": "Charged Riftstone (6)",
         "value": 825324137,
         "hexCode": "ir11",
         "description": "- Transmute -\\n\\nMonster Heroes, Champions and Sovereigns may spawn\\nImmune to Crushing Blow, 50% Less Poison Duration\\nImmune to Crowd Control, Max Slow Effect: 25%\\nAbsorb 50% Fire, Cold and Lightning\\nCannot be Chilled or Frozen\\n+20% Movement Speed\\n70% Leech Resistance\\nNo Monster Corpses\\nEmpowered Skills\\nDimensional Tear\\nCurse Redux\\n\\nElemental Resists: +30%\\nMonster Density: +10%\\nPack Size: +20%\\nDamage: +100%\\nLife: +200%\\n"
     },
     {
-        "name": "Quest Item\\nCharged Riftstone (7)",
+        "name": "Charged Riftstone (7)",
         "value": 842101353,
         "hexCode": "ir12",
         "description": "- Transmute -\\n\\nMonster Heroes, Champions and Sovereigns may spawn\\nImmune to Crushing Blow, 50% Less Poison Duration\\nImmune to Crowd Control, Max Slow Effect: 25%\\nReduce Player Avoid and Block on Hit\\nAbsorb 50% Fire, Cold and Lightning\\nCannot be Chilled or Frozen\\n+20% Movement Speed\\n70% Leech Resistance\\nNo Monster Corpses\\nEmpowered Skills\\nDimensional Tear\\nCurse Redux\\n\\nElemental Resists: +33%\\nMonster Density: +10%\\nPack Size: +20%\\nDamage: +110%\\nLife: +220%\\n"
     },
     {
-        "name": "Quest Item\\nCharged Riftstone (8)",
+        "name": "Charged Riftstone (8)",
         "value": 858878569,
         "hexCode": "ir13",
         "description": "- Transmute -\\n\\nMonster Heroes, Champions and Sovereigns may spawn\\nImmune to Crushing Blow, 50% Less Poison Duration\\nImmune to Crowd Control, Max Slow Effect: 25%\\nGain 200% of Physical Damage as Elemental\\nReduce Player Avoid and Block on Hit\\nAbsorb 50% Fire, Cold and Lightning\\nCannot be Chilled or Frozen\\n+40% Movement Speed\\n70% Leech Resistance\\nNo Monster Corpses\\nEmpowered Skills\\nDimensional Tear\\nCurse Redux\\n\\nElemental Resists: +36%\\nMonster Density: +10%\\nPack Size: +20%\\nDamage: +120%\\nLife: +240%\\n"
     },
     {
-        "name": "Quest Item\\nCharged Riftstone (9)",
+        "name": "Charged Riftstone (9)",
         "value": 875655785,
         "hexCode": "ir14",
         "description": "- Transmute -\\n\\nMonster Heroes, Champions and Sovereigns may spawn\\nImmune to Crushing Blow, 50% Less Poison Duration\\nImmune to Crowd Control, Max Slow Effect: 25%\\nGain 200% of Physical Damage as Elemental\\nReduce Player Avoid and Block on Hit\\nAbsorb 50% Fire, Cold and Lightning\\nPierce 100% Elemental Resists\\nCannot be Chilled or Frozen\\n+40% Movement Speed\\n70% Leech Resistance\\nNo Monster Corpses\\nEmpowered Skills\\nDimensional Tear\\nCurse Redux\\n\\nElemental Resists: +40%\\nMonster Density: +10%\\nPack Size: +20%\\nDamage: +130%\\nLife: +260%\\n"
     },
     {
-        "name": "Quest Item\\nCharged Riftstone (10)",
+        "name": "Charged Riftstone (10)",
         "value": 892433001,
         "hexCode": "ir15",
         "description": "- Transmute -\\n\\nMonster Heroes, Champions and Sovereigns may spawn\\nImmune to Crushing Blow, 50% Less Poison Duration\\nImmune to Crowd Control, Max Slow Effect: 25%\\nGain 200% of Physical Damage as Elemental\\nReduce Player Avoid and Block on Hit\\nAbsorb 50% Fire, Cold and Lightning\\nPierce 100% Elemental Resists\\nCannot be Chilled or Frozen\\n+40% Movement Speed\\n70% Leech Resistance\\nNo Monster Corpses\\nEmpowered Skills\\nDimensional Tear\\nCurse Redux\\nNemesis\\n\\n\\nElemental Resists: +45%\\nMonster Density: +40%\\nPack Size: +20%\\nDamage: +150%\\nLife: +300%\\n"
     },
     {
-        "name": "Quest Item\\nWhisper of the Damned",
+        "name": "Whisper of the Damned",
         "value": 808940137,
         "hexCode": "ir70",
         "description": "Transmute three Whispers to receive the Call of the Damned"
     },
     {
-        "name": "Quest Item\\nCall of the Damned",
+        "name": "Call of the Damned",
         "value": 892826217,
         "hexCode": "ir75",
         "description": "Works only on Hell difficulty\\nRight click to answer the call of the Damned"
@@ -10932,115 +10932,115 @@
         "description": ""
     },
     {
-        "name": "Occult Effigy\\nCelestial Wind",
+        "name": "Celestial Wind",
         "value": 825782889,
         "hexCode": "ir81",
         "description": "+10 Required Level\\nSet Movement Speed to 40%\\nCube with Boots to Add Bonus\\n\\nCube Reagent"
     },
     {
-        "name": "Occult Effigy\\nSigil of Absolution",
+        "name": "Sigil of Absolution",
         "value": 842560105,
         "hexCode": "ir82",
         "description": "Cannot be Used with Runewords\\n(Max 2 Uses per Item)\\nRequirements +25%\\n-5 Required Level\\nCube with Any Weapon/Armor to Add Bonus\\n\\nCube Reagent"
     },
     {
-        "name": "Occult Effigy\\nPath of Brutality",
+        "name": "Path of Brutality",
         "value": 859337321,
         "hexCode": "ir83",
         "description": "+10 Required Level\\nItem Becomes (Your Class Only)\\nTransforms every +1 to All Skills to +3% Deadly Strike\\nCube with Unique Ring/Amulet to Add Bonus\\n\\nCube Reagent"
     },
     {
-        "name": "Occult Effigy\\nEmpyrean Touch",
+        "name": "Empyrean Touch",
         "value": 876114537,
         "hexCode": "ir84",
         "description": "+10 Required Level\\nItem Becomes Ethereal\\nCube with Any Weapon/Armor to Add Bonus\\n\\nCube Reagent"
     },
     {
-        "name": "Occult Effigy\\nElemental Ire",
+        "name": "Elemental Ire",
         "value": 892891753,
         "hexCode": "ir85",
         "description": "(Max 2 Uses per Item)\\n+5 Required Level\\n1% Chance to cast level 4 Life Spark on Striking\\nCube with a Elemental Ranged Weapon to Add Bonus\\n\\nCube Reagent"
     },
     {
-        "name": "Occult Effigy\\nBreath of Thaumaturgy",
+        "name": "Breath of Thaumaturgy",
         "value": 909668969,
         "hexCode": "ir86",
         "description": "+25 Required Level\\nItem can be blessed Again\\nCube with a Blessed Crafted/Rare Weapon/Armor to Add Bonus\\n\\nCube Reagent"
     },
     {
-        "name": "Occult Effigy\\nElemental Dominion",
+        "name": "Elemental Dominion",
         "value": 926446185,
         "hexCode": "ir87",
         "description": "(Max 2 Uses per Item)\\n+5 Required Level\\n4% Chance to cast level 5 Life Spark on Melee Attack\\nCube with a Elemental Melee Weapon to Add Bonus\\n\\nCube Reagent"
     },
     {
-        "name": "Occult Effigy\\nArcane Hunger",
+        "name": "Arcane Hunger",
         "value": 943223401,
         "hexCode": "ir88",
         "description": "+10 Required Level\\n(Max 1 Use per Item)\\nItem Cannot be Unsocketed\\nAll Life Leech transformed to +20% Spell Damage\\nwith at least 15% Life Leech to Add Bonus\\nCube with a One Handed Weapon\\n\\nCube Reagent"
     },
     {
-        "name": "Occult Effigy\\nDark Summoning",
+        "name": "Dark Summoning",
         "value": 960000617,
         "hexCode": "ir89",
         "description": "+10 Required Level\\n1% Reanimate as: Random Monster\\nCube with Gloves to Add Bonus\\n\\nCube Reagent"
     },
     {
-        "name": "Quest Item\\nDream Fragment (1)",
+        "name": "Dream Fragment (1)",
         "value": 825848425,
         "hexCode": "ir91",
         "description": "And most importantly: to what purpose?\\n\\nclosely match our own. I wonder what eldritch sorcery is involved here.\\non Sanctuary. They appear to be terraforming these dimensions to\\nYet the creatures I have encountered here clearly did not originate\\n\\nThese worlds are both familliar and different at the same time.\\n"
     },
     {
-        "name": "Quest Item\\nDream Fragment (2)",
+        "name": "Dream Fragment (2)",
         "value": 842625641,
         "hexCode": "ir92",
         "description": "Witness me, Ancestors. I who lived honorable and died like a fool.\\n\\nThe one so closely aligned to a line from the sky to the Arreat Summit.\\nCould not make much of it, but a star marked there caught my eye.\\nOne of the mages I slew was carrying the fragment of a scroll.\\n\\nno council. This lack of preparation will now be my end.\\nI entered the Rift like an impetuous whelp, seeking glory and heeding\\nThe filth crumbles swiftly before my axe, but there is no end in sight.\\n"
     },
     {
-        "name": "Quest Item\\nDream Fragment (3)",
+        "name": "Dream Fragment (3)",
         "value": 859402857,
         "hexCode": "ir93",
         "description": "have the upper hand, should the worst come to pass.\\nI imprint this knowledge into my essence so my fellow priests can\\n\\nThis has yielded nothing yet for the fiends are not willing to converse.\\nand thus gain a rudimentary understanding of their language.\\nI managed to assimilate the souls of enough of these creatures\\n\\nThe strands of time flow crooked here, it is hard to focus.\\nyielded something worthwhile today. Or was it yesterday?\\nNavigating this twisted maze, through time and space, has finally\\n"
     },
     {
-        "name": "Quest Item\\nDream Fragment (4)",
+        "name": "Dream Fragment (4)",
         "value": 876180073,
         "hexCode": "ir94",
         "description": "The Keey is not enough! The Door first and then the Command. Yes! Yes!\\n\\nVery powerful, very strong. Live! Live! No paain and promise I keep!\\n\\nSomething for you I am maaking. Again, not kill Gharbad, live and give good.\\n\\nPleease, no hurt, no kill. Keep alive and next time good bring to you.\\n"
     },
     {
-        "name": "Quest Item\\nDream Fragment (5)",
+        "name": "Dream Fragment (5)",
         "value": 892957289,
         "hexCode": "ir95",
         "description": "Do not. Fail me.\\n\\nShould he fail, you must protect the Conclave at all costs.\\n\\nopen to a counter-attack.\\nwill soon assault their world directly. This could leave him\\nSamael has his orders, but he is reckless. Doubtless, he\\n\\nYou will be instrumental to the second phase of my plan.\\n\\nPhoboss,\\n"
     },
     {
-        "name": "Quest Item\\nStar Chart (1)",
+        "name": "Star Chart (1)",
         "value": 909734505,
         "hexCode": "ir96",
         "description": "Until the chart is restored it cannot be read\\n\\nA piece of a scroll, illustrating the night sky\\n"
     },
     {
-        "name": "Quest Item\\nStar Chart (2)",
+        "name": "Star Chart (2)",
         "value": 926511721,
         "hexCode": "ir97",
         "description": "Until the chart is restored it cannot be read\\n\\nA piece of a scroll, illustrating the night sky\\n"
     },
     {
-        "name": "Quest Item\\nStar Chart (3)",
+        "name": "Star Chart (3)",
         "value": 943288937,
         "hexCode": "ir98",
         "description": "Until the chart is restored it cannot be read\\n\\nA piece of a scroll, illustrating the night sky\\n"
     },
     {
-        "name": "Quest Item\\nStar Chart (4)",
+        "name": "Star Chart (4)",
         "value": 960066153,
         "hexCode": "ir99",
         "description": "Until the chart is restored it cannot be read\\n\\nA piece of a scroll, illustrating the night sky\\n"
     },
     {
-        "name": "Quest Item\\nCompleted Star Chart",
+        "name": "Completed Star Chart",
         "value": 1480159849,
         "hexCode": "ir9X",
         "description": "Further investigation of the most powerful denizens of the Labyrinth could reveal more\\n\\nThe scroll must be a guide to this world, yet the instructions are unknown to you\\n\\n|\\?_   &SQ' ZV'' VZ'''    _>/-   NY.***UN XZ.**UN WS\\/T.*UN\\n\\none of the celestial bodies is circled in red ink, with a line of runes adjacent:\\nThe full chart presents an incredibly detailed overview of the night sky\\n"
@@ -11082,13 +11082,13 @@
         "description": "80\\nLord of Lies Trophy Challenge\\nRequirements: \\nKill Belial without dying\\nAll of Belial's clones must die before him\\n\\nCube The Book of Lies within 10 seconds\\nGrants: \\nWeapon Physical Damage +20%\\nLocked to current character class\\n"
     },
     {
-        "name": "Quest Item\\nKey of Sin",
+        "name": "Key of Sin",
         "value": 1836736875,
         "hexCode": "kazm",
         "description": "Summon a Portal to The Realm of Sin..."
     },
     {
-        "name": "Quest Item\\nKey of Lies",
+        "name": "Key of Lies",
         "value": 1818583659,
         "hexCode": "kbel",
         "description": "Summon a Portal to The Realm of Lies..."
@@ -11100,7 +11100,7 @@
         "description": ""
     },
     {
-        "name": "Quest Item\\nMind Warp",
+        "name": "Mind Warp",
         "value": 1969317483,
         "hexCode": "kfau",
         "description": "Open a Rift to Fauztinville..."
@@ -11160,25 +11160,25 @@
         "description": "The Way will be made clear, stand ready\\n\\nGreater Signet of Learning\\nIt must now be imbued with Great Knowledge\\n\\nThe Worldstone crystal has been reforged"
     },
     {
-        "name": "Quest Item\\nDimensional Link",
+        "name": "Dimensional Link",
         "value": 2020570219,
         "hexCode": "ktox",
         "description": "Only works in Act 5\\nSummon a Portal to the Edge of Nothingness..."
     },
     {
-        "name": "Quest Item\\nOtherworldly Link",
+        "name": "Otherworldly Link",
         "value": 2020635755,
         "hexCode": "ktpx",
         "description": "Only works in Act 5\\nSummon a Portal to the Dimensional Plane..."
     },
     {
-        "name": "Cube Reagent\\nAscendant Riftwalker Essence",
+        "name": "Ascendant Riftwalker Essence",
         "value": 2021160043,
         "hexCode": "ktxx",
         "description": "Maximum Elemental Resists +1%\\nCube with your Riftwalker's Eye to Add Bonus\\n"
     },
     {
-        "name": "Cube Reagent\\nGreater Riftwalker Essence",
+        "name": "Greater Riftwalker Essence",
         "value": 2021225579,
         "hexCode": "ktyx",
         "description": "+1 to All Skill Levels\\nCube with your Riftwalker's Eye to Add Bonus\\n"
@@ -11190,7 +11190,7 @@
         "description": ""
     },
     {
-        "name": "Quest Item\\nSkinrender's Sigil",
+        "name": "Skinrender's Sigil",
         "value": 543965292,
         "hexCode": "l@l",
         "description": "Cube All 5 Sigils with Ring of the Five\\n"
@@ -11202,13 +11202,13 @@
         "description": "65\\n- Runewords can now be corrupted\\n"
     },
     {
-        "name": "'The Last Man Standing'\\nEvent Award:",
+        "name": "Event Award:",
         "value": 544435564,
         "hexCode": "lms",
         "description": ""
     },
     {
-        "name": "'Season 36: Pandemonium'\\nEvent Award:",
+        "name": "Event Award:",
         "value": 544894316,
         "hexCode": "lmz",
         "description": ""
@@ -11220,7 +11220,7 @@
         "description": "80\\nJudgement Day Trophy Challenge\\nRequirements: \\nKill both Imperius and Malthael within \\n60 seconds of the hooded figure \\ndisappearing\\nDo not die\\n\\nCube the Crystalline Flame Medallion \\nwithin the time limit\\nGrants: \\n5% to All Attributes\\nLocked to current character class\\n"
     },
     {
-        "name": "(Restored)\\nTreasure of Fiacla Gear",
+        "name": "Treasure of Fiacla Gear",
         "value": 2019718252,
         "hexCode": "ltbx",
         "description": "Transmute in the Cube to Open"
@@ -11232,49 +11232,49 @@
         "description": ""
     },
     {
-        "name": "Quest Item\\nSpinecracker's Sigil",
+        "name": "Spinecracker's Sigil",
         "value": 544030829,
         "hexCode": "m@m",
         "description": "Cube All 5 Sigils with Ring of the Five\\n"
     },
     {
-        "name": "Cube Reagent\\nMirror of Shadows",
+        "name": "Mirror of Shadows",
         "value": 829648749,
         "hexCode": "mos1",
         "description": "+1 to Amazon Skill Levels\\nPhysical Damage Reduced by 5\\nCube with Sacred Sunstone to Add Bonus\\n\\n(Amazon Only)"
     },
     {
-        "name": "Cube Reagent\\nMirror of Shadows",
+        "name": "Mirror of Shadows",
         "value": 846425965,
         "hexCode": "mos2",
         "description": "+1 to Assassin Skill Levels\\nPhysical Damage Reduced by 5\\nCube with Shadow Vortex to Add Bonus\\n\\n(Assassin Only)"
     },
     {
-        "name": "Cube Reagent\\nMirror of Shadows",
+        "name": "Mirror of Shadows",
         "value": 863203181,
         "hexCode": "mos3",
         "description": "+1 to Barbarian Skill Levels\\nPhysical Damage Reduced by 5\\nCube with Worldstone Orb to Add Bonus\\n\\n(Barbarian Only)"
     },
     {
-        "name": "Cube Reagent\\nMirror of Shadows",
+        "name": "Mirror of Shadows",
         "value": 879980397,
         "hexCode": "mos4",
         "description": "+1 to Druid Skill Levels\\nPhysical Damage Reduced by 5\\nCube with Caoi Dulra Fruit to Add Bonus\\n\\n(Druid Only)"
     },
     {
-        "name": "Cube Reagent\\nMirror of Shadows",
+        "name": "Mirror of Shadows",
         "value": 896757613,
         "hexCode": "mos5",
         "description": "+1 to Necromancer Skill Levels\\nPhysical Damage Reduced by 5\\nCube with Soulstone Shard to Add Bonus\\n\\n(Necromancer Only)"
     },
     {
-        "name": "Cube Reagent\\nMirror of Shadows",
+        "name": "Mirror of Shadows",
         "value": 913534829,
         "hexCode": "mos6",
         "description": "+1 to Paladin Skill Levels\\nPhysical Damage Reduced by 5\\nCube with Eye of Divinity to Add Bonus\\n\\n(Paladin Only)"
     },
     {
-        "name": "Cube Reagent\\nMirror of Shadows",
+        "name": "Mirror of Shadows",
         "value": 930312045,
         "hexCode": "mos7",
         "description": "+1 to Sorceress Skill Levels\\nPhysical Damage Reduced by 5\\nCube with Nexus Crystal to Add Bonus\\n\\n(Sorceress Only)"
@@ -11316,7 +11316,7 @@
         "description": ""
     },
     {
-        "name": "Quest Item\\nEyegouger's Sigil",
+        "name": "Eyegouger's Sigil",
         "value": 544161903,
         "hexCode": "o@o",
         "description": "Cube All 5 Sigils with Ring of the Five\\n"
@@ -11328,13 +11328,13 @@
         "description": "(Better items and more gold cost the higher the rune)\\nRestore Gold Cost: 20,000 - 500,000\\nCube with Arcane Crystal and Enchanted Rune to Restore"
     },
     {
-        "name": "Cube Reagent\\nOil of Conjuration",
+        "name": "Oil of Conjuration",
         "value": 543387503,
         "hexCode": "ooc",
         "description": "70\\nThe Oil of Conjuration has a chance to \\nadd an extra bonus to caster weapons, \\ninstead of using the lucky recipe.\\n\\nOil + Weapon\\n--> Item with 2/5 Chance of Added Bonus\\n(Limit: 1)\\n\\nWeapons: +10% Spell Damage\\n"
     },
     {
-        "name": "Quest Item\\nFleshcutter's Sigil",
+        "name": "Fleshcutter's Sigil",
         "value": 544227440,
         "hexCode": "p@p",
         "description": "Cube All 5 Sigils with Ring of the Five\\n"
@@ -11346,7 +11346,7 @@
         "description": "Do NOT tell anyone what you just saw\\nThese cherries will take you back home safely"
     },
     {
-        "name": "Quest Item\\nBonehexer's Sigil",
+        "name": "Bonehexer's Sigil",
         "value": 544292977,
         "hexCode": "q@q",
         "description": "Cube All 5 Sigils with Ring of the Five\\n"
@@ -11382,31 +11382,31 @@
         "description": "Transmute to Unlock Reward\\nReward for Defeating Hell Baal"
     },
     {
-        "name": "Cube Reagent\\nArcane Shards (2)",
+        "name": "Arcane Shards (2)",
         "value": 540177777,
         "hexCode": "qu2",
         "description": "90\\nCreating Arcane Crystals:\\n\\n5 Arcane Shards\\n--> Arcane Crystal\\n"
     },
     {
-        "name": "Cube Reagent\\nArcane Shards (3)",
+        "name": "Arcane Shards (3)",
         "value": 540243313,
         "hexCode": "qu3",
         "description": "90\\nCreating Arcane Crystals:\\n\\n5 Arcane Shards\\n--> Arcane Crystal\\n"
     },
     {
-        "name": "Cube Reagent\\nArcane Shards (4)",
+        "name": "Arcane Shards (4)",
         "value": 540308849,
         "hexCode": "qu4",
         "description": "90\\nCreating Arcane Crystals:\\n\\n5 Arcane Shards\\n--> Arcane Crystal\\n"
     },
     {
-        "name": "Cube Reagent\\nArcane Shards (1)",
+        "name": "Arcane Shards (1)",
         "value": 543978865,
         "hexCode": "qul",
         "description": "90\\nCreating Arcane Crystals:\\n\\n5 Arcane Shards\\n--> Arcane Crystal\\n"
     },
     {
-        "name": "Cube Reagent\\nArcane Crystal",
+        "name": "Arcane Crystal",
         "value": 544044401,
         "hexCode": "qum",
         "description": "80 \\nArcane Crystals let you create and\\nupgrade Tiered (#) Uniques:\\n\\n2 Crystals + Tiered Item + Oil of Ench.\\n--> Tiered Unique Item\\n\\n1 Crystal + Tiered Unique\\n--> Increased Tier\\n\\nShrine Blessing:\\nYou can bless Sacred Crafted, Honorific \\nand Rare Items for extra bonuses.\\n\\n2 Crystals + Item + Shrine\\n--> Item with Added Bonuses\\n(Limit: 1)\\n"
@@ -11610,91 +11610,91 @@
         "description": ""
     },
     {
-        "name": "Great Rune\\nTaha Rune",
+        "name": "Taha Rune",
         "value": 540095858,
         "hexCode": "r51",
         "description": ""
     },
     {
-        "name": "Great Rune\\nGhal Rune",
+        "name": "Ghal Rune",
         "value": 540161394,
         "hexCode": "r52",
         "description": ""
     },
     {
-        "name": "Great Rune\\nQor Rune",
+        "name": "Qor Rune",
         "value": 540226930,
         "hexCode": "r53",
         "description": ""
     },
     {
-        "name": "Great Rune\\nKrys Rune",
+        "name": "Krys Rune",
         "value": 540292466,
         "hexCode": "r54",
         "description": ""
     },
     {
-        "name": "Great Rune\\nAuhe Rune",
+        "name": "Auhe Rune",
         "value": 540358002,
         "hexCode": "r55",
         "description": ""
     },
     {
-        "name": "Great Rune\\nSha'ad Rune",
+        "name": "Sha'ad Rune",
         "value": 540423538,
         "hexCode": "r56",
         "description": ""
     },
     {
-        "name": "Elemental Rune\\nFire Rune",
+        "name": "Fire Rune",
         "value": 540489074,
         "hexCode": "r57",
         "description": ""
     },
     {
-        "name": "Elemental Rune\\nStone Rune",
+        "name": "Stone Rune",
         "value": 540554610,
         "hexCode": "r58",
         "description": ""
     },
     {
-        "name": "Elemental Rune\\nArcane Rune",
+        "name": "Arcane Rune",
         "value": 540620146,
         "hexCode": "r59",
         "description": ""
     },
     {
-        "name": "Elemental Rune\\nPoison Rune",
+        "name": "Poison Rune",
         "value": 540030578,
         "hexCode": "r60",
         "description": ""
     },
     {
-        "name": "Elemental Rune\\nLight Rune",
+        "name": "Light Rune",
         "value": 540096114,
         "hexCode": "r61",
         "description": ""
     },
     {
-        "name": "Elemental Rune\\nIce Rune",
+        "name": "Ice Rune",
         "value": 540161650,
         "hexCode": "r62",
         "description": ""
     },
     {
-        "name": "Enchanted Rune\\nXis Rune",
+        "name": "Xis Rune",
         "value": 540555634,
         "hexCode": "r98",
         "description": "Can be Cubed with Low Rune"
     },
     {
-        "name": "Primal Rune\\nRunestone",
+        "name": "Runestone",
         "value": 540621170,
         "hexCode": "r99",
         "description": ""
     },
     {
-        "name": "Quest Item\\nRing of the Five",
+        "name": "Ring of the Five",
         "value": 544358514,
         "hexCode": "r@r",
         "description": "Cube All 5 Sigils with Ring of the Five\\n"
@@ -11922,1087 +11922,1087 @@
         "description": "Duration: 7 seconds\\nRegenerate Mana +125%\\nRegenerates 12% of Maximum Life (up to 15 000) per second"
     },
     {
-        "name": "Enchanted Rune (01)\\nOl Rune",
+        "name": "Ol Rune",
         "value": 825260146,
         "hexCode": "rx01",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (02)\\nElq Rune",
+        "name": "Elq Rune",
         "value": 842037362,
         "hexCode": "rx02",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (03)\\nTyr Rune",
+        "name": "Tyr Rune",
         "value": 858814578,
         "hexCode": "rx03",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (04)\\nNif Rune",
+        "name": "Nif Rune",
         "value": 875591794,
         "hexCode": "rx04",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (05)\\nXeth Rune",
+        "name": "Xeth Rune",
         "value": 892369010,
         "hexCode": "rx05",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (06)\\nXith Rune",
+        "name": "Xith Rune",
         "value": 909146226,
         "hexCode": "rx06",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (07)\\nThal Rune",
+        "name": "Thal Rune",
         "value": 925923442,
         "hexCode": "rx07",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (08)\\nRhal Rune",
+        "name": "Rhal Rune",
         "value": 942700658,
         "hexCode": "rx08",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (09)\\nUrt Rune",
+        "name": "Urt Rune",
         "value": 959477874,
         "hexCode": "rx09",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (10)\\nTuul Rune",
+        "name": "Tuul Rune",
         "value": 808548466,
         "hexCode": "rx10",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (11)\\nAhmn Rune",
+        "name": "Ahmn Rune",
         "value": 825325682,
         "hexCode": "rx11",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (12)\\nZol Rune",
+        "name": "Zol Rune",
         "value": 842102898,
         "hexCode": "rx12",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (13)\\nShaen Rune",
+        "name": "Shaen Rune",
         "value": 858880114,
         "hexCode": "rx13",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (14)\\nDoj Rune",
+        "name": "Doj Rune",
         "value": 875657330,
         "hexCode": "rx14",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (15)\\nHem Rune",
+        "name": "Hem Rune",
         "value": 892434546,
         "hexCode": "rx15",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (16)\\nIu Rune",
+        "name": "Iu Rune",
         "value": 909211762,
         "hexCode": "rx16",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (17)\\nLux Rune",
+        "name": "Lux Rune",
         "value": 925988978,
         "hexCode": "rx17",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (18)\\nKa Rune",
+        "name": "Ka Rune",
         "value": 942766194,
         "hexCode": "rx18",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (19)\\nFel Rune",
+        "name": "Fel Rune",
         "value": 959543410,
         "hexCode": "rx19",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (20)\\nLew Rune",
+        "name": "Lew Rune",
         "value": 808614002,
         "hexCode": "rx20",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (21)\\nPhul Rune",
+        "name": "Phul Rune",
         "value": 825391218,
         "hexCode": "rx21",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (22)\\nUn Rune",
+        "name": "Un Rune",
         "value": 842168434,
         "hexCode": "rx22",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (23)\\nMhal Rune",
+        "name": "Mhal Rune",
         "value": 858945650,
         "hexCode": "rx23",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (24)\\nYst Rune",
+        "name": "Yst Rune",
         "value": 875722866,
         "hexCode": "rx24",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (25)\\nGur Rune",
+        "name": "Gur Rune",
         "value": 892500082,
         "hexCode": "rx25",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (26)\\nVez Rune",
+        "name": "Vez Rune",
         "value": 909277298,
         "hexCode": "rx26",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (27)\\nOhn Rune",
+        "name": "Ohn Rune",
         "value": 926054514,
         "hexCode": "rx27",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (28)\\nLoz Rune",
+        "name": "Loz Rune",
         "value": 942831730,
         "hexCode": "rx28",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (29)\\nZur Rune",
+        "name": "Zur Rune",
         "value": 959608946,
         "hexCode": "rx29",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (30)\\nBur Rune",
+        "name": "Bur Rune",
         "value": 808679538,
         "hexCode": "rx30",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (31)\\nIah Rune",
+        "name": "Iah Rune",
         "value": 825456754,
         "hexCode": "rx31",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (32)\\nYham Rune",
+        "name": "Yham Rune",
         "value": 842233970,
         "hexCode": "rx32",
         "description": ""
     },
     {
-        "name": "Enchanted Rune (33)\\nXod Rune",
+        "name": "Xod Rune",
         "value": 859011186,
         "hexCode": "rx33",
         "description": ""
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 825241715,
         "hexCode": "s001",
         "description": "Celestia's Charge"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 842018931,
         "hexCode": "s002",
         "description": "Celestia's Passion"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 858796147,
         "hexCode": "s003",
         "description": "Celestia's Ribbon"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 875573363,
         "hexCode": "s004",
         "description": "Celestia's Wings"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 892350579,
         "hexCode": "s005",
         "description": "Earth"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 909127795,
         "hexCode": "s006",
         "description": "Fire"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 925905011,
         "hexCode": "s007",
         "description": "Frost"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 942682227,
         "hexCode": "s008",
         "description": "Water"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 959459443,
         "hexCode": "s009",
         "description": "Red Vex' Curse"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 808530035,
         "hexCode": "s010",
         "description": "Red Vex' Flayer"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 825307251,
         "hexCode": "s011",
         "description": "Red Vex' Idol"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 842084467,
         "hexCode": "s012",
         "description": "Red Vex' Sin"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 858861683,
         "hexCode": "s013",
         "description": "Vasily's Crescent"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 875638899,
         "hexCode": "s014",
         "description": "Vasily's Eclipse"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 892416115,
         "hexCode": "s015",
         "description": "Vasily's Falling Star"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 909193331,
         "hexCode": "s016",
         "description": "Vasily's Shepherd Moon"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 925970547,
         "hexCode": "s017",
         "description": "Zerae's Holy Wrath"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 942747763,
         "hexCode": "s018",
         "description": "Zerae's Redemption"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 959524979,
         "hexCode": "s019",
         "description": "Zerae's Refinement"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 808595571,
         "hexCode": "s020",
         "description": "Zerae's Vindication"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 825372787,
         "hexCode": "s021",
         "description": "Tracker's Effigy"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 842150003,
         "hexCode": "s022",
         "description": "Tracker's Runeward"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 858927219,
         "hexCode": "s023",
         "description": "Tracker's Stealth"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 875704435,
         "hexCode": "s024",
         "description": "Tracker's Strike"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 892481651,
         "hexCode": "s025",
         "description": "Serpent's Coil"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 909258867,
         "hexCode": "s026",
         "description": "Serpent's Fangs"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 926036083,
         "hexCode": "s027",
         "description": "Serpent's Tail"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 942813299,
         "hexCode": "s028",
         "description": "Serpent's Tongue"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 959590515,
         "hexCode": "s029",
         "description": "Dead Lens"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 808661107,
         "hexCode": "s030",
         "description": "Hypersurface"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 825438323,
         "hexCode": "s031",
         "description": "Killing Vector"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 842215539,
         "hexCode": "s032",
         "description": "Quantum Bevel"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 858992755,
         "hexCode": "s033",
         "description": "Vizjun's Engine"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 875769971,
         "hexCode": "s034",
         "description": "Vizjun's Foresight"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 892547187,
         "hexCode": "s035",
         "description": "Vizjun's Monitor"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 909324403,
         "hexCode": "s036",
         "description": "Vizjun's Science"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 926101619,
         "hexCode": "s037",
         "description": "Witchhunter's Crucifix"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 942878835,
         "hexCode": "s038",
         "description": "Witchhunter's Faith"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 959656051,
         "hexCode": "s039",
         "description": "Witchhunter's Hood"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 808726643,
         "hexCode": "s040",
         "description": "Witchhunter's Ire"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 825503859,
         "hexCode": "s041",
         "description": "Hunter's Camouflage"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 842281075,
         "hexCode": "s042",
         "description": "Hunter's Claw Fist"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 859058291,
         "hexCode": "s043",
         "description": "Hunter's Skin"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 875835507,
         "hexCode": "s044",
         "description": "Hunter's Trackless Step"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 892612723,
         "hexCode": "s045",
         "description": "Bear's Warding"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 909389939,
         "hexCode": "s046",
         "description": "Snake's Battle Chant"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 926167155,
         "hexCode": "s047",
         "description": "The Coming Storm"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 942944371,
         "hexCode": "s048",
         "description": "Wolf's Fang"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 959721587,
         "hexCode": "s049",
         "description": "Avalanche"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 808792179,
         "hexCode": "s050",
         "description": "Eruption"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 825569395,
         "hexCode": "s051",
         "description": "Ravine"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 842346611,
         "hexCode": "s052",
         "description": "Snowstorm"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 859123827,
         "hexCode": "s053",
         "description": "Destiny"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 875901043,
         "hexCode": "s054",
         "description": "Sacred Charge"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 892678259,
         "hexCode": "s055",
         "description": "The Guardian"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 909455475,
         "hexCode": "s056",
         "description": "The Protector"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 926232691,
         "hexCode": "s057",
         "description": "Ancient Bronze"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 943009907,
         "hexCode": "s058",
         "description": "Grey Ranger"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 959787123,
         "hexCode": "s059",
         "description": "Steppe Sleeper"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 808857715,
         "hexCode": "s060",
         "description": "Vale Hunter"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 825634931,
         "hexCode": "s061",
         "description": "Marchosias' Anger"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 842412147,
         "hexCode": "s062",
         "description": "Marchosias' Evil Grin"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 859189363,
         "hexCode": "s063",
         "description": "Marchosias' Hatred"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 875966579,
         "hexCode": "s064",
         "description": "Marchosias' Might"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 892743795,
         "hexCode": "s065",
         "description": "Nature's Embrace"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 909521011,
         "hexCode": "s066",
         "description": "Nature's Vigil"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 926298227,
         "hexCode": "s067",
         "description": "Nature's Will"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 943075443,
         "hexCode": "s068",
         "description": "Nature's Wrath"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 959852659,
         "hexCode": "s069",
         "description": "Scosglen's History"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 808923251,
         "hexCode": "s070",
         "description": "Scosglen's Legends"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 825700467,
         "hexCode": "s071",
         "description": "Scosglen's Myths"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 842477683,
         "hexCode": "s072",
         "description": "Scosglen's Tales"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 859254899,
         "hexCode": "s073",
         "description": "Lone Wolf's Claws"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 876032115,
         "hexCode": "s074",
         "description": "Lone Wolf's Fur"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 892809331,
         "hexCode": "s075",
         "description": "Lone Wolf's Maul"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 909586547,
         "hexCode": "s076",
         "description": "Lone Wolf's Track"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 926363763,
         "hexCode": "s077",
         "description": "Emerald Cloud"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 943140979,
         "hexCode": "s078",
         "description": "Emerald Earth"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 959918195,
         "hexCode": "s079",
         "description": "Emerald Flower"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 808988787,
         "hexCode": "s080",
         "description": "Emerald Sky"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 825766003,
         "hexCode": "s081",
         "description": "Thorn"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 842543219,
         "hexCode": "s082",
         "description": "Shell"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 859320435,
         "hexCode": "s083",
         "description": "Breath"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 876097651,
         "hexCode": "s084",
         "description": "Branches"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 892874867,
         "hexCode": "s085",
         "description": "Achilios' Eagle Eye"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 909652083,
         "hexCode": "s086",
         "description": "Achilios' Refuge"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 926429299,
         "hexCode": "s087",
         "description": "Achilios' Sledgehammer"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 943206515,
         "hexCode": "s088",
         "description": "Achilios' Stealth"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 959983731,
         "hexCode": "s089",
         "description": "The Dragon Grave"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 809054323,
         "hexCode": "s090",
         "description": "Giyua's Sacrum"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 825831539,
         "hexCode": "s091",
         "description": "Femur of the Prophet"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 842608755,
         "hexCode": "s092",
         "description": "The Trickster"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 859385971,
         "hexCode": "s093",
         "description": "Rathma's Chase"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 876163187,
         "hexCode": "s094",
         "description": "Rathma's Death Gaze"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 892940403,
         "hexCode": "s095",
         "description": "Rathma's Skeleton"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 909717619,
         "hexCode": "s096",
         "description": "Rathma's Tyranny"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 926494835,
         "hexCode": "s097",
         "description": "Till We Have Heaven In Sight"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 943272051,
         "hexCode": "s098",
         "description": "Through Death's Veil"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 960049267,
         "hexCode": "s099",
         "description": "Lend Me Thy Light"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 808464755,
         "hexCode": "s100",
         "description": "Archangel Dark Angel"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 825241971,
         "hexCode": "s101",
         "description": "Tower Defense"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 842019187,
         "hexCode": "s102",
         "description": "Tower Denial"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 858796403,
         "hexCode": "s103",
         "description": "Tower Rush"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 875573619,
         "hexCode": "s104",
         "description": "Tower Wall"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 892350835,
         "hexCode": "s105",
         "description": "Cinadide's Anvil"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 909128051,
         "hexCode": "s106",
         "description": "Cinadide's Bellows"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 925905267,
         "hexCode": "s107",
         "description": "Cinadide's Bender"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 942682483,
         "hexCode": "s108",
         "description": "Cinadide's Malus"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 959459699,
         "hexCode": "s109",
         "description": "Hadriel's Avenger"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 808530291,
         "hexCode": "s110",
         "description": "Hadriel's Presence"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 825307507,
         "hexCode": "s111",
         "description": "Hadriel's Pure Heart"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 842084723,
         "hexCode": "s112",
         "description": "Hadriel's Wings"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 858861939,
         "hexCode": "s113",
         "description": "Imperius' Aura"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 875639155,
         "hexCode": "s114",
         "description": "Imperius' Radiance"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 892416371,
         "hexCode": "s115",
         "description": "Imperius' Sky Hammer"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 909193587,
         "hexCode": "s116",
         "description": "Imperius' Winged Feet"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 925970803,
         "hexCode": "s117",
         "description": "Malthael's Crown"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 942748019,
         "hexCode": "s118",
         "description": "Malthael's Halo"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 959525235,
         "hexCode": "s119",
         "description": "Malthael's Ward"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 808595827,
         "hexCode": "s120",
         "description": "Malthael's Wrath"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 825373043,
         "hexCode": "s121",
         "description": "Yaerius' Simulacrum"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 842150259,
         "hexCode": "s122",
         "description": "Yaerius' Mediation"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 858927475,
         "hexCode": "s123",
         "description": "Yaerius' Untruth"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 875704691,
         "hexCode": "s124",
         "description": "Yaerius' Alembic"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 892481907,
         "hexCode": "s125",
         "description": "Dyad"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 909259123,
         "hexCode": "s126",
         "description": "Monad"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 926036339,
         "hexCode": "s127",
         "description": "Tetrad"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 942813555,
         "hexCode": "s128",
         "description": "Triad"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 959590771,
         "hexCode": "s129",
         "description": "Elemental Clash"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 808661363,
         "hexCode": "s130",
         "description": "Elemental Fury"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 825438579,
         "hexCode": "s131",
         "description": "Elemental Spirit"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 842215795,
         "hexCode": "s132",
         "description": "Elemental Storm"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 858993011,
         "hexCode": "s133",
         "description": "Cauldron"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 875770227,
         "hexCode": "s134",
         "description": "Pentacle"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 892547443,
         "hexCode": "s135",
         "description": "Sacred Circle"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 909324659,
         "hexCode": "s136",
         "description": "Witchblade"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 926101875,
         "hexCode": "s137",
         "description": "Warmage's Breath"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 942879091,
         "hexCode": "s138",
         "description": "Warmage's Fireblade"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 959656307,
         "hexCode": "s139",
         "description": "Warmage's Flameshroud"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 808726899,
         "hexCode": "s140",
         "description": "Warmage's Wake"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 825504115,
         "hexCode": "s141",
         "description": "Zann Esu's Binding Circle"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 842281331,
         "hexCode": "s142",
         "description": "Zann Esu's Charm"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 859058547,
         "hexCode": "s143",
         "description": "Zann Esu's Robes"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 875835763,
         "hexCode": "s144",
         "description": "Zann Esu's Rune Loop"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 892612979,
         "hexCode": "s145",
         "description": "Vizjerei Judgment"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 909390195,
         "hexCode": "s146",
         "description": "Vizjerei Brilliance"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 926167411,
         "hexCode": "s147",
         "description": "Vizjerei Grip"
     },
     {
-        "name": "Cube with Two Arcane Crystals to create Set Item\\nExplorer's Cache",
+        "name": "Explorer's Cache",
         "value": 942944627,
         "hexCode": "s148",
         "description": "Vizjerei Cloak"
@@ -13014,7 +13014,7 @@
         "description": ""
     },
     {
-        "name": "Quest Item\\nAskari Call",
+        "name": "Askari Call",
         "value": 1752457587,
         "hexCode": "sath",
         "description": "Location: Island of Skartara (Heart)\\nSummon Athulua, the Amazonian Goddess"
@@ -13050,67 +13050,67 @@
         "description": "60\\n(4/4)\\n\\nThese four diary pages you've collected \\ncan be combined together and \\ntransmuted into the final design for the \\nDulra Aegis.\\n\\nOnce you have the Dulra Aegis, you will\\nneed a special ingredient to breach into\\nBaal's refuge. You need to travel to the\\ncemetery at the East and look deep. The \\nAegis will require much conjuring power.\\n\\nWhen you are ready to fight him, head\\nto the Ancient Circle at the North East. \\nBeware as he has control over the \\nnatural elements, you're not fighting \\nonly him but also the twisted wrath of \\nthese lands.\\n\\nIt is now time to face our greatest \\nenemy. Prepare.\\n"
     },
     {
-        "name": "Quest Item\\nTenet of Harmony",
+        "name": "Tenet of Harmony",
         "value": 828793715,
         "hexCode": "scf1",
         "description": ""
     },
     {
-        "name": "Quest Item\\nTenet of Restraint",
+        "name": "Tenet of Restraint",
         "value": 845570931,
         "hexCode": "scf2",
         "description": ""
     },
     {
-        "name": "Quest Item\\nTenet of Vigor",
+        "name": "Tenet of Vigor",
         "value": 862348147,
         "hexCode": "scf3",
         "description": ""
     },
     {
-        "name": "Quest Item\\nTenet of Wisdom",
+        "name": "Tenet of Wisdom",
         "value": 879125363,
         "hexCode": "scf4",
         "description": ""
     },
     {
-        "name": "Quest Item\\nTenet of Judgement",
+        "name": "Tenet of Judgement",
         "value": 895902579,
         "hexCode": "scf5",
         "description": ""
     },
     {
-        "name": "Quest Item\\nTenet of Conflict",
+        "name": "Tenet of Conflict",
         "value": 912679795,
         "hexCode": "scf6",
         "description": ""
     },
     {
-        "name": "Cube Reagent\\nCorrupted Shards (2)",
+        "name": "Corrupted Shards (2)",
         "value": 846553971,
         "hexCode": "scu2",
         "description": "90\\nCreating Corrupted Crystals:\\n\\n5 Corrupted Shards\\n--> Corrupted Crystal\\n"
     },
     {
-        "name": "Cube Reagent\\nCorrupted Shards (3)",
+        "name": "Corrupted Shards (3)",
         "value": 863331187,
         "hexCode": "scu3",
         "description": "90\\nCreating Corrupted Crystals:\\n\\n5 Corrupted Shards\\n--> Corrupted Crystal\\n"
     },
     {
-        "name": "Cube Reagent\\nCorrupted Shards (4)",
+        "name": "Corrupted Shards (4)",
         "value": 880108403,
         "hexCode": "scu4",
         "description": "90\\nCreating Corrupted Crystals:\\n\\n5 Corrupted Shards\\n--> Corrupted Crystal\\n"
     },
     {
-        "name": "Cube Reagent\\nCorrupted Shards (1)",
+        "name": "Corrupted Shards (1)",
         "value": 1819632499,
         "hexCode": "scul",
         "description": "90\\nCreating Corrupted Crystals:\\n\\n5 Corrupted Shards\\n--> Corrupted Crystal\\n"
     },
     {
-        "name": "Cube Reagent\\nCorrupted Crystal",
+        "name": "Corrupted Crystal",
         "value": 1836409715,
         "hexCode": "scum",
         "description": "30% Chance to add Nothing\\n30% Chance to add +100 Required Level\\n40% Chance to add Random Bonus Stat\\n\\nRing / Amulet\\nSacred Runeword, or\\nSacred (Magical or higher) Item, or\\nCube with Item to Corrupt\\n"
@@ -13152,19 +13152,19 @@
         "description": ""
     },
     {
-        "name": "Level Challenge I\\nScroll of Athulua",
+        "name": "Scroll of Athulua",
         "value": 828599411,
         "hexCode": "slc1",
         "description": "You only have 30 seconds!\\nCube Sunstone with the Elemental Prism to Add Bonus\\nReward\\n\\nDefeat the three Priestesses at level 50 or lower\\nChallenge\\n\\nTran Athulua (Island of Skartara - Halls of the Dead)\\nLocation\\n\\nNormal\\nDifficulty\\n"
     },
     {
-        "name": "Level Challenge II\\nScroll of the Zakarum",
+        "name": "Scroll of the Zakarum",
         "value": 845376627,
         "hexCode": "slc2",
         "description": "You only have 30 seconds!\\nCube Class Charm with any Perfect Gem to Add Bonus\\nReward\\n\\nFind and Defeat the Death Projector at level 90 or lower\\nChallenge\\n\\nProving Grounds (Swampy Pit)\\nLocation\\n\\nNightmare\\nDifficulty\\n"
     },
     {
-        "name": "Cube Reagent\\nSeal of Darkness",
+        "name": "Seal of Darkness",
         "value": 1684434803,
         "hexCode": "sofd",
         "description": "+1 to Into The Void\\nCube with Demonsbane to Add Bonus\\n"
@@ -13200,7 +13200,7 @@
         "description": ""
     },
     {
-        "name": "By Mel Odom\\nThe Black Road",
+        "name": "The Black Road",
         "value": 544367220,
         "hexCode": "tbr",
         "description": ""
@@ -13266,7 +13266,7 @@
         "description": ""
     },
     {
-        "name": "Cube Reagent\\nEnchanting Crystal",
+        "name": "Enchanting Crystal",
         "value": 1480879990,
         "hexCode": "voDX",
         "description": "same Type, and can only be used once per Item\\nThis Recipe might return a different Unique Item of the\\nCube with Sacred Unique Weapon/Armor to Reroll\\n"
@@ -13458,7 +13458,7 @@
         "description": "80\\nArchbishop Lazarus Trophy Challenge\\nRequirements: \\nKill Archbishop Lazarus without being \\nstruck by the Black Hand Totem's Tremor\\nDo not die\\n\\nCube the Glorious Book of Median within \\n10 seconds\\nGrants: \\nMaximum Elemental Resists +1% \\nLocked to current character class\\n"
     },
     {
-        "name": "Right Click to permanently add 50 to Life\\nPotion of Life",
+        "name": "Potion of Life",
         "value": 544897400,
         "hexCode": "xyz",
         "description": ""
@@ -13698,13 +13698,13 @@
         "description": "80\\nYshari Sanctum Trophy Challenge\\nRequirements:\\nKill Valthek the Archmage within \\n5 minutes 30 seconds of killing \\nValthek's Altar \\nDo not die\\n\\nCube The Ancient Repositories within \\nthe time limit\\nGrants\\nMaximum Life and Mana +5%\\nLocked to current character class\\n"
     },
     {
-        "name": "Cube Reagent\\nAncient Book",
+        "name": "Ancient Book",
         "value": 543318396,
         "hexCode": "|ab",
         "description": "very rare Emblems that drop from Monsters\\nRecipes for this Item are Unknown, but said to use\\n"
     },
     {
-        "name": "Cube Reagent\\nBook of Cain",
+        "name": "Book of Cain",
         "value": 543384188,
         "hexCode": "|bc",
         "description": "+5% to Experience Gained\\n+10 to All Attributes\\n+1 to All Skills\\nCube with Glorious Book of Median to Add Bonus\\n"

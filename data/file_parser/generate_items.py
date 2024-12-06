@@ -42,6 +42,10 @@ for file_path in input_files:
 
         for row in reader:
             name = clean_text(row.get("name", "Unknown"), remove_substrings)
+
+            if "\\n" in name:
+                name = name.split("\\n")[-1].strip()
+
             if name.lower() == "unused" or name == "FLYING POLAR BUFFALO ERROR":
                 continue
 
