@@ -28,11 +28,14 @@ $(document).ready(function () {
         }
     });
 
+    const excludedHexCodes = ["leek","lmz","gob","lms","c@c"];
+
     $.ajax({
-        url: './data/itemCode.json',
+        url: './data/file_parser/itemCode.json',
         dataType: 'json',
-        success: function(data) {
-            itemCodes = data;
+        success: function(data) {            
+            itemCodes = data.filter(item => !excludedHexCodes.includes(item.hexCode));
+            itemCodes.sort((a, b) => a.name.localeCompare(b.name));
         },
         error: function(xhr, status, error) {
             console.error('Error loading JSON file:', error);
@@ -146,10 +149,17 @@ $(document).ready(function () {
     
         switch (Number(ruleType)) {
             case 1: // Items
-                Object.entries(itemCodes).forEach(([key, value]) => {
+                // Object.entries(itemCodes).forEach(([key, value]) => {
+                //     let option = document.createElement("option");
+                //     option.value = value;
+                //     option.text = key;
+                //     datalist.appendChild(option);
+                // });
+
+                itemCodes.forEach(item => {
                     let option = document.createElement("option");
-                    option.value = value;
-                    option.text = key;
+                    option.value = item.value;
+                    option.text = item.name;
                     datalist.appendChild(option);
                 });
     
