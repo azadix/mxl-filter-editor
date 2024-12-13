@@ -1,10 +1,7 @@
 :root {
     --bg-color: rgb(20, 22, 26);
     --text-color: #f1f1f1;
-    --button-bg: #333;
-    --button-text: #f1f1f1;
-    --border-color: #333;
-    --rule-bg: #444;
+    --border-color: hsl(221,14%,24%);
     --green: hsl(153deg, 53%, 53%);
     --red: hsl(348, 100%, 66%);
 }
@@ -27,7 +24,7 @@ html {
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {
-    line-height: 2rem;
+    line-height: 2.3rem;
 }
 
 .select2-results__option--selected {
@@ -60,16 +57,13 @@ html {
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-body input[type="checkbox"] {
+input[type="checkbox"], .checkbox {
     cursor: pointer;
-}
-
-.show-items {
-    color: var(--text-color) !important;
+    user-select: none;
 }
 
 .form-group-input {
-    width: 6ch;
+    width: 8ch;
     text-align: center;
 }
 
@@ -78,7 +72,7 @@ body input[type="checkbox"] {
 }
 
 .column {
-    padding: .5rem !important;
+    padding: 0.5rem;
 }
 
 .field-label {
@@ -86,14 +80,9 @@ body input[type="checkbox"] {
     margin-inline-end: .5rem;
 }
 
-.checkbox {
-    cursor: pointer;
-    user-select: none;
-}
-
 .checkbox-input {
-    width: 1rem;
-    height: 1rem;
+    width: 1.2rem;
+    height: 1.2rem;
     accent-color: var(--green);
 }
 
@@ -109,14 +98,12 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
-/* Table cell styling */
 th {
     vertical-align: middle !important;
     text-align: center;
     padding: 0.5rem !important;
 }
 
-/* Checkbox and input consistency */
 .checkbox-input,
 input {
     display: inline-block;
@@ -124,14 +111,12 @@ input {
     margin: 0;
 }
 
-/* Center checkboxes inside table cells */
 td {
     vertical-align: middle !important;
     text-align: center;
     padding: 0.1rem !important;
 }
 
-/* Flexbox for centering checkboxes */
 .checkbox-container {
     display: flex;
     align-items: center;
