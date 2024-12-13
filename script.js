@@ -62,7 +62,7 @@ $(document).ready(function () {
         order: [],
         fixedHeader: true,
         targets: 'no-sort',
-        scrollY: 550,
+        scrollY: 600,
         scrollCollapse: false,
         columnDefs: [
             {
@@ -142,11 +142,11 @@ $(document).ready(function () {
     
         datalistWrapper.classList.add("select", "width-100");
         datalist.classList.add("rule-param-value", "width-100");
-    
+        
         groupWrapper.appendChild(createParamsDropdown(ruleType));
         groupWrapper.appendChild(datalistWrapper);
         groupWrapper.classList.add("input-wrapper", "min-width-500");
-    
+        
         switch (Number(ruleType)) {
             case 1: // Items
                 // Object.entries(itemCodes).forEach(([key, value]) => {
@@ -195,7 +195,7 @@ $(document).ready(function () {
         try {
             let text = prompt("Please paste the JSON data here:");
             if (!text) {
-                showToast("No data pasted.");
+                showToast("No data pasted.", true);
                 return;
             }
     
@@ -451,9 +451,25 @@ $(document).ready(function () {
             ];
             table.row.add(rowData).node();
         });
-    
         table.draw();
         table.columns.adjust();
+        initializeSelect();
+    }
+
+    function initializeSelect() {
+        document.querySelectorAll(".rule-param-value").forEach((el)=>{
+            $(el).select2({
+                theme: "default",
+                selectionCssClass: "select"
+            });
+            
+            $(el).on('select2:open', function () {
+                $('.select2-container .select2-search__field').addClass('input is-dark');
+            });
+        });
+
+
+        $('b[role="presentation"]').hide();
     }
 
     function findLargestValue(jsonData) {
