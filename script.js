@@ -74,7 +74,7 @@ $(document).ready(function () {
             topStart: function () {
                 return createAddRuleButton();
             },
-            topEnd: 'search',
+            topEnd: '',
             bottomStart: {
                 info: {
                     empty: '',
