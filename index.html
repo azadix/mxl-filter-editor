@@ -8,6 +8,7 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/1.0.1/css/bulma.min.css" />
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <!-- https://fontawesome.com/v5/search?o=r&s=solid -->
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.1.8/css/dataTables.bulma.css" />
   <link rel="stylesheet" type="text/css" href="style.css" />
 
@@ -18,21 +19,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
   <script src="script.js" defer></script>
 </head>
-<body class="section" class="no-scrollbar" style="padding-top: 0; padding-bottom: 0">
-  <div class="content">
-    <h1 class="is-size-2 diablo-font">
-      Median XL Filter editor
-      <div class="is-size-5">by Azadi</div>
-    </h1>
-
-    <div class="field is-horizontal v-center">
-      <div class="field-body">
-        <label class="checkbox">
-          <input id="defaultShowItems" type="checkbox" class="checkbox-input" checked="">
-          Show Items by default
-        </label>
-      </div>
-
+<body class="section" class="no-scrollbar" style="padding-top: 1ch; padding-bottom: 0">
+  <div class="content mb-4">
+    <h1 class="is-size-2 diablo-font pb-3 is-flex is-justify-content-space-between is-align-items-center">
+      <span>
+        <span>Median XL Filter editor</span>
+        <span class="is-size-5">by Azadi</span>
+      </span>
       <a href="https://github.com/azadix/mxl-filter-editor" target="_blank">
         <svg class="white-fill" height="32" viewBox="0 0 16 16" width="32" aria-hidden="true">
           <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38
@@ -45,32 +38,79 @@
           </path>
         </svg>
       </a>
-    </div>
+    </h1>
 
-    <div>
-      <div class="field is-horizontal">
-        <div class="field-label is-normal">
-          <label class="label">Name</label>
-        </div>
-        <div class="field-body">
-          <div class="field">
-            <p class="control">
-              <input class="input" id="filterName" type="text" placeholder="New filter">
-            </p>
+
+    <div class="field is-horizontal my-1">
+      <div class="field-body">
+        <div class="field is-narrow is-grouped">
+          <div class="control">
+            <button class="button is-success is-outlined" id="newFilter">
+              <i class="fas fa-plus pr-1"></i>
+              New filter
+            </button>
+          </div>
+          <div class="control">
+            <button class="button is-warning is-outlined" id="pasteFromClipboard">
+              <i class="fas fa-paste pr-1"></i>
+              Paste from clipboard
+            </button>
+          </div>
+          <div class="control">
+            <button class="button is-warning is-outlined" id="copyToClipboard">
+              <i class="fas fa-clipboard pr-1"></i>
+              Copy to clipboard
+            </button>
           </div>
         </div>
 
-        <button class="button is-danger is-outlined" id="pasteFromClipboard">
-          <i class="fas fa-paste pr-1"></i>
-          Paste from clipboard
-        </button>
-        <button class="button is-danger is-outlined" id="copyToClipboard">
-          <i class="fas fa-clipboard pr-1"></i>
-          Copy to clipboard
-        </button>
+        <div class="field has-addons">
+          <div class="control is-expanded">
+            <div class="select is-fullwidth">
+              <select id="loadFromLocalStorage">
+                <option hidden disabled selected value>Load a filter</option>
+              </select>
+            </div>
+          </div>
+          <div class="field is-grouped ml-2">
+            <div class="control">
+              <button class="button is-warning is-outlined" id="saveToLocalStorage">
+                <i class="fas fa-cloud-upload-alt pr-1"></i>
+                Save
+              </button>
+            </div>
+            <div class="control">
+              <button class="button is-danger is-outlined" id="deleteFromLocalStorage">
+                <i class="fas fa-cloud-download-alt pr-1"></i>
+                Delete
+              </button>
+            </div>
+          </div>
+          
+        </div>
       </div>
     </div>
-  </div>
+
+    <div class="field is-horizontal mb-2">
+      <div class="field-label is-normal">
+        <label class="label">Name</label>
+      </div>
+      <div class="field-body is-align-items-center">
+        <div class="field is-expanded">
+          <p class="control">
+            <input class="input" id="filterName" type="text" placeholder="New filter">
+          </p>
+        </div>
+        <p class="control">
+          <label class="checkbox">
+            <input id="defaultShowItems" type="checkbox" class="checkbox-input" checked="">
+            Show items by default
+          </label>
+        </div>
+      </div>
+    </div>
+  <div>
+
 
   <table id="rulesTable" class="table is-hoverable is-fullwidth">
     <thead>
@@ -86,7 +126,7 @@
           <th data-dt-order="disable">ILVL</th>
           <th data-dt-order="disable">Notify</th>
           <th data-dt-order="disable">Map</th>
-          <th data-dt-order="disable">Function</th>
+          <th data-dt-order="disable">Action</th>
         </tr>
     </thead>
     <tbody>
