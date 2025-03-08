@@ -164,12 +164,13 @@ a svg {
 
 .toast-container {
     position: fixed;
-    top: 20px;
+    bottom: 20px;
     right: 20px;
     z-index: 9999;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    align-items: flex-end;
 }
 
 .notification {
@@ -200,4 +201,16 @@ a svg {
     to {
         opacity: 0;
     }
+}
+
+.has-text-unique {
+    color: #a09169 !important;
+}
+
+.has-text-rare {
+    color: #ffff00 !important;
+}
+
+.has-text-honorific {
+    color: #008300 !important;
 }
