@@ -62,7 +62,7 @@ $(document).ready(function () {
         order: [],
         fixedHeader: true,
         targets: 'no-sort',
-        scrollY: 600,
+        scrollY: 625,
         scrollCollapse: false,
         columnDefs: [
             {
@@ -89,6 +89,8 @@ $(document).ready(function () {
         active: true,
         show_item: true,
         item_quality: -1,
+        qualityClass: "has-text-white",
+        showClass: "has-text-success",
         ethereal: 0,
         min_clvl: 0,
         max_clvl: 0,
@@ -102,7 +104,7 @@ $(document).ready(function () {
 
     function createAddRuleButton() {
         const addRuleButton = document.createElement('button');
-        addRuleButton.classList.add("button", "is-success", "is-outlined");
+        addRuleButton.classList.add("button", "is-success", "is-outlined", "is-inverted");
         addRuleButton.innerHTML = '<span class="icon is-small"><i class="fas fa-plus"></i></span><span>Add new rule</span>';
 
         // Add click event to append a new row
@@ -191,6 +193,24 @@ $(document).ready(function () {
         }
     }
 
+    $('#newFilter').on('click', function () {
+        const confirmReset = confirm("Are you sure you want to create a new filter? This will clear all current rules and reset the filter.");
+    
+        if (confirmReset) {
+            jsonData = [];
+            $('#defaultShowItems').prop('checked', true);
+            $('#filterName').val('');
+            $('#loadFromLocalStorage').val('');
+            $('#loadFromLocalStorage option[value=""]').prop('selected', true);
+
+            renderTableFromJson();
+
+            showToast("New filter created successfully!", true);
+        } else {
+            showToast("New filter creation canceled.", true);
+        }
+    });
+
     $('#pasteFromClipboard').on('click', function () {
         try {
             let text = prompt("Please paste the JSON data here:");
@@ -202,10 +222,17 @@ $(document).ready(function () {
             const data = JSON.parse(text);
     
             if (data && typeof data === "object" && data.rules) {
-                jsonData = data.rules;
+                // Map the item_quality to the corresponding class name
+                jsonData = data.rules.map(rule => {
+                    const selectedQuality = Object.entries(itemQuality).find(([key, [value]]) => value === rule.item_quality);
+                    rule.qualityClass = selectedQuality ? selectedQuality[1][1] : "";
+                    rule.showClass = rule.show_item ? "has-text-success" : "has-text-danger";
+                    return rule;
+                });
+    
                 $('#defaultShowItems').prop('checked', data.default_show_items);
                 $('#filterName').val(data.name);
-
+    
                 renderTableFromJson();
             } else {
                 showToast("Invalid JSON format.");
@@ -219,6 +246,75 @@ $(document).ready(function () {
         navigator.clipboard.writeText(generateOutput())
             .then(() => showToast("Filter copied to clipboard!", true))
             .catch(err => showToast("Failed to copy: " + err));
+    });
+
+    $('#saveToLocalStorage').on('click', function () {
+        const filterName = $('#filterName').val().trim();
+    
+        if (!filterName) {
+            showToast("Please enter a filter name before saving.");
+            return;
+        }
+
+        cleanedFilterName = sanitizeFilterName(filterName);
+
+        if (!cleanedFilterName) {
+            showToast("Invalid filter name. Please use only alphanumeric characters, spaces, hyphens, and underscores.", true);
+            return;
+        }
+    
+        const filterData = generateOutput();
+    
+        localStorage.setItem(cleanedFilterName, filterData);
+    
+        showToast(`Filter "${cleanedFilterName}" saved to local storage!`, true);
+        updateLoadDropdown();
+    });
+
+    $('#loadFromLocalStorage').on('change', function () {
+        const filterName = $(this).val();
+    
+        if (!filterName) {
+            return;
+        }
+
+        const filterData = JSON.parse(localStorage.getItem(filterName));
+    
+        if (filterData) {
+            jsonData = filterData.rules.map(rule => {
+                const selectedQuality = Object.entries(itemQuality).find(([key, [value]]) => value === rule.item_quality);
+                rule.qualityClass = selectedQuality ? selectedQuality[1][1] : "";
+    
+                rule.showClass = rule.show_item ? "has-text-success" : "has-text-danger";
+                return rule;
+            });
+    
+            $('#defaultShowItems').prop('checked', filterData.default_show_items);
+            $('#filterName').val(filterData.name);
+    
+            renderTableFromJson();
+    
+            showToast(`Filter "${filterName}" loaded successfully!`, true);
+        } else {
+            showToast(`Filter "${filterName}" not found in local storage.`, true);
+        }
+    });
+
+    $('#deleteFromLocalStorage').on('click', function () {
+        const filterName = $('#filterName').val().trim();
+    
+        if (!filterName) {
+            showToast("Please select a filter to delete.", true);
+            return;
+        }
+    
+        if (localStorage.getItem(filterName)) {
+            localStorage.removeItem(filterName);
+            showToast(`Filter "${filterName}" deleted from local storage!`, true);
+            updateLoadDropdown();
+        } else {
+            showToast(`Filter "${filterName}" not found in local storage.`, true);
+        }
     });
     
     table.on('change', '.rule-is-active', function () {
@@ -234,20 +330,38 @@ $(document).ready(function () {
     });
     table.on('change', '.rule-is-shown', function () {
         const paramValue = $(this).val();
-        const dataIndex =  $(this).closest('tr').data('index');
-        
+        const dataIndex = $(this).closest('tr').data('index');
+    
         if (dataIndex !== undefined) {
-            jsonData[dataIndex].show_item = !Boolean(paramValue);
+            jsonData[dataIndex].show_item = paramValue === "1";
+
+            const showClass = paramValue === "1" ? "has-text-success" : "has-text-danger";
+            jsonData[dataIndex].showClass = showClass;
+    
+            $(this).removeClass("has-text-success has-text-danger").addClass(showClass);
         } else {
             console.warn('Row does not have a valid data-index');
         }
     });
     table.on('change', '.rule-quality', function () {
         const paramValue = $(this).val();
-        const dataIndex =  $(this).closest('tr').data('index');
-        
+        const dataIndex = $(this).closest('tr').data('index');
+    
         if (dataIndex !== undefined) {
             jsonData[dataIndex].item_quality = Number(paramValue);
+    
+            const selectedQuality = Object.entries(itemQuality).find(([key, [value]]) => value === Number(paramValue));
+            const className = selectedQuality ? selectedQuality[1][1] : "";
+    
+            jsonData[dataIndex].qualityClass = className;
+    
+            $(this).removeClass((index, className) => {
+                return Object.values(itemQuality).map(([value, cls]) => cls).join(" ");
+            });
+    
+            if (className) {
+                $(this).addClass(className);
+            }
         } else {
             console.warn('Row does not have a valid data-index');
         }
@@ -417,9 +531,9 @@ $(document).ready(function () {
                 `<span class="handle icon is-normal"><i class="fas fa-arrows-alt-v"></i></span>`,
                 `<div class="checkbox-container"><input id="active" class="checkbox-input rule-is-active" type="checkbox" ${item.active ? 'checked' : ''}></div>`,
                 `<div class="select">
-                    <select class="rule-is-shown">
-                        <option value="1" ${item.show_item == "1" ? 'selected' : ''}>Show</option>
-                        <option value="0" ${item.show_item == "0" ? 'selected' : ''}>Hide</option>
+                    <select class="rule-is-shown ${item.showClass || ''}">
+                        <option class="has-text-success" value="1" ${item.show_item == "1" ? 'selected' : ''}>Show</option>
+                        <option class="has-text-danger" value="0" ${item.show_item == "0" ? 'selected' : ''}>Hide</option>
                     </select>
                 </div>`,
                 `<div class="select">
@@ -430,9 +544,9 @@ $(document).ready(function () {
                     </select>
                 </div>`,
                 `<div class="select">
-                    <select class="rule-quality">
-                        ${Object.entries(itemQuality).map(([key, value]) => `
-                            <option value="${value}" ${item.item_quality === value ? 'selected' : ''}>${key}</option>
+                    <select class="rule-quality ${item.qualityClass || ''}">
+                        ${Object.entries(itemQuality).map(([key, [value, className]]) => `
+                            <option class="${className}" value="${value}" ${item.item_quality === value ? 'selected' : ''}>${key}</option>
                         `).join("")}
                     </select>
                 </div>`,
@@ -496,8 +610,8 @@ $(document).ready(function () {
     function generateOutput() {
         const filterName = $('#filterName').val().trim();
         let cleanedData = jsonData.map(rule => {
-            const { id, ...ruleWithoutId } = rule;
-            return ruleWithoutId;
+            const { id, qualityClass, showClass, ...cleanedRule } = rule;
+            return cleanedRule;
         });
 
         return JSON.stringify({
@@ -505,6 +619,25 @@ $(document).ready(function () {
             name: filterName == "" ? `UnnamedFilter${Date.now().toString()}` : filterName,
             rules: cleanedData
         }, null, 2);
+    }
+
+    function sanitizeFilterName(name) {
+        return name.replace(/[^a-zA-Z0-9\s\-_]/g, "");
+    }
+
+    function updateLoadDropdown() {
+        const loadDropdown = $('#loadFromLocalStorage');
+        loadDropdown.empty();
+    
+        loadDropdown.append('<option hidden disabled selected value>Load a filter</option>');
+
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            loadDropdown.append(`<option value="${key}">${key}</option>`);
+        }
+
+        $('#loadFromLocalStorage').val("");
+        $('#loadFromLocalStorage option[value=""]').prop('selected', true);
     }
 
     function showToast(message, autoRemove = false) {
@@ -541,4 +674,5 @@ $(document).ready(function () {
     }
 
     addSortables();
+    updateLoadDropdown();
 });

@@ -1,12 +1,12 @@
 {
-    "Any": -1,
-    "Low Quality": 1,
-    "Normal": 2,
-    "High Quality": 3,
-    "Magic": 4,
-    "Set": 5,
-    "Rare": 6,
-    "Unique": 7,
-    "Crafted": 8,
-    "Honorific": 9
+    "Any": [-1, "has-text-white"],
+    "Low Quality": [1, "has-text-grey"],
+    "Normal": [2, "has-text-white"],
+    "High Quality": [3, "has-text-white"],
+    "Magic": [4, "has-text-link"],
+    "Set": [5, "has-text-primary"],
+    "Rare": [6, "has-text-rare"],
+    "Unique": [7, "has-text-unique"],
+    "Crafted": [8, "has-text-warning"],
+    "Honorific": [9, "has-text-honorific"]
 }
