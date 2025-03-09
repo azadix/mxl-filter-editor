@@ -8270,327 +8270,327 @@
         "hexCode": "elx"
     },
     {
-        "name": "Scroll of Enchantment: Helmet (TODO)",
+        "name": "Scroll of Enchantment: Helmet (AoE Attack)",
         "value": 825323109,
         "hexCode": "en11"
     },
     {
-        "name": "Scroll of Enchantment: Helmet (TODO)",
+        "name": "Scroll of Enchantment: Helmet (CtC Life Spark)",
         "value": 842100325,
         "hexCode": "en12"
     },
     {
-        "name": "Scroll of Enchantment: Helmet (TODO)",
+        "name": "Scroll of Enchantment: Helmet (Lightning Arena)",
         "value": 858877541,
         "hexCode": "en13"
     },
     {
-        "name": "Scroll of Enchantment: Helmet (TODO)",
+        "name": "Scroll of Enchantment: Helmet (Churel)",
         "value": 875654757,
         "hexCode": "en14"
     },
     {
-        "name": "Scroll of Enchantment: Helmet (TODO)",
+        "name": "Scroll of Enchantment: Helmet (Path of Flames)",
         "value": 892431973,
         "hexCode": "en15"
     },
     {
-        "name": "Scroll of Enchantment: Helmet (TODO)",
+        "name": "Scroll of Enchantment: Helmet (Dark Power)",
         "value": 909209189,
         "hexCode": "en16"
     },
     {
-        "name": "Scroll of Enchantment: Helmet (TODO)",
+        "name": "Scroll of Enchantment: Helmet (Firedance)",
         "value": 925986405,
         "hexCode": "en17"
     },
     {
-        "name": "Scroll of Enchantment: Helmet (TODO)",
+        "name": "Scroll of Enchantment: Helmet (Hive)",
         "value": 942763621,
         "hexCode": "en18"
     },
     {
-        "name": "Scroll of Enchantment: Helmet (TODO)",
+        "name": "Scroll of Enchantment: Helmet (Amatoxin)",
         "value": 959540837,
         "hexCode": "en19"
     },
     {
-        "name": "Scroll of Enchantment: Body Armor (TODO)",
+        "name": "Scroll of Enchantment: Body Armor (Fire Spell Damage)",
         "value": 825388645,
         "hexCode": "en21"
     },
     {
-        "name": "Scroll of Enchantment: Body Armor (TODO)",
+        "name": "Scroll of Enchantment: Body Armor (Cold Spell Damage)",
         "value": 842165861,
         "hexCode": "en22"
     },
     {
-        "name": "Scroll of Enchantment: Body Armor (TODO)",
+        "name": "Scroll of Enchantment: Body Armor (Lightning Spell Damage)",
         "value": 858943077,
         "hexCode": "en23"
     },
     {
-        "name": "Scroll of Enchantment: Body Armor (TODO)",
+        "name": "Scroll of Enchantment: Body Armor (Poison Spell Damage)",
         "value": 875720293,
         "hexCode": "en24"
     },
     {
-        "name": "Scroll of Enchantment: Body Armor (TODO)",
+        "name": "Scroll of Enchantment: Body Armor (Phys/Magic Spell Damage)",
         "value": 892497509,
         "hexCode": "en25"
     },
     {
-        "name": "Scroll of Enchantment: Body Armor (TODO)",
+        "name": "Scroll of Enchantment: Body Armor (Innate Elemental Damage)",
         "value": 909274725,
         "hexCode": "en26"
     },
     {
-        "name": "Scroll of Enchantment: Body Armor (TODO)",
+        "name": "Scroll of Enchantment: Body Armor (Weapon Physical Damage)",
         "value": 926051941,
         "hexCode": "en27"
     },
     {
-        "name": "Scroll of Enchantment: Body Armor (TODO)",
+        "name": "Scroll of Enchantment: Body Armor (Regenerate Mana)",
         "value": 942829157,
         "hexCode": "en28"
     },
     {
-        "name": "Scroll of Enchantment: Gloves (TODO)",
+        "name": "Scroll of Enchantment: Gloves (Life Stolen per Hit)",
         "value": 825454181,
         "hexCode": "en31"
     },
     {
-        "name": "Scroll of Enchantment: Gloves (TODO)",
+        "name": "Scroll of Enchantment: Gloves (Life Regen)",
         "value": 842231397,
         "hexCode": "en32"
     },
     {
-        "name": "Scroll of Enchantment: Gloves (TODO)",
+        "name": "Scroll of Enchantment: Gloves (CtC Life Spark)",
         "value": 859008613,
         "hexCode": "en33"
     },
     {
-        "name": "Scroll of Enchantment: Gloves (TODO)",
+        "name": "Scroll of Enchantment: Gloves (Maximum Stamina)",
         "value": 875785829,
         "hexCode": "en34"
     },
     {
-        "name": "Scroll of Enchantment: Gloves (TODO)",
+        "name": "Scroll of Enchantment: Gloves (Life after each Kill)",
         "value": 892563045,
         "hexCode": "en35"
     },
     {
-        "name": "Scroll of Enchantment: Gloves (TODO)",
+        "name": "Scroll of Enchantment: Gloves (Mana Stolen per Hit)",
         "value": 909340261,
         "hexCode": "en36"
     },
     {
-        "name": "Scroll of Enchantment: Boots (TODO)",
+        "name": "Scroll of Enchantment: Boots (Total Character Defense)",
         "value": 825519717,
         "hexCode": "en41"
     },
     {
-        "name": "Scroll of Enchantment: Boots (TODO)",
+        "name": "Scroll of Enchantment: Boots (Aviud Danage)",
         "value": 842296933,
         "hexCode": "en42"
     },
     {
-        "name": "Scroll of Enchantment: Boots (TODO)",
+        "name": "Scroll of Enchantment: Boots (Physical Damage Reduced)",
         "value": 859074149,
         "hexCode": "en43"
     },
     {
-        "name": "Scroll of Enchantment: Boots (TODO)",
+        "name": "Scroll of Enchantment: Boots (Elemental/Magic Damage Reduced)",
         "value": 875851365,
         "hexCode": "en44"
     },
     {
-        "name": "Scroll of Enchantment: Boots (TODO)",
+        "name": "Scroll of Enchantment: Boots (Fire/Cold/Lightning Absorb)",
         "value": 892628581,
         "hexCode": "en45"
     },
     {
-        "name": "Scroll of Enchantment: Boots (TODO)",
+        "name": "Scroll of Enchantment: Boots (Curse Length Reduction)",
         "value": 909405797,
         "hexCode": "en46"
     },
     {
-        "name": "Scroll of Enchantment: Belt (TODO)",
+        "name": "Scroll of Enchantment: Belt (Fire Resist)",
         "value": 825585253,
         "hexCode": "en51"
     },
     {
-        "name": "Scroll of Enchantment: Belt (TODO)",
+        "name": "Scroll of Enchantment: Belt (Cold Resist)",
         "value": 842362469,
         "hexCode": "en52"
     },
     {
-        "name": "Scroll of Enchantment: Belt (TODO)",
+        "name": "Scroll of Enchantment: Belt (Lightning Resist)",
         "value": 859139685,
         "hexCode": "en53"
     },
     {
-        "name": "Scroll of Enchantment: Belt (TODO)",
+        "name": "Scroll of Enchantment: Belt (Poison Resist)",
         "value": 875916901,
         "hexCode": "en54"
     },
     {
-        "name": "Scroll of Enchantment: Belt (TODO)",
+        "name": "Scroll of Enchantment: Belt (Physical Resist)",
         "value": 892694117,
         "hexCode": "en55"
     },
     {
-        "name": "Scroll of Enchantment: Belt (TODO)",
+        "name": "Scroll of Enchantment: Belt (Magic Resist)",
         "value": 909471333,
         "hexCode": "en56"
     },
     {
-        "name": "Scroll of Enchantment: Amulet (TODO)",
+        "name": "Scroll of Enchantment: Amulet (Attack Speed)",
         "value": 825650789,
         "hexCode": "en61"
     },
     {
-        "name": "Scroll of Enchantment: Amulet (TODO)",
+        "name": "Scroll of Enchantment: Amulet (Cast Speed)",
         "value": 842428005,
         "hexCode": "en62"
     },
     {
-        "name": "Scroll of Enchantment: Amulet (TODO)",
+        "name": "Scroll of Enchantment: Amulet (Hit Recovery)",
         "value": 859205221,
         "hexCode": "en63"
     },
     {
-        "name": "Scroll of Enchantment: Amulet (TODO)",
+        "name": "Scroll of Enchantment: Amulet (Block Speed)",
         "value": 875982437,
         "hexCode": "en64"
     },
     {
-        "name": "Scroll of Enchantment: Amulet (TODO)",
+        "name": "Scroll of Enchantment: Amulet (Mana after each Kill)",
         "value": 892759653,
         "hexCode": "en65"
     },
     {
-        "name": "Scroll of Enchantment: Amulet (TODO)",
+        "name": "Scroll of Enchantment: Amulet (Magic Find)",
         "value": 909536869,
         "hexCode": "en66"
     },
     {
-        "name": "Scroll of Enchantment: Amulet (TODO)",
+        "name": "Scroll of Enchantment: Amulet (Experience Gained + Light Radius)",
         "value": 926314085,
         "hexCode": "en67"
     },
     {
-        "name": "Scroll of Enchantment: Ring (TODO)",
+        "name": "Scroll of Enchantment: Ring (Minion AR + Damage)",
         "value": 825716325,
         "hexCode": "en71"
     },
     {
-        "name": "Scroll of Enchantment: Ring (TODO)",
+        "name": "Scroll of Enchantment: Ring (Minion Resists + Life)",
         "value": 842493541,
         "hexCode": "en72"
     },
     {
-        "name": "Scroll of Enchantment: Ring (TODO)",
+        "name": "Scroll of Enchantment: Ring (Strength)",
         "value": 859270757,
         "hexCode": "en73"
     },
     {
-        "name": "Scroll of Enchantment: Ring (TODO)",
+        "name": "Scroll of Enchantment: Ring (Dexterity)",
         "value": 876047973,
         "hexCode": "en74"
     },
     {
-        "name": "Scroll of Enchantment: Ring (TODO)",
+        "name": "Scroll of Enchantment: Ring (Vitality)",
         "value": 892825189,
         "hexCode": "en75"
     },
     {
-        "name": "Scroll of Enchantment: Ring (TODO)",
+        "name": "Scroll of Enchantment: Ring (Energy)",
         "value": 909602405,
         "hexCode": "en76"
     },
     {
-        "name": "Scroll of Enchantment: Ring (TODO)",
+        "name": "Scroll of Enchantment: Ring (Poison Length Reduced)",
         "value": 926379621,
         "hexCode": "en77"
     },
     {
-        "name": "Scroll of Enchantment: Class Charm (TODO)",
+        "name": "Scroll of Enchantment: Class Charm (Sacred Sunstone)",
         "value": 825781861,
         "hexCode": "en81"
     },
     {
-        "name": "Scroll of Enchantment: Class Charm (TODO)",
+        "name": "Scroll of Enchantment: Class Charm (Shadow Vortex)",
         "value": 842559077,
         "hexCode": "en82"
     },
     {
-        "name": "Scroll of Enchantment: Class Charm (TODO)",
+        "name": "Scroll of Enchantment: Class Charm (Worldstone Orb)",
         "value": 859336293,
         "hexCode": "en83"
     },
     {
-        "name": "Scroll of Enchantment: Class Charm (TODO)",
+        "name": "Scroll of Enchantment: Class Charm (Caoi Dulra Fruit)",
         "value": 876113509,
         "hexCode": "en84"
     },
     {
-        "name": "Scroll of Enchantment: Class Charm (TODO)",
+        "name": "Scroll of Enchantment: Class Charm (Soulstone Shard)",
         "value": 892890725,
         "hexCode": "en85"
     },
     {
-        "name": "Scroll of Enchantment: Class Charm (TODO)",
+        "name": "Scroll of Enchantment: Class Charm (Eye of Divinity)",
         "value": 909667941,
         "hexCode": "en86"
     },
     {
-        "name": "Scroll of Enchantment: Class Charm (TODO)",
+        "name": "Scroll of Enchantment: Class Charm (Nexus Crystal)",
         "value": 926445157,
         "hexCode": "en87"
     },
     {
-        "name": "Scroll of Enchantment: Staff (TODO)",
+        "name": "Scroll of Enchantment: Staff (Movement Speed + Life Regen)",
         "value": 825847397,
         "hexCode": "en91"
     },
     {
-        "name": "Scroll of Enchantment: Weapon (TODO)",
+        "name": "Scroll of Enchantment: Weapon (Mace)",
         "value": 842624613,
         "hexCode": "en92"
     },
     {
-        "name": "Scroll of Enchantment: Weapon (TODO)",
+        "name": "Scroll of Enchantment: Weapon (Rare/Crafted Scepter)",
         "value": 859401829,
         "hexCode": "en93"
     },
     {
-        "name": "Scroll of Enchantment: Weapon (TODO)",
+        "name": "Scroll of Enchantment: Weapon (Hammer)",
         "value": 876179045,
         "hexCode": "en94"
     },
     {
-        "name": "Scroll of Enchantment: Weapon (TODO)",
+        "name": "Scroll of Enchantment: Weapon (Rare/Crafted Dagger)",
         "value": 892956261,
         "hexCode": "en95"
     },
     {
-        "name": "Scroll of Enchantment: Weapon (TODO)",
+        "name": "Scroll of Enchantment: Weapon (Sacred non Innate/Elemental)",
         "value": 909733477,
         "hexCode": "en96"
     },
     {
-        "name": "Scroll of Enchantment: Weapon (TODO)",
+        "name": "Scroll of Enchantment: Weapon (Javelin)",
         "value": 926510693,
         "hexCode": "en97"
     },
     {
-        "name": "Scroll of Enchantment: Weapon (TODO)",
+        "name": "Scroll of Enchantment: Weapon (Spear)",
         "value": 943287909,
         "hexCode": "en98"
     },
     {
-        "name": "Scroll of Enchantment: Shield (TODO)",
+        "name": "Scroll of Enchantment: Shield (Magic Shield)",
         "value": 960065125,
         "hexCode": "en99"
     },
