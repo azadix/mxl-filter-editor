@@ -3,7 +3,7 @@ $(document).ready(function () {
     let itemQuality = {};
     let itemCodes = {};
     let itemClasses = {};
-
+    
     const etherealState = {
         "Either": 0,
         "Yes": 1,
@@ -28,13 +28,11 @@ $(document).ready(function () {
         }
     });
 
-    const excludedHexCodes = ["leek","lmz","gob","lms","c@c"];
-
     $.ajax({
         url: './data/file_parser/itemCode.json',
         dataType: 'json',
         success: function(data) {            
-            itemCodes = data.filter(item => !excludedHexCodes.includes(item.hexCode));
+            itemCodes = data;
             itemCodes.sort((a, b) => a.name.localeCompare(b.name));
         },
         error: function(xhr, status, error) {
@@ -137,7 +135,7 @@ $(document).ready(function () {
         return outerWrapper;
     }
 
-    function createOptionParams(ruleType, jsonIndex ) {
+    function createOptionParams(ruleType, jsonIndex) {
         let groupWrapper = document.createElement('div');
         let datalistWrapper = document.createElement('div');
         let datalist = document.createElement('select');
@@ -151,13 +149,6 @@ $(document).ready(function () {
         
         switch (Number(ruleType)) {
             case 1: // Items
-                // Object.entries(itemCodes).forEach(([key, value]) => {
-                //     let option = document.createElement("option");
-                //     option.value = value;
-                //     option.text = key;
-                //     datalist.appendChild(option);
-                // });
-
                 itemCodes.forEach(item => {
                     let option = document.createElement("option");
                     option.value = item.value;
@@ -581,7 +572,6 @@ $(document).ready(function () {
                 $('.select2-container .select2-search__field').addClass('input is-dark');
             });
         });
-
 
         $('b[role="presentation"]').hide();
     }

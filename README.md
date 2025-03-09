@@ -10,6 +10,7 @@ Current item/class data: MXL 2.10.3
 - Saving/loading filters in localStorage
 
 ### TODO:
+- Optimize select2 data loading (current is very slow when loading large amount of rules)
 - Add working search bar for table data
 - Rule verification (so that an impossible rule cannot be created)
 - Different styling for inactive rules
