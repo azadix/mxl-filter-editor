@@ -7760,11 +7760,6 @@
         "hexCode": "c000"
     },
     {
-        "name": "Moon Symbol",
-        "value": 543375459,
-        "hexCode": "c@c"
-    },
-    {
         "name": "Catalyst of Transference",
         "value": 1937006947,
         "hexCode": "cats"
@@ -8810,11 +8805,6 @@
         "hexCode": "gly"
     },
     {
-        "name": "Event Award:",
-        "value": 543321959,
-        "hexCode": "gob"
-    },
-    {
         "name": "Perfect Sapphire",
         "value": 543322215,
         "hexCode": "gpb"
@@ -9153,16 +9143,6 @@
         "name": ":leek:",
         "value": 1801807212,
         "hexCode": "leek"
-    },
-    {
-        "name": "Event Award:",
-        "value": 544435564,
-        "hexCode": "lms"
-    },
-    {
-        "name": "Event Award:",
-        "value": 544894316,
-        "hexCode": "lmz"
     },
     {
         "name": "Crystalline Flame Medallion",
