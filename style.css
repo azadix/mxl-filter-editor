@@ -4,6 +4,7 @@
     --border-color: hsl(221,14%,24%);
     --green: hsl(153deg, 53%, 53%);
     --red: hsl(348, 100%, 66%);
+    --bulma-arrow-color: #e1e1e1 !important;
 }
 
 @font-face {
@@ -204,7 +205,7 @@ a svg {
 }
 
 .has-text-unique {
-    color: #a09169 !important;
+    color: #d4bc7b !important;
 }
 
 .has-text-rare {

@@ -1,58 +1,104 @@
+const defaultRule = {
+    id: Date.now(),
+    active: true,
+    show_item: true,
+    showClass: "has-text-success",
+    item_quality: -1,
+    qualityClass: "has-text-white",
+    ethereal: 0,
+    min_clvl: 0,
+    max_clvl: 0,
+    min_ilvl: 0,
+    max_ilvl: 0,
+    rule_type: -1,
+    params: null,
+    notify: true,
+    automap: true
+};
+
+const etherealState = {
+    "Either": 0,
+    "Yes": 1,
+    "No": 2
+}
+
+const ruleTypes = {
+    "None": -1,
+    "Item": 1,
+    "Class": 0
+}
+
+
 $(document).ready(function () {
     let jsonData = [];
     let itemQuality = {};
-    let itemCodes = {};
-    let itemClasses = {};
+    let itemCodes = [];
+    let itemClasses = [];
+
+    function loadItemQuality() {
+        return new Promise((resolve, reject) => {
+            $.ajax({
+                url: './data/itemQuality.json',
+                dataType: 'json',
+                success: function(data) {
+                    itemQuality = data;
+                    resolve();
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error loading itemQuality.json:', error);
+                    itemQuality = {};
+                    reject(error);
+                }
+            });
+        });
+    }
     
-    const etherealState = {
-        "Either": 0,
-        "Yes": 1,
-        "No": 2
+    function loadItemCodes() {
+        return new Promise((resolve, reject) => {
+            $.ajax({
+                url: './data/file_parser/itemCode.json',
+                dataType: 'json',
+                success: function(data) {
+                    itemCodes = data;
+                    itemCodes.sort((a, b) => a.name.localeCompare(b.name));
+                    resolve();
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error loading itemCode.json:', error);
+                    itemCodes = {};
+                    reject(error);
+                }
+            });
+        });
+    }
+    
+    function loadItemClasses() {
+        return new Promise((resolve, reject) => {
+            $.ajax({
+                url: './data/itemClass.json',
+                dataType: 'json',
+                success: function(data) {
+                    itemClasses = data;
+                    itemClasses.sort((a, b) => a.name.localeCompare(b.name));
+                    resolve();
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error loading itemClass.json:', error);
+                    itemClasses = {};
+                    reject(error);
+                }
+            });
+        });
     }
 
-    const ruleTypes = {
-        "None": -1,
-        "Item": 1,
-        "Class": 0
-    }
-
-    $.ajax({
-        url: './data/itemQuality.json',
-        dataType: 'json',
-        success: function(data) {
-          itemQuality = data;
-        },
-        error: function(xhr, status, error) {
-          console.error('Error loading JSON file:', error);
-          itemQuality = {};
-        }
-    });
-
-    $.ajax({
-        url: './data/file_parser/itemCode.json',
-        dataType: 'json',
-        success: function(data) {            
-            itemCodes = data;
-            itemCodes.sort((a, b) => a.name.localeCompare(b.name));
-        },
-        error: function(xhr, status, error) {
-            console.error('Error loading JSON file:', error);
-            itemCodes = {};
-        }
-    });
-
-    $.ajax({
-        url: './data/itemClass.json',
-        dataType: 'json',
-        success: function(data) {
-            itemClasses = data;
-        },
-        error: function(xhr, status, error) {
-            console.error('Error loading JSON file:', error);
-            itemClasses = {};
-        }
-    });
-
+    Promise.all([loadItemQuality(), loadItemCodes(), loadItemClasses()])
+        .then(() => {
+            console.log("All data loaded successfully!");
+        })
+        .catch((error) => {
+            console.error("Error loading data:", error);
+        });
+        
     let table = new DataTable('#rulesTable', {
         autoWidth: true,
         paging: false,
@@ -81,24 +127,6 @@ $(document).ready(function () {
             }
         }
     });
-
-    const defaultRule = {
-        id: Date.now(),
-        active: true,
-        show_item: true,
-        item_quality: -1,
-        qualityClass: "has-text-white",
-        showClass: "has-text-success",
-        ethereal: 0,
-        min_clvl: 0,
-        max_clvl: 0,
-        min_ilvl: 0,
-        max_ilvl: 0,
-        rule_type: -1,
-        params: null,
-        notify: true,
-        automap: true
-    };
 
     function createAddRuleButton() {
         const addRuleButton = document.createElement('button');
@@ -137,14 +165,14 @@ $(document).ready(function () {
 
     function createOptionParams(ruleType, jsonIndex) {
         let groupWrapper = document.createElement('div');
-        let datalistWrapper = document.createElement('div');
-        let datalist = document.createElement('select');
+        let paramsWrapper = document.createElement('div');
+        let paramsDatalist = document.createElement('select');
     
-        datalistWrapper.classList.add("select", "width-100");
-        datalist.classList.add("rule-param-value", "width-100");
-        
+        paramsWrapper.classList.add("select", "width-100");
+        paramsDatalist.classList.add("rule-param-value", "width-100");
+    
         groupWrapper.appendChild(createParamsDropdown(ruleType));
-        groupWrapper.appendChild(datalistWrapper);
+        groupWrapper.appendChild(paramsWrapper);
         groupWrapper.classList.add("input-wrapper", "min-width-500");
         
         switch (Number(ruleType)) {
@@ -153,33 +181,33 @@ $(document).ready(function () {
                     let option = document.createElement("option");
                     option.value = item.value;
                     option.text = item.name;
-                    datalist.appendChild(option);
+                    paramsDatalist.appendChild(option);
                 });
     
-                // Set the value of the datalist based on jsonData
                 if (jsonData[jsonIndex]?.params?.code !== undefined) {
-                    datalist.value = jsonData[jsonIndex].params.code;
+                    paramsDatalist.value = jsonData[jsonIndex].params.code;
                 }
-                datalistWrapper.appendChild(datalist);
+
+                paramsWrapper.appendChild(paramsDatalist);
                 return groupWrapper;
     
             case 0: // Class
-                Object.entries(itemClasses).forEach(([key, value]) => {
+                itemClasses.forEach(item => {
                     let option = document.createElement("option");
-                    option.value = value;
-                    option.text = key;
-                    datalist.appendChild(option);
+                    option.value = item.value;
+                    option.text = item.name;
+                    paramsDatalist.appendChild(option);
                 });
-    
-                // Set the value of the datalist based on jsonData
+
                 if (jsonData[jsonIndex]?.params?.class !== undefined) {
-                    datalist.value = jsonData[jsonIndex].params.class;
+                    paramsDatalist.value = jsonData[jsonIndex].params.class;
                 }
-                datalistWrapper.appendChild(datalist);
+
+                paramsWrapper.appendChild(paramsDatalist);
                 return groupWrapper;
     
             default:
-                datalistWrapper.classList.remove("width-100");
+                paramsWrapper.classList.remove("width-100");
                 return groupWrapper;
         }
     }
@@ -213,7 +241,6 @@ $(document).ready(function () {
             const data = JSON.parse(text);
     
             if (data && typeof data === "object" && data.rules) {
-                // Map the item_quality to the corresponding class name
                 jsonData = data.rules.map(rule => {
                     const selectedQuality = Object.entries(itemQuality).find(([key, [value]]) => value === rule.item_quality);
                     rule.qualityClass = selectedQuality ? selectedQuality[1][1] : "";
@@ -264,18 +291,15 @@ $(document).ready(function () {
 
     $('#loadFromLocalStorage').on('change', function () {
         const filterName = $(this).val();
+        if (!filterName) { return; }
     
-        if (!filterName) {
-            return;
-        }
-
         const filterData = JSON.parse(localStorage.getItem(filterName));
     
         if (filterData) {
             jsonData = filterData.rules.map(rule => {
                 const selectedQuality = Object.entries(itemQuality).find(([key, [value]]) => value === rule.item_quality);
                 rule.qualityClass = selectedQuality ? selectedQuality[1][1] : "";
-    
+
                 rule.showClass = rule.show_item ? "has-text-success" : "has-text-danger";
                 return rule;
             });
@@ -360,7 +384,7 @@ $(document).ready(function () {
     table.on('change', '.rule-is-eth', function () {
         const paramValue = $(this).val();
         const dataIndex =  $(this).closest('tr').data('index');
-        
+
         if (dataIndex !== undefined) {
             jsonData[dataIndex].ethereal = Number(paramValue);
         } else {
@@ -370,31 +394,33 @@ $(document).ready(function () {
 
     table.on('change', '.rule-param-type', function () {
         const paramValue = $(this).val();
-        const dataIndex =  $(this).closest('tr').data('index');
-        
+        const dataIndex = $(this).closest('tr').data('index');
+    
         if (dataIndex !== undefined) {
             jsonData[dataIndex].rule_type = Number(paramValue);
-
+    
+            // Re-initialize params based on the new rule_type
             switch (paramValue) {
-                case "-1":
+                case "-1": // None
                     jsonData[dataIndex].params = null;
                     break;
-                case "0":
-                    jsonData[dataIndex].params = {class: 0}
+                case "0": // Class
+                    jsonData[dataIndex].params = { class: 0 };
                     break;
-                case "1":
-                    jsonData[dataIndex].params = {code: 0}
+                case "1": // Item
+                    jsonData[dataIndex].params = { code: 0 };
                     break;
             }
+    
+            renderTableFromJson();
         } else {
             console.warn('Row does not have a valid data-index');
         }
-        renderTableFromJson();
     });
     table.on('change', '.rule-param-value', function () {
         const paramValue = $(this).val();
         const dataIndex =  $(this).closest('tr').data('index');
-        
+    
         if (dataIndex !== undefined) {
             if (Number(paramValue) <= findLargestValue(itemClasses)) {
                 jsonData[dataIndex].params.class = Number(paramValue)
@@ -586,15 +612,10 @@ $(document).ready(function () {
         });
         return largestValue;
     }
-    
+
     function clampLvlValues(value) {
-        if (value !== "" && !isNaN(value)) {
-            let numericValue = Number(value);
-            return Math.min(Math.max(numericValue, 0), 150);
-        } else {
-            console.error("Invalid input: Value must be a non-empty number.");
-            return 0;
-        }
+        const numericValue = Number(value);
+        return !isNaN(numericValue) && value !== "" ? Math.min(Math.max(numericValue, 0), 150) : 0;
     }
 
     function generateOutput() {
