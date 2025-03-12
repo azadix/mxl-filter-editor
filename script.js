@@ -31,7 +31,7 @@ const ruleTypes = {
 
 $(document).ready(function () {
     let jsonData = [];
-    let itemQuality = {};
+    let itemQuality = [];
     let itemCodes = [];
     let itemClasses = [];
 
@@ -46,7 +46,7 @@ $(document).ready(function () {
                 },
                 error: function(xhr, status, error) {
                     console.error('Error loading itemQuality.json:', error);
-                    itemQuality = {};
+                    itemQuality = [];
                     reject(error);
                 }
             });
@@ -239,14 +239,12 @@ $(document).ready(function () {
             }
     
             const data = JSON.parse(text);
-    
             if (data && typeof data === "object" && data.rules) {
                 jsonData = data.rules.map(rule => {
-                    const selectedQuality = Object.entries(itemQuality).find(([key, [value]]) => value === rule.item_quality);
-                    rule.qualityClass = selectedQuality ? selectedQuality[1][1] : "";
+                    rule.qualityClass = itemQuality.find(quality => quality.value === rule.item_quality);
                     rule.showClass = rule.show_item ? "has-text-success" : "has-text-danger";
                     return rule;
-                });
+                  });
     
                 $('#defaultShowItems').prop('checked', data.default_show_items);
                 $('#filterName').val(data.name);
@@ -297,9 +295,7 @@ $(document).ready(function () {
     
         if (filterData) {
             jsonData = filterData.rules.map(rule => {
-                const selectedQuality = Object.entries(itemQuality).find(([key, [value]]) => value === rule.item_quality);
-                rule.qualityClass = selectedQuality ? selectedQuality[1][1] : "";
-
+                rule.qualityClass = itemQuality.map(quality => quality.value === rule.item_quality);
                 rule.showClass = rule.show_item ? "has-text-success" : "has-text-danger";
                 return rule;
             });
@@ -364,15 +360,10 @@ $(document).ready(function () {
     
         if (dataIndex !== undefined) {
             jsonData[dataIndex].item_quality = Number(paramValue);
-    
-            const selectedQuality = Object.entries(itemQuality).find(([key, [value]]) => value === Number(paramValue));
-            const className = selectedQuality ? selectedQuality[1][1] : "";
+            const className = itemQuality.map(quality => quality.value === Number(paramValue));
     
             jsonData[dataIndex].qualityClass = className;
-    
-            $(this).removeClass((index, className) => {
-                return Object.values(itemQuality).map(([value, cls]) => cls).join(" ");
-            });
+            $(this).removeClass(itemQuality.map(quality => quality.class).join(" "));
     
             if (className) {
                 $(this).addClass(className);
@@ -562,8 +553,10 @@ $(document).ready(function () {
                 </div>`,
                 `<div class="select">
                     <select class="rule-quality ${item.qualityClass || ''}">
-                        ${Object.entries(itemQuality).map(([key, [value, className]]) => `
-                            <option class="${className}" value="${value}" ${item.item_quality === value ? 'selected' : ''}>${key}</option>
+                        ${itemQuality.map(quality => `
+                            <option class="${quality.class}" value="${quality.value}" ${item.item_quality === quality.value ? 'selected' : ''}>
+                            ${quality.name}
+                            </option>
                         `).join("")}
                     </select>
                 </div>`,

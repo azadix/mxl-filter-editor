@@ -1,12 +1,52 @@
-{
-    "Any": [-1, "has-text-white"],
-    "Low Quality": [1, "has-text-grey"],
-    "Normal": [2, "has-text-white"],
-    "High Quality": [3, "has-text-white"],
-    "Magic": [4, "has-text-link"],
-    "Set": [5, "has-text-primary"],
-    "Rare": [6, "has-text-rare"],
-    "Unique": [7, "has-text-unique"],
-    "Crafted": [8, "has-text-warning"],
-    "Honorific": [9, "has-text-honorific"]
-}
+[
+    {
+      "name": "Any",
+      "value": -1,
+      "class": "has-text-white"
+    },
+    {
+      "name": "Low Quality",
+      "value": 1,
+      "class": "has-text-grey"
+    },
+    {
+      "name": "Normal",
+      "value": 2,
+      "class": "has-text-white"
+    },
+    {
+      "name": "High Quality",
+      "value": 3,
+      "class": "has-text-white"
+    },
+    {
+      "name": "Magic",
+      "value": 4,
+      "class": "has-text-link"
+    },
+    {
+      "name": "Set",
+      "value": 5,
+      "class": "has-text-primary"
+    },
+    {
+      "name": "Rare",
+      "value": 6,
+      "class": "has-text-rare"
+    },
+    {
+      "name": "Unique",
+      "value": 7,
+      "class": "has-text-unique"
+    },
+    {
+      "name": "Crafted",
+      "value": 8,
+      "class": "has-text-warning"
+    },
+    {
+      "name": "Honorific",
+      "value": 9,
+      "class": "has-text-honorific"
+    }
+]
