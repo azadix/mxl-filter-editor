@@ -241,7 +241,8 @@ $(document).ready(function () {
             const data = JSON.parse(text);
             if (data && typeof data === "object" && data.rules) {
                 jsonData = data.rules.map(rule => {
-                    rule.qualityClass = itemQuality.find(quality => quality.value === rule.item_quality);
+                    const selectedQuality = itemQuality.find(quality => quality.value === Number(rule.item_quality));
+                    rule.qualityClass = selectedQuality ? selectedQuality.class : "";
                     rule.showClass = rule.show_item ? "has-text-success" : "has-text-danger";
                     return rule;
                   });
@@ -295,7 +296,8 @@ $(document).ready(function () {
     
         if (filterData) {
             jsonData = filterData.rules.map(rule => {
-                rule.qualityClass = itemQuality.map(quality => quality.value === rule.item_quality);
+                const selectedQuality = itemQuality.find(quality => quality.value === Number(rule.item_quality));
+                rule.qualityClass = selectedQuality ? selectedQuality.class : "";
                 rule.showClass = rule.show_item ? "has-text-success" : "has-text-danger";
                 return rule;
             });
@@ -360,9 +362,11 @@ $(document).ready(function () {
     
         if (dataIndex !== undefined) {
             jsonData[dataIndex].item_quality = Number(paramValue);
-            const className = itemQuality.map(quality => quality.value === Number(paramValue));
+            const selectedQuality = itemQuality.find(quality => quality.value === Number(paramValue));
+            const className = selectedQuality ? selectedQuality.class : "";
     
             jsonData[dataIndex].qualityClass = className;
+
             $(this).removeClass(itemQuality.map(quality => quality.class).join(" "));
     
             if (className) {
@@ -503,6 +507,26 @@ $(document).ready(function () {
         } else {
             console.warn("Invalid index or index out of bounds.");
         }
+    });
+
+    $('#filterSettings').on('click', function () {
+        $('#settingsModal').addClass('is-active');
+    });
+    
+    // Close the modal
+    $('#settingsModal .modal-background').on('click', function () {
+        $('#settingsModal').removeClass('is-active');
+    });
+    
+    // Close the modal on Cancel
+    $('#settingsModal .modal-card-foot .button:not(.is-success)').on('click', function () {
+        $('#settingsModal').removeClass('is-active');
+    });
+    
+    // Handle Save changes
+    $('#settingsModal .modal-card-foot .is-success').on('click', function () {
+        //alert('Changes saved!');
+        $('#settingsModal').removeClass('is-active');
     });
     
     function addSortables() {
