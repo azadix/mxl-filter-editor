@@ -12,8 +12,8 @@ const defaultRule = {
     max_ilvl: 0,
     rule_type: -1,
     params: null,
-    notify: true,
-    automap: true
+    notify: $('#defaultNotify').is(':checked'),
+    automap: $('#defaultMap').is(':checked')
 };
 
 const etherealState = {
@@ -28,12 +28,14 @@ const ruleTypes = {
     "Class": 0
 }
 
-
 $(document).ready(function () {
     let jsonData = [];
     let itemQuality = [];
     let itemCodes = [];
     let itemClasses = [];
+    
+    const defaultNotify = localStorage.getItem('defaultNotify') === 'true' ?? true;
+    const defaultMap = localStorage.getItem('defaultMap') === 'true' ?? true;
 
     function loadItemQuality() {
         return new Promise((resolve, reject) => {
@@ -92,7 +94,7 @@ $(document).ready(function () {
     }
 
     Promise.all([loadItemQuality(), loadItemCodes(), loadItemClasses()])
-        .then(() => {
+        .then(function () {
             console.log("All data loaded successfully!");
         })
         .catch((error) => {
@@ -132,16 +134,16 @@ $(document).ready(function () {
         const addRuleButton = document.createElement('button');
         addRuleButton.classList.add("button", "is-success", "is-outlined", "is-inverted");
         addRuleButton.innerHTML = '<span class="icon is-small"><i class="fas fa-plus"></i></span><span>Add new rule</span>';
-
-        // Add click event to append a new row
-        addRuleButton.addEventListener("click", () => {
+    
+        addRuleButton.addEventListener("click", function () {
             const newRule = JSON.parse(JSON.stringify(defaultRule));
             newRule.id = Date.now();
-
+            newRule.notify = $('#defaultNotify').is(':checked');
+            newRule.automap = $('#defaultMap').is(':checked');
             jsonData.unshift(newRule);
             renderTableFromJson();
         });
-
+    
         return addRuleButton;
     }
 
@@ -223,10 +225,6 @@ $(document).ready(function () {
             $('#loadFromLocalStorage option[value=""]').prop('selected', true);
 
             renderTableFromJson();
-
-            showToast("New filter created successfully!", true);
-        } else {
-            showToast("New filter creation canceled.", true);
         }
     });
 
@@ -260,8 +258,9 @@ $(document).ready(function () {
     });
 
     $('#copyToClipboard').on('click', function () {
+        const filterName = $('#filterName').val().trim();
         navigator.clipboard.writeText(generateOutput())
-            .then(() => showToast("Filter copied to clipboard!", true))
+            .then(() => showToast(`Filter "${filterName}" copied to clipboard!`, true))
             .catch(err => showToast("Failed to copy: " + err));
     });
 
@@ -295,10 +294,14 @@ $(document).ready(function () {
         const filterData = JSON.parse(localStorage.getItem(filterName));
     
         if (filterData) {
+            $('#defaultNotify').prop('checked', filterData.default_notify);
+            $('#defaultMap').prop('checked', filterData.default_map);
+    
             jsonData = filterData.rules.map(rule => {
                 const selectedQuality = itemQuality.find(quality => quality.value === Number(rule.item_quality));
                 rule.qualityClass = selectedQuality ? selectedQuality.class : "";
                 rule.showClass = rule.show_item ? "has-text-success" : "has-text-danger";
+    
                 return rule;
             });
     
@@ -329,6 +332,20 @@ $(document).ready(function () {
             showToast(`Filter "${filterName}" not found in local storage.`, true);
         }
     });
+
+    $('#defaultNotify').prop('checked', defaultNotify);
+    $('#defaultMap').prop('checked', defaultMap);
+
+    $('#defaultNotify').on('change', function () {
+        const isChecked = $(this).is(':checked');
+        localStorage.setItem('defaultNotify', isChecked);
+    });
+
+    $('#defaultMap').on('change', function () {
+        const isChecked = $(this).is(':checked');
+        localStorage.setItem('defaultMap', isChecked);
+    });
+
     
     table.on('change', '.rule-is-active', function () {
         const paramValue = $(this).is(":checked");
@@ -386,7 +403,6 @@ $(document).ready(function () {
             console.warn('Row does not have a valid data-index');
         }
     });
-
     table.on('change', '.rule-param-type', function () {
         const paramValue = $(this).val();
         const dataIndex = $(this).closest('tr').data('index');
@@ -490,7 +506,6 @@ $(document).ready(function () {
             console.warn('Row does not have a valid data-index');
         }
     });
-
     table.on('draw', function () {
         table.rows().every(function (rowIdx) {
             const rowNode = this.node();
@@ -525,7 +540,7 @@ $(document).ready(function () {
     
     // Handle Save changes
     $('#settingsModal .modal-card-foot .is-success').on('click', function () {
-        //alert('Changes saved!');
+        showToast("Preferences saved!", true)
         $('#settingsModal').removeClass('is-active');
     });
     
@@ -641,9 +656,11 @@ $(document).ready(function () {
             const { id, qualityClass, showClass, ...cleanedRule } = rule;
             return cleanedRule;
         });
-
+    
         return JSON.stringify({
             default_show_items: $('#defaultShowItems').is(":checked"),
+            default_notify: $('#defaultNotify').is(":checked"),
+            default_map: $('#defaultMap').is(":checked"),
             name: filterName == "" ? `UnnamedFilter${Date.now().toString()}` : filterName,
             rules: cleanedData
         }, null, 2);
@@ -661,6 +678,8 @@ $(document).ready(function () {
 
         for (let i = 0; i < localStorage.length; i++) {
             const key = localStorage.key(i);
+            if (key === 'defaultNotify' || key === 'defaultMap') { continue; }
+
             loadDropdown.append(`<option value="${key}">${key}</option>`);
         }
 
@@ -679,12 +698,12 @@ $(document).ready(function () {
         toast.classList.add("notification", "is-small");
         toast.innerText = message;
     
-        $(toast).on('click', () => {
+        $(toast).on('click', function () {
             fadeOutAndRemove(toast);
         });
 
         if (autoRemove) {
-            setTimeout(() => {
+            setTimeout(function () {
                 fadeOutAndRemove(toast);
             }, 2500);
         } else {
@@ -696,7 +715,7 @@ $(document).ready(function () {
 
     function fadeOutAndRemove(toast) {
         toast.style.opacity = 0;
-        setTimeout(() => {
+        setTimeout(function () {
             toast.remove();
         }, 500);
     }
