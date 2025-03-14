@@ -659,8 +659,6 @@ $(document).ready(function () {
     
         return JSON.stringify({
             default_show_items: $('#defaultShowItems').is(":checked"),
-            default_notify: $('#defaultNotify').is(":checked"),
-            default_map: $('#defaultMap').is(":checked"),
             name: filterName == "" ? `UnnamedFilter${Date.now().toString()}` : filterName,
             rules: cleanedData
         }, null, 2);
