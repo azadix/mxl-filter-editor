@@ -2,9 +2,7 @@ const defaultRule = {
     id: Date.now(),
     active: true,
     show_item: true,
-    showClass: "has-text-success",
     item_quality: -1,
-    qualityClass: "has-text-white",
     ethereal: 0,
     min_clvl: 0,
     max_clvl: 0,
@@ -237,14 +235,7 @@ $(document).ready(function () {
             }
     
             const data = JSON.parse(text);
-            if (data && typeof data === "object" && data.rules) {
-                jsonData = data.rules.map(rule => {
-                    const selectedQuality = itemQuality.find(quality => quality.value === Number(rule.item_quality));
-                    rule.qualityClass = selectedQuality ? selectedQuality.class : "";
-                    rule.showClass = rule.show_item ? "has-text-success" : "has-text-danger";
-                    return rule;
-                  });
-    
+            if (data && typeof data === "object" && data.rules) {   
                 $('#defaultShowItems').prop('checked', data.default_show_items);
                 $('#filterName').val(data.name);
     
@@ -295,19 +286,11 @@ $(document).ready(function () {
     
         if (filterData) {
             $('#defaultNotify').prop('checked', filterData.default_notify);
-            $('#defaultMap').prop('checked', filterData.default_map);
-    
-            jsonData = filterData.rules.map(rule => {
-                const selectedQuality = itemQuality.find(quality => quality.value === Number(rule.item_quality));
-                rule.qualityClass = selectedQuality ? selectedQuality.class : "";
-                rule.showClass = rule.show_item ? "has-text-success" : "has-text-danger";
-    
-                return rule;
-            });
-    
+            $('#defaultMap').prop('checked', filterData.default_map);    
             $('#defaultShowItems').prop('checked', filterData.default_show_items);
             $('#filterName').val(filterData.name);
-    
+
+            jsonData = filterData.rules;
             renderTableFromJson();
     
             showToast(`Filter "${filterName}" loaded successfully!`, true);
@@ -364,11 +347,8 @@ $(document).ready(function () {
     
         if (dataIndex !== undefined) {
             jsonData[dataIndex].show_item = paramValue === "1";
-
-            const showClass = paramValue === "1" ? "has-text-success" : "has-text-danger";
-            jsonData[dataIndex].showClass = showClass;
     
-            $(this).removeClass("has-text-success has-text-danger").addClass(showClass);
+            $(this).removeClass("has-text-success has-text-danger").addClass(getShowClassName(dataIndex));
         } else {
             console.warn('Row does not have a valid data-index');
         }
@@ -379,16 +359,8 @@ $(document).ready(function () {
     
         if (dataIndex !== undefined) {
             jsonData[dataIndex].item_quality = Number(paramValue);
-            const selectedQuality = itemQuality.find(quality => quality.value === Number(paramValue));
-            const className = selectedQuality ? selectedQuality.class : "";
-    
-            jsonData[dataIndex].qualityClass = className;
-
             $(this).removeClass(itemQuality.map(quality => quality.class).join(" "));
-    
-            if (className) {
-                $(this).addClass(className);
-            }
+            $(this).addClass(getQualityClassName(dataIndex));
         } else {
             console.warn('Row does not have a valid data-index');
         }
@@ -430,13 +402,17 @@ $(document).ready(function () {
     });
     table.on('change', '.rule-param-value', function () {
         const paramValue = $(this).val();
-        const dataIndex =  $(this).closest('tr').data('index');
+        const dataIndex = $(this).closest('tr').data('index');
     
         if (dataIndex !== undefined) {
-            if (Number(paramValue) <= findLargestValue(itemClasses)) {
-                jsonData[dataIndex].params.class = Number(paramValue)
+            const rule = jsonData[dataIndex];
+
+            if (rule.rule_type === 0) { // Class
+                rule.params.class = Number(paramValue);
+            } else if (rule.rule_type === 1) { // Item
+                rule.params.code = Number(paramValue);
             } else {
-                jsonData[dataIndex].params.code = Number(paramValue)
+                console.warn('Invalid rule type:', rule.rule_type);
             }
         } else {
             console.warn('Row does not have a valid data-index');
@@ -569,16 +545,25 @@ $(document).ready(function () {
         }
     }
 
+    function getShowClassName(dataIndex) {
+        return jsonData[dataIndex].show_item ? "has-text-success" : "has-text-danger";
+    }
+
+    function getQualityClassName(dataIndex) {
+        return itemQuality.find(quality => quality.value === Number(jsonData[dataIndex].item_quality)).class;
+    }
+
     function renderTableFromJson() {
         table.clear();
         jsonData.forEach((item, index) => {
             // Prepare row data
+            
             const rowData = [
                 item.id | Date.now(),
                 `<span class="handle icon is-normal"><i class="fas fa-arrows-alt-v"></i></span>`,
                 `<div class="checkbox-container"><input id="active" class="checkbox-input rule-is-active" type="checkbox" ${item.active ? 'checked' : ''}></div>`,
                 `<div class="select">
-                    <select class="rule-is-shown ${item.showClass || ''}">
+                    <select class="rule-is-shown ${getShowClassName(index)}">
                         <option class="has-text-success" value="1" ${item.show_item == "1" ? 'selected' : ''}>Show</option>
                         <option class="has-text-danger" value="0" ${item.show_item == "0" ? 'selected' : ''}>Hide</option>
                     </select>
@@ -591,7 +576,7 @@ $(document).ready(function () {
                     </select>
                 </div>`,
                 `<div class="select">
-                    <select class="rule-quality ${item.qualityClass || ''}">
+                    <select class="rule-quality ${getQualityClassName(index)}">
                         ${itemQuality.map(quality => `
                             <option class="${quality.class}" value="${quality.value}" ${item.item_quality === quality.value ? 'selected' : ''}>
                             ${quality.name}
@@ -634,17 +619,6 @@ $(document).ready(function () {
         $('b[role="presentation"]').hide();
     }
 
-    function findLargestValue(jsonData) {
-        let largestValue = -Infinity;
-    
-        Object.entries(jsonData).forEach(([key, value]) => {
-            if (value > largestValue) {
-                largestValue = value;
-            }
-        });
-        return largestValue;
-    }
-
     function clampLvlValues(value) {
         const numericValue = Number(value);
         return !isNaN(numericValue) && value !== "" ? Math.min(Math.max(numericValue, 0), 150) : 0;
@@ -653,7 +627,8 @@ $(document).ready(function () {
     function generateOutput() {
         const filterName = $('#filterName').val().trim();
         let cleanedData = jsonData.map(rule => {
-            const { id, qualityClass, showClass, ...cleanedRule } = rule;
+            //Remove the id from rules
+            const { id, ...cleanedRule } = rule;
             return cleanedRule;
         });
     
