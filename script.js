@@ -26,12 +26,12 @@ const ruleTypes = {
     "Class": 0
 }
 
+let jsonData = [];
+let itemQuality = [];
+let itemCodes = [];
+let itemClasses = [];
+
 $(document).ready(function () {
-    let jsonData = [];
-    let itemQuality = [];
-    let itemCodes = [];
-    let itemClasses = [];
-    
     const defaultNotify = localStorage.getItem('defaultNotify') === 'true' ?? true;
     const defaultMap = localStorage.getItem('defaultMap') === 'true' ?? true;
 
@@ -251,7 +251,12 @@ $(document).ready(function () {
 
     $('#copyToClipboard').on('click', function () {
         const filterName = $('#filterName').val().trim();
-        navigator.clipboard.writeText(generateOutput())
+        const output = generateOutput();
+    
+        // Exit early if no rules present
+        if (!output) { return; }
+
+        navigator.clipboard.writeText(output)
             .then(() => showToast(`Filter "${filterName}" copied to clipboard!`, true))
             .catch(err => showToast("Failed to copy: " + err));
     });
@@ -627,6 +632,11 @@ $(document).ready(function () {
 
     function generateOutput() {
         const filterName = $('#filterName').val().trim();
+
+        if (jsonData.length === 0) {
+            return false;
+        }
+
         let cleanedData = jsonData.map(rule => {
             //Remove the id from rules
             const { id, ...cleanedRule } = rule;
