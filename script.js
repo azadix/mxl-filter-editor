@@ -1,4 +1,4 @@
-const defaultRule = {
+const ruleTemplate = {
     id: Date.now(),
     active: true,
     show_item: true,
@@ -134,7 +134,7 @@ $(document).ready(function () {
         addRuleButton.innerHTML = '<span class="icon is-small"><i class="fas fa-plus"></i></span><span>Add new rule</span>';
     
         addRuleButton.addEventListener("click", function () {
-            const newRule = JSON.parse(JSON.stringify(defaultRule));
+            const newRule = JSON.parse(JSON.stringify(ruleTemplate));
             newRule.id = Date.now();
             newRule.notify = $('#defaultNotify').is(':checked');
             newRule.automap = $('#defaultMap').is(':checked');
@@ -238,7 +238,8 @@ $(document).ready(function () {
             if (data && typeof data === "object" && data.rules) {   
                 $('#defaultShowItems').prop('checked', data.default_show_items);
                 $('#filterName').val(data.name);
-    
+                
+                jsonData = data.rules;
                 renderTableFromJson();
             } else {
                 showToast("Invalid JSON format.");
