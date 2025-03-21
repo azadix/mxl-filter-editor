@@ -1,94 +1,370 @@
 [
-    { "name": "Gold", "value": 1 },
-    { "name": "Gear", "value": 2 },
-    { "name": "Armor", "value": 3 },
-    { "name": "Weapon", "value": 4 },
-    { "name": "Jewelry", "value": 5 },
-    { "name": "Quiver", "value": 6 },
-    { "name": "Class Specific", "value": 7 },
-    { "name": "Class Specific Amazon", "value": 8 },
-    { "name": "Class Specific Sorceress", "value": 9 },
-    { "name": "Class Specific Necromancer", "value": 10 },
-    { "name": "Class Specific Paladin", "value": 11 },
-    { "name": "Class Specific Barbarian", "value": 12 },
-    { "name": "Class Specific Druid", "value": 13 },
-    { "name": "Class Specific Assasin", "value": 14 },
-    { "name": "Tier 1", "value": 15 },
-    { "name": "Tier 2", "value": 16 },
-    { "name": "Tier 3", "value": 17 },
-    { "name": "Tier 4", "value": 18 },
-    { "name": "Tier Sacred", "value": 19 },
-    { "name": "Tier Mastercrafted", "value": 20 },
-    { "name": "Tier Angelic", "value": 21 },
-    { "name": "Quest Reward", "value": 22 },
-    { "name": "Potion", "value": 23 },
-    { "name": "Potion Health", "value": 24 },
-    { "name": "Potion Mana", "value": 25 },
-    { "name": "Socket Filler", "value": 26 },
-    { "name": "Jewel", "value": 27 },
-    { "name": "Rune", "value": 28 },
-    { "name": "Rune Enchanted", "value": 29 },
-    { "name": "Rune Great", "value": 30 },
-    { "name": "Rune Elemental", "value": 31 },
-    { "name": "Gem", "value": 32 },
-    { "name": "Gem Perfect", "value": 33 },
-    { "name": "Gem Imperfect", "value": 34 },
-    { "name": "Rune Common", "value": 35 },
-    { "name": "Gem Amethyst", "value": 36 },
-    { "name": "Gem Topaz", "value": 37 },
-    { "name": "Gem Sapphire", "value": 38 },
-    { "name": "Gem Emerald", "value": 39 },
-    { "name": "Gem Ruby", "value": 40 },
-    { "name": "Gem Diamond", "value": 41 },
-    { "name": "Gem Skull", "value": 42 },
-    { "name": "Gem Onyx", "value": 43 },
-    { "name": "Gem Bloodstone", "value": 44 },
-    { "name": "Gem Turquoise", "value": 45 },
-    { "name": "Gem Amber", "value": 46 },
-    { "name": "Gem Rainbow Stone", "value": 47 },
-    { "name": "Shrine", "value": 48 },
-    { "name": "Shrine Creepy", "value": 49 },
-    { "name": "Shrine Abandoned", "value": 50 },
-    { "name": "Shrine Quiet", "value": 51 },
-    { "name": "Shrine Eerie", "value": 52 },
-    { "name": "Shrine Weird", "value": 53 },
-    { "name": "Shrine Tainted", "value": 54 },
-    { "name": "Shrine Intimidating", "value": 55 },
-    { "name": "Shrine Trinity", "value": 56 },
-    { "name": "Shrine Fascinating", "value": 57 },
-    { "name": "Shrine Ornate", "value": 58 },
-    { "name": "Shrine Sacred", "value": 59 },
-    { "name": "Shrine Shimmering", "value": 60 },
-    { "name": "Shrine Spirit", "value": 61 },
-    { "name": "Shrine Magical", "value": 62 },
-    { "name": "Shrine Enchanted", "value": 63 },
-    { "name": "Shrine Hidden", "value": 64 },
-    { "name": "Mystic Orb", "value": 65 },
-    { "name": "Mystic Orb Unique", "value": 66 },
-    { "name": "Signet", "value": 67 },
-    { "name": "Signet Gold", "value": 68 },
-    { "name": "Signet Attribute", "value": 69 },
-    { "name": "Arcane Shard", "value": 70 },
-    { "name": "Arcane Crystal", "value": 71 },
-    { "name": "Oil", "value": 72 },
-    { "name": "Color Dye", "value": 73 },
-    { "name": "Cube Reagent", "value": 74 },
-    { "name": "Trophy", "value": 75 },
-    { "name": "Cycle", "value": 76 },
-    { "name": "Cycle Small", "value": 77 },
-    { "name": "Cycle Medium", "value": 78 },
-    { "name": "Cycle Large", "value": 79 },
-    { "name": "Riftstone", "value": 80 },
-    { "name": "Catalyst", "value": 81 },
-    { "name": "Design Scheme", "value": 82 },
-    { "name": "Quest Item", "value": 83 },
-    { "name": "Relic", "value": 84 },
-    { "name": "Essence", "value": 85 },
-    { "name": "Special Crystal", "value": 86 },
-    { "name": "Emblem", "value": 87 },
-    { "name": "Scroll", "value": 88 },
-    { "name": "Effigy", "value": 89 },
-    { "name": "Special Shard", "value": 90 },
-    { "name": "Enchant Scroll", "value": 91 },
-    { "name": "Shield", "value": 92 }
+    {
+        "name": "Gold",
+        "value": 1
+    },
+    {
+        "name": "Gear",
+        "value": 2
+    },
+    {
+        "name": "Armor",
+        "value": 3
+    },
+    {
+        "name": "Weapon",
+        "value": 4
+    },
+    {
+        "name": "Jewelry",
+        "value": 5
+    },
+    {
+        "name": "Quiver",
+        "value": 6
+    },
+    {
+        "name": "Class Specific",
+        "value": 7
+    },
+    {
+        "name": "Class Specific Amazon",
+        "value": 8
+    },
+    {
+        "name": "Class Specific Sorceress",
+        "value": 9
+    },
+    {
+        "name": "Class Specific Necromancer",
+        "value": 10
+    },
+    {
+        "name": "Class Specific Paladin",
+        "value": 11
+    },
+    {
+        "name": "Class Specific Barbarian",
+        "value": 12
+    },
+    {
+        "name": "Class Specific Druid",
+        "value": 13
+    },
+    {
+        "name": "Class Specific Assasin",
+        "value": 14
+    },
+    {
+        "name": "Tier 1",
+        "value": 15
+    },
+    {
+        "name": "Tier 2",
+        "value": 16
+    },
+    {
+        "name": "Tier 3",
+        "value": 17
+    },
+    {
+        "name": "Tier 4",
+        "value": 18
+    },
+    {
+        "name": "Tier Sacred",
+        "value": 19
+    },
+    {
+        "name": "Tier Mastercrafted",
+        "value": 20
+    },
+    {
+        "name": "Tier Angelic",
+        "value": 21
+    },
+    {
+        "name": "Quest Reward",
+        "value": 22
+    },
+    {
+        "name": "Potion",
+        "value": 23
+    },
+    {
+        "name": "Potion Health",
+        "value": 24
+    },
+    {
+        "name": "Potion Mana",
+        "value": 25
+    },
+    {
+        "name": "Socket Filler",
+        "value": 26
+    },
+    {
+        "name": "Jewel",
+        "value": 27
+    },
+    {
+        "name": "Rune",
+        "value": 28
+    },
+    {
+        "name": "Rune Enchanted",
+        "value": 29
+    },
+    {
+        "name": "Rune Great",
+        "value": 30
+    },
+    {
+        "name": "Rune Elemental",
+        "value": 31
+    },
+    {
+        "name": "Gem",
+        "value": 32
+    },
+    {
+        "name": "Gem Perfect",
+        "value": 33
+    },
+    {
+        "name": "Gem Imperfect",
+        "value": 34
+    },
+    {
+        "name": "Rune Common",
+        "value": 35
+    },
+    {
+        "name": "Gem Amethyst",
+        "value": 36
+    },
+    {
+        "name": "Gem Topaz",
+        "value": 37
+    },
+    {
+        "name": "Gem Sapphire",
+        "value": 38
+    },
+    {
+        "name": "Gem Emerald",
+        "value": 39
+    },
+    {
+        "name": "Gem Ruby",
+        "value": 40
+    },
+    {
+        "name": "Gem Diamond",
+        "value": 41
+    },
+    {
+        "name": "Gem Skull",
+        "value": 42
+    },
+    {
+        "name": "Gem Onyx",
+        "value": 43
+    },
+    {
+        "name": "Gem Bloodstone",
+        "value": 44
+    },
+    {
+        "name": "Gem Turquoise",
+        "value": 45
+    },
+    {
+        "name": "Gem Amber",
+        "value": 46
+    },
+    {
+        "name": "Gem Rainbow Stone",
+        "value": 47
+    },
+    {
+        "name": "Shrine",
+        "value": 48
+    },
+    {
+        "name": "Shrine Creepy",
+        "value": 49
+    },
+    {
+        "name": "Shrine Abandoned",
+        "value": 50
+    },
+    {
+        "name": "Shrine Quiet",
+        "value": 51
+    },
+    {
+        "name": "Shrine Eerie",
+        "value": 52
+    },
+    {
+        "name": "Shrine Weird",
+        "value": 53
+    },
+    {
+        "name": "Shrine Tainted",
+        "value": 54
+    },
+    {
+        "name": "Shrine Intimidating",
+        "value": 55
+    },
+    {
+        "name": "Shrine Trinity",
+        "value": 56
+    },
+    {
+        "name": "Shrine Fascinating",
+        "value": 57
+    },
+    {
+        "name": "Shrine Ornate",
+        "value": 58
+    },
+    {
+        "name": "Shrine Sacred",
+        "value": 59
+    },
+    {
+        "name": "Shrine Shimmering",
+        "value": 60
+    },
+    {
+        "name": "Shrine Spirit",
+        "value": 61
+    },
+    {
+        "name": "Shrine Magical",
+        "value": 62
+    },
+    {
+        "name": "Shrine Enchanted",
+        "value": 63
+    },
+    {
+        "name": "Shrine Hidden",
+        "value": 64
+    },
+    {
+        "name": "Mystic Orb",
+        "value": 65
+    },
+    {
+        "name": "Mystic Orb Unique",
+        "value": 66
+    },
+    {
+        "name": "Signet",
+        "value": 67
+    },
+    {
+        "name": "Signet Gold",
+        "value": 68
+    },
+    {
+        "name": "Signet Attribute",
+        "value": 69
+    },
+    {
+        "name": "Arcane Shard",
+        "value": 70
+    },
+    {
+        "name": "Arcane Crystal",
+        "value": 71
+    },
+    {
+        "name": "Oil",
+        "value": 72
+    },
+    {
+        "name": "Color Dye",
+        "value": 73
+    },
+    {
+        "name": "Cube Reagent",
+        "value": 74
+    },
+    {
+        "name": "Trophy",
+        "value": 75
+    },
+    {
+        "name": "Cycle",
+        "value": 76
+    },
+    {
+        "name": "Cycle Small",
+        "value": 77
+    },
+    {
+        "name": "Cycle Medium",
+        "value": 78
+    },
+    {
+        "name": "Cycle Large",
+        "value": 79
+    },
+    {
+        "name": "Riftstone",
+        "value": 80
+    },
+    {
+        "name": "Catalyst",
+        "value": 81
+    },
+    {
+        "name": "Design Scheme",
+        "value": 82
+    },
+    {
+        "name": "Quest Item",
+        "value": 83
+    },
+    {
+        "name": "Relic",
+        "value": 84
+    },
+    {
+        "name": "Essence",
+        "value": 85
+    },
+    {
+        "name": "Special Crystal",
+        "value": 86
+    },
+    {
+        "name": "Emblem",
+        "value": 87
+    },
+    {
+        "name": "Scroll",
+        "value": 88
+    },
+    {
+        "name": "Effigy",
+        "value": 89
+    },
+    {
+        "name": "Special Shard",
+        "value": 90
+    },
+    {
+        "name": "Enchant Scroll",
+        "value": 91
+    },
+    {
+        "name": "Shield",
+        "value": 92
+    }
 ]
