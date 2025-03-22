@@ -9,8 +9,8 @@ $(document).ready(function () {
     const ruleManager = new RuleManager();
     const storageManager = new StorageManager();
     const toastManager = new ToastManager();
-    const dropdownManager = new DropdownManager();
-    const tableManager = new TableManager(ruleManager, storageManager, toastManager);
+    const dropdownManager = new DropdownManager(storageManager);
+    const tableManager = new TableManager(ruleManager, storageManager, toastManager, dropdownManager);
 
     $.ajax({
         url: './data/file_parser/itemCode.json',
@@ -47,6 +47,6 @@ $(document).ready(function () {
         }
     });
 
-    // Initialize
     dropdownManager.initializeSelect();
+    dropdownManager.updateFilterSelect();
 });

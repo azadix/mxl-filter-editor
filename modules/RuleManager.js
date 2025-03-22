@@ -26,8 +26,8 @@ export class RuleManager {
             max_ilvl: 0,
             rule_type: -1,
             params: null,
-            notify: $('#defaultNotify').is(':checked'),
-            automap: $('#defaultMap').is(':checked')
+            notify: true,
+            automap: true
         };
     }
 
@@ -36,8 +36,10 @@ export class RuleManager {
         if (rule) {
             newRule = rule;
         } else {
-            newRule = JSON.parse(JSON.stringify(this.ruleTemplate));
+            newRule = this.ruleTemplate;
             newRule.id = Date.now();
+            newRule.notify = $('#defaultNotify').is(':checked');
+            newRule.automap = $('#defaultMap').is(':checked');
         }
         
         this.rules.unshift(newRule);
@@ -54,6 +56,11 @@ export class RuleManager {
         if (index >= 0 && index < this.rules.length) {
             this.rules[index] = { ...this.rules[index], ...updates };
         }
+    }
+
+    reorderRules(newOrder) {
+        const reorderedRules = newOrder.map(index => this.rules[index]);
+        this.rules = reorderedRules;
     }
 
     getRules() {

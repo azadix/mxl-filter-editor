@@ -1,6 +1,6 @@
 export class StorageManager {
     saveFilter(name, data) {
-        localStorage.setItem(name, JSON.stringify(data));
+        localStorage.setItem(name, data);
     }
 
     loadFilter(name) {
@@ -9,7 +9,9 @@ export class StorageManager {
     }
 
     deleteFilter(name) {
+        const wasTheFilterInStorage = localStorage.getItem(name);
         localStorage.removeItem(name);
+        return wasTheFilterInStorage;
     }
 
     getFilterNames() {

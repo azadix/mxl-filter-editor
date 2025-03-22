@@ -1,13 +1,11 @@
-import { RuleManager } from './RuleManager.js';
-import { StorageManager } from './StorageManager.js';
-import { ToastManager } from './ToastManager.js';
 import { clampLvlValues, sanitizeFilterName } from './utils.js';
 
 export class TableManager {
-    constructor(ruleManager, storageManager, toastManager) {
+    constructor(ruleManager, storageManager, toastManager, dropdownManager) {
         this.ruleManager = ruleManager;
         this.storageManager = storageManager;
         this.toastManager = toastManager;
+        this.dropdownManager = dropdownManager;
         this.table = new DataTable('#rulesTable', {
             autoWidth: true,
             paging: false,
@@ -26,6 +24,23 @@ export class TableManager {
         });
 
         this.initializeEventListeners();
+        this.initializeSortable();
+    }
+
+    initializeSortable() {
+        const tableBody = document.querySelector('#rulesTable tbody');
+
+        Sortable.create(tableBody, {
+            handle: '.handle',
+            animation: 150,
+            onEnd: (event) => {
+                const rows = Array.from(tableBody.querySelectorAll('tr'));
+                const newOrder = rows.map(row => row.dataset.index);
+
+                this.ruleManager.reorderRules(newOrder);
+                this.renderTable();
+            }
+        });
     }
 
     createAddRuleButton() {
@@ -42,13 +57,17 @@ export class TableManager {
     }
 
     renderTable() {
+        this.table.rows().nodes().to$().off('*');
         this.table.clear();
+        this.dropdownManager.destroySelect();
+
         this.ruleManager.getRules().forEach((rule, index) => {
             const rowData = this.createRowData(rule, index);
             this.table.row.add(rowData).node();
         });
         this.table.draw();
         this.table.columns.adjust();
+        this.dropdownManager.initializeSelect();
     }
 
     createRowData(rule, index) {
@@ -177,6 +196,45 @@ export class TableManager {
     }
 
     initializeEventListeners() {
+        const defaultNotify = localStorage.getItem('defaultNotify') === 'true';
+        const defaultMap = localStorage.getItem('defaultMap') === 'true';
+
+        $('#defaultNotify').prop('checked', defaultNotify);
+        $('#defaultMap').prop('checked', defaultMap);
+
+        // Handle changes to defaultNotify
+        $('#defaultNotify').on('change', function () {
+            const isChecked = $(this).is(':checked');
+            localStorage.setItem('defaultNotify', isChecked);
+        });
+
+        // Handle changes to defaultMap
+        $('#defaultMap').on('change', function () {
+            const isChecked = $(this).is(':checked');
+            localStorage.setItem('defaultMap', isChecked);
+        });
+
+        // Open the settings modal
+        $('#filterSettings').on('click', function () {
+            $('#settingsModal').addClass('is-active');
+        });
+
+        // Close the modal when clicking the background
+        $('#settingsModal .modal-background').on('click', function () {
+            $('#settingsModal').removeClass('is-active');
+        });
+
+        // Close the modal when clicking the Cancel button
+        $('#settingsModal .modal-card-foot .button:not(.is-success)').on('click', function () {
+            $('#settingsModal').removeClass('is-active');
+        });
+
+        // Handle Save changes in the modal
+        $('#settingsModal .modal-card-foot .is-success').on('click', () => {
+            this.toastManager.showToast("Preferences saved!", true); // Use toastManager to show a toast
+            $('#settingsModal').removeClass('is-active');
+        });
+
         // Paste from clipboard
         $('#pasteFromClipboard').on('click', () => {
             try {
@@ -192,7 +250,7 @@ export class TableManager {
                     $('#filterName').val(data.name);
 
                     this.ruleManager.clearRules();
-                    data.rules.forEach(rule => this.ruleManager.addRule(rule));
+                    data.rules.reverse().forEach(rule => this.ruleManager.addRule(rule));
                     this.renderTable();
                 } else {
                     this.toastManager.showToast("Invalid JSON format.");
@@ -231,9 +289,10 @@ export class TableManager {
             }
 
             const filterData = this.generateOutput();
+
             this.storageManager.saveFilter(cleanedFilterName, filterData);
             this.toastManager.showToast(`Filter "${cleanedFilterName}" saved to local storage!`, true);
-            this.updateLoadDropdown();
+            this.dropdownManager.updateFilterSelect();
         });
 
         // Load from localStorage
@@ -251,7 +310,7 @@ export class TableManager {
                 $('#filterName').val(filterData.name);
 
                 this.ruleManager.clearRules();
-                filterData.rules.forEach(rule => this.ruleManager.addRule(rule));
+                filterData.rules.reverse().forEach(rule => this.ruleManager.addRule(rule));
                 this.renderTable();
 
                 this.toastManager.showToast(`Filter "${filterName}" loaded successfully!`, true);
@@ -267,26 +326,12 @@ export class TableManager {
                 this.toastManager.showToast("Please select a filter to delete.", true);
                 return;
             }
-
             if (this.storageManager.deleteFilter(filterName)) {
                 this.toastManager.showToast(`Filter "${filterName}" deleted from local storage!`, true);
-                this.updateLoadDropdown();
+                this.dropdownManager.updateFilterSelect();
             } else {
                 this.toastManager.showToast(`Filter "${filterName}" not found in local storage.`, true);
             }
-        });
-
-        $('#defaultNotify').prop('checked', defaultNotify);
-        $('#defaultMap').prop('checked', defaultMap);
-
-        $('#defaultNotify').on('change', function () {
-            const isChecked = $(this).is(':checked');
-            localStorage.setItem('defaultNotify', isChecked);
-        });
-
-        $('#defaultMap').on('change', function () {
-            const isChecked = $(this).is(':checked');
-            localStorage.setItem('defaultMap', isChecked);
         });
 
         $('#newFilter').on('click', () => {
@@ -322,7 +367,7 @@ export class TableManager {
             if (dataIndex !== undefined) {
                 this.ruleManager.updateRule(dataIndex, { show_item: paramValue == "1" })
         
-                $(event.target).removeClass("has-text-success has-text-danger").addClass(getShowClassName(dataIndex));
+                $(event.target).removeClass("has-text-success has-text-danger").addClass(this.getShowClassName(dataIndex));
             } else {
                 console.warn('Row does not have a valid data-index');
             }
@@ -465,8 +510,8 @@ export class TableManager {
         this.table.on('click', '.delete-rule', (event) => {
             const dataIndex = $(event.target).closest('tr').data('index');
             
-            if (dataIndex !== undefined && index >= 0 && dataIndex < this.ruleManager.getRules().length) {
-                this.ruleManager.deleteRule(index);
+            if (dataIndex !== undefined && dataIndex < this.ruleManager.getRules().length) {
+                this.ruleManager.deleteRule(dataIndex);
                 this.renderTable();
             } else {
                 console.warn("Invalid index or index out of bounds.");
@@ -478,10 +523,6 @@ export class TableManager {
         const filterName = $('#filterName').val().trim();
         const rules = this.ruleManager.getRules();
 
-        if (rules.length === 0) {
-            return false;
-        }
-
         return JSON.stringify({
             default_show_items: $('#defaultShowItems').is(":checked"),
             name: filterName || `UnnamedFilter${Date.now().toString()}`,
@@ -490,16 +531,5 @@ export class TableManager {
                 return cleanedRule;
             })
         }, null, 2);
-    }
-
-    updateLoadDropdown() {
-        const loadDropdown = $('#loadFromLocalStorage');
-        loadDropdown.empty();
-
-        loadDropdown.append('<option hidden disabled selected value>Load a filter</option>');
-
-        this.storageManager.getFilterNames().forEach(filterName => {
-            loadDropdown.append(`<option value="${filterName}">${filterName}</option>`);
-        });
     }
 }
