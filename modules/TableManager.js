@@ -18,7 +18,7 @@ export class TableManager {
             columnDefs: [{ visible: false, targets: 0 }],
             layout: {
                 topStart: () => this.createAddRuleButton(),
-                topEnd: '',
+                topEnd: 'search',
                 bottomStart: { info: { empty: '', text: 'Rule count: _TOTAL_' } }
             }
         });

@@ -8,9 +8,8 @@ Current item/class data: MXL 2.10.3
 - Easier rule editing/reordering
 - More extensive item code list than the one in-game (specific Cycles, Scrolls, Mystic Orbs)
 - Saving/loading filters in localStorage
+- Search bar (items, classses, rules)
+- Defining default values for rules (chat notify, map display)
 
 ### TODO:
-- Optimize select2 data loading (current is very slow when loading large amount of rules)
-- Add working search bar for table data
-- Rule verification (so that an impossible rule cannot be created)
 - Different styling for inactive rules
