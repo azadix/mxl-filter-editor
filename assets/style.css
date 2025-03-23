@@ -47,17 +47,6 @@ html {
     margin-bottom: 0 !important;
 }
 
-.bordered {
-    overflow: hidden;
-    border: 1px solid var(--border-color) !important;
-    padding: 0.5rem !important;
-}
-
-.sortable-ghost {
-    opacity: 0.5;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
-}
-
 input[type="checkbox"], .checkbox {
     cursor: pointer;
     user-select: none;

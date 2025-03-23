@@ -140,20 +140,20 @@ export class TableManager {
         return [
             rule.id | Date.now(),
             `<span class="handle icon is-normal"><i class="fas fa-arrows-alt-v"></i></span>`,
-            `<div class="checkbox-container"><input id="active" class="checkbox-input rule-is-active" type="checkbox" ${rule.active ? 'checked' : ''}></div>`,
+            `<div class="checkbox-container"><input id="active-${index}" class="checkbox-input rule-is-active" type="checkbox" ${rule.active ? 'checked' : ''}></div>`,
             `<div class="select">
-                <select class="rule-is-shown ${this.getShowClassName(index)}">
+                <select id="show-${index}" class="rule-is-shown ${this.getShowClassName(index)}">
                     <option class="has-text-success" value="1" ${rule.show_item == "1" ? 'selected' : ''}>Show</option>
                     <option class="has-text-danger" value="0" ${rule.show_item == "0" ? 'selected' : ''}>Hide</option>
                 </select>
             </div>`,
             `<div class="select">
-                <select class="rule-is-eth">
+                <select id="ethereal-${index}" class="rule-is-eth">
                     ${this.getEtherealStateOptions(rule)}
                 </select>
             </div>`,
             `<div class="select">
-                <select class="rule-quality ${this.getQualityClassName(index)}">
+                <select id="quality-${index}" class="rule-quality ${this.getQualityClassName(index)}">
                     ${this.ruleManager.getItemQuality().map(quality => `
                         <option class="${quality.class}" value="${quality.value}" ${rule.item_quality === quality.value ? 'selected' : ''}>
                             ${quality.name}
@@ -163,15 +163,15 @@ export class TableManager {
             </div>`,
             this.createOptionParams(rule.rule_type, index),
             `<div class="input-wrapper">
-                <div><input class="input form-group-input rule-min-clvl" placeholder="0" id="min_clvl" type="number" value="${rule.min_clvl}"></div>
-                <div><input class="input form-group-input rule-max-clvl" placeholder="0" id="max_clvl" type="number" value="${rule.max_clvl}"></div>
+                <div><input class="input form-group-input rule-min-clvl" placeholder="0" id="min_clvl-${index}" type="number" value="${rule.min_clvl}"></div>
+                <div><input class="input form-group-input rule-max-clvl" placeholder="0" id="max_clvl-${index}" type="number" value="${rule.max_clvl}"></div>
             </div>`,
             `<div class="input-wrapper">
-                <div><input class="input form-group-input rule-min-ilvl" placeholder="0" id="min_ilvl" type="number" value="${rule.min_ilvl}"></div>
-                <div><input class="input form-group-input rule-max-ilvl" placeholder="0" id="max_ilvl" type="number" value="${rule.max_ilvl}"></div>
+                <div><input class="input form-group-input rule-min-ilvl" placeholder="0" id="min_ilvl-${index}" type="number" value="${rule.min_ilvl}"></div>
+                <div><input class="input form-group-input rule-max-ilvl" placeholder="0" id="max_ilvl-${index}" type="number" value="${rule.max_ilvl}"></div>
             </div>`,
-            `<div class="checkbox-container"><input id="notify" class="checkbox-input rule-is-notify" type="checkbox" ${rule.notify ? 'checked' : ''}></div>`,
-            `<div class="checkbox-container"><input id="automap" class="checkbox-input rule-is-automap" type="checkbox" ${rule.automap ? 'checked' : ''}></div>`,
+            `<div class="checkbox-container"><input id="notify-${index}" class="checkbox-input rule-is-notify" type="checkbox" ${rule.notify ? 'checked' : ''}></div>`,
+            `<div class="checkbox-container"><input id="automap-${index}" class="checkbox-input rule-is-automap" type="checkbox" ${rule.automap ? 'checked' : ''}></div>`,
             `<div class="checkbox-container"><a class="button is-danger is-outlined delete-rule"><i class="fas fa-trash pr-1"></i></a></div>`
         ];
     }
@@ -210,8 +210,8 @@ export class TableManager {
 
         paramsWrapper.classList.add("select", "width-100");
         paramsDatalist.classList.add("rule-param-value", "width-100");
-
-        groupWrapper.appendChild(this.createParamsDropdown(ruleType));
+        paramsDatalist.id = `param-value-${jsonIndex}`;
+        groupWrapper.appendChild(this.createParamsDropdown(ruleType, jsonIndex));
         groupWrapper.appendChild(paramsWrapper);
         groupWrapper.classList.add("input-wrapper", "min-width-500");
 
@@ -258,12 +258,12 @@ export class TableManager {
         return groupWrapper;
     }
 
-    createParamsDropdown(ruleType) {
+    createParamsDropdown(ruleType, index) {
         const outerWrapper = document.createElement('div');
         const selectParams = document.createElement('select');
         outerWrapper.classList.add("select");
         selectParams.classList.add("rule-param-type");
-
+        selectParams.id = `param-type-${index}`;
         Object.entries(this.ruleManager.getRuleTypes()).forEach(([key, value]) => {
             const option = document.createElement("option");
             option.value = value;
