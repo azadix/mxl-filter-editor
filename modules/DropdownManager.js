@@ -18,10 +18,8 @@ export class DropdownManager {
     destroySelect() {
         document.querySelectorAll(".rule-param-value").forEach((el) => {
             if ($(el).data('select2')) {
-                $(el).select2('destroy');
-
-                // Remove all event listeners attached to the element
                 $(el).off();
+                $(el).select2('destroy');
                 el.remove();
             }
         });
