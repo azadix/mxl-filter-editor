@@ -86,15 +86,30 @@ export class TableManager {
     
         // Initialize Select2
         this.globalSelector = $('#globalSelector').select2({
-            dropdownParent: $('#globalSelectorModal .modal-content'),
-            width: '100%',
-            placeholder: 'Select an option',
-            allowClear: false,
+            // dropdownParent: $('#globalSelectorModal .modal-content'),
+            // width: '100%',
+            // templateResult: this.formatItem,
+            // allowClear: false,
         });
     
         // Close modal on background or close button click
         $(modal).find('.modal-background, .modal-close').on('click', () => this.closeGlobalSelectorModal());
     }
+
+    formatItem (value) {
+        if (!value.id) {
+          return value.text;
+        }
+
+        let itemCategories = '';
+        if (value.category) {
+            value.category.forEach((category) => {
+                itemCategories +=`<span class="tag ml-1">${category}</span>`;
+            });
+        }
+        
+        return $(`<span class="is-flex is-fullwidth" style="justify-content: space-between;">${value.text}<span class="is-right">${itemCategories}</span></span>`);
+      };
 
     openGlobalSelectorModal(ruleType, currentValue, onChangeCallback) {
         // Populate Select2 options based on ruleType
@@ -104,7 +119,8 @@ export class TableManager {
     
         const select2Data = options.map(option => ({
             id: option.value,
-            text: option.name
+            text: option.name,
+            category: option.category
         }));
     
         // Clear and populate the global selector
@@ -113,8 +129,23 @@ export class TableManager {
             dropdownParent: $('#globalSelectorModal .modal-content'),
             width: '100%',
             height: '100%',
-            placeholder: 'Select an option',
+            templateResult: this.formatItem,
             allowClear: false,
+            matcher: function(params, data) {
+                if ($.trim(params.term) === '') {
+                    return data;
+                }
+        
+                const term = params.term.toLowerCase();
+                const text = data.text.toLowerCase();
+                const categories = Array.isArray(data.category) ? data.category : [];
+
+                if (text.indexOf(term) > -1 || categories.some(cat => cat.toLowerCase().indexOf(term) > -1)) {
+                    return data;
+                }
+        
+                return null;
+            }
         });
     
         // Set the current value
