@@ -3,21 +3,6 @@ export class DropdownManager {
         this.storageManager = storageManager;
     }
 
-    initializeSelect() {
-        document.querySelectorAll(".rule-param-value").forEach((el) => {
-            $(el).select2({
-                theme: "default",
-                selectionCssClass: "select"
-            });
-
-            $(el).on('select2:open', () => {
-                $('.select2-container .select2-search__field').addClass('input is-dark');
-            });
-        });
-
-        $('b[role="presentation"]').hide();
-    }
-
     updateFilterSelect() {
         const filterNames = this.storageManager.getFilterNames();
         const filterSelect = $('#loadFromLocalStorage');

@@ -3,7 +3,6 @@ import { TableManager } from './modules/TableManager.js';
 import { StorageManager } from './modules/StorageManager.js';
 import { ToastManager } from './modules/ToastManager.js';
 import { DropdownManager } from './modules/DropdownManager.js';
-import { clampLvlValues, sanitizeFilterName } from './modules/utils.js';
 
 $(document).ready(function () {
     const ruleManager = new RuleManager();
@@ -47,6 +46,6 @@ $(document).ready(function () {
         }
     });
 
-    dropdownManager.initializeSelect();
+    //dropdownManager.initializeSelect();
     dropdownManager.updateFilterSelect();
 });

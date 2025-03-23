@@ -23,6 +23,7 @@ export class TableManager {
             }
         });
 
+        this.initializeGlobalSelectors();
         this.initializeEventListeners();
         this.initializeSortable();
     }
@@ -67,7 +68,80 @@ export class TableManager {
         });
         this.table.draw();
         this.table.columns.adjust();
-        this.dropdownManager.initializeSelect();
+    }
+
+    initializeGlobalSelectors() {
+        // Create modal container
+        const modal = document.createElement('div');
+        modal.id = 'globalSelectorModal';
+        modal.classList.add('modal');
+        modal.innerHTML = `
+            <div class="modal-background"></div>
+            <div class="modal-content" style="height: 65%;>
+                <div class="box">
+                    <select id="globalSelector" style="width: 100%;"></select>
+                </div>
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
+        `;
+        document.body.appendChild(modal);
+    
+        // Initialize Select2
+        this.globalSelector = $('#globalSelector').select2({
+            dropdownParent: $('#globalSelectorModal .modal-content'),
+            width: '100%',
+            placeholder: 'Select an option',
+            allowClear: false,
+        });
+    
+        // Close modal on background or close button click
+        modal.querySelector('.modal-background').addEventListener('click', () => this.closeGlobalSelectorModal());
+        modal.querySelector('.modal-close').addEventListener('click', () => this.closeGlobalSelectorModal());
+    
+        // Ensure the dropdown list is visible when the modal is opened
+        $(modal).on('shown.bs.modal', () => {
+            this.globalSelector.select2('open');
+            $('#globalSelector').next('.select2-container').find('.select2-selection__rendered').hide();
+        });
+    }
+
+    openGlobalSelectorModal(ruleType, currentValue, onChangeCallback) {
+        // Populate Select2 options based on ruleType
+        const options = ruleType === 1
+            ? this.ruleManager.getItemCodes()
+            : this.ruleManager.getItemClasses();
+    
+        const select2Data = options.map(option => ({
+            id: option.value,
+            text: option.name
+        }));
+    
+        // Clear and populate the global selector
+        this.globalSelector.empty().select2({
+            data: select2Data,
+            dropdownParent: $('#globalSelectorModal .modal-content'),
+            width: '100%',
+            height: '100%',
+            placeholder: 'Select an option',
+            allowClear: false,
+        });
+    
+        // Set the current value
+        this.globalSelector.val(currentValue);
+        // Handle value change
+        this.globalSelector.off('change').on('change', function () {
+            const newValue = $(this).val();
+            onChangeCallback(newValue);
+        });
+    
+        // Show modal
+        document.getElementById('globalSelectorModal').classList.add('is-active');
+        this.globalSelector.select2('open');
+        $('#globalSelector').next('.select2-container').find('.select2-selection__rendered').hide();
+    }
+
+    closeGlobalSelectorModal() {
+        document.getElementById('globalSelectorModal').classList.remove('is-active');
     }
 
     createRowData(rule, index) {
@@ -138,14 +212,20 @@ export class TableManager {
         groupWrapper.appendChild(paramsWrapper);
         groupWrapper.classList.add("input-wrapper", "min-width-500");
 
+        const option = document.createElement("option");
+        option.selected = true;
+        option.hidden = true;
+        option.visible = false;
+
         switch (Number(ruleType)) {
             case 1: // Items
-                this.ruleManager.getItemCodes().forEach(item => {
-                    const option = document.createElement("option");
-                    option.value = item.value;
-                    option.text = item.name;
-                    paramsDatalist.appendChild(option);
-                });
+                if (rule.params?.code === undefined) {
+                    rule.params = { code: 0 };
+                }
+
+                option.value = rule.params?.code;
+                option.text = this.ruleManager.getItemCodes().find(item => item.value === rule.params.code)?.name || "";
+                paramsDatalist.appendChild(option);
 
                 if (rule.params?.code !== undefined) {
                     paramsDatalist.value = rule.params.code;
@@ -155,12 +235,13 @@ export class TableManager {
                 break;
 
             case 0: // Class
-                this.ruleManager.getItemClasses().forEach(item => {
-                    const option = document.createElement("option");
-                    option.value = item.value;
-                    option.text = item.name;
-                    paramsDatalist.appendChild(option);
-                });
+                if (rule.params?.class === undefined) {
+                    rule.params = { class: 0 };
+                }
+
+                option.value = rule.params?.class;
+                option.text = this.ruleManager.getItemClasses().find(item => item.value === rule.params.class)?.name || "";
+                paramsDatalist.appendChild(option);
 
                 if (rule.params?.class !== undefined) {
                     paramsDatalist.value = rule.params.class;
@@ -168,7 +249,6 @@ export class TableManager {
 
                 paramsWrapper.appendChild(paramsDatalist);
                 break;
-
             default:
                 paramsWrapper.classList.remove("width-100");
                 break;
@@ -420,22 +500,27 @@ export class TableManager {
                 console.warn('Row does not have a valid data-index');
             }
         });
-        this.table.on('change', '.rule-param-value', (event) => {
-            const paramValue = $(event.target).val();
+        this.table.on('click', '.rule-param-value', (event) => {
             const dataIndex = $(event.target).closest('tr').data('index');
-            const rule = this.ruleManager.getRules(dataIndex)[0];  
+            const rule = this.ruleManager.getRules()[dataIndex];  
+            const currentValue = rule.rule_type === 1 ? rule.params?.code : rule.params?.class;
 
-            if (dataIndex !== undefined) {
+            this.openGlobalSelectorModal(rule.rule_type, currentValue, (newValue) => {
                 if (rule.rule_type === 0) { // Class
-                    this.ruleManager.updateRule(dataIndex, { params: { class: Number(paramValue) } });
+                    this.ruleManager.updateRule(dataIndex, { params: { class: Number(newValue) } });
                 } else if (rule.rule_type === 1) { // Item
-                    this.ruleManager.updateRule(dataIndex, { params: { code: Number(paramValue) } });
+                    this.ruleManager.updateRule(dataIndex, { params: { code: Number(newValue) } });
                 } else {
                     console.warn('Invalid rule type:', rule.rule_type);
                 }
-            } else {
-                console.warn('Row does not have a valid data-index');
-            }
+                
+                // Update the parent dropdown with the new value
+                const parentDropdown = $(event.target).closest('tr').find('.rule-param-value');
+                parentDropdown.val(newValue).trigger('change');
+
+                this.renderTable();
+                this.closeGlobalSelectorModal();
+            });
         });
         this.table.on('change', '.rule-min-clvl', (event) => {
             const paramValue = $(event.target).val();
