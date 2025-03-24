@@ -6988,7 +6988,7 @@
         "value": 541212705,
         "hexCode": "!@B",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -7347,7 +7347,7 @@
         "value": 543043888,
         "hexCode": "01^",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -7363,7 +7363,7 @@
         "value": 543044144,
         "hexCode": "02^",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -7379,7 +7379,7 @@
         "value": 543044400,
         "hexCode": "03^",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -7395,7 +7395,7 @@
         "value": 543044656,
         "hexCode": "04^",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -7411,7 +7411,7 @@
         "value": 543044912,
         "hexCode": "05^",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -7427,7 +7427,7 @@
         "value": 543045168,
         "hexCode": "06^",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -7443,7 +7443,7 @@
         "value": 543045424,
         "hexCode": "07^",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -7459,7 +7459,7 @@
         "value": 543045680,
         "hexCode": "08^",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -7475,7 +7475,7 @@
         "value": 543045936,
         "hexCode": "09^",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -7513,7 +7513,7 @@
         "value": 543043633,
         "hexCode": "10^",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -7529,7 +7529,7 @@
         "value": 543043889,
         "hexCode": "11^",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -7545,7 +7545,7 @@
         "value": 543044145,
         "hexCode": "12^",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -7561,7 +7561,7 @@
         "value": 543044401,
         "hexCode": "13^",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -7577,7 +7577,7 @@
         "value": 543044657,
         "hexCode": "14^",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -7585,7 +7585,7 @@
         "value": 543044913,
         "hexCode": "15^",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -7601,7 +7601,7 @@
         "value": 543045169,
         "hexCode": "16^",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -7609,7 +7609,7 @@
         "value": 543045425,
         "hexCode": "17^",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -7625,7 +7625,7 @@
         "value": 543045681,
         "hexCode": "18^",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -7641,7 +7641,7 @@
         "value": 543045937,
         "hexCode": "19^",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -7665,7 +7665,7 @@
         "value": 543043634,
         "hexCode": "20^",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -7681,7 +7681,7 @@
         "value": 543043890,
         "hexCode": "21^",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -7697,7 +7697,7 @@
         "value": 543044146,
         "hexCode": "22^",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -7713,7 +7713,7 @@
         "value": 543044402,
         "hexCode": "23^",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -7729,7 +7729,7 @@
         "value": 543044658,
         "hexCode": "24^",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -7745,7 +7745,7 @@
         "value": 543044914,
         "hexCode": "25^",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -8124,7 +8124,7 @@
         "hexCode": "A0+",
         "category": [
             "Shrine",
-            "Shrine - Full"
+            "Shrine-Unused"
         ]
     },
     {
@@ -8213,7 +8213,7 @@
         "hexCode": "B0+",
         "category": [
             "Shrine",
-            "Shrine - Full"
+            "Shrine-Unused"
         ]
     },
     {
@@ -8302,7 +8302,7 @@
         "hexCode": "C0+",
         "category": [
             "Shrine",
-            "Shrine - Full"
+            "Shrine-Unused"
         ]
     },
     {
@@ -8391,7 +8391,7 @@
         "hexCode": "D0+",
         "category": [
             "Shrine",
-            "Shrine - Full"
+            "Shrine-Unused"
         ]
     },
     {
@@ -8480,7 +8480,7 @@
         "hexCode": "E0+",
         "category": [
             "Shrine",
-            "Shrine - Full"
+            "Shrine-Unused"
         ]
     },
     {
@@ -8569,7 +8569,7 @@
         "hexCode": "F0+",
         "category": [
             "Shrine",
-            "Shrine - Full"
+            "Shrine-Unused"
         ]
     },
     {
@@ -8658,7 +8658,7 @@
         "hexCode": "G0+",
         "category": [
             "Shrine",
-            "Shrine - Full"
+            "Shrine-Unused"
         ]
     },
     {
@@ -8747,7 +8747,7 @@
         "hexCode": "H0+",
         "category": [
             "Shrine",
-            "Shrine - Full"
+            "Shrine-Unused"
         ]
     },
     {
@@ -8836,7 +8836,7 @@
         "hexCode": "I0+",
         "category": [
             "Shrine",
-            "Shrine - Full"
+            "Shrine-Unused"
         ]
     },
     {
@@ -8925,7 +8925,7 @@
         "hexCode": "J0+",
         "category": [
             "Shrine",
-            "Shrine - Full"
+            "Shrine-Unused"
         ]
     },
     {
@@ -9014,7 +9014,7 @@
         "hexCode": "K0+",
         "category": [
             "Shrine",
-            "Shrine - Full"
+            "Shrine-Unused"
         ]
     },
     {
@@ -9157,7 +9157,7 @@
         "hexCode": "M0+",
         "category": [
             "Shrine",
-            "Shrine - Full"
+            "Shrine-Unused"
         ]
     },
     {
@@ -9246,7 +9246,7 @@
         "hexCode": "N0+",
         "category": [
             "Shrine",
-            "Shrine - Full"
+            "Shrine-Unused"
         ]
     },
     {
@@ -9335,7 +9335,7 @@
         "hexCode": "O0+",
         "category": [
             "Shrine",
-            "Shrine - Full"
+            "Shrine-Unused"
         ]
     },
     {
@@ -9424,7 +9424,7 @@
         "hexCode": "Q0+",
         "category": [
             "Shrine",
-            "Shrine - Full"
+            "Shrine-Unused"
         ]
     },
     {
@@ -9513,7 +9513,7 @@
         "hexCode": "R0+",
         "category": [
             "Shrine",
-            "Shrine - Full"
+            "Shrine-Unused"
         ]
     },
     {
@@ -10565,7 +10565,7 @@
         ]
     },
     {
-        "name": "Item Design",
+        "name": "Item Design (Valkyrie's Prime)",
         "value": 842032996,
         "hexCode": "dg02",
         "category": [
@@ -10573,7 +10573,7 @@
         ]
     },
     {
-        "name": "Item Design",
+        "name": "Item Design (MISSING)",
         "value": 858810212,
         "hexCode": "dg03",
         "category": [
@@ -10581,7 +10581,7 @@
         ]
     },
     {
-        "name": "Item Design",
+        "name": "Item Design (Natasha's Legacy)",
         "value": 875587428,
         "hexCode": "dg04",
         "category": [
@@ -10589,7 +10589,7 @@
         ]
     },
     {
-        "name": "Item Design",
+        "name": "Item Design (Tenet of Harmony)",
         "value": 892364644,
         "hexCode": "dg05",
         "category": [
@@ -10597,7 +10597,7 @@
         ]
     },
     {
-        "name": "Item Design",
+        "name": "Item Design (Tenet of Restraint)",
         "value": 909141860,
         "hexCode": "dg06",
         "category": [
@@ -10605,7 +10605,7 @@
         ]
     },
     {
-        "name": "Item Design",
+        "name": "Item Design (Tenet of Vigor)",
         "value": 925919076,
         "hexCode": "dg07",
         "category": [
@@ -10613,7 +10613,7 @@
         ]
     },
     {
-        "name": "Item Design",
+        "name": "Item Design (Tenet of Wisdom)",
         "value": 942696292,
         "hexCode": "dg08",
         "category": [
@@ -10621,7 +10621,7 @@
         ]
     },
     {
-        "name": "Item Design",
+        "name": "Item Design (Tenet of Judgement)",
         "value": 959473508,
         "hexCode": "dg09",
         "category": [
@@ -10629,7 +10629,7 @@
         ]
     },
     {
-        "name": "Item Design",
+        "name": "Item Design (Tenet of Conflict)",
         "value": 808544100,
         "hexCode": "dg10",
         "category": [
@@ -10637,7 +10637,7 @@
         ]
     },
     {
-        "name": "Item Design",
+        "name": "Item Design (Dulra Aegis)",
         "value": 825321316,
         "hexCode": "dg11",
         "category": [
@@ -10649,7 +10649,7 @@
         "value": 543649636,
         "hexCode": "dog",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -12238,14 +12238,6 @@
         "hexCode": "lok",
         "category": [
             "Charm"
-        ]
-    },
-    {
-        "name": "Treasure of Fiacla Gear",
-        "value": 2019718252,
-        "hexCode": "ltbx",
-        "category": [
-            "Lootbox"
         ]
     },
     {
@@ -15252,7 +15244,7 @@
         "value": 539716474,
         "hexCode": "zk+",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -15260,7 +15252,7 @@
         "value": 543648634,
         "hexCode": "zkg",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -15268,7 +15260,7 @@
         "value": 544369530,
         "hexCode": "zkr",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -15276,7 +15268,7 @@
         "value": 544566138,
         "hexCode": "zku",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -15284,7 +15276,7 @@
         "value": 544697210,
         "hexCode": "zkw",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
@@ -15292,7 +15284,7 @@
         "value": 544762746,
         "hexCode": "zkx",
         "category": [
-            "Other Consumable"
+            "Consumable"
         ]
     },
     {
