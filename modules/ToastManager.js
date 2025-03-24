@@ -1,5 +1,5 @@
 export class ToastManager {
-    showToast(message, autoRemove = false) {
+    showToast(message, autoRemove = false, toastBgClass = '') {
         const container = document.querySelector('.toast-container') || this.createToastContainer();
         const toast = document.createElement("div");
         toast.classList.add("notification", "is-small");
@@ -10,7 +10,7 @@ export class ToastManager {
         if (autoRemove) {
             setTimeout(() => this.fadeOutAndRemove(toast), 2500);
         } else {
-            toast.classList.add("is-warning");
+            toast.classList.add(toastBgClass || "is-warning");
             toast.innerHTML += '<div class="has-text-white">Click to dismiss</div>';
         }
 
