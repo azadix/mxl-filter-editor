@@ -13,19 +13,27 @@ export class TableManager {
             order: [],
             fixedHeader: true,
             targets: 'no-sort',
-            scrollY: 625,
+            scrollY: this.calculateTableHeight(),
             scrollCollapse: false,
-            columnDefs: [{ visible: false, targets: 0 }],
+            columnDefs: [{ targets: 0, visible: false }],
             layout: {
                 topStart: () => this.createAddRuleButton(),
                 topEnd: 'search',
                 bottomStart: { info: { empty: '', text: 'Rule count: _TOTAL_' } }
             }
         });
-
-        this.initializeGlobalSelectors();
+        
         this.initializeEventListeners();
         this.initializeSortable();
+    }
+
+    calculateTableHeight() {
+        const tableElement = document.querySelector('#rulesTable');
+        const tableRect = tableElement.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+        const availableHeight = viewportHeight - tableRect.top - 150;
+        
+        return Math.max(availableHeight, 500);
     }
 
     initializeSortable() {
@@ -60,7 +68,6 @@ export class TableManager {
     renderTable() {
         this.table.rows().nodes().to$().off('*');
         this.table.clear();
-        this.dropdownManager.destroySelect();
 
         this.ruleManager.getRules().forEach((rule, index) => {
             const rowData = this.createRowData(rule, index);
@@ -68,32 +75,6 @@ export class TableManager {
         });
         this.table.draw();
         this.table.columns.adjust();
-    }
-
-    initializeGlobalSelectors() {
-        // Create modal container
-        const modal = document.createElement('div');
-        modal.id = 'globalSelectorModal';
-        modal.classList.add('modal');
-        modal.innerHTML = `
-            <div class="modal-background"></div>
-            <div class="modal-content" style="height: 50%;">
-                <select id="globalSelector" style="width: 100%;"></select>
-            </div>
-            <button class="modal-close is-large" aria-label="close"></button>
-        `;
-        document.body.appendChild(modal);
-    
-        // Initialize Select2
-        this.globalSelector = $('#globalSelector').select2({
-            // dropdownParent: $('#globalSelectorModal .modal-content'),
-            // width: '100%',
-            // templateResult: this.formatItem,
-            // allowClear: false,
-        });
-    
-        // Close modal on background or close button click
-        $(modal).find('.modal-background, .modal-close').on('click', () => this.closeGlobalSelectorModal());
     }
 
     formatItem (value) {
@@ -109,7 +90,7 @@ export class TableManager {
         }
         
         return $(`<span class="is-flex is-fullwidth" style="justify-content: space-between;">${value.text}<span class="is-right">${itemCategories}</span></span>`);
-      };
+    }
 
     openGlobalSelectorModal(ruleType, currentValue, onChangeCallback) {
         // Populate Select2 options based on ruleType
@@ -124,7 +105,7 @@ export class TableManager {
         }));
     
         // Clear and populate the global selector
-        this.globalSelector.empty().select2({
+        this.dropdownManager.globalSelector.empty().select2({
             data: select2Data,
             dropdownParent: $('#globalSelectorModal .modal-content'),
             width: '100%',
@@ -132,9 +113,7 @@ export class TableManager {
             templateResult: this.formatItem,
             allowClear: false,
             matcher: function(params, data) {
-                if ($.trim(params.term) === '') {
-                    return data;
-                }
+                if ($.trim(params.term) === '') { return data;}
         
                 const term = params.term.toLowerCase();
                 const text = data.text.toLowerCase();
@@ -143,28 +122,25 @@ export class TableManager {
                 if (text.indexOf(term) > -1 || categories.some(cat => cat.toLowerCase().indexOf(term) > -1)) {
                     return data;
                 }
-        
                 return null;
             }
         });
     
         // Set the current value
-        this.globalSelector.val(currentValue);
+        this.dropdownManager.globalSelector.val(currentValue);
 
         // Handle value change
-        this.globalSelector.off('change').on('change', function () {
+        this.dropdownManager.globalSelector.off('change').on('change', function () {
             const newValue = $(this).val();
             onChangeCallback(newValue);
         });
     
         // Show modal
         document.getElementById('globalSelectorModal').classList.add('is-active');
-        this.globalSelector.select2('open');
-        $('#globalSelector').next('.select2-container').find('.select2-selection--single').remove();
-    }
-
-    closeGlobalSelectorModal() {
-        document.getElementById('globalSelectorModal').classList.remove('is-active');
+        this.dropdownManager.globalSelector.select2('open');
+        $('#globalSelector').next('.select2-container').find('.select2-selection--single').hide();
+        $('.select2-search__field').addClass('input');
+        $('.select2-dropdown--below').addClass('px-2 py-3', '');
     }
 
     createRowData(rule, index) {
@@ -551,7 +527,7 @@ export class TableManager {
 
                 const updatedRowData = this.createRowData(this.ruleManager.getRules()[dataIndex], dataIndex);
                 this.updateTableRow(dataIndex, updatedRowData);
-                this.closeGlobalSelectorModal();
+                this.dropdownManager.closeGlobalSelectorModal();
             });
         });
         this.table.on('change', '.rule-min-clvl', (event) => {

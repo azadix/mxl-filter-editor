@@ -1,8 +1,8 @@
 import { RuleManager } from './modules/RuleManager.js';
-import { TableManager } from './modules/TableManager.js';
 import { StorageManager } from './modules/StorageManager.js';
 import { ToastManager } from './modules/ToastManager.js';
 import { DropdownManager } from './modules/DropdownManager.js';
+import { TableManager } from './modules/TableManager.js';
 
 $(document).ready(function () {
     const ruleManager = new RuleManager();
@@ -45,7 +45,4 @@ $(document).ready(function () {
             console.error('Error loading itemQuality.json:', error);
         }
     });
-
-    //dropdownManager.initializeSelect();
-    dropdownManager.updateFilterSelect();
 });

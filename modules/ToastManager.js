@@ -11,7 +11,7 @@ export class ToastManager {
             setTimeout(() => this.fadeOutAndRemove(toast), 2500);
         } else {
             toast.classList.add("is-warning");
-            toast.innerHTML += '<div style="color: white;">Click to dismiss</div>';
+            toast.innerHTML += '<div class="has-text-white">Click to dismiss</div>';
         }
 
         container.appendChild(toast);
