@@ -19,7 +19,7 @@ export function loadJsonData(filePath, isSorted, loaderMethod, manager) {
         },
         error: function(xhr, status, error) {
             const fileName = filePath.split('/').pop();
-            toastManager.showToast(`Error loading ${fileName}`, false, 'is-danger');
+            toastManager.showToast(`Error loading ${fileName}`, false, 'danger');
             console.error(`Error loading ${fileName}`, error);
         }
     });

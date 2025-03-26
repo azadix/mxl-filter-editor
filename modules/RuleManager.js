@@ -4,16 +4,19 @@ export class RuleManager {
         this.itemCodes = []; // Loaded from JSON
         this.itemClasses = []; // Loaded from JSON
         this.itemQuality = []; // Loaded from JSON
-        this.ruleTypes = {
-            "None": -1,
-            "Item": 1,
-            "Class": 0
-        };
-        this.etherealStates = {
-            "Either": 0,
-            "Yes": 1,
-            "No": 2
-        };
+
+        this.ruleTypes = Object.freeze({
+            NONE: { value: -1, name: 'None' },
+            CLASS: { value: 0, name: 'Class' },
+            ITEM: { value: 1, name: 'Item' }
+        });
+
+        this.etherealStates = Object.freeze({
+            EITHER: { value: 0, name: 'Either' },
+            YES: { value: 1, name: 'Yes' },
+            NO: { value: 2, name: 'No' }
+        });
+
         this.ruleTemplate = {
             id: Date.now(),
             active: true,
@@ -29,6 +32,16 @@ export class RuleManager {
             notify: true,
             automap: true
         };
+    }
+
+    getRuleTypeName(value) {
+        return Object.values(this.ruleTypes)
+            .find(type => type.value === value)?.name || 'Unknown';
+    }
+
+    getEtherealStateName(value) {
+        return Object.values(this.etherealStates)
+            .find(type => type.value === value)?.name || 'Unknown';
     }
 
     addRule(rule) {
@@ -84,11 +97,19 @@ export class RuleManager {
     }
 
     getRuleTypes() {
-        return this.ruleTypes;
+        return {
+            "None": this.RuleTypes.NONE.value,
+            "Class": this.RuleTypes.CLASS.value, 
+            "Item": this.RuleTypes.ITEM.value
+        };
     }
 
     getEtherealStates() {
-        return this.etherealStates;
+        return {
+            "Either": this.EtherealStates.EITHER.value,
+            "Yes": this.EtherealStates.YES.value,
+            "No": this.EtherealStates.NO.value
+        };
     }
 
     loadItemCodes(itemCodes) {

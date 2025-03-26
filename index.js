@@ -5,6 +5,12 @@ import { DropdownManager } from './modules/DropdownManager.js';
 import { TableManager } from './modules/TableManager.js';
 import { loadJsonData } from './modules/utils.js';
 
+const dataConfigs = [
+    { path: './data/file_parser/itemCode.json', isSorted: true, method: 'loadItemCodes' },
+    { path: './data/itemClass.json', isSorted: true, method: 'loadItemClasses' },
+    { path: './data/itemQuality.json', isSorted: false, method: 'loadItemQuality' }
+];
+
 $(document).ready(function () {
     const ruleManager = new RuleManager();
     const storageManager = new StorageManager();
@@ -12,7 +18,5 @@ $(document).ready(function () {
     const dropdownManager = new DropdownManager(storageManager);
     const tableManager = new TableManager(ruleManager, storageManager, toastManager, dropdownManager);
 
-    loadJsonData('./data/file_parser/itemCode.json', true, 'loadItemCodes', ruleManager);
-    loadJsonData('./data/itemClass.json', true, 'loadItemClasses', ruleManager);
-    loadJsonData('./data/itemQuality.json', false, 'loadItemQuality', ruleManager);
+    dataConfigs.forEach(config => loadJsonData(config.path, config.isSorted, config.method, ruleManager));
 });

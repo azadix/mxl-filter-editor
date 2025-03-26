@@ -11,6 +11,7 @@ export class TableManager {
             paging: false,
             compact: true,
             order: [],
+            ordering: false,
             fixedHeader: true,
             targets: 'no-sort',
             scrollY: this.calculateTableHeight(),
@@ -39,13 +40,16 @@ export class TableManager {
     initializeSortable() {
         const tableBody = document.querySelector('#rulesTable tbody');
 
-        Sortable.create(tableBody, {
+        if (this._sortableInstance) {
+            this._sortableInstance.destroy();
+        }
+        
+        this._sortableInstance = Sortable.create(tableBody, {
             handle: '.handle',
             animation: 150,
             onEnd: (event) => {
                 const rows = Array.from(tableBody.querySelectorAll('tr'));
                 const newOrder = rows.map(row => row.dataset.index);
-
                 this.ruleManager.reorderRules(newOrder);
                 this.renderTable();
             }
@@ -93,10 +97,24 @@ export class TableManager {
     }
 
     openGlobalSelectorModal(ruleType, currentValue, onChangeCallback) {
+        if (this.dropdownManager.globalSelector.data('select2')) {
+            this.dropdownManager.globalSelector.select2('destroy');
+        }
+    
+        // Clean up previous handlers
+        this._globalSelectorHandlers?.change?.();
+        
+        // Store new handler for cleanup
+        this._globalSelectorHandlers = {
+            change: () => {
+                this.dropdownManager.globalSelector.off('change');
+            }
+        };
+
         // Populate Select2 options based on ruleType
-        const options = ruleType === 1
-            ? this.ruleManager.getItemCodes()
-            : this.ruleManager.getItemClasses();
+        const options = ruleType === this.ruleManager.ruleTypes.ITEM.value
+                        ? this.ruleManager.getItemCodes()
+                        : this.ruleManager.getItemClasses();
     
         const select2Data = options.map(option => ({
             id: option.value,
@@ -141,6 +159,16 @@ export class TableManager {
         $('#globalSelector').next('.select2-container').find('.select2-selection--single').hide();
         $('.select2-search__field').addClass('input');
         $('.select2-dropdown--below').addClass('px-2 py-3', '');
+
+        this.dropdownManager.globalSelector.on('change', function() {
+            const newValue = $(this).val();
+            onChangeCallback(newValue);
+        });
+
+        $('#globalSelectorModal .modal-close, #globalSelectorModal .modal-background').on('click', () => {
+            this.dropdownManager.globalSelector.select2('destroy');
+            this.dropdownManager.closeGlobalSelectorModal();
+        });
     }
 
     createRowData(rule, index) {
@@ -156,7 +184,7 @@ export class TableManager {
             </div>`,
             `<div class="select">
                 <select id="ethereal-${index}" class="rule-is-eth">
-                    ${this.getEtherealStateOptions(rule)}
+                    ${this.createEtherealStateOptions(rule)}
                 </select>
             </div>`,
             `<div class="select">
@@ -188,10 +216,11 @@ export class TableManager {
         return rule.show_item ? "has-text-success" : "has-text-danger";
     }
 
-    getEtherealStateOptions(rule) {
-        const etherealStates = this.ruleManager.getEtherealStates();
-        return Object.entries(etherealStates).map(([key, value]) => `
-            <option value="${value}" ${rule.ethereal === value ? 'selected' : ''}>${key}</option>`).join("");
+    createEtherealStateOptions(rule) {
+        return Object.values(this.ruleManager.etherealStates).map(state => `
+            <option value="${state.value}" ${rule.ethereal === state.value ? 'selected' : ''}>
+                ${state.name}
+            </option>`).join("");
     }
 
     getQualityClassName(index) {
@@ -225,8 +254,8 @@ export class TableManager {
         const option = document.createElement("option");
         option.hidden = true;
 
-        switch (Number(ruleType)) {
-            case 1: // Items
+        switch (ruleType) {
+            case this.ruleManager.ruleTypes.ITEM.value:
                 if (rule.params?.code === undefined) {
                     rule.params = { code: 0 };
                 }
@@ -242,7 +271,7 @@ export class TableManager {
                 paramsWrapper.appendChild(paramsDatalist);
                 break;
 
-            case 0: // Class
+            case this.ruleManager.ruleTypes.CLASS.value:
                 if (rule.params?.class === undefined) {
                     rule.params = { class: 0 };
                 }
@@ -271,10 +300,12 @@ export class TableManager {
         outerWrapper.classList.add("select");
         selectParams.classList.add("rule-param-type");
         selectParams.id = `param-type-${index}`;
-        Object.entries(this.ruleManager.getRuleTypes()).forEach(([key, value]) => {
+        
+        // Use the enum values directly
+        Object.values(this.ruleManager.ruleTypes).forEach(type => {
             const option = document.createElement("option");
-            option.value = value;
-            option.text = key;
+            option.value = type.value;
+            option.text = type.name;
             selectParams.appendChild(option);
         });
 
@@ -319,7 +350,7 @@ export class TableManager {
 
         // Handle Save changes in the modal
         $('#settingsModal .modal-card-foot .is-success').on('click', () => {
-            this.toastManager.showToast("Preferences saved!", true); // Use toastManager to show a toast
+            this.toastManager.showToast("Preferences saved!", true);
             $('#settingsModal').removeClass('is-active');
         });
 
@@ -484,38 +515,37 @@ export class TableManager {
         this.table.on('change', '.rule-param-type', (event) => {
             const paramValue = $(event.target).val();
             const dataIndex = $(event.target).closest('tr').data('index');
-        
+            
             if (dataIndex !== undefined) {
-                this.ruleManager.updateRule(dataIndex, { rule_type: Number(paramValue) })
-        
-                // Re-initialize params based on the new rule_type
-                switch (paramValue) {
-                    case "-1": // None
+                this.ruleManager.updateRule(dataIndex, { rule_type: Number(paramValue) });
+                
+                switch (Number(paramValue)) {
+                    case this.ruleManager.ruleTypes.NONE.value:
                         this.ruleManager.updateRule(dataIndex, { params: null });
                         break;
-                    case "0": // Class
+                    case this.ruleManager.ruleTypes.CLASS.value:
                         this.ruleManager.updateRule(dataIndex, { params: { class: 0 } });
                         break;
-                    case "1": // Item
+                    case this.ruleManager.ruleTypes.ITEM.value:
                         this.ruleManager.updateRule(dataIndex, { params: { code: 0 } });
                         break;
                 }
-        
+                
                 const updatedRowData = this.createRowData(this.ruleManager.getRules()[dataIndex], dataIndex);
                 this.updateTableRow(dataIndex, updatedRowData);
-            } else {
-                console.warn('Row does not have a valid data-index');
             }
         });
         this.table.on('click', '.rule-param-value', (event) => {
             const dataIndex = $(event.target).closest('tr').data('index');
             const rule = this.ruleManager.getRules()[dataIndex];  
-            const currentValue = rule.rule_type === 1 ? rule.params?.code : rule.params?.class;
+            const currentValue = rule.rule_type === this.ruleManager.ruleTypes.ITEM.value 
+                                ? rule.params?.code 
+                                : rule.params?.class;
 
             this.openGlobalSelectorModal(rule.rule_type, currentValue, (newValue) => {
-                if (rule.rule_type === 0) { // Class
+                if (rule.rule_type === this.ruleManager.ruleTypes.CLASS.value) {
                     this.ruleManager.updateRule(dataIndex, { params: { class: Number(newValue) } });
-                } else if (rule.rule_type === 1) { // Item
+                } else if (rule.rule_type === this.ruleManager.ruleTypes.ITEM.value) {
                     this.ruleManager.updateRule(dataIndex, { params: { code: Number(newValue) } });
                 } else {
                     console.warn('Invalid rule type:', rule.rule_type);
@@ -613,6 +643,59 @@ export class TableManager {
                 //this.renderTable();
             } else {
                 console.warn("Invalid index or index out of bounds.");
+            }
+        });
+    }
+
+    destroy() {
+        // Clean up DataTable first
+        this.table.off();
+        this.table.destroy(true);
+    
+        // Clean up Sortable
+        const tableBody = document.querySelector('#rulesTable tbody');
+        if (tableBody && tableBody.sortable) {
+            tableBody.sortable.destroy();
+        }
+    
+        // Clean up Select2 instances
+        this.cleanupSelect2Instances();
+    
+        // Clean up other event listeners
+        $('#defaultNotify, #defaultMap, #filterSettings, #pasteFromClipboard, #copyToClipboard, #saveToLocalStorage, #loadFromLocalStorage, #deleteFromLocalStorage, #newFilter').off();
+        
+        $('#settingsModal .modal-background, #settingsModal .modal-card-foot .button').off();
+        $(document).off('click', '.delete-rule');
+        
+        // Clean up global selector
+        if (this.dropdownManager.globalSelector) {
+            this.dropdownManager.globalSelector.select2('destroy');
+            this.dropdownManager.globalSelector.off();
+        }
+        
+        // Remove modal if it exists
+        $('#globalSelectorModal').remove();
+    }
+
+    cleanupSelect2Instances() {
+        // Clean up any Select2 instances in table rows
+        this.table.$('.rule-param-value').each(function() {
+            if ($(this).data('select2')) {
+                $(this).select2('destroy');
+            }
+        });
+        
+        // Clean up quality dropdowns
+        this.table.$('.rule-quality').each(function() {
+            if ($(this).data('select2')) {
+                $(this).select2('destroy');
+            }
+        });
+        
+        // Clean up other dropdowns
+        this.table.$('.rule-is-shown, .rule-is-eth').each(function() {
+            if ($(this).data('select2')) {
+                $(this).select2('destroy');
             }
         });
     }
