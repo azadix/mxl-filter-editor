@@ -10,7 +10,7 @@ export class DropdownManager {
         const filterSelect = $('#loadFromLocalStorage');
 
         filterSelect.empty();
-        filterSelect.append('<option value="" disabled selected hidden>Select a filter</option>');
+        filterSelect.append('<option value="" disabled selected hidden>Select a filter to load</option>');
 
         filterNames.forEach(filterName => {
             filterSelect.append(`<option value="${filterName}">${filterName}</option>`);

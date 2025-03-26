@@ -67,9 +67,7 @@
         <div class="field has-addons">
           <div class="control is-expanded">
             <div class="select is-fullwidth">
-              <select id="loadFromLocalStorage">
-                <option hidden disabled selected value>Load a filter</option>
-              </select>
+              <select id="loadFromLocalStorage"></select>
             </div>
           </div>
           <div class="field is-grouped ml-2">
@@ -114,36 +112,53 @@
     <div class="modal-background"></div>
     <div class="modal-card">
       <header class="modal-card-head p-3">
-        <p class="modal-card-title m-3">Options</p>
+        <p class="modal-card-title m-3">Settings</p>
       </header>
-
+  
       <section class="modal-card-body p-3">
-        <div class="field mb-2">
+        <!-- Setting 1 -->
+        <div class="field mb-5">
           <div class="control">
-            <label class="checkbox is-size-6" for="defaultShowItems">
-                <input id="defaultShowItems" type="checkbox" class="checkbox-input m-3">
-                <span>Always show items</span>
+            <label class="checkbox is-size-4" for="defaultShowItems">
+              <input id="defaultShowItems" type="checkbox" class="checkbox-input m-3">
+              <span class="has-text-weight-bold">Always show items</span>
             </label>
+            <p class="help is-size-7 mx-3 my-1">
+              When enabled, filtered items will always be visible on the ground. 
+              Otherwise, you'll need to hold a key to show hidden items (default: Alt).
+            </p>
           </div>
         </div>
-        <div class="field mb-2">
+  
+        <!-- Setting 2 -->
+        <div class="field mb-5">
           <div class="control">
-            <label class="checkbox is-size-6" for="defaultNotify">
-                <input id="defaultNotify" type="checkbox" class="checkbox-input m-3">
-                <span>Default 'Notify' setting</span>
+            <label class="checkbox is-size-4" for="defaultNotify">
+              <input id="defaultNotify" type="checkbox" class="checkbox-input m-3">
+              <span class="has-text-weight-bold">Notify</span>
             </label>
+            <p class="help is-size-7 mx-3 my-1">
+              This option changes the default value of notification checkbox for new rules.
+              When enabled, you'll see a notification when a filtered item drops.
+            </p>
           </div>
         </div>
-        <div class="field mb-2">
+  
+        <!-- Setting 3 -->
+        <div class="field mb-5">
           <div class="control">
-            <label class="checkbox is-size-6" for="defaultMap">
-                <input id="defaultMap" type="checkbox" class="checkbox-input m-3">
-                <span>Default 'Show on map' setting</span>
+            <label class="checkbox is-size-4" for="defaultMap">
+              <input id="defaultMap" type="checkbox" class="checkbox-input m-3">
+              <span class="has-text-weight-bold">Show on map</span>
             </label>
+            <p class="help is-size-7 mx-3 my-1">
+              This option changes the default value of map checkbox for new rules.
+              When enabled, you'll see a purple X on the minimap when a filtered item drops.
+            </p>
           </div>
         </div>
       </section>
-
+  
       <footer class="modal-card-foot p-3">
         <div class="buttons">
           <button class="button is-success is-inverted is-outlined" id="saveSettings">Save changes</button>
