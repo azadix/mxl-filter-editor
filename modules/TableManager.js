@@ -635,30 +635,43 @@ export class TableManager {
             });
         });
         this.table.on('click', '.delete-rule', (event) => {
-            const dataIndex = $(event.target).closest('tr').data('index');
+            const $row = $(event.target).closest('tr');
+            const dataIndex = parseInt($row.data('index'));
             
-            if (dataIndex !== undefined && dataIndex < this.ruleManager.getRules().length) {
+            if (isNaN(dataIndex)) {
+                console.warn("Invalid data-index value");
+                return;
+            }
+            
+            const rules = this.ruleManager.getRules();
+            if (dataIndex >= 0 && dataIndex < rules.length) {
                 this.ruleManager.deleteRule(dataIndex);
-                this.table.row($(event.target).closest('tr')).remove().draw(false);
-                //this.renderTable();
+                this.table.row($row).remove().draw(false);
+                
+                this.updateRowIndexes();
             } else {
-                console.warn("Invalid index or index out of bounds.");
+                console.warn("Index out of bounds:", dataIndex);
             }
         });
     }
 
+    updateRowIndexes() {
+        const rows = this.table.rows().nodes();
+        
+        $(rows).each((index, rowNode) => {
+            $(rowNode).attr('data-index', index);
+        });
+    }
+
     destroy() {
-        // Clean up DataTable first
         this.table.off();
         this.table.destroy(true);
     
-        // Clean up Sortable
         const tableBody = document.querySelector('#rulesTable tbody');
         if (tableBody && tableBody.sortable) {
             tableBody.sortable.destroy();
         }
     
-        // Clean up Select2 instances
         this.cleanupSelect2Instances();
     
         // Clean up other event listeners
@@ -673,7 +686,6 @@ export class TableManager {
             this.dropdownManager.globalSelector.off();
         }
         
-        // Remove modal if it exists
         $('#globalSelectorModal').remove();
     }
 
