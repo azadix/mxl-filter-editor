@@ -7048,14 +7048,6 @@
         ]
     },
     {
-        "name": "Griswold's Treasure",
-        "value": 540629027,
-        "hexCode": "#X9",
-        "category": [
-            "Other"
-        ]
-    },
-    {
         "name": "Kara's Trinket",
         "value": 540423718,
         "hexCode": "&66",
@@ -12241,6 +12233,14 @@
         ]
     },
     {
+        "name": "Treasure of Fiacla Gear",
+        "value": 2019718252,
+        "hexCode": "ltbx",
+        "category": [
+            "Lootbox"
+        ]
+    },
+    {
         "name": "The Black Tower Key",
         "value": 544634220,
         "hexCode": "luv",
@@ -14715,7 +14715,9 @@
         "name": "Corrupted Shards (2)",
         "value": 846553971,
         "hexCode": "scu2",
-        "category": []
+        "category": [
+            "Other"
+        ]
     },
     {
         "name": "Corrupted Shards (3)",
@@ -14737,7 +14739,9 @@
         "name": "Corrupted Shards (1)",
         "value": 1819632499,
         "hexCode": "scul",
-        "category": []
+        "category": [
+            "Other"
+        ]
     },
     {
         "name": "Corrupted Crystal",
