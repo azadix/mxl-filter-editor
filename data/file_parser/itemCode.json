@@ -12485,7 +12485,7 @@
         ]
     },
     {
-        "name": "El Rune",
+        "name": "El Rune (1)",
         "value": 540094578,
         "hexCode": "r01",
         "category": [
@@ -12493,7 +12493,7 @@
         ]
     },
     {
-        "name": "Eld Rune",
+        "name": "Eld Rune (2)",
         "value": 540160114,
         "hexCode": "r02",
         "category": [
@@ -12501,7 +12501,7 @@
         ]
     },
     {
-        "name": "Tir Rune",
+        "name": "Tir Rune (3)",
         "value": 540225650,
         "hexCode": "r03",
         "category": [
@@ -12509,7 +12509,7 @@
         ]
     },
     {
-        "name": "Nef Rune",
+        "name": "Nef Rune (4)",
         "value": 540291186,
         "hexCode": "r04",
         "category": [
@@ -12517,7 +12517,7 @@
         ]
     },
     {
-        "name": "Eth Rune",
+        "name": "Eth Rune (5)",
         "value": 540356722,
         "hexCode": "r05",
         "category": [
@@ -12525,7 +12525,7 @@
         ]
     },
     {
-        "name": "Ith Rune",
+        "name": "Ith Rune (6)",
         "value": 540422258,
         "hexCode": "r06",
         "category": [
@@ -12533,7 +12533,7 @@
         ]
     },
     {
-        "name": "Tal Rune",
+        "name": "Tal Rune (7)",
         "value": 540487794,
         "hexCode": "r07",
         "category": [
@@ -12541,7 +12541,7 @@
         ]
     },
     {
-        "name": "Ral Rune",
+        "name": "Ral Rune (8)",
         "value": 540553330,
         "hexCode": "r08",
         "category": [
@@ -12549,7 +12549,7 @@
         ]
     },
     {
-        "name": "Ort Rune",
+        "name": "Ort Rune (9)",
         "value": 540618866,
         "hexCode": "r09",
         "category": [
@@ -12557,7 +12557,7 @@
         ]
     },
     {
-        "name": "Thul Rune",
+        "name": "Thul Rune (10)",
         "value": 540029298,
         "hexCode": "r10",
         "category": [
@@ -12565,7 +12565,7 @@
         ]
     },
     {
-        "name": "Amn Rune",
+        "name": "Amn Rune (11)",
         "value": 540094834,
         "hexCode": "r11",
         "category": [
@@ -12573,7 +12573,7 @@
         ]
     },
     {
-        "name": "Sol Rune",
+        "name": "Sol Rune (12)",
         "value": 540160370,
         "hexCode": "r12",
         "category": [
@@ -12581,7 +12581,7 @@
         ]
     },
     {
-        "name": "Shael Rune",
+        "name": "Shael Rune (13)",
         "value": 540225906,
         "hexCode": "r13",
         "category": [
@@ -12589,7 +12589,7 @@
         ]
     },
     {
-        "name": "Dol Rune",
+        "name": "Dol Rune (14)",
         "value": 540291442,
         "hexCode": "r14",
         "category": [
@@ -12597,7 +12597,7 @@
         ]
     },
     {
-        "name": "Hel Rune",
+        "name": "Hel Rune (15)",
         "value": 540356978,
         "hexCode": "r15",
         "category": [
@@ -12605,7 +12605,7 @@
         ]
     },
     {
-        "name": "Io Rune",
+        "name": "Io Rune (16)",
         "value": 540422514,
         "hexCode": "r16",
         "category": [
@@ -12613,7 +12613,7 @@
         ]
     },
     {
-        "name": "Lum Rune",
+        "name": "Lum Rune (17)",
         "value": 540488050,
         "hexCode": "r17",
         "category": [
@@ -12621,7 +12621,7 @@
         ]
     },
     {
-        "name": "Ko Rune",
+        "name": "Ko Rune (18)",
         "value": 540553586,
         "hexCode": "r18",
         "category": [
@@ -12629,7 +12629,7 @@
         ]
     },
     {
-        "name": "Fal Rune",
+        "name": "Fal Rune (19)",
         "value": 540619122,
         "hexCode": "r19",
         "category": [
@@ -12637,7 +12637,7 @@
         ]
     },
     {
-        "name": "Lem Rune",
+        "name": "Lem Rune (20)",
         "value": 540029554,
         "hexCode": "r20",
         "category": [
@@ -12645,7 +12645,7 @@
         ]
     },
     {
-        "name": "Pul Rune",
+        "name": "Pul Rune (21)",
         "value": 540095090,
         "hexCode": "r21",
         "category": [
@@ -12653,7 +12653,7 @@
         ]
     },
     {
-        "name": "Um Rune",
+        "name": "Um Rune (22)",
         "value": 540160626,
         "hexCode": "r22",
         "category": [
@@ -12661,7 +12661,7 @@
         ]
     },
     {
-        "name": "Mal Rune",
+        "name": "Mal Rune (23)",
         "value": 540226162,
         "hexCode": "r23",
         "category": [
@@ -12669,7 +12669,7 @@
         ]
     },
     {
-        "name": "Ist Rune",
+        "name": "Ist Rune (24)",
         "value": 540291698,
         "hexCode": "r24",
         "category": [
@@ -12677,7 +12677,7 @@
         ]
     },
     {
-        "name": "Gul Rune",
+        "name": "Gul Rune (25)",
         "value": 540357234,
         "hexCode": "r25",
         "category": [
@@ -12685,7 +12685,7 @@
         ]
     },
     {
-        "name": "Vex Rune",
+        "name": "Vex Rune (26)",
         "value": 540422770,
         "hexCode": "r26",
         "category": [
@@ -12693,7 +12693,7 @@
         ]
     },
     {
-        "name": "Ohm Rune",
+        "name": "Ohm Rune (27)",
         "value": 540488306,
         "hexCode": "r27",
         "category": [
@@ -12701,7 +12701,7 @@
         ]
     },
     {
-        "name": "Lo Rune",
+        "name": "Lo Rune (28)",
         "value": 540553842,
         "hexCode": "r28",
         "category": [
@@ -12709,7 +12709,7 @@
         ]
     },
     {
-        "name": "Sur Rune",
+        "name": "Sur Rune (29)",
         "value": 540619378,
         "hexCode": "r29",
         "category": [
@@ -12717,7 +12717,7 @@
         ]
     },
     {
-        "name": "Ber Rune",
+        "name": "Ber Rune (30)",
         "value": 540029810,
         "hexCode": "r30",
         "category": [
@@ -12725,7 +12725,7 @@
         ]
     },
     {
-        "name": "Jah Rune",
+        "name": "Jah Rune (31)",
         "value": 540095346,
         "hexCode": "r31",
         "category": [
@@ -12733,7 +12733,7 @@
         ]
     },
     {
-        "name": "Cham Rune",
+        "name": "Cham Rune (32)",
         "value": 540160882,
         "hexCode": "r32",
         "category": [
@@ -12741,7 +12741,7 @@
         ]
     },
     {
-        "name": "Zod Rune",
+        "name": "Zod Rune (33)",
         "value": 540226418,
         "hexCode": "r33",
         "category": [
@@ -13162,7 +13162,7 @@
         ]
     },
     {
-        "name": "Ol Rune",
+        "name": "Ol Rune (01)",
         "value": 825260146,
         "hexCode": "rx01",
         "category": [
@@ -13170,7 +13170,7 @@
         ]
     },
     {
-        "name": "Elq Rune",
+        "name": "Elq Rune (02)",
         "value": 842037362,
         "hexCode": "rx02",
         "category": [
@@ -13178,7 +13178,7 @@
         ]
     },
     {
-        "name": "Tyr Rune",
+        "name": "Tyr Rune (03)",
         "value": 858814578,
         "hexCode": "rx03",
         "category": [
@@ -13186,7 +13186,7 @@
         ]
     },
     {
-        "name": "Nif Rune",
+        "name": "Nif Rune (04)",
         "value": 875591794,
         "hexCode": "rx04",
         "category": [
@@ -13194,7 +13194,7 @@
         ]
     },
     {
-        "name": "Xeth Rune",
+        "name": "Xeth Rune (05)",
         "value": 892369010,
         "hexCode": "rx05",
         "category": [
@@ -13202,7 +13202,7 @@
         ]
     },
     {
-        "name": "Xith Rune",
+        "name": "Xith Rune (06)",
         "value": 909146226,
         "hexCode": "rx06",
         "category": [
@@ -13210,7 +13210,7 @@
         ]
     },
     {
-        "name": "Thal Rune",
+        "name": "Thal Rune (07)",
         "value": 925923442,
         "hexCode": "rx07",
         "category": [
@@ -13218,7 +13218,7 @@
         ]
     },
     {
-        "name": "Rhal Rune",
+        "name": "Rhal Rune (08)",
         "value": 942700658,
         "hexCode": "rx08",
         "category": [
@@ -13226,7 +13226,7 @@
         ]
     },
     {
-        "name": "Urt Rune",
+        "name": "Urt Rune (09)",
         "value": 959477874,
         "hexCode": "rx09",
         "category": [
@@ -13234,7 +13234,7 @@
         ]
     },
     {
-        "name": "Tuul Rune",
+        "name": "Tuul Rune (10)",
         "value": 808548466,
         "hexCode": "rx10",
         "category": [
@@ -13242,7 +13242,7 @@
         ]
     },
     {
-        "name": "Ahmn Rune",
+        "name": "Ahmn Rune (11)",
         "value": 825325682,
         "hexCode": "rx11",
         "category": [
@@ -13250,7 +13250,7 @@
         ]
     },
     {
-        "name": "Zol Rune",
+        "name": "Zol Rune (12)",
         "value": 842102898,
         "hexCode": "rx12",
         "category": [
@@ -13258,7 +13258,7 @@
         ]
     },
     {
-        "name": "Shaen Rune",
+        "name": "Shaen Rune (13)",
         "value": 858880114,
         "hexCode": "rx13",
         "category": [
@@ -13266,7 +13266,7 @@
         ]
     },
     {
-        "name": "Doj Rune",
+        "name": "Doj Rune (14)",
         "value": 875657330,
         "hexCode": "rx14",
         "category": [
@@ -13274,7 +13274,7 @@
         ]
     },
     {
-        "name": "Hem Rune",
+        "name": "Hem Rune (15)",
         "value": 892434546,
         "hexCode": "rx15",
         "category": [
@@ -13282,7 +13282,7 @@
         ]
     },
     {
-        "name": "Iu Rune",
+        "name": "Iu Rune (16)",
         "value": 909211762,
         "hexCode": "rx16",
         "category": [
@@ -13290,7 +13290,7 @@
         ]
     },
     {
-        "name": "Lux Rune",
+        "name": "Lux Rune (17)",
         "value": 925988978,
         "hexCode": "rx17",
         "category": [
@@ -13298,7 +13298,7 @@
         ]
     },
     {
-        "name": "Ka Rune",
+        "name": "Ka Rune (18)",
         "value": 942766194,
         "hexCode": "rx18",
         "category": [
@@ -13306,7 +13306,7 @@
         ]
     },
     {
-        "name": "Fel Rune",
+        "name": "Fel Rune (19)",
         "value": 959543410,
         "hexCode": "rx19",
         "category": [
@@ -13314,7 +13314,7 @@
         ]
     },
     {
-        "name": "Lew Rune",
+        "name": "Lew Rune (20)",
         "value": 808614002,
         "hexCode": "rx20",
         "category": [
@@ -13322,7 +13322,7 @@
         ]
     },
     {
-        "name": "Phul Rune",
+        "name": "Phul Rune (21)",
         "value": 825391218,
         "hexCode": "rx21",
         "category": [
@@ -13330,7 +13330,7 @@
         ]
     },
     {
-        "name": "Un Rune",
+        "name": "Un Rune (22)",
         "value": 842168434,
         "hexCode": "rx22",
         "category": [
@@ -13338,7 +13338,7 @@
         ]
     },
     {
-        "name": "Mhal Rune",
+        "name": "Mhal Rune (23)",
         "value": 858945650,
         "hexCode": "rx23",
         "category": [
@@ -13346,7 +13346,7 @@
         ]
     },
     {
-        "name": "Yst Rune",
+        "name": "Yst Rune (24)",
         "value": 875722866,
         "hexCode": "rx24",
         "category": [
@@ -13354,7 +13354,7 @@
         ]
     },
     {
-        "name": "Gur Rune",
+        "name": "Gur Rune (25)",
         "value": 892500082,
         "hexCode": "rx25",
         "category": [
@@ -13362,7 +13362,7 @@
         ]
     },
     {
-        "name": "Vez Rune",
+        "name": "Vez Rune (26)",
         "value": 909277298,
         "hexCode": "rx26",
         "category": [
@@ -13370,7 +13370,7 @@
         ]
     },
     {
-        "name": "Ohn Rune",
+        "name": "Ohn Rune (27)",
         "value": 926054514,
         "hexCode": "rx27",
         "category": [
@@ -13378,7 +13378,7 @@
         ]
     },
     {
-        "name": "Loz Rune",
+        "name": "Loz Rune (28)",
         "value": 942831730,
         "hexCode": "rx28",
         "category": [
@@ -13386,7 +13386,7 @@
         ]
     },
     {
-        "name": "Zur Rune",
+        "name": "Zur Rune (29)",
         "value": 959608946,
         "hexCode": "rx29",
         "category": [
@@ -13394,7 +13394,7 @@
         ]
     },
     {
-        "name": "Bur Rune",
+        "name": "Bur Rune (30)",
         "value": 808679538,
         "hexCode": "rx30",
         "category": [
@@ -13402,7 +13402,7 @@
         ]
     },
     {
-        "name": "Iah Rune",
+        "name": "Iah Rune (31)",
         "value": 825456754,
         "hexCode": "rx31",
         "category": [
@@ -13410,7 +13410,7 @@
         ]
     },
     {
-        "name": "Yham Rune",
+        "name": "Yham Rune (32)",
         "value": 842233970,
         "hexCode": "rx32",
         "category": [
@@ -13418,7 +13418,7 @@
         ]
     },
     {
-        "name": "Xod Rune",
+        "name": "Xod Rune (33)",
         "value": 859011186,
         "hexCode": "rx33",
         "category": [
