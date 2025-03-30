@@ -49,7 +49,7 @@ export class RuleManager {
         if (rule) {
             newRule = rule;
         } else {
-            newRule = this.ruleTemplate;
+            newRule = { ...this.ruleTemplate };
             newRule.id = Date.now();
             newRule.notify = $('#defaultNotify').is(':checked');
             newRule.automap = $('#defaultMap').is(':checked');

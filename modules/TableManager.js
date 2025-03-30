@@ -408,9 +408,7 @@ export class TableManager {
         // Load from localStorage
         $('#loadFromLocalStorage').on('change', () => {
             const filterName = $('#loadFromLocalStorage').val();
-            if (!filterName) {
-                return;
-            }
+            if (!filterName) { return; }
 
             const filterData = this.storageManager.loadFilter(filterName);
             if (filterData) {
@@ -446,7 +444,6 @@ export class TableManager {
                     this.toastManager.showToast(`Filter "${filterName}" not found in local storage.`, true);
                 }
             }
-            
         });
 
         $('#newFilter').on('click', () => {
