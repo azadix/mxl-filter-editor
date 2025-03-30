@@ -643,9 +643,7 @@ export class TableManager {
             const rules = this.ruleManager.getRules();
             if (dataIndex >= 0 && dataIndex < rules.length) {
                 this.ruleManager.deleteRule(dataIndex);
-                this.table.row($row).remove().draw(false);
-                
-                this.updateRowIndexes();
+                this.renderTable();
             } else {
                 console.warn("Index out of bounds:", dataIndex);
             }

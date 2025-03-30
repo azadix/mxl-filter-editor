@@ -13,3 +13,4 @@ Current item/class data: MXL 2.10.3
 
 ### TODO:
 - Different styling for inactive rules
+- Reordering and deleting rules should not scroll the view to the top
