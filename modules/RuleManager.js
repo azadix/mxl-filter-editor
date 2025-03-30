@@ -123,4 +123,19 @@ export class RuleManager {
     loadItemQuality(itemQuality) {
         this.itemQuality = itemQuality;
     }
+
+    generateOutput() {
+        const filterName = $('#filterName').val().trim();
+        const rules = this.getRules();
+
+        return JSON.stringify({
+            default_show_items: $('#defaultShowItems').is(":checked"),
+            name: filterName || `UnnamedFilter${Date.now().toString()}`,
+            rules: rules.map(rule => {
+                // Exclude the `id` property from the output
+                const { id, ...cleanedRule } = rule;
+                return cleanedRule;
+            })
+        }, null, 2);
+    }
 }

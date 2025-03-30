@@ -382,7 +382,7 @@ export class TableManager {
         // Copy to clipboard
         $('#copyToClipboard').on('click', () => {
             const filterName = $('#filterName').val().trim();
-            const output = this.generateOutput();
+            const output = this.ruleManager.generateOutput();
 
             navigator.clipboard.writeText(output)
                 .then(() => this.toastManager.showToast(`Filter "${filterName}" copied to clipboard!`, true))
@@ -398,7 +398,7 @@ export class TableManager {
             }
 
             const cleanedFilterName = sanitizeFilterName(filterName);
-            const filterData = this.generateOutput();
+            const filterData = this.ruleManager.generateOutput();
 
             this.storageManager.saveFilter(cleanedFilterName, filterData);
             this.toastManager.showToast(`Filter "${cleanedFilterName}" saved to local storage!`, true);
@@ -710,20 +710,5 @@ export class TableManager {
                 $(this).select2('destroy');
             }
         });
-    }
-
-    generateOutput() {
-        const filterName = $('#filterName').val().trim();
-        const rules = this.ruleManager.getRules();
-
-        return JSON.stringify({
-            default_show_items: $('#defaultShowItems').is(":checked"),
-            name: filterName || `UnnamedFilter${Date.now().toString()}`,
-            rules: rules.map(rule => {
-                // Exclude the `id` property from the output
-                const { id, ...cleanedRule } = rule;
-                return cleanedRule;
-            })
-        }, null, 2);
     }
 }
