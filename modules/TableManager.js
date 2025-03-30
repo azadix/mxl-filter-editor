@@ -6,7 +6,7 @@ export class TableManager {
         this.storageManager = storageManager;
         this.toastManager = toastManager;
         this.dropdownManager = dropdownManager;
-        
+
         this.CATEGORY_IMAGES = {
             "Charm": "charm",
             "Essence": "essence",
@@ -14,7 +14,7 @@ export class TableManager {
             "Fragment": "fragment",
             "Other": "other",
             "Quest Item": "quest-item",
-            "Tenet": "",
+            "Tenet": "tenet",
             "Lootbox": "lootbox",
             "Rune": "rune",
             "Elemental Rune": "elemental-rune",
