@@ -52,6 +52,13 @@ input[type="checkbox"], .checkbox {
     user-select: none;
 }
 
+/* Remove number input arrows */
+.input[type="number"]::-webkit-outer-spin-button,
+.input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .form-group-input {
     width: 8ch;
     text-align: center;
