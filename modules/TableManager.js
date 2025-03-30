@@ -414,10 +414,11 @@ export class TableManager {
 
         // Load from localStorage
         $('#loadFromLocalStorage').on('change', () => {
-            const filterName = sanitizeFilterName($('#loadFromLocalStorage').val()).trim();
+            const filterName = $('#loadFromLocalStorage').val().trim();
             if (!filterName) { return; }
 
             const filterData = this.storageManager.loadFilter(filterName);
+            
             if (filterData) {
                 $('#defaultNotify').prop('checked', filterData.default_notify);
                 $('#defaultMap').prop('checked', filterData.default_map);
