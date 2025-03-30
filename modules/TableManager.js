@@ -6,6 +6,34 @@ export class TableManager {
         this.storageManager = storageManager;
         this.toastManager = toastManager;
         this.dropdownManager = dropdownManager;
+        
+        this.CATEGORY_IMAGES = {
+            "Charm": "charm",
+            "Essence": "essence",
+            "Trophy": "trophy",
+            "Fragment": "fragment",
+            "Other": "other",
+            "Quest Item": "quest-item",
+            "Tenet": "",
+            "Lootbox": "lootbox",
+            "Rune": "rune",
+            "Elemental Rune": "elemental-rune",
+            "Enchanted Rune": "enchanted-rune",
+            "Health Potion": "potion-health",
+            "Mana Potion": "potion-mana",
+            "Rejuvenation Potion": "potion-rejuvenation",
+            "Throwing Potion": "potion-throwing",
+            "Consumable": "consumable",
+            "Mystic Orb": "mystic-orb",
+            "UMO": "umo",
+            "Emblem": "emblem",
+            "Shrine": "shrine",
+            "Shrine-Unused": "shrine",
+            "Shrine Vessel": "shrine-vessel",
+            "Cycle": "cycle",
+            "Item Design": "item-design"
+        };
+
         this.table = new DataTable('#rulesTable', {
             autoWidth: true,
             paging: false,
@@ -81,7 +109,7 @@ export class TableManager {
         this.table.columns.adjust();
     }
 
-    formatItem (value) {
+    formatItem = (value) => {
         if (!value.id) {
           return value.text;
         }
@@ -89,7 +117,15 @@ export class TableManager {
         let itemCategories = '';
         if (value.category) {
             value.category.forEach((category) => {
-                itemCategories +=`<span class="tag ml-1">${category}</span>`;
+                const imageName = this.CATEGORY_IMAGES?.[category] || 'default';
+
+                itemCategories +=`<span class="tag has-addons">
+                                    <span class="tag p-0"><figure class="image is-16x16">
+                                        <img src="assets/${imageName}.png" />
+                                    </figure></span>
+                                    <span class="tag">${category}</span>
+                                </span>`;
+                //itemCategories +=`<span class="tag ml-1">${category}</span>`;
             });
         }
         
@@ -418,7 +454,7 @@ export class TableManager {
             if (!filterName) { return; }
 
             const filterData = this.storageManager.loadFilter(filterName);
-            
+
             if (filterData) {
                 $('#defaultNotify').prop('checked', filterData.default_notify);
                 $('#defaultMap').prop('checked', filterData.default_map);
