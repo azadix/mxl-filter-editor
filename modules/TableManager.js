@@ -103,14 +103,18 @@ export class TableManager {
     
         // Clean up previous handlers
         this._globalSelectorHandlers?.change?.();
+        this._globalSelectorHandlers?.close?.();
         
         // Store new handler for cleanup
         this._globalSelectorHandlers = {
             change: () => {
                 this.dropdownManager.globalSelector.off('change');
+            },
+            close: () => {
+                $('#globalSelectorModal .modal-close, #globalSelectorModal .modal-background').off('click');
             }
         };
-
+    
         // Populate Select2 options based on ruleType
         const options = ruleType === this.ruleManager.ruleTypes.ITEM.value
                         ? this.ruleManager.getItemCodes()
@@ -136,7 +140,7 @@ export class TableManager {
                 const term = params.term.toLowerCase();
                 const text = data.text.toLowerCase();
                 const categories = Array.isArray(data.category) ? data.category : [];
-
+    
                 if (text.indexOf(term) > -1 || categories.some(cat => cat.toLowerCase().indexOf(term) > -1)) {
                     return data;
                 }
@@ -145,12 +149,15 @@ export class TableManager {
         });
     
         // Set the current value
-        this.dropdownManager.globalSelector.val(currentValue);
-
+        this.dropdownManager.globalSelector.val(currentValue).trigger('change');
+    
         // Handle value change
-        this.dropdownManager.globalSelector.off('change').on('change', function () {
-            const newValue = $(this).val();
-            onChangeCallback(newValue);
+        this.dropdownManager.globalSelector.off('change').on('change', (e) => {
+            const newValue = $(e.target).val();
+            if (newValue !== currentValue) {
+                onChangeCallback(newValue);
+                this.dropdownManager.closeGlobalSelectorModal();
+            }
         });
     
         // Show modal
@@ -159,16 +166,17 @@ export class TableManager {
         $('#globalSelector').next('.select2-container').find('.select2-selection--single').hide();
         $('.select2-search__field').addClass('input');
         $('.select2-dropdown--below').addClass('px-2 py-3', '');
-
-        this.dropdownManager.globalSelector.on('change', function() {
-            const newValue = $(this).val();
-            onChangeCallback(newValue);
-        });
-
-        $('#globalSelectorModal .modal-close, #globalSelectorModal .modal-background').on('click', () => {
+    
+        // Handle modal close
+        const closeHandler = () => {
             this.dropdownManager.globalSelector.select2('destroy');
             this.dropdownManager.closeGlobalSelectorModal();
-        });
+        };
+        
+        $('#globalSelectorModal .modal-close, #globalSelectorModal .modal-background').off('click').on('click', closeHandler);
+        this._globalSelectorHandlers.close = () => {
+            $('#globalSelectorModal .modal-close, #globalSelectorModal .modal-background').off('click', closeHandler);
+        };
     }
 
     createRowData(rule, index) {
@@ -322,14 +330,14 @@ export class TableManager {
         $('#defaultMap').prop('checked', defaultMap);
 
         // Handle changes to defaultNotify
-        $('#defaultNotify').on('change', function () {
-            const isChecked = $(this).is(':checked');
+        $('#defaultNotify').on('change', (event) => {
+            const isChecked = $(event.target).is(':checked');
             localStorage.setItem('defaultNotify', isChecked);
         });
 
         // Handle changes to defaultMap
-        $('#defaultMap').on('change', function () {
-            const isChecked = $(this).is(':checked');
+        $('#defaultMap').on('change', (event) => {
+            const isChecked = $(event.target).is(':checked');
             localStorage.setItem('defaultMap', isChecked);
         });
 
@@ -391,23 +399,22 @@ export class TableManager {
 
         // Save to localStorage
         $('#saveToLocalStorage').on('click', () => {
-            const filterName = $('#filterName').val().trim();
+            const filterName = sanitizeFilterName($('#filterName').val()).trim();
             if (!filterName) {
                 this.toastManager.showToast("Please enter a filter name before saving.");
                 return;
             }
 
-            const cleanedFilterName = sanitizeFilterName(filterName);
             const filterData = this.ruleManager.generateOutput();
 
-            this.storageManager.saveFilter(cleanedFilterName, filterData);
-            this.toastManager.showToast(`Filter "${cleanedFilterName}" saved to local storage!`, true);
+            this.storageManager.saveFilter(filterName, filterData);
+            this.toastManager.showToast(`Filter "${filterName}" saved to local storage!`, true);
             this.dropdownManager.updateFilterSelect();
         });
 
         // Load from localStorage
         $('#loadFromLocalStorage').on('change', () => {
-            const filterName = $('#loadFromLocalStorage').val();
+            const filterName = sanitizeFilterName($('#loadFromLocalStorage').val()).trim();
             if (!filterName) { return; }
 
             const filterData = this.storageManager.loadFilter(filterName);

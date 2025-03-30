@@ -1,3 +1,4 @@
+import { sanitizeFilterName } from './utils.js';
 export class RuleManager {
     constructor() {
         this.rules = [];
@@ -130,7 +131,7 @@ export class RuleManager {
 
         return JSON.stringify({
             default_show_items: $('#defaultShowItems').is(":checked"),
-            name: filterName || `UnnamedFilter${Date.now().toString()}`,
+            name: sanitizeFilterName(filterName) || `UnnamedFilter${Date.now().toString()}`,
             rules: rules.map(rule => {
                 // Exclude the `id` property from the output
                 const { id, ...cleanedRule } = rule;
