@@ -11,10 +11,6 @@ loot,Lootbox
 rune,Rune
 xrun,Elemental Rune
 erun,Enchanted Rune
-hpot,Health Potion
-mpot,Mana Potion
-rpot,Rejuvenation Potion
-tpot,Throwing Potion
 poti,Consumable
 myst,Mystic Orb
 asa#,UMO
@@ -25,3 +21,8 @@ shco,Shrine Vessel
 cycl,Cycle
 dsgn,Item Design
 sdgn,Item Design
+gem0,Gem
+gem1,Gem
+gem2,Gem
+gem3,Gem
+gem4,Gem

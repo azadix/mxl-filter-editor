@@ -6165,25 +6165,19 @@
         "name": "Strangling Gas Potion",
         "value": 543977575,
         "hexCode": "gpl",
-        "category": [
-            "Throwing Potion"
-        ]
+        "category": []
     },
     {
         "name": "Choking Gas Potion",
         "value": 544043111,
         "hexCode": "gpm",
-        "category": [
-            "Throwing Potion"
-        ]
+        "category": []
     },
     {
         "name": "Rancid Gas Potion",
         "value": 544436327,
         "hexCode": "gps",
-        "category": [
-            "Throwing Potion"
-        ]
+        "category": []
     },
     {
         "name": "Horadric Malus",
@@ -6915,25 +6909,19 @@
         "name": "Fulminating Potion",
         "value": 543977583,
         "hexCode": "opl",
-        "category": [
-            "Throwing Potion"
-        ]
+        "category": []
     },
     {
         "name": "Exploding Potion",
         "value": 544043119,
         "hexCode": "opm",
-        "category": [
-            "Throwing Potion"
-        ]
+        "category": []
     },
     {
         "name": "Oil Potion",
         "value": 544436335,
         "hexCode": "ops",
-        "category": [
-            "Throwing Potion"
-        ]
+        "category": []
     },
     {
         "name": "Khalim's Flail",
@@ -7904,31 +7892,41 @@
         "name": "Chipped Amber",
         "value": 543237173,
         "hexCode": "5$a",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Flawed Amber",
         "value": 543302709,
         "hexCode": "5$b",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Amber",
         "value": 543368245,
         "hexCode": "5$c",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Flawless Amber",
         "value": 543433781,
         "hexCode": "5$d",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Perfect Amber",
         "value": 543499317,
         "hexCode": "5$e",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Mystic Orb (Armor - Block Speed)",
@@ -8030,31 +8028,41 @@
         "name": "Chipped Turquoise",
         "value": 543237175,
         "hexCode": "7$a",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Flawed Turquoise",
         "value": 543302711,
         "hexCode": "7$b",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Turquoise",
         "value": 543368247,
         "hexCode": "7$c",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Flawless Turquoise",
         "value": 543433783,
         "hexCode": "7$d",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Perfect Turquoise",
         "value": 543499319,
         "hexCode": "7$e",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Oil of Craft",
@@ -8068,31 +8076,41 @@
         "name": "Chipped Bloodstone",
         "value": 543237177,
         "hexCode": "9$a",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Flawed Bloodstone",
         "value": 543302713,
         "hexCode": "9$b",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Bloodstone",
         "value": 543368249,
         "hexCode": "9$c",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Flawless Bloodstone",
         "value": 543433785,
         "hexCode": "9$d",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Perfect Bloodstone",
         "value": 543499321,
         "hexCode": "9$e",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Oil of Greater Luck",
@@ -10060,9 +10078,7 @@
         "name": "Goodberry",
         "value": 543309922,
         "hexCode": "b@b",
-        "category": [
-            "Health Potion"
-        ]
+        "category": []
     },
     {
         "name": "Lam Esen's Tome",
@@ -10103,12 +10119,6 @@
         "category": [
             "Quest Item"
         ]
-    },
-    {
-        "name": "Brain",
-        "value": 544895586,
-        "hexCode": "brz",
-        "category": []
     },
     {
         "name": "Soul of Kabraxis",
@@ -10915,12 +10925,6 @@
         ]
     },
     {
-        "name": "Amulet",
-        "value": 544891493,
-        "hexCode": "ebz",
-        "category": []
-    },
-    {
         "name": "Elixir",
         "value": 544762981,
         "hexCode": "elx",
@@ -11447,12 +11451,6 @@
         ]
     },
     {
-        "name": "Eye",
-        "value": 544897381,
-        "hexCode": "eyz",
-        "category": []
-    },
-    {
         "name": "Soulforge",
         "value": 909522534,
         "hexCode": "f666",
@@ -11477,46 +11475,44 @@
         ]
     },
     {
-        "name": "Flag",
-        "value": 543648870,
-        "hexCode": "flg",
-        "category": []
-    },
-    {
-        "name": "Fang",
-        "value": 543649382,
-        "hexCode": "fng",
-        "category": []
-    },
-    {
         "name": "Chipped Onyx",
         "value": 543237223,
         "hexCode": "g$a",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Flawed Onyx",
         "value": 543302759,
         "hexCode": "g$b",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Onyx",
         "value": 543368295,
         "hexCode": "g$c",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Flawless Onyx",
         "value": 543433831,
         "hexCode": "g$d",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Perfect Onyx",
         "value": 543499367,
         "hexCode": "g$e",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "The Golden Bird",
@@ -11626,79 +11622,105 @@
         "name": "Chipped Sapphire",
         "value": 543318887,
         "hexCode": "gcb",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Chipped Emerald",
         "value": 543646567,
         "hexCode": "gcg",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Chipped Ruby",
         "value": 544367463,
         "hexCode": "gcr",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Chipped Amethyst",
         "value": 544629607,
         "hexCode": "gcv",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Chipped Diamond",
         "value": 544695143,
         "hexCode": "gcw",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Chipped Topaz",
         "value": 544826215,
         "hexCode": "gcy",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Flawed Sapphire",
         "value": 543319655,
         "hexCode": "gfb",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Flawed Emerald",
         "value": 543647335,
         "hexCode": "gfg",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Flawed Ruby",
         "value": 544368231,
         "hexCode": "gfr",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Flawed Amethyst",
         "value": 544630375,
         "hexCode": "gfv",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Flawed Diamond",
         "value": 544695911,
         "hexCode": "gfw",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Flawed Topaz",
         "value": 544826983,
         "hexCode": "gfy",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Flawless Sapphire",
         "value": 543321191,
         "hexCode": "glb",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Gold",
@@ -11710,103 +11732,137 @@
         "name": "Flawless Emerald",
         "value": 543648871,
         "hexCode": "glg",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Flawless Ruby",
         "value": 544369767,
         "hexCode": "glr",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Flawless Diamond",
         "value": 544697447,
         "hexCode": "glw",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Flawless Topaz",
         "value": 544828519,
         "hexCode": "gly",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Perfect Sapphire",
         "value": 543322215,
         "hexCode": "gpb",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Perfect Emerald",
         "value": 543649895,
         "hexCode": "gpg",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Perfect Ruby",
         "value": 544370791,
         "hexCode": "gpr",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Perfect Amethyst",
         "value": 544632935,
         "hexCode": "gpv",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Perfect Diamond",
         "value": 544698471,
         "hexCode": "gpw",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Perfect Topaz",
         "value": 544829543,
         "hexCode": "gpy",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Sapphire",
         "value": 543322983,
         "hexCode": "gsb",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Emerald",
         "value": 543650663,
         "hexCode": "gsg",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Ruby",
         "value": 544371559,
         "hexCode": "gsr",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Amethyst",
         "value": 544633703,
         "hexCode": "gsv",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Diamond",
         "value": 544699239,
         "hexCode": "gsw",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Topaz",
         "value": 544830311,
         "hexCode": "gsy",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Flawless Amethyst",
         "value": 544635495,
         "hexCode": "gzv",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Mark of Infusion",
@@ -11820,58 +11876,36 @@
         "name": "Minor Healing Potion",
         "value": 540110952,
         "hexCode": "hp1",
-        "category": [
-            "Health Potion"
-        ]
+        "category": []
     },
     {
         "name": "Light Healing Potion",
         "value": 540176488,
         "hexCode": "hp2",
-        "category": [
-            "Health Potion"
-        ]
+        "category": []
     },
     {
         "name": "Healing Potion",
         "value": 540242024,
         "hexCode": "hp3",
-        "category": [
-            "Health Potion"
-        ]
+        "category": []
     },
     {
         "name": "Greater Healing Potion",
         "value": 540307560,
         "hexCode": "hp4",
-        "category": [
-            "Health Potion"
-        ]
+        "category": []
     },
     {
         "name": "Super Healing Potion",
         "value": 540373096,
         "hexCode": "hp5",
-        "category": [
-            "Health Potion"
-        ]
+        "category": []
     },
     {
         "name": "Herb",
         "value": 543322728,
         "hexCode": "hrb",
-        "category": []
-    },
-    {
-        "name": "Horn",
-        "value": 544109160,
-        "hexCode": "hrn",
-        "category": []
-    },
-    {
-        "name": "Heart",
-        "value": 544502376,
-        "hexCode": "hrt",
         "category": []
     },
     {
@@ -12085,12 +12119,6 @@
         "category": [
             "Quest Item"
         ]
-    },
-    {
-        "name": "Jawbone",
-        "value": 544694634,
-        "hexCode": "jaw",
-        "category": []
     },
     {
         "name": "Catalyst of Jewelcraft",
@@ -12314,41 +12342,31 @@
         "name": "Minor Mana Potion",
         "value": 540110957,
         "hexCode": "mp1",
-        "category": [
-            "Mana Potion"
-        ]
+        "category": []
     },
     {
         "name": "Light Mana Potion",
         "value": 540176493,
         "hexCode": "mp2",
-        "category": [
-            "Mana Potion"
-        ]
+        "category": []
     },
     {
         "name": "Mana Potion",
         "value": 540242029,
         "hexCode": "mp3",
-        "category": [
-            "Mana Potion"
-        ]
+        "category": []
     },
     {
         "name": "Greater Mana Potion",
         "value": 540307565,
         "hexCode": "mp4",
-        "category": [
-            "Mana Potion"
-        ]
+        "category": []
     },
     {
         "name": "Super Mana Potion",
         "value": 540373101,
         "hexCode": "mp5",
-        "category": [
-            "Mana Potion"
-        ]
+        "category": []
     },
     {
         "name": "Mephisto's Soulstone",
@@ -12429,12 +12447,6 @@
         "category": [
             "Quest Item"
         ]
-    },
-    {
-        "name": "Quill",
-        "value": 543976561,
-        "hexCode": "qll",
-        "category": []
     },
     {
         "name": "Relic Orb",
@@ -13117,25 +13129,19 @@
         "name": "Wings of the Departed",
         "value": 2020632946,
         "hexCode": "ripx",
-        "category": [
-            "Health Potion"
-        ]
+        "category": []
     },
     {
         "name": "Full Rejuvenation Potion",
         "value": 543979122,
         "hexCode": "rvl",
-        "category": [
-            "Rejuvenation Potion"
-        ]
+        "category": []
     },
     {
         "name": "Rejuvenation Potion",
         "value": 544437874,
         "hexCode": "rvs",
-        "category": [
-            "Rejuvenation Potion"
-        ]
+        "category": []
     },
     {
         "name": "Ol Rune (01)",
@@ -14728,40 +14734,44 @@
         ]
     },
     {
-        "name": "Scalp",
-        "value": 544891763,
-        "hexCode": "scz",
-        "category": []
-    },
-    {
         "name": "Chipped Skull",
         "value": 543386483,
         "hexCode": "skc",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Flawed Skull",
         "value": 543583091,
         "hexCode": "skf",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Flawless Skull",
         "value": 543976307,
         "hexCode": "skl",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Skull",
         "value": 544566131,
         "hexCode": "sku",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Perfect Skull",
         "value": 544893811,
         "hexCode": "skz",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Scroll of Athulua",
@@ -14788,30 +14798,12 @@
         ]
     },
     {
-        "name": "Soul",
-        "value": 543977331,
-        "hexCode": "sol",
-        "category": []
-    },
-    {
-        "name": "Spleen",
-        "value": 543518835,
-        "hexCode": "spe",
-        "category": []
-    },
-    {
         "name": "Demonsbane",
         "value": 544489588,
         "hexCode": "t@t",
         "category": [
             "Charm"
         ]
-    },
-    {
-        "name": "Tail",
-        "value": 543973748,
-        "hexCode": "tal",
-        "category": []
     },
     {
         "name": "Tome of Town Portal",
@@ -14978,12 +14970,6 @@
         "category": []
     },
     {
-        "name": "Stamina Potion",
-        "value": 544436342,
-        "hexCode": "vps",
-        "category": []
-    },
-    {
         "name": "Mark of Victory (Horror Under Tristram)",
         "value": 829977206,
         "hexCode": "vrx1",
@@ -15014,12 +15000,6 @@
         "category": [
             "Charm"
         ]
-    },
-    {
-        "name": "Thawing Potion",
-        "value": 544435575,
-        "hexCode": "wms",
-        "category": []
     },
     {
         "name": "Sacred Sunstone",
@@ -15147,37 +15127,41 @@
         "name": "Chipped Rainbow Stone",
         "value": 540110713,
         "hexCode": "yo1",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Flawed Rainbow Stone",
         "value": 540176249,
         "hexCode": "yo2",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Rainbow Stone",
         "value": 540241785,
         "hexCode": "yo3",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Flawless Rainbow Stone",
         "value": 540307321,
         "hexCode": "yo4",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Perfect Rainbow Stone",
         "value": 540372857,
         "hexCode": "yo5",
-        "category": []
-    },
-    {
-        "name": "Antidote Potion",
-        "value": 544436345,
-        "hexCode": "yps",
-        "category": []
+        "category": [
+            "Gem"
+        ]
     },
     {
         "name": "Sunless Crystal Bird",

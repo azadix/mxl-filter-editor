@@ -19,19 +19,16 @@ export class TableManager {
             "Rune": "rune",
             "Elemental Rune": "elemental-rune",
             "Enchanted Rune": "enchanted-rune",
-            "Health Potion": "potion-health",
-            "Mana Potion": "potion-mana",
-            "Rejuvenation Potion": "potion-rejuvenation",
-            "Throwing Potion": "potion-throwing",
             "Consumable": "consumable",
             "Mystic Orb": "mystic-orb",
             "UMO": "umo",
             "Emblem": "emblem",
             "Shrine": "shrine",
             "Shrine-Unused": "shrine",
-            "Shrine Vessel": "shrine-vessel",
+            "Shrine Vessel": "other",
             "Cycle": "cycle",
-            "Item Design": "item-design"
+            "Item Design": "item-design",
+            "Gem": "gem"
         };
 
         this.table = new DataTable('#rulesTable', {
