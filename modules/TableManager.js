@@ -8,27 +8,26 @@ export class TableManager {
         this.dropdownManager = dropdownManager;
 
         this.CATEGORY_IMAGES = {
-            "Charm": "charm",
-            "Essence": "essence",
-            "Trophy": "trophy",
-            "Fragment": "fragment",
-            "Other": "other",
-            "Quest Item": "quest-item",
-            "Tenet": "tenet",
-            "Lootbox": "lootbox",
-            "Rune": "rune",
-            "Elemental Rune": "elemental-rune",
-            "Enchanted Rune": "enchanted-rune",
-            "Consumable": "consumable",
-            "Mystic Orb": "mystic-orb",
-            "UMO": "umo",
-            "Emblem": "emblem",
-            "Shrine": "shrine",
-            "Shrine-Unused": "shrine",
-            "Shrine Vessel": "other",
-            "Cycle": "cycle",
-            "Item Design": "item-design",
-            "Gem": "gem"
+            "#Charm": "charm",
+            "#Essence": "essence",
+            "#Trophy": "trophy",
+            "#Fragment": "fragment",
+            "#Other": "other",
+            "#Quest Item": "quest-item",
+            "#Tenet": "tenet",
+            "#Lootbox": "lootbox",
+            "#Rune": "rune",
+            "#Elemental Rune": "elemental-rune",
+            "#Enchanted Rune": "enchanted-rune",
+            "#Consumable": "consumable",
+            "#Mystic Orb": "mystic-orb",
+            "#UMO": "umo",
+            "#Emblem": "emblem",
+            "#Shrine": "shrine",
+            "#Vessel": "other",
+            "#Cycle": "cycle",
+            "#Item Design": "item-design",
+            "#Gem": "gem"
         };
 
         this.table = new DataTable('#rulesTable', {

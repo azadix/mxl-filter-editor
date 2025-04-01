@@ -6976,7 +6976,7 @@
         "value": 541212705,
         "hexCode": "!@B",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -6984,7 +6984,7 @@
         "value": 539894563,
         "hexCode": "##.",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -6992,7 +6992,7 @@
         "value": 540104739,
         "hexCode": "#X1",
         "category": [
-            "Emblem"
+            "#Emblem"
         ]
     },
     {
@@ -7000,7 +7000,7 @@
         "value": 540170275,
         "hexCode": "#X2",
         "category": [
-            "Emblem"
+            "#Emblem"
         ]
     },
     {
@@ -7008,7 +7008,7 @@
         "value": 540235811,
         "hexCode": "#X3",
         "category": [
-            "Emblem"
+            "#Emblem"
         ]
     },
     {
@@ -7016,7 +7016,7 @@
         "value": 540301347,
         "hexCode": "#X4",
         "category": [
-            "Emblem"
+            "#Emblem"
         ]
     },
     {
@@ -7024,7 +7024,7 @@
         "value": 540366883,
         "hexCode": "#X5",
         "category": [
-            "Emblem"
+            "#Emblem"
         ]
     },
     {
@@ -7032,7 +7032,7 @@
         "value": 540432419,
         "hexCode": "#X6",
         "category": [
-            "Emblem"
+            "#Emblem"
         ]
     },
     {
@@ -7040,8 +7040,8 @@
         "value": 540423718,
         "hexCode": "&66",
         "category": [
-            "Mystic Orb",
-            "UMO"
+            "#Mystic Orb",
+            "#UMO"
         ]
     },
     {
@@ -7049,8 +7049,8 @@
         "value": 540489254,
         "hexCode": "&67",
         "category": [
-            "Mystic Orb",
-            "UMO"
+            "#Mystic Orb",
+            "#UMO"
         ]
     },
     {
@@ -7058,8 +7058,8 @@
         "value": 540554790,
         "hexCode": "&68",
         "category": [
-            "Mystic Orb",
-            "UMO"
+            "#Mystic Orb",
+            "#UMO"
         ]
     },
     {
@@ -7067,8 +7067,8 @@
         "value": 540620326,
         "hexCode": "&69",
         "category": [
-            "Mystic Orb",
-            "UMO"
+            "#Mystic Orb",
+            "#UMO"
         ]
     },
     {
@@ -7076,8 +7076,8 @@
         "value": 540030758,
         "hexCode": "&70",
         "category": [
-            "Mystic Orb",
-            "UMO"
+            "#Mystic Orb",
+            "#UMO"
         ]
     },
     {
@@ -7085,8 +7085,8 @@
         "value": 540096294,
         "hexCode": "&71",
         "category": [
-            "Mystic Orb",
-            "UMO"
+            "#Mystic Orb",
+            "#UMO"
         ]
     },
     {
@@ -7094,8 +7094,8 @@
         "value": 540161830,
         "hexCode": "&72",
         "category": [
-            "Mystic Orb",
-            "UMO"
+            "#Mystic Orb",
+            "#UMO"
         ]
     },
     {
@@ -7103,8 +7103,8 @@
         "value": 540227366,
         "hexCode": "&73",
         "category": [
-            "Mystic Orb",
-            "UMO"
+            "#Mystic Orb",
+            "#UMO"
         ]
     },
     {
@@ -7112,8 +7112,8 @@
         "value": 540292902,
         "hexCode": "&74",
         "category": [
-            "Mystic Orb",
-            "UMO"
+            "#Mystic Orb",
+            "#UMO"
         ]
     },
     {
@@ -7121,8 +7121,8 @@
         "value": 540358438,
         "hexCode": "&75",
         "category": [
-            "Mystic Orb",
-            "UMO"
+            "#Mystic Orb",
+            "#UMO"
         ]
     },
     {
@@ -7130,8 +7130,8 @@
         "value": 540423974,
         "hexCode": "&76",
         "category": [
-            "Mystic Orb",
-            "UMO"
+            "#Mystic Orb",
+            "#UMO"
         ]
     },
     {
@@ -7139,8 +7139,8 @@
         "value": 540489510,
         "hexCode": "&77",
         "category": [
-            "Mystic Orb",
-            "UMO"
+            "#Mystic Orb",
+            "#UMO"
         ]
     },
     {
@@ -7148,8 +7148,8 @@
         "value": 540555046,
         "hexCode": "&78",
         "category": [
-            "Mystic Orb",
-            "UMO"
+            "#Mystic Orb",
+            "#UMO"
         ]
     },
     {
@@ -7157,8 +7157,8 @@
         "value": 540620582,
         "hexCode": "&79",
         "category": [
-            "Mystic Orb",
-            "UMO"
+            "#Mystic Orb",
+            "#UMO"
         ]
     },
     {
@@ -7166,8 +7166,8 @@
         "value": 540031014,
         "hexCode": "&80",
         "category": [
-            "Mystic Orb",
-            "UMO"
+            "#Mystic Orb",
+            "#UMO"
         ]
     },
     {
@@ -7175,8 +7175,8 @@
         "value": 540096550,
         "hexCode": "&81",
         "category": [
-            "Mystic Orb",
-            "UMO"
+            "#Mystic Orb",
+            "#UMO"
         ]
     },
     {
@@ -7184,8 +7184,8 @@
         "value": 540162086,
         "hexCode": "&82",
         "category": [
-            "Mystic Orb",
-            "UMO"
+            "#Mystic Orb",
+            "#UMO"
         ]
     },
     {
@@ -7193,8 +7193,8 @@
         "value": 540227622,
         "hexCode": "&83",
         "category": [
-            "Mystic Orb",
-            "UMO"
+            "#Mystic Orb",
+            "#UMO"
         ]
     },
     {
@@ -7202,8 +7202,8 @@
         "value": 540293158,
         "hexCode": "&84",
         "category": [
-            "Mystic Orb",
-            "UMO"
+            "#Mystic Orb",
+            "#UMO"
         ]
     },
     {
@@ -7211,8 +7211,8 @@
         "value": 540358694,
         "hexCode": "&85",
         "category": [
-            "Mystic Orb",
-            "UMO"
+            "#Mystic Orb",
+            "#UMO"
         ]
     },
     {
@@ -7220,8 +7220,8 @@
         "value": 540424230,
         "hexCode": "&86",
         "category": [
-            "Mystic Orb",
-            "UMO"
+            "#Mystic Orb",
+            "#UMO"
         ]
     },
     {
@@ -7229,8 +7229,8 @@
         "value": 540489766,
         "hexCode": "&87",
         "category": [
-            "Mystic Orb",
-            "UMO"
+            "#Mystic Orb",
+            "#UMO"
         ]
     },
     {
@@ -7238,8 +7238,8 @@
         "value": 540555302,
         "hexCode": "&88",
         "category": [
-            "Mystic Orb",
-            "UMO"
+            "#Mystic Orb",
+            "#UMO"
         ]
     },
     {
@@ -7247,8 +7247,8 @@
         "value": 540620838,
         "hexCode": "&89",
         "category": [
-            "Mystic Orb",
-            "UMO"
+            "#Mystic Orb",
+            "#UMO"
         ]
     },
     {
@@ -7256,8 +7256,8 @@
         "value": 540031270,
         "hexCode": "&90",
         "category": [
-            "Mystic Orb",
-            "UMO"
+            "#Mystic Orb",
+            "#UMO"
         ]
     },
     {
@@ -7265,8 +7265,8 @@
         "value": 540096806,
         "hexCode": "&91",
         "category": [
-            "Mystic Orb",
-            "UMO"
+            "#Mystic Orb",
+            "#UMO"
         ]
     },
     {
@@ -7274,8 +7274,8 @@
         "value": 540162342,
         "hexCode": "&92",
         "category": [
-            "Mystic Orb",
-            "UMO"
+            "#Mystic Orb",
+            "#UMO"
         ]
     },
     {
@@ -7283,8 +7283,8 @@
         "value": 540227878,
         "hexCode": "&93",
         "category": [
-            "Mystic Orb",
-            "UMO"
+            "#Mystic Orb",
+            "#UMO"
         ]
     },
     {
@@ -7292,8 +7292,8 @@
         "value": 540293414,
         "hexCode": "&94",
         "category": [
-            "Mystic Orb",
-            "UMO"
+            "#Mystic Orb",
+            "#UMO"
         ]
     },
     {
@@ -7301,8 +7301,8 @@
         "value": 540358950,
         "hexCode": "&95",
         "category": [
-            "Mystic Orb",
-            "UMO"
+            "#Mystic Orb",
+            "#UMO"
         ]
     },
     {
@@ -7310,8 +7310,8 @@
         "value": 540424486,
         "hexCode": "&96",
         "category": [
-            "Mystic Orb",
-            "UMO"
+            "#Mystic Orb",
+            "#UMO"
         ]
     },
     {
@@ -7319,7 +7319,7 @@
         "value": 539701552,
         "hexCode": "01+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7327,7 +7327,7 @@
         "value": 543043888,
         "hexCode": "01^",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -7335,7 +7335,7 @@
         "value": 539701808,
         "hexCode": "02+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7343,7 +7343,7 @@
         "value": 543044144,
         "hexCode": "02^",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -7351,7 +7351,7 @@
         "value": 539702064,
         "hexCode": "03+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7359,7 +7359,7 @@
         "value": 543044400,
         "hexCode": "03^",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -7367,7 +7367,7 @@
         "value": 539702320,
         "hexCode": "04+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7375,7 +7375,7 @@
         "value": 543044656,
         "hexCode": "04^",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -7383,7 +7383,7 @@
         "value": 539702576,
         "hexCode": "05+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7391,7 +7391,7 @@
         "value": 543044912,
         "hexCode": "05^",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -7399,7 +7399,7 @@
         "value": 539702832,
         "hexCode": "06+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7407,7 +7407,7 @@
         "value": 543045168,
         "hexCode": "06^",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -7415,7 +7415,7 @@
         "value": 539703088,
         "hexCode": "07+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7423,7 +7423,7 @@
         "value": 543045424,
         "hexCode": "07^",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -7431,7 +7431,7 @@
         "value": 539703344,
         "hexCode": "08+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7439,7 +7439,7 @@
         "value": 543045680,
         "hexCode": "08^",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -7447,7 +7447,7 @@
         "value": 539703600,
         "hexCode": "09+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7455,7 +7455,7 @@
         "value": 543045936,
         "hexCode": "09^",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -7463,7 +7463,7 @@
         "value": 542863152,
         "hexCode": "0o[",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -7477,7 +7477,7 @@
         "value": 540112176,
         "hexCode": "0u1",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -7485,7 +7485,7 @@
         "value": 539701297,
         "hexCode": "10+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7493,7 +7493,7 @@
         "value": 543043633,
         "hexCode": "10^",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -7501,7 +7501,7 @@
         "value": 539701553,
         "hexCode": "11+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7509,7 +7509,7 @@
         "value": 543043889,
         "hexCode": "11^",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -7517,7 +7517,7 @@
         "value": 539701809,
         "hexCode": "12+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7525,7 +7525,7 @@
         "value": 543044145,
         "hexCode": "12^",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -7533,7 +7533,7 @@
         "value": 539702065,
         "hexCode": "13+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7541,7 +7541,7 @@
         "value": 543044401,
         "hexCode": "13^",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -7549,7 +7549,7 @@
         "value": 539702321,
         "hexCode": "14+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7557,7 +7557,7 @@
         "value": 543044657,
         "hexCode": "14^",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -7565,7 +7565,7 @@
         "value": 543044913,
         "hexCode": "15^",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -7573,7 +7573,7 @@
         "value": 539702833,
         "hexCode": "16+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7581,7 +7581,7 @@
         "value": 543045169,
         "hexCode": "16^",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -7589,7 +7589,7 @@
         "value": 543045425,
         "hexCode": "17^",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -7597,7 +7597,7 @@
         "value": 539703345,
         "hexCode": "18+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7605,7 +7605,7 @@
         "value": 543045681,
         "hexCode": "18^",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -7613,7 +7613,7 @@
         "value": 539703601,
         "hexCode": "19+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7621,7 +7621,7 @@
         "value": 543045937,
         "hexCode": "19^",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -7629,7 +7629,7 @@
         "value": 542863409,
         "hexCode": "1p[",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -7637,7 +7637,7 @@
         "value": 539701298,
         "hexCode": "20+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7645,7 +7645,7 @@
         "value": 543043634,
         "hexCode": "20^",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -7653,7 +7653,7 @@
         "value": 539701554,
         "hexCode": "21+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7661,7 +7661,7 @@
         "value": 543043890,
         "hexCode": "21^",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -7669,7 +7669,7 @@
         "value": 539701810,
         "hexCode": "22+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7677,7 +7677,7 @@
         "value": 543044146,
         "hexCode": "22^",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -7685,7 +7685,7 @@
         "value": 539702066,
         "hexCode": "23+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7693,7 +7693,7 @@
         "value": 543044402,
         "hexCode": "23^",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -7701,7 +7701,7 @@
         "value": 539702322,
         "hexCode": "24+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7709,7 +7709,7 @@
         "value": 543044658,
         "hexCode": "24^",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -7717,7 +7717,7 @@
         "value": 539702578,
         "hexCode": "25+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7725,7 +7725,7 @@
         "value": 543044914,
         "hexCode": "25^",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -7733,7 +7733,7 @@
         "value": 539702834,
         "hexCode": "26+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7741,7 +7741,7 @@
         "value": 539703090,
         "hexCode": "27+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7749,7 +7749,7 @@
         "value": 542863154,
         "hexCode": "2o[",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -7757,7 +7757,7 @@
         "value": 542863410,
         "hexCode": "2p[",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -7765,7 +7765,7 @@
         "value": 540047410,
         "hexCode": "2x0",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -7773,7 +7773,7 @@
         "value": 539701299,
         "hexCode": "30+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7781,7 +7781,7 @@
         "value": 539701555,
         "hexCode": "31+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7789,7 +7789,7 @@
         "value": 539701811,
         "hexCode": "32+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7797,7 +7797,7 @@
         "value": 539702067,
         "hexCode": "33+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7805,7 +7805,7 @@
         "value": 539702579,
         "hexCode": "35+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7813,7 +7813,7 @@
         "value": 539702835,
         "hexCode": "36+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7821,7 +7821,7 @@
         "value": 539703091,
         "hexCode": "37+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7829,7 +7829,7 @@
         "value": 539703347,
         "hexCode": "38+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7837,7 +7837,7 @@
         "value": 539703603,
         "hexCode": "39+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7845,7 +7845,7 @@
         "value": 542863155,
         "hexCode": "3o[",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -7853,7 +7853,7 @@
         "value": 539701300,
         "hexCode": "40+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7861,7 +7861,7 @@
         "value": 539702836,
         "hexCode": "46+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7869,7 +7869,7 @@
         "value": 539703092,
         "hexCode": "47+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7877,7 +7877,7 @@
         "value": 539703348,
         "hexCode": "48+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7885,7 +7885,7 @@
         "value": 542863156,
         "hexCode": "4o[",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -7893,7 +7893,7 @@
         "value": 543237173,
         "hexCode": "5$a",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -7901,7 +7901,7 @@
         "value": 543302709,
         "hexCode": "5$b",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -7909,7 +7909,7 @@
         "value": 543368245,
         "hexCode": "5$c",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -7917,7 +7917,7 @@
         "value": 543433781,
         "hexCode": "5$d",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -7925,7 +7925,7 @@
         "value": 543499317,
         "hexCode": "5$e",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -7933,7 +7933,7 @@
         "value": 539701301,
         "hexCode": "50+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7941,7 +7941,7 @@
         "value": 539701557,
         "hexCode": "51+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7949,7 +7949,7 @@
         "value": 539701813,
         "hexCode": "52+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7957,7 +7957,7 @@
         "value": 539702069,
         "hexCode": "53+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7965,7 +7965,7 @@
         "value": 542863157,
         "hexCode": "5o[",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -7973,7 +7973,7 @@
         "value": 539701302,
         "hexCode": "60+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7981,7 +7981,7 @@
         "value": 539701558,
         "hexCode": "61+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7989,7 +7989,7 @@
         "value": 539701814,
         "hexCode": "62+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -7997,7 +7997,7 @@
         "value": 539702070,
         "hexCode": "63+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -8005,7 +8005,7 @@
         "value": 539702326,
         "hexCode": "64+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -8013,7 +8013,7 @@
         "value": 539702582,
         "hexCode": "65+",
         "category": [
-            "Mystic Orb"
+            "#Mystic Orb"
         ]
     },
     {
@@ -8021,7 +8021,7 @@
         "value": 542863158,
         "hexCode": "6o[",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -8029,7 +8029,7 @@
         "value": 543237175,
         "hexCode": "7$a",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -8037,7 +8037,7 @@
         "value": 543302711,
         "hexCode": "7$b",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -8045,7 +8045,7 @@
         "value": 543368247,
         "hexCode": "7$c",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -8053,7 +8053,7 @@
         "value": 543433783,
         "hexCode": "7$d",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -8061,7 +8061,7 @@
         "value": 543499319,
         "hexCode": "7$e",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -8069,7 +8069,7 @@
         "value": 542863159,
         "hexCode": "7o[",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -8077,7 +8077,7 @@
         "value": 543237177,
         "hexCode": "9$a",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -8085,7 +8085,7 @@
         "value": 543302713,
         "hexCode": "9$b",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -8093,7 +8093,7 @@
         "value": 543368249,
         "hexCode": "9$c",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -8101,7 +8101,7 @@
         "value": 543433785,
         "hexCode": "9$d",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -8109,7 +8109,7 @@
         "value": 543499321,
         "hexCode": "9$e",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -8117,7 +8117,7 @@
         "value": 542863161,
         "hexCode": "9o[",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -8125,7 +8125,7 @@
         "value": 539173696,
         "hexCode": "@##",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -8133,8 +8133,7 @@
         "value": 539701313,
         "hexCode": "A0+",
         "category": [
-            "Shrine",
-            "Shrine-Unused"
+            "#Shrine"
         ]
     },
     {
@@ -8142,79 +8141,7 @@
         "value": 1395339329,
         "hexCode": "A0+S",
         "category": [
-            "Shrine Vessel"
-        ]
-    },
-    {
-        "name": "Creepy Shrine (9)",
-        "value": 539701569,
-        "hexCode": "A1+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Creepy Shrine (8)",
-        "value": 539701825,
-        "hexCode": "A2+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Creepy Shrine (7)",
-        "value": 539702081,
-        "hexCode": "A3+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Creepy Shrine (6)",
-        "value": 539702337,
-        "hexCode": "A4+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Creepy Shrine (5)",
-        "value": 539702593,
-        "hexCode": "A5+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Creepy Shrine (4)",
-        "value": 539702849,
-        "hexCode": "A6+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Creepy Shrine (3)",
-        "value": 539703105,
-        "hexCode": "A7+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Creepy Shrine (2)",
-        "value": 539703361,
-        "hexCode": "A8+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Creepy Shrine (1)",
-        "value": 539703617,
-        "hexCode": "A9+",
-        "category": [
-            "Shrine"
+            "#Vessel"
         ]
     },
     {
@@ -8222,8 +8149,7 @@
         "value": 539701314,
         "hexCode": "B0+",
         "category": [
-            "Shrine",
-            "Shrine-Unused"
+            "#Shrine"
         ]
     },
     {
@@ -8231,79 +8157,7 @@
         "value": 1395339330,
         "hexCode": "B0+S",
         "category": [
-            "Shrine Vessel"
-        ]
-    },
-    {
-        "name": "Abandoned Shrine (9)",
-        "value": 539701570,
-        "hexCode": "B1+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Abandoned Shrine (8)",
-        "value": 539701826,
-        "hexCode": "B2+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Abandoned Shrine (7)",
-        "value": 539702082,
-        "hexCode": "B3+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Abandoned Shrine (6)",
-        "value": 539702338,
-        "hexCode": "B4+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Abandoned Shrine (5)",
-        "value": 539702594,
-        "hexCode": "B5+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Abandoned Shrine (4)",
-        "value": 539702850,
-        "hexCode": "B6+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Abandoned Shrine (3)",
-        "value": 539703106,
-        "hexCode": "B7+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Abandoned Shrine (2)",
-        "value": 539703362,
-        "hexCode": "B8+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Abandoned Shrine (1)",
-        "value": 539703618,
-        "hexCode": "B9+",
-        "category": [
-            "Shrine"
+            "#Vessel"
         ]
     },
     {
@@ -8311,8 +8165,7 @@
         "value": 539701315,
         "hexCode": "C0+",
         "category": [
-            "Shrine",
-            "Shrine-Unused"
+            "#Shrine"
         ]
     },
     {
@@ -8320,79 +8173,7 @@
         "value": 1395339331,
         "hexCode": "C0+S",
         "category": [
-            "Shrine Vessel"
-        ]
-    },
-    {
-        "name": "Quiet Shrine (9)",
-        "value": 539701571,
-        "hexCode": "C1+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Quiet Shrine (8)",
-        "value": 539701827,
-        "hexCode": "C2+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Quiet Shrine (7)",
-        "value": 539702083,
-        "hexCode": "C3+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Quiet Shrine (6)",
-        "value": 539702339,
-        "hexCode": "C4+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Quiet Shrine (5)",
-        "value": 539702595,
-        "hexCode": "C5+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Quiet Shrine (4)",
-        "value": 539702851,
-        "hexCode": "C6+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Quiet Shrine (3)",
-        "value": 539703107,
-        "hexCode": "C7+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Quiet Shrine (2)",
-        "value": 539703363,
-        "hexCode": "C8+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Quiet Shrine (1)",
-        "value": 539703619,
-        "hexCode": "C9+",
-        "category": [
-            "Shrine"
+            "#Vessel"
         ]
     },
     {
@@ -8400,8 +8181,7 @@
         "value": 539701316,
         "hexCode": "D0+",
         "category": [
-            "Shrine",
-            "Shrine-Unused"
+            "#Shrine"
         ]
     },
     {
@@ -8409,79 +8189,7 @@
         "value": 1395339332,
         "hexCode": "D0+S",
         "category": [
-            "Shrine Vessel"
-        ]
-    },
-    {
-        "name": "Eerie Shrine (9)",
-        "value": 539701572,
-        "hexCode": "D1+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Eerie Shrine (8)",
-        "value": 539701828,
-        "hexCode": "D2+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Eerie Shrine (7)",
-        "value": 539702084,
-        "hexCode": "D3+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Eerie Shrine (6)",
-        "value": 539702340,
-        "hexCode": "D4+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Eerie Shrine (5)",
-        "value": 539702596,
-        "hexCode": "D5+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Eerie Shrine (4)",
-        "value": 539702852,
-        "hexCode": "D6+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Eerie Shrine (3)",
-        "value": 539703108,
-        "hexCode": "D7+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Eerie Shrine (2)",
-        "value": 539703364,
-        "hexCode": "D8+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Eerie Shrine (1)",
-        "value": 539703620,
-        "hexCode": "D9+",
-        "category": [
-            "Shrine"
+            "#Vessel"
         ]
     },
     {
@@ -8489,8 +8197,7 @@
         "value": 539701317,
         "hexCode": "E0+",
         "category": [
-            "Shrine",
-            "Shrine-Unused"
+            "#Shrine"
         ]
     },
     {
@@ -8498,79 +8205,7 @@
         "value": 1395339333,
         "hexCode": "E0+S",
         "category": [
-            "Shrine Vessel"
-        ]
-    },
-    {
-        "name": "Weird Shrine (9)",
-        "value": 539701573,
-        "hexCode": "E1+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Weird Shrine (8)",
-        "value": 539701829,
-        "hexCode": "E2+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Weird Shrine (7)",
-        "value": 539702085,
-        "hexCode": "E3+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Weird Shrine (6)",
-        "value": 539702341,
-        "hexCode": "E4+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Weird Shrine (5)",
-        "value": 539702597,
-        "hexCode": "E5+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Weird Shrine (4)",
-        "value": 539702853,
-        "hexCode": "E6+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Weird Shrine (3)",
-        "value": 539703109,
-        "hexCode": "E7+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Weird Shrine (2)",
-        "value": 539703365,
-        "hexCode": "E8+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Weird Shrine (1)",
-        "value": 539703621,
-        "hexCode": "E9+",
-        "category": [
-            "Shrine"
+            "#Vessel"
         ]
     },
     {
@@ -8578,8 +8213,7 @@
         "value": 539701318,
         "hexCode": "F0+",
         "category": [
-            "Shrine",
-            "Shrine-Unused"
+            "#Shrine"
         ]
     },
     {
@@ -8587,79 +8221,7 @@
         "value": 1395339334,
         "hexCode": "F0+S",
         "category": [
-            "Shrine Vessel"
-        ]
-    },
-    {
-        "name": "Intimidating Shrine (9)",
-        "value": 539701574,
-        "hexCode": "F1+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Intimidating Shrine (8)",
-        "value": 539701830,
-        "hexCode": "F2+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Intimidating Shrine (7)",
-        "value": 539702086,
-        "hexCode": "F3+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Intimidating Shrine (6)",
-        "value": 539702342,
-        "hexCode": "F4+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Intimidating Shrine (5)",
-        "value": 539702598,
-        "hexCode": "F5+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Intimidating Shrine (4)",
-        "value": 539702854,
-        "hexCode": "F6+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Intimidating Shrine (3)",
-        "value": 539703110,
-        "hexCode": "F7+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Intimidating Shrine (2)",
-        "value": 539703366,
-        "hexCode": "F8+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Intimidating Shrine (1)",
-        "value": 539703622,
-        "hexCode": "F9+",
-        "category": [
-            "Shrine"
+            "#Vessel"
         ]
     },
     {
@@ -8667,8 +8229,7 @@
         "value": 539701319,
         "hexCode": "G0+",
         "category": [
-            "Shrine",
-            "Shrine-Unused"
+            "#Shrine"
         ]
     },
     {
@@ -8676,79 +8237,7 @@
         "value": 1395339335,
         "hexCode": "G0+S",
         "category": [
-            "Shrine Vessel"
-        ]
-    },
-    {
-        "name": "Tainted Shrine (9)",
-        "value": 539701575,
-        "hexCode": "G1+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Tainted Shrine (8)",
-        "value": 539701831,
-        "hexCode": "G2+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Tainted Shrine (7)",
-        "value": 539702087,
-        "hexCode": "G3+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Tainted Shrine (6)",
-        "value": 539702343,
-        "hexCode": "G4+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Tainted Shrine (5)",
-        "value": 539702599,
-        "hexCode": "G5+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Tainted Shrine (4)",
-        "value": 539702855,
-        "hexCode": "G6+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Tainted Shrine (3)",
-        "value": 539703111,
-        "hexCode": "G7+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Tainted Shrine (2)",
-        "value": 539703367,
-        "hexCode": "G8+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Tainted Shrine (1)",
-        "value": 539703623,
-        "hexCode": "G9+",
-        "category": [
-            "Shrine"
+            "#Vessel"
         ]
     },
     {
@@ -8756,8 +8245,7 @@
         "value": 539701320,
         "hexCode": "H0+",
         "category": [
-            "Shrine",
-            "Shrine-Unused"
+            "#Shrine"
         ]
     },
     {
@@ -8765,79 +8253,7 @@
         "value": 1395339336,
         "hexCode": "H0+S",
         "category": [
-            "Shrine Vessel"
-        ]
-    },
-    {
-        "name": "Fascinating Shrine (9)",
-        "value": 539701576,
-        "hexCode": "H1+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Fascinating Shrine (8)",
-        "value": 539701832,
-        "hexCode": "H2+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Fascinating Shrine (7)",
-        "value": 539702088,
-        "hexCode": "H3+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Fascinating Shrine (6)",
-        "value": 539702344,
-        "hexCode": "H4+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Fascinating Shrine (5)",
-        "value": 539702600,
-        "hexCode": "H5+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Fascinating Shrine (4)",
-        "value": 539702856,
-        "hexCode": "H6+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Fascinating Shrine (3)",
-        "value": 539703112,
-        "hexCode": "H7+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Fascinating Shrine (2)",
-        "value": 539703368,
-        "hexCode": "H8+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Fascinating Shrine (1)",
-        "value": 539703624,
-        "hexCode": "H9+",
-        "category": [
-            "Shrine"
+            "#Vessel"
         ]
     },
     {
@@ -8845,8 +8261,7 @@
         "value": 539701321,
         "hexCode": "I0+",
         "category": [
-            "Shrine",
-            "Shrine-Unused"
+            "#Shrine"
         ]
     },
     {
@@ -8854,79 +8269,7 @@
         "value": 1395339337,
         "hexCode": "I0+S",
         "category": [
-            "Shrine Vessel"
-        ]
-    },
-    {
-        "name": "Ornate Shrine (9)",
-        "value": 539701577,
-        "hexCode": "I1+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Ornate Shrine (8)",
-        "value": 539701833,
-        "hexCode": "I2+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Ornate Shrine (7)",
-        "value": 539702089,
-        "hexCode": "I3+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Ornate Shrine (6)",
-        "value": 539702345,
-        "hexCode": "I4+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Ornate Shrine (5)",
-        "value": 539702601,
-        "hexCode": "I5+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Ornate Shrine (4)",
-        "value": 539702857,
-        "hexCode": "I6+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Ornate Shrine (3)",
-        "value": 539703113,
-        "hexCode": "I7+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Ornate Shrine (2)",
-        "value": 539703369,
-        "hexCode": "I8+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Ornate Shrine (1)",
-        "value": 539703625,
-        "hexCode": "I9+",
-        "category": [
-            "Shrine"
+            "#Vessel"
         ]
     },
     {
@@ -8934,8 +8277,7 @@
         "value": 539701322,
         "hexCode": "J0+",
         "category": [
-            "Shrine",
-            "Shrine-Unused"
+            "#Shrine"
         ]
     },
     {
@@ -8943,79 +8285,7 @@
         "value": 1395339338,
         "hexCode": "J0+S",
         "category": [
-            "Shrine Vessel"
-        ]
-    },
-    {
-        "name": "Sacred Shrine (9)",
-        "value": 539701578,
-        "hexCode": "J1+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Sacred Shrine (8)",
-        "value": 539701834,
-        "hexCode": "J2+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Sacred Shrine (7)",
-        "value": 539702090,
-        "hexCode": "J3+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Sacred Shrine (6)",
-        "value": 539702346,
-        "hexCode": "J4+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Sacred Shrine (5)",
-        "value": 539702602,
-        "hexCode": "J5+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Sacred Shrine (4)",
-        "value": 539702858,
-        "hexCode": "J6+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Sacred Shrine (3)",
-        "value": 539703114,
-        "hexCode": "J7+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Sacred Shrine (2)",
-        "value": 539703370,
-        "hexCode": "J8+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Sacred Shrine (1)",
-        "value": 539703626,
-        "hexCode": "J9+",
-        "category": [
-            "Shrine"
+            "#Vessel"
         ]
     },
     {
@@ -9023,8 +8293,7 @@
         "value": 539701323,
         "hexCode": "K0+",
         "category": [
-            "Shrine",
-            "Shrine-Unused"
+            "#Shrine"
         ]
     },
     {
@@ -9032,79 +8301,7 @@
         "value": 1395339339,
         "hexCode": "K0+S",
         "category": [
-            "Shrine Vessel"
-        ]
-    },
-    {
-        "name": "Shimmering Shrine (9)",
-        "value": 539701579,
-        "hexCode": "K1+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Shimmering Shrine (8)",
-        "value": 539701835,
-        "hexCode": "K2+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Shimmering Shrine (7)",
-        "value": 539702091,
-        "hexCode": "K3+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Shimmering Shrine (6)",
-        "value": 539702347,
-        "hexCode": "K4+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Shimmering Shrine (5)",
-        "value": 539702603,
-        "hexCode": "K5+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Shimmering Shrine (4)",
-        "value": 539702859,
-        "hexCode": "K6+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Shimmering Shrine (3)",
-        "value": 539703115,
-        "hexCode": "K7+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Shimmering Shrine (2)",
-        "value": 539703371,
-        "hexCode": "K8+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Shimmering Shrine (1)",
-        "value": 539703627,
-        "hexCode": "K9+",
-        "category": [
-            "Shrine"
+            "#Vessel"
         ]
     },
     {
@@ -9112,8 +8309,8 @@
         "value": 540112971,
         "hexCode": "Kx1",
         "category": [
-            "Other",
-            "Essence"
+            "#Other",
+            "#Essence"
         ]
     },
     {
@@ -9121,8 +8318,8 @@
         "value": 540178507,
         "hexCode": "Kx2",
         "category": [
-            "Other",
-            "Essence"
+            "#Other",
+            "#Essence"
         ]
     },
     {
@@ -9130,8 +8327,8 @@
         "value": 540244043,
         "hexCode": "Kx3",
         "category": [
-            "Other",
-            "Essence"
+            "#Other",
+            "#Essence"
         ]
     },
     {
@@ -9139,8 +8336,8 @@
         "value": 540309579,
         "hexCode": "Kx4",
         "category": [
-            "Other",
-            "Essence"
+            "#Other",
+            "#Essence"
         ]
     },
     {
@@ -9148,8 +8345,8 @@
         "value": 540375115,
         "hexCode": "Kx5",
         "category": [
-            "Other",
-            "Essence"
+            "#Other",
+            "#Essence"
         ]
     },
     {
@@ -9157,8 +8354,8 @@
         "value": 540440651,
         "hexCode": "Kx6",
         "category": [
-            "Other",
-            "Essence"
+            "#Other",
+            "#Essence"
         ]
     },
     {
@@ -9166,8 +8363,7 @@
         "value": 539701325,
         "hexCode": "M0+",
         "category": [
-            "Shrine",
-            "Shrine-Unused"
+            "#Shrine"
         ]
     },
     {
@@ -9175,79 +8371,7 @@
         "value": 1395339341,
         "hexCode": "M0+S",
         "category": [
-            "Shrine Vessel"
-        ]
-    },
-    {
-        "name": "Spiritual Shrine (9)",
-        "value": 539701581,
-        "hexCode": "M1+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Spiritual Shrine (8)",
-        "value": 539701837,
-        "hexCode": "M2+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Spiritual Shrine (7)",
-        "value": 539702093,
-        "hexCode": "M3+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Spiritual Shrine (6)",
-        "value": 539702349,
-        "hexCode": "M4+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Spiritual Shrine (5)",
-        "value": 539702605,
-        "hexCode": "M5+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Spiritual Shrine (4)",
-        "value": 539702861,
-        "hexCode": "M6+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Spiritual Shrine (3)",
-        "value": 539703117,
-        "hexCode": "M7+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Spiritual Shrine (2)",
-        "value": 539703373,
-        "hexCode": "M8+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Spiritual Shrine (1)",
-        "value": 539703629,
-        "hexCode": "M9+",
-        "category": [
-            "Shrine"
+            "#Vessel"
         ]
     },
     {
@@ -9255,8 +8379,7 @@
         "value": 539701326,
         "hexCode": "N0+",
         "category": [
-            "Shrine",
-            "Shrine-Unused"
+            "#Shrine"
         ]
     },
     {
@@ -9264,79 +8387,7 @@
         "value": 1395339342,
         "hexCode": "N0+S",
         "category": [
-            "Shrine Vessel"
-        ]
-    },
-    {
-        "name": "Magical Shrine (9)",
-        "value": 539701582,
-        "hexCode": "N1+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Magical Shrine (8)",
-        "value": 539701838,
-        "hexCode": "N2+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Magical Shrine (7)",
-        "value": 539702094,
-        "hexCode": "N3+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Magical Shrine (6)",
-        "value": 539702350,
-        "hexCode": "N4+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Magical Shrine (5)",
-        "value": 539702606,
-        "hexCode": "N5+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Magical Shrine (4)",
-        "value": 539702862,
-        "hexCode": "N6+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Magical Shrine (3)",
-        "value": 539703118,
-        "hexCode": "N7+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Magical Shrine (2)",
-        "value": 539703374,
-        "hexCode": "N8+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Magical Shrine (1)",
-        "value": 539703630,
-        "hexCode": "N9+",
-        "category": [
-            "Shrine"
+            "#Vessel"
         ]
     },
     {
@@ -9344,8 +8395,7 @@
         "value": 539701327,
         "hexCode": "O0+",
         "category": [
-            "Shrine",
-            "Shrine-Unused"
+            "#Shrine"
         ]
     },
     {
@@ -9353,79 +8403,7 @@
         "value": 1395339343,
         "hexCode": "O0+S",
         "category": [
-            "Shrine Vessel"
-        ]
-    },
-    {
-        "name": "Enchanted Shrine (9)",
-        "value": 539701583,
-        "hexCode": "O1+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Enchanted Shrine (8)",
-        "value": 539701839,
-        "hexCode": "O2+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Enchanted Shrine (7)",
-        "value": 539702095,
-        "hexCode": "O3+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Enchanted Shrine (6)",
-        "value": 539702351,
-        "hexCode": "O4+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Enchanted Shrine (5)",
-        "value": 539702607,
-        "hexCode": "O5+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Enchanted Shrine (4)",
-        "value": 539702863,
-        "hexCode": "O6+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Enchanted Shrine (3)",
-        "value": 539703119,
-        "hexCode": "O7+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Enchanted Shrine (2)",
-        "value": 539703375,
-        "hexCode": "O8+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Enchanted Shrine (1)",
-        "value": 539703631,
-        "hexCode": "O9+",
-        "category": [
-            "Shrine"
+            "#Vessel"
         ]
     },
     {
@@ -9433,8 +8411,7 @@
         "value": 539701329,
         "hexCode": "Q0+",
         "category": [
-            "Shrine",
-            "Shrine-Unused"
+            "#Shrine"
         ]
     },
     {
@@ -9442,79 +8419,7 @@
         "value": 1395339345,
         "hexCode": "Q0+S",
         "category": [
-            "Shrine Vessel"
-        ]
-    },
-    {
-        "name": "Hidden Shrine (9)",
-        "value": 539701585,
-        "hexCode": "Q1+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Hidden Shrine (8)",
-        "value": 539701841,
-        "hexCode": "Q2+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Hidden Shrine (7)",
-        "value": 539702097,
-        "hexCode": "Q3+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Hidden Shrine (6)",
-        "value": 539702353,
-        "hexCode": "Q4+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Hidden Shrine (5)",
-        "value": 539702609,
-        "hexCode": "Q5+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Hidden Shrine (4)",
-        "value": 539702865,
-        "hexCode": "Q6+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Hidden Shrine (3)",
-        "value": 539703121,
-        "hexCode": "Q7+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Hidden Shrine (2)",
-        "value": 539703377,
-        "hexCode": "Q8+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Hidden Shrine (1)",
-        "value": 539703633,
-        "hexCode": "Q9+",
-        "category": [
-            "Shrine"
+            "#Vessel"
         ]
     },
     {
@@ -9522,8 +8427,7 @@
         "value": 539701330,
         "hexCode": "R0+",
         "category": [
-            "Shrine",
-            "Shrine-Unused"
+            "#Shrine"
         ]
     },
     {
@@ -9531,79 +8435,7 @@
         "value": 1395339346,
         "hexCode": "R0+S",
         "category": [
-            "Shrine Vessel"
-        ]
-    },
-    {
-        "name": "Trinity Shrine (9)",
-        "value": 539701586,
-        "hexCode": "R1+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Trinity Shrine (8)",
-        "value": 539701842,
-        "hexCode": "R2+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Trinity Shrine (7)",
-        "value": 539702098,
-        "hexCode": "R3+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Trinity Shrine (6)",
-        "value": 539702354,
-        "hexCode": "R4+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Trinity Shrine (5)",
-        "value": 539702610,
-        "hexCode": "R5+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Trinity Shrine (4)",
-        "value": 539702866,
-        "hexCode": "R6+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Trinity Shrine (3)",
-        "value": 539703122,
-        "hexCode": "R7+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Trinity Shrine (2)",
-        "value": 539703378,
-        "hexCode": "R8+",
-        "category": [
-            "Shrine"
-        ]
-    },
-    {
-        "name": "Trinity Shrine (1)",
-        "value": 539703634,
-        "hexCode": "R9+",
-        "category": [
-            "Shrine"
+            "#Vessel"
         ]
     },
     {
@@ -9623,8 +8455,8 @@
         "value": 540094555,
         "hexCode": "[01",
         "category": [
-            "Other",
-            "Trophy"
+            "#Other",
+            "#Trophy"
         ]
     },
     {
@@ -9632,8 +8464,8 @@
         "value": 540160091,
         "hexCode": "[02",
         "category": [
-            "Other",
-            "Trophy"
+            "#Other",
+            "#Trophy"
         ]
     },
     {
@@ -9641,8 +8473,8 @@
         "value": 540225627,
         "hexCode": "[03",
         "category": [
-            "Other",
-            "Trophy"
+            "#Other",
+            "#Trophy"
         ]
     },
     {
@@ -9650,8 +8482,8 @@
         "value": 540291163,
         "hexCode": "[04",
         "category": [
-            "Other",
-            "Trophy"
+            "#Other",
+            "#Trophy"
         ]
     },
     {
@@ -9659,8 +8491,8 @@
         "value": 540356699,
         "hexCode": "[05",
         "category": [
-            "Other",
-            "Trophy"
+            "#Other",
+            "#Trophy"
         ]
     },
     {
@@ -9668,8 +8500,8 @@
         "value": 540422235,
         "hexCode": "[06",
         "category": [
-            "Other",
-            "Trophy"
+            "#Other",
+            "#Trophy"
         ]
     },
     {
@@ -9677,8 +8509,8 @@
         "value": 540487771,
         "hexCode": "[07",
         "category": [
-            "Other",
-            "Trophy"
+            "#Other",
+            "#Trophy"
         ]
     },
     {
@@ -9686,8 +8518,8 @@
         "value": 540553307,
         "hexCode": "[08",
         "category": [
-            "Other",
-            "Trophy"
+            "#Other",
+            "#Trophy"
         ]
     },
     {
@@ -9695,8 +8527,8 @@
         "value": 540618843,
         "hexCode": "[09",
         "category": [
-            "Other",
-            "Trophy"
+            "#Other",
+            "#Trophy"
         ]
     },
     {
@@ -9704,8 +8536,8 @@
         "value": 540029275,
         "hexCode": "[10",
         "category": [
-            "Other",
-            "Trophy"
+            "#Other",
+            "#Trophy"
         ]
     },
     {
@@ -9713,8 +8545,8 @@
         "value": 540094811,
         "hexCode": "[11",
         "category": [
-            "Other",
-            "Trophy"
+            "#Other",
+            "#Trophy"
         ]
     },
     {
@@ -9722,8 +8554,8 @@
         "value": 540160347,
         "hexCode": "[12",
         "category": [
-            "Other",
-            "Trophy"
+            "#Other",
+            "#Trophy"
         ]
     },
     {
@@ -9731,8 +8563,8 @@
         "value": 540225883,
         "hexCode": "[13",
         "category": [
-            "Other",
-            "Trophy"
+            "#Other",
+            "#Trophy"
         ]
     },
     {
@@ -9740,8 +8572,8 @@
         "value": 540291419,
         "hexCode": "[14",
         "category": [
-            "Other",
-            "Trophy"
+            "#Other",
+            "#Trophy"
         ]
     },
     {
@@ -9749,8 +8581,8 @@
         "value": 540356955,
         "hexCode": "[15",
         "category": [
-            "Other",
-            "Trophy"
+            "#Other",
+            "#Trophy"
         ]
     },
     {
@@ -9758,8 +8590,8 @@
         "value": 540422491,
         "hexCode": "[16",
         "category": [
-            "Other",
-            "Trophy"
+            "#Other",
+            "#Trophy"
         ]
     },
     {
@@ -9767,8 +8599,8 @@
         "value": 540488027,
         "hexCode": "[17",
         "category": [
-            "Other",
-            "Trophy"
+            "#Other",
+            "#Trophy"
         ]
     },
     {
@@ -9776,8 +8608,8 @@
         "value": 540553563,
         "hexCode": "[18",
         "category": [
-            "Other",
-            "Trophy"
+            "#Other",
+            "#Trophy"
         ]
     },
     {
@@ -9785,8 +8617,8 @@
         "value": 540619099,
         "hexCode": "[19",
         "category": [
-            "Other",
-            "Trophy"
+            "#Other",
+            "#Trophy"
         ]
     },
     {
@@ -9794,8 +8626,8 @@
         "value": 540029531,
         "hexCode": "[20",
         "category": [
-            "Other",
-            "Trophy"
+            "#Other",
+            "#Trophy"
         ]
     },
     {
@@ -9803,7 +8635,7 @@
         "value": 540105820,
         "hexCode": "\\\\1",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -9811,7 +8643,7 @@
         "value": 540171356,
         "hexCode": "\\\\2",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -9819,7 +8651,7 @@
         "value": 540236892,
         "hexCode": "\\\\3",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -9827,7 +8659,7 @@
         "value": 540302428,
         "hexCode": "\\\\4",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -9835,7 +8667,7 @@
         "value": 540367964,
         "hexCode": "\\\\5",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -9843,7 +8675,7 @@
         "value": 540433500,
         "hexCode": "\\\\6",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -9851,7 +8683,7 @@
         "value": 540499036,
         "hexCode": "\\\\7",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -9859,7 +8691,7 @@
         "value": 540564572,
         "hexCode": "\\\\8",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -9867,7 +8699,7 @@
         "value": 540357985,
         "hexCode": "a55",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -9875,7 +8707,7 @@
         "value": 540423521,
         "hexCode": "a56",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -9883,7 +8715,7 @@
         "value": 540489057,
         "hexCode": "a57",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -9891,7 +8723,7 @@
         "value": 540554593,
         "hexCode": "a58",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -9899,7 +8731,7 @@
         "value": 540620129,
         "hexCode": "a59",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -9907,7 +8739,7 @@
         "value": 540030561,
         "hexCode": "a60",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -9915,7 +8747,7 @@
         "value": 540096097,
         "hexCode": "a61",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -9923,7 +8755,7 @@
         "value": 540423777,
         "hexCode": "a66",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -9931,7 +8763,7 @@
         "value": 540554849,
         "hexCode": "a68",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -9939,7 +8771,7 @@
         "value": 539058785,
         "hexCode": "ab!",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -9947,7 +8779,7 @@
         "value": 543777889,
         "hexCode": "adi",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -9961,7 +8793,7 @@
         "value": 539062625,
         "hexCode": "aq!",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -9975,7 +8807,7 @@
         "value": 544437089,
         "hexCode": "ass",
         "category": [
-            "Quest Item"
+            "#Quest Item"
         ]
     },
     {
@@ -9983,7 +8815,7 @@
         "value": 544764769,
         "hexCode": "asx",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -9991,7 +8823,7 @@
         "value": 539064929,
         "hexCode": "az!",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -9999,7 +8831,7 @@
         "value": 808464482,
         "hexCode": "b000",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -10007,7 +8839,7 @@
         "value": 808464738,
         "hexCode": "b100",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -10015,7 +8847,7 @@
         "value": 540030562,
         "hexCode": "b60",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -10023,7 +8855,7 @@
         "value": 1479554658,
         "hexCode": "b60X",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10031,7 +8863,7 @@
         "value": 540096098,
         "hexCode": "b61",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -10039,7 +8871,7 @@
         "value": 1479620194,
         "hexCode": "b61X",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10047,7 +8879,7 @@
         "value": 540161634,
         "hexCode": "b62",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -10055,7 +8887,7 @@
         "value": 1479685730,
         "hexCode": "b62X",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10063,7 +8895,7 @@
         "value": 1479751266,
         "hexCode": "b63X",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10071,7 +8903,7 @@
         "value": 1479816802,
         "hexCode": "b64X",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10085,7 +8917,7 @@
         "value": 543318626,
         "hexCode": "bbb",
         "category": [
-            "Quest Item"
+            "#Quest Item"
         ]
     },
     {
@@ -10093,7 +8925,7 @@
         "value": 543452002,
         "hexCode": "bkd",
         "category": [
-            "Quest Item"
+            "#Quest Item"
         ]
     },
     {
@@ -10101,7 +8933,7 @@
         "value": 544435042,
         "hexCode": "bks",
         "category": [
-            "Quest Item"
+            "#Quest Item"
         ]
     },
     {
@@ -10109,7 +8941,7 @@
         "value": 1819241570,
         "hexCode": "blol",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -10117,7 +8949,7 @@
         "value": 544763746,
         "hexCode": "box",
         "category": [
-            "Quest Item"
+            "#Quest Item"
         ]
     },
     {
@@ -10125,7 +8957,7 @@
         "value": 543258722,
         "hexCode": "bxa",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -10133,7 +8965,7 @@
         "value": 808464483,
         "hexCode": "c000",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -10141,7 +8973,7 @@
         "value": 1937006947,
         "hexCode": "cats",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10167,7 +8999,7 @@
         "value": 2020831075,
         "hexCode": "cosx",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10187,7 +9019,7 @@
         "value": 825258595,
         "hexCode": "cr01",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10195,7 +9027,7 @@
         "value": 842035811,
         "hexCode": "cr02",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10203,7 +9035,7 @@
         "value": 858813027,
         "hexCode": "cr03",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10211,7 +9043,7 @@
         "value": 875590243,
         "hexCode": "cr04",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10219,7 +9051,7 @@
         "value": 892367459,
         "hexCode": "cr05",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10227,7 +9059,7 @@
         "value": 909144675,
         "hexCode": "cr06",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10235,7 +9067,7 @@
         "value": 925921891,
         "hexCode": "cr07",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10243,7 +9075,7 @@
         "value": 942699107,
         "hexCode": "cr08",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10251,7 +9083,7 @@
         "value": 959476323,
         "hexCode": "cr09",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10259,7 +9091,7 @@
         "value": 808546915,
         "hexCode": "cr10",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10267,7 +9099,7 @@
         "value": 825324131,
         "hexCode": "cr11",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10275,7 +9107,7 @@
         "value": 842101347,
         "hexCode": "cr12",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10283,7 +9115,7 @@
         "value": 858878563,
         "hexCode": "cr13",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10291,7 +9123,7 @@
         "value": 875655779,
         "hexCode": "cr14",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10299,7 +9131,7 @@
         "value": 892432995,
         "hexCode": "cr15",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10307,7 +9139,7 @@
         "value": 825389667,
         "hexCode": "cr21",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10315,7 +9147,7 @@
         "value": 825260387,
         "hexCode": "cy01",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -10323,7 +9155,7 @@
         "value": 842037603,
         "hexCode": "cy02",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -10331,7 +9163,7 @@
         "value": 858814819,
         "hexCode": "cy03",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -10339,7 +9171,7 @@
         "value": 875592035,
         "hexCode": "cy04",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -10347,7 +9179,7 @@
         "value": 892369251,
         "hexCode": "cy05",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -10355,7 +9187,7 @@
         "value": 909146467,
         "hexCode": "cy06",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -10363,7 +9195,7 @@
         "value": 925923683,
         "hexCode": "cy07",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -10371,7 +9203,7 @@
         "value": 942700899,
         "hexCode": "cy08",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -10379,7 +9211,7 @@
         "value": 959478115,
         "hexCode": "cy09",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -10387,7 +9219,7 @@
         "value": 808548707,
         "hexCode": "cy10",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -10395,7 +9227,7 @@
         "value": 825325923,
         "hexCode": "cy11",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -10403,7 +9235,7 @@
         "value": 842103139,
         "hexCode": "cy12",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -10411,7 +9243,7 @@
         "value": 858880355,
         "hexCode": "cy13",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -10419,7 +9251,7 @@
         "value": 875657571,
         "hexCode": "cy14",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -10427,7 +9259,7 @@
         "value": 892434787,
         "hexCode": "cy15",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -10435,7 +9267,7 @@
         "value": 909212003,
         "hexCode": "cy16",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -10443,7 +9275,7 @@
         "value": 925989219,
         "hexCode": "cy17",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -10451,7 +9283,7 @@
         "value": 942766435,
         "hexCode": "cy18",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -10459,7 +9291,7 @@
         "value": 959543651,
         "hexCode": "cy19",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -10467,7 +9299,7 @@
         "value": 808614243,
         "hexCode": "cy20",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -10475,7 +9307,7 @@
         "value": 825391459,
         "hexCode": "cy21",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -10483,7 +9315,7 @@
         "value": 842168675,
         "hexCode": "cy22",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -10491,7 +9323,7 @@
         "value": 858945891,
         "hexCode": "cy23",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -10499,7 +9331,7 @@
         "value": 875723107,
         "hexCode": "cy24",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -10507,7 +9339,7 @@
         "value": 892500323,
         "hexCode": "cy25",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -10515,7 +9347,7 @@
         "value": 909277539,
         "hexCode": "cy26",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -10523,7 +9355,7 @@
         "value": 926054755,
         "hexCode": "cy27",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -10531,7 +9363,7 @@
         "value": 942831971,
         "hexCode": "cy28",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -10539,7 +9371,7 @@
         "value": 959609187,
         "hexCode": "cy29",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -10547,7 +9379,7 @@
         "value": 808679779,
         "hexCode": "cy30",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -10555,7 +9387,7 @@
         "value": 825456995,
         "hexCode": "cy31",
         "category": [
-            "Cycle"
+            "#Cycle"
         ]
     },
     {
@@ -10563,7 +9395,7 @@
         "value": 825255780,
         "hexCode": "dg01",
         "category": [
-            "Item Design"
+            "#Item Design"
         ]
     },
     {
@@ -10571,7 +9403,7 @@
         "value": 842032996,
         "hexCode": "dg02",
         "category": [
-            "Item Design"
+            "#Item Design"
         ]
     },
     {
@@ -10579,7 +9411,7 @@
         "value": 858810212,
         "hexCode": "dg03",
         "category": [
-            "Item Design"
+            "#Item Design"
         ]
     },
     {
@@ -10587,7 +9419,7 @@
         "value": 875587428,
         "hexCode": "dg04",
         "category": [
-            "Item Design"
+            "#Item Design"
         ]
     },
     {
@@ -10595,7 +9427,7 @@
         "value": 892364644,
         "hexCode": "dg05",
         "category": [
-            "Item Design"
+            "#Item Design"
         ]
     },
     {
@@ -10603,7 +9435,7 @@
         "value": 909141860,
         "hexCode": "dg06",
         "category": [
-            "Item Design"
+            "#Item Design"
         ]
     },
     {
@@ -10611,7 +9443,7 @@
         "value": 925919076,
         "hexCode": "dg07",
         "category": [
-            "Item Design"
+            "#Item Design"
         ]
     },
     {
@@ -10619,7 +9451,7 @@
         "value": 942696292,
         "hexCode": "dg08",
         "category": [
-            "Item Design"
+            "#Item Design"
         ]
     },
     {
@@ -10627,7 +9459,7 @@
         "value": 959473508,
         "hexCode": "dg09",
         "category": [
-            "Item Design"
+            "#Item Design"
         ]
     },
     {
@@ -10635,7 +9467,7 @@
         "value": 808544100,
         "hexCode": "dg10",
         "category": [
-            "Item Design"
+            "#Item Design"
         ]
     },
     {
@@ -10643,7 +9475,7 @@
         "value": 825321316,
         "hexCode": "dg11",
         "category": [
-            "Item Design"
+            "#Item Design"
         ]
     },
     {
@@ -10651,7 +9483,7 @@
         "value": 543649636,
         "hexCode": "dog",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -10659,7 +9491,7 @@
         "value": 544044132,
         "hexCode": "dtm",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10667,7 +9499,7 @@
         "value": 825260388,
         "hexCode": "dy01",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10675,7 +9507,7 @@
         "value": 842037604,
         "hexCode": "dy02",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10683,7 +9515,7 @@
         "value": 858814820,
         "hexCode": "dy03",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10691,7 +9523,7 @@
         "value": 875592036,
         "hexCode": "dy04",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10699,7 +9531,7 @@
         "value": 892369252,
         "hexCode": "dy05",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10707,7 +9539,7 @@
         "value": 909146468,
         "hexCode": "dy06",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10715,7 +9547,7 @@
         "value": 925923684,
         "hexCode": "dy07",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10723,7 +9555,7 @@
         "value": 942700900,
         "hexCode": "dy08",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10731,7 +9563,7 @@
         "value": 959478116,
         "hexCode": "dy09",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10739,7 +9571,7 @@
         "value": 808548708,
         "hexCode": "dy10",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10747,7 +9579,7 @@
         "value": 825325924,
         "hexCode": "dy11",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10755,7 +9587,7 @@
         "value": 842103140,
         "hexCode": "dy12",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10763,7 +9595,7 @@
         "value": 858880356,
         "hexCode": "dy13",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10771,7 +9603,7 @@
         "value": 875657572,
         "hexCode": "dy14",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10779,7 +9611,7 @@
         "value": 892434788,
         "hexCode": "dy15",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10787,7 +9619,7 @@
         "value": 909212004,
         "hexCode": "dy16",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10795,7 +9627,7 @@
         "value": 925989220,
         "hexCode": "dy17",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10803,7 +9635,7 @@
         "value": 942766436,
         "hexCode": "dy18",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10811,7 +9643,7 @@
         "value": 959543652,
         "hexCode": "dy19",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10819,7 +9651,7 @@
         "value": 808614244,
         "hexCode": "dy20",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10827,7 +9659,7 @@
         "value": 825391460,
         "hexCode": "dy21",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10841,7 +9673,7 @@
         "value": 829645413,
         "hexCode": "ebs1",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10849,7 +9681,7 @@
         "value": 846422629,
         "hexCode": "ebs2",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10857,7 +9689,7 @@
         "value": 863199845,
         "hexCode": "ebs3",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10865,7 +9697,7 @@
         "value": 829710949,
         "hexCode": "ebt1",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10873,7 +9705,7 @@
         "value": 846488165,
         "hexCode": "ebt2",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10881,7 +9713,7 @@
         "value": 863265381,
         "hexCode": "ebt3",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10889,7 +9721,7 @@
         "value": 544563813,
         "hexCode": "ebu",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -10897,7 +9729,7 @@
         "value": 544629349,
         "hexCode": "ebv",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -10905,7 +9737,7 @@
         "value": 544694885,
         "hexCode": "ebw",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -10913,7 +9745,7 @@
         "value": 544760421,
         "hexCode": "ebx",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -10921,7 +9753,7 @@
         "value": 544825957,
         "hexCode": "eby",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -10935,7 +9767,7 @@
         "value": 825323109,
         "hexCode": "en11",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10943,7 +9775,7 @@
         "value": 842100325,
         "hexCode": "en12",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10951,7 +9783,7 @@
         "value": 858877541,
         "hexCode": "en13",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10959,7 +9791,7 @@
         "value": 875654757,
         "hexCode": "en14",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10967,7 +9799,7 @@
         "value": 892431973,
         "hexCode": "en15",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10975,7 +9807,7 @@
         "value": 909209189,
         "hexCode": "en16",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10983,7 +9815,7 @@
         "value": 925986405,
         "hexCode": "en17",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10991,7 +9823,7 @@
         "value": 942763621,
         "hexCode": "en18",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -10999,7 +9831,7 @@
         "value": 959540837,
         "hexCode": "en19",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11007,7 +9839,7 @@
         "value": 825388645,
         "hexCode": "en21",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11015,7 +9847,7 @@
         "value": 842165861,
         "hexCode": "en22",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11023,7 +9855,7 @@
         "value": 858943077,
         "hexCode": "en23",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11031,7 +9863,7 @@
         "value": 875720293,
         "hexCode": "en24",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11039,7 +9871,7 @@
         "value": 892497509,
         "hexCode": "en25",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11047,7 +9879,7 @@
         "value": 909274725,
         "hexCode": "en26",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11055,7 +9887,7 @@
         "value": 926051941,
         "hexCode": "en27",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11063,7 +9895,7 @@
         "value": 942829157,
         "hexCode": "en28",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11071,7 +9903,7 @@
         "value": 825454181,
         "hexCode": "en31",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11079,7 +9911,7 @@
         "value": 842231397,
         "hexCode": "en32",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11087,7 +9919,7 @@
         "value": 859008613,
         "hexCode": "en33",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11095,7 +9927,7 @@
         "value": 875785829,
         "hexCode": "en34",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11103,7 +9935,7 @@
         "value": 892563045,
         "hexCode": "en35",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11111,7 +9943,7 @@
         "value": 909340261,
         "hexCode": "en36",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11119,7 +9951,7 @@
         "value": 825519717,
         "hexCode": "en41",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11127,7 +9959,7 @@
         "value": 842296933,
         "hexCode": "en42",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11135,7 +9967,7 @@
         "value": 859074149,
         "hexCode": "en43",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11143,7 +9975,7 @@
         "value": 875851365,
         "hexCode": "en44",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11151,7 +9983,7 @@
         "value": 892628581,
         "hexCode": "en45",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11159,7 +9991,7 @@
         "value": 909405797,
         "hexCode": "en46",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11167,7 +9999,7 @@
         "value": 825585253,
         "hexCode": "en51",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11175,7 +10007,7 @@
         "value": 842362469,
         "hexCode": "en52",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11183,7 +10015,7 @@
         "value": 859139685,
         "hexCode": "en53",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11191,7 +10023,7 @@
         "value": 875916901,
         "hexCode": "en54",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11199,7 +10031,7 @@
         "value": 892694117,
         "hexCode": "en55",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11207,7 +10039,7 @@
         "value": 909471333,
         "hexCode": "en56",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11215,7 +10047,7 @@
         "value": 825650789,
         "hexCode": "en61",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11223,7 +10055,7 @@
         "value": 842428005,
         "hexCode": "en62",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11231,7 +10063,7 @@
         "value": 859205221,
         "hexCode": "en63",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11239,7 +10071,7 @@
         "value": 875982437,
         "hexCode": "en64",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11247,7 +10079,7 @@
         "value": 892759653,
         "hexCode": "en65",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11255,7 +10087,7 @@
         "value": 909536869,
         "hexCode": "en66",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11263,7 +10095,7 @@
         "value": 926314085,
         "hexCode": "en67",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11271,7 +10103,7 @@
         "value": 825716325,
         "hexCode": "en71",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11279,7 +10111,7 @@
         "value": 842493541,
         "hexCode": "en72",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11287,7 +10119,7 @@
         "value": 859270757,
         "hexCode": "en73",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11295,7 +10127,7 @@
         "value": 876047973,
         "hexCode": "en74",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11303,7 +10135,7 @@
         "value": 892825189,
         "hexCode": "en75",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11311,7 +10143,7 @@
         "value": 909602405,
         "hexCode": "en76",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11319,7 +10151,7 @@
         "value": 926379621,
         "hexCode": "en77",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11327,7 +10159,7 @@
         "value": 825781861,
         "hexCode": "en81",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11335,7 +10167,7 @@
         "value": 842559077,
         "hexCode": "en82",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11343,7 +10175,7 @@
         "value": 859336293,
         "hexCode": "en83",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11351,7 +10183,7 @@
         "value": 876113509,
         "hexCode": "en84",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11359,7 +10191,7 @@
         "value": 892890725,
         "hexCode": "en85",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11367,7 +10199,7 @@
         "value": 909667941,
         "hexCode": "en86",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11375,7 +10207,7 @@
         "value": 926445157,
         "hexCode": "en87",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11383,7 +10215,7 @@
         "value": 825847397,
         "hexCode": "en91",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11391,7 +10223,7 @@
         "value": 842624613,
         "hexCode": "en92",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11399,7 +10231,7 @@
         "value": 859401829,
         "hexCode": "en93",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11407,7 +10239,7 @@
         "value": 876179045,
         "hexCode": "en94",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11415,7 +10247,7 @@
         "value": 892956261,
         "hexCode": "en95",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11423,7 +10255,7 @@
         "value": 909733477,
         "hexCode": "en96",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11431,7 +10263,7 @@
         "value": 926510693,
         "hexCode": "en97",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11439,7 +10271,7 @@
         "value": 943287909,
         "hexCode": "en98",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11447,7 +10279,7 @@
         "value": 960065125,
         "hexCode": "en99",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11455,7 +10287,7 @@
         "value": 909522534,
         "hexCode": "f666",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -11463,7 +10295,7 @@
         "value": 926299750,
         "hexCode": "f667",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11471,7 +10303,7 @@
         "value": 943076966,
         "hexCode": "f668",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11479,7 +10311,7 @@
         "value": 543237223,
         "hexCode": "g$a",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11487,7 +10319,7 @@
         "value": 543302759,
         "hexCode": "g$b",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11495,7 +10327,7 @@
         "value": 543368295,
         "hexCode": "g$c",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11503,7 +10335,7 @@
         "value": 543433831,
         "hexCode": "g$d",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11511,7 +10343,7 @@
         "value": 543499367,
         "hexCode": "g$e",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11519,7 +10351,7 @@
         "value": 540291943,
         "hexCode": "g34",
         "category": [
-            "Quest Item"
+            "#Quest Item"
         ]
     },
     {
@@ -11527,7 +10359,7 @@
         "value": 825254759,
         "hexCode": "gc01",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11535,7 +10367,7 @@
         "value": 842031975,
         "hexCode": "gc02",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11543,7 +10375,7 @@
         "value": 858809191,
         "hexCode": "gc03",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11551,7 +10383,7 @@
         "value": 875586407,
         "hexCode": "gc04",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11559,7 +10391,7 @@
         "value": 892363623,
         "hexCode": "gc05",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11567,7 +10399,7 @@
         "value": 909140839,
         "hexCode": "gc06",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11575,7 +10407,7 @@
         "value": 925918055,
         "hexCode": "gc07",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11583,7 +10415,7 @@
         "value": 942695271,
         "hexCode": "gc08",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11591,7 +10423,7 @@
         "value": 959472487,
         "hexCode": "gc09",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11599,7 +10431,7 @@
         "value": 808543079,
         "hexCode": "gc10",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11607,7 +10439,7 @@
         "value": 825320295,
         "hexCode": "gc11",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11615,7 +10447,7 @@
         "value": 842097511,
         "hexCode": "gc12",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11623,7 +10455,7 @@
         "value": 543318887,
         "hexCode": "gcb",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11631,7 +10463,7 @@
         "value": 543646567,
         "hexCode": "gcg",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11639,7 +10471,7 @@
         "value": 544367463,
         "hexCode": "gcr",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11647,7 +10479,7 @@
         "value": 544629607,
         "hexCode": "gcv",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11655,7 +10487,7 @@
         "value": 544695143,
         "hexCode": "gcw",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11663,7 +10495,7 @@
         "value": 544826215,
         "hexCode": "gcy",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11671,7 +10503,7 @@
         "value": 543319655,
         "hexCode": "gfb",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11679,7 +10511,7 @@
         "value": 543647335,
         "hexCode": "gfg",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11687,7 +10519,7 @@
         "value": 544368231,
         "hexCode": "gfr",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11695,7 +10527,7 @@
         "value": 544630375,
         "hexCode": "gfv",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11703,7 +10535,7 @@
         "value": 544695911,
         "hexCode": "gfw",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11711,7 +10543,7 @@
         "value": 544826983,
         "hexCode": "gfy",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11719,7 +10551,7 @@
         "value": 543321191,
         "hexCode": "glb",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11733,7 +10565,7 @@
         "value": 543648871,
         "hexCode": "glg",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11741,7 +10573,7 @@
         "value": 544369767,
         "hexCode": "glr",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11749,7 +10581,7 @@
         "value": 544697447,
         "hexCode": "glw",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11757,7 +10589,7 @@
         "value": 544828519,
         "hexCode": "gly",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11765,7 +10597,7 @@
         "value": 543322215,
         "hexCode": "gpb",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11773,7 +10605,7 @@
         "value": 543649895,
         "hexCode": "gpg",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11781,7 +10613,7 @@
         "value": 544370791,
         "hexCode": "gpr",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11789,7 +10621,7 @@
         "value": 544632935,
         "hexCode": "gpv",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11797,7 +10629,7 @@
         "value": 544698471,
         "hexCode": "gpw",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11805,7 +10637,7 @@
         "value": 544829543,
         "hexCode": "gpy",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11813,7 +10645,7 @@
         "value": 543322983,
         "hexCode": "gsb",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11821,7 +10653,7 @@
         "value": 543650663,
         "hexCode": "gsg",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11829,7 +10661,7 @@
         "value": 544371559,
         "hexCode": "gsr",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11837,7 +10669,7 @@
         "value": 544633703,
         "hexCode": "gsv",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11845,7 +10677,7 @@
         "value": 544699239,
         "hexCode": "gsw",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11853,7 +10685,7 @@
         "value": 544830311,
         "hexCode": "gsy",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11861,7 +10693,7 @@
         "value": 544635495,
         "hexCode": "gzv",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -11869,7 +10701,7 @@
         "value": 2020765288,
         "hexCode": "hnrx",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11913,7 +10745,7 @@
         "value": 1919906920,
         "hexCode": "htor",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11927,7 +10759,7 @@
         "value": 543515497,
         "hexCode": "ice",
         "category": [
-            "Quest Item"
+            "#Quest Item"
         ]
     },
     {
@@ -11935,7 +10767,7 @@
         "value": 808940137,
         "hexCode": "ir70",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11943,7 +10775,7 @@
         "value": 892826217,
         "hexCode": "ir75",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11951,7 +10783,7 @@
         "value": 909603433,
         "hexCode": "ir76",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -11959,7 +10791,7 @@
         "value": 825782889,
         "hexCode": "ir81",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11967,7 +10799,7 @@
         "value": 842560105,
         "hexCode": "ir82",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11975,7 +10807,7 @@
         "value": 859337321,
         "hexCode": "ir83",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11983,7 +10815,7 @@
         "value": 876114537,
         "hexCode": "ir84",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11991,7 +10823,7 @@
         "value": 892891753,
         "hexCode": "ir85",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -11999,7 +10831,7 @@
         "value": 909668969,
         "hexCode": "ir86",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12007,7 +10839,7 @@
         "value": 926446185,
         "hexCode": "ir87",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12015,7 +10847,7 @@
         "value": 943223401,
         "hexCode": "ir88",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12023,7 +10855,7 @@
         "value": 960000617,
         "hexCode": "ir89",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12031,7 +10863,7 @@
         "value": 825848425,
         "hexCode": "ir91",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12039,7 +10871,7 @@
         "value": 842625641,
         "hexCode": "ir92",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12047,7 +10879,7 @@
         "value": 859402857,
         "hexCode": "ir93",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12055,7 +10887,7 @@
         "value": 876180073,
         "hexCode": "ir94",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12063,7 +10895,7 @@
         "value": 892957289,
         "hexCode": "ir95",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12071,7 +10903,7 @@
         "value": 909734505,
         "hexCode": "ir96",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12079,7 +10911,7 @@
         "value": 926511721,
         "hexCode": "ir97",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12087,7 +10919,7 @@
         "value": 943288937,
         "hexCode": "ir98",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12095,7 +10927,7 @@
         "value": 960066153,
         "hexCode": "ir99",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12103,7 +10935,7 @@
         "value": 1480159849,
         "hexCode": "ir9X",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12117,7 +10949,7 @@
         "value": 540291946,
         "hexCode": "j34",
         "category": [
-            "Quest Item"
+            "#Quest Item"
         ]
     },
     {
@@ -12125,7 +10957,7 @@
         "value": 1952539498,
         "hexCode": "jcat",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12139,7 +10971,7 @@
         "value": 543899755,
         "hexCode": "k@k",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -12147,7 +10979,7 @@
         "value": 1836736875,
         "hexCode": "kazm",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12155,7 +10987,7 @@
         "value": 1818583659,
         "hexCode": "kbel",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12169,7 +11001,7 @@
         "value": 1969317483,
         "hexCode": "kfau",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12177,7 +11009,7 @@
         "value": 1667330155,
         "hexCode": "kpac",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12185,7 +11017,7 @@
         "value": 1868788587,
         "hexCode": "ksco",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12193,7 +11025,7 @@
         "value": 2019980395,
         "hexCode": "ktfx",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12201,7 +11033,7 @@
         "value": 2020045931,
         "hexCode": "ktgx",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12209,7 +11041,7 @@
         "value": 2020570219,
         "hexCode": "ktox",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12217,7 +11049,7 @@
         "value": 2020635755,
         "hexCode": "ktpx",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12225,7 +11057,7 @@
         "value": 2021160043,
         "hexCode": "ktxx",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12233,7 +11065,7 @@
         "value": 2021225579,
         "hexCode": "ktyx",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12241,7 +11073,7 @@
         "value": 2021291115,
         "hexCode": "ktzx",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -12249,7 +11081,7 @@
         "value": 543965292,
         "hexCode": "l@l",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12257,7 +11089,7 @@
         "value": 543911788,
         "hexCode": "lok",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -12265,7 +11097,7 @@
         "value": 2019718252,
         "hexCode": "ltbx",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -12279,7 +11111,7 @@
         "value": 544030829,
         "hexCode": "m@m",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12287,7 +11119,7 @@
         "value": 829648749,
         "hexCode": "mos1",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12295,7 +11127,7 @@
         "value": 846425965,
         "hexCode": "mos2",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12303,7 +11135,7 @@
         "value": 863203181,
         "hexCode": "mos3",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12311,7 +11143,7 @@
         "value": 879980397,
         "hexCode": "mos4",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12319,7 +11151,7 @@
         "value": 896757613,
         "hexCode": "mos5",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12327,7 +11159,7 @@
         "value": 913534829,
         "hexCode": "mos6",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12335,7 +11167,7 @@
         "value": 930312045,
         "hexCode": "mos7",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12373,7 +11205,7 @@
         "value": 544437101,
         "hexCode": "mss",
         "category": [
-            "Quest Item"
+            "#Quest Item"
         ]
     },
     {
@@ -12381,7 +11213,7 @@
         "value": 544161903,
         "hexCode": "o@o",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12389,7 +11221,7 @@
         "value": 2020565615,
         "hexCode": "obox",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -12397,7 +11229,7 @@
         "value": 543387503,
         "hexCode": "ooc",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12405,7 +11237,7 @@
         "value": 544227440,
         "hexCode": "p@p",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12413,7 +11245,7 @@
         "value": 1650680176,
         "hexCode": "pacb",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12421,7 +11253,7 @@
         "value": 544292977,
         "hexCode": "q@q",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12429,7 +11261,7 @@
         "value": 544367217,
         "hexCode": "qbr",
         "category": [
-            "Quest Item"
+            "#Quest Item"
         ]
     },
     {
@@ -12437,7 +11269,7 @@
         "value": 544826737,
         "hexCode": "qey",
         "category": [
-            "Quest Item"
+            "#Quest Item"
         ]
     },
     {
@@ -12445,7 +11277,7 @@
         "value": 544368753,
         "hexCode": "qhr",
         "category": [
-            "Quest Item"
+            "#Quest Item"
         ]
     },
     {
@@ -12453,7 +11285,7 @@
         "value": 1818587761,
         "hexCode": "qrel",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12461,7 +11293,7 @@
         "value": 540177777,
         "hexCode": "qu2",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12469,7 +11301,7 @@
         "value": 540243313,
         "hexCode": "qu3",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12477,7 +11309,7 @@
         "value": 540308849,
         "hexCode": "qu4",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12485,7 +11317,7 @@
         "value": 543978865,
         "hexCode": "qul",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12493,7 +11325,7 @@
         "value": 544044401,
         "hexCode": "qum",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12501,7 +11333,7 @@
         "value": 540094578,
         "hexCode": "r01",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12509,7 +11341,7 @@
         "value": 540160114,
         "hexCode": "r02",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12517,7 +11349,7 @@
         "value": 540225650,
         "hexCode": "r03",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12525,7 +11357,7 @@
         "value": 540291186,
         "hexCode": "r04",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12533,7 +11365,7 @@
         "value": 540356722,
         "hexCode": "r05",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12541,7 +11373,7 @@
         "value": 540422258,
         "hexCode": "r06",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12549,7 +11381,7 @@
         "value": 540487794,
         "hexCode": "r07",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12557,7 +11389,7 @@
         "value": 540553330,
         "hexCode": "r08",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12565,7 +11397,7 @@
         "value": 540618866,
         "hexCode": "r09",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12573,7 +11405,7 @@
         "value": 540029298,
         "hexCode": "r10",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12581,7 +11413,7 @@
         "value": 540094834,
         "hexCode": "r11",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12589,7 +11421,7 @@
         "value": 540160370,
         "hexCode": "r12",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12597,7 +11429,7 @@
         "value": 540225906,
         "hexCode": "r13",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12605,7 +11437,7 @@
         "value": 540291442,
         "hexCode": "r14",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12613,7 +11445,7 @@
         "value": 540356978,
         "hexCode": "r15",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12621,7 +11453,7 @@
         "value": 540422514,
         "hexCode": "r16",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12629,7 +11461,7 @@
         "value": 540488050,
         "hexCode": "r17",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12637,7 +11469,7 @@
         "value": 540553586,
         "hexCode": "r18",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12645,7 +11477,7 @@
         "value": 540619122,
         "hexCode": "r19",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12653,7 +11485,7 @@
         "value": 540029554,
         "hexCode": "r20",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12661,7 +11493,7 @@
         "value": 540095090,
         "hexCode": "r21",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12669,7 +11501,7 @@
         "value": 540160626,
         "hexCode": "r22",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12677,7 +11509,7 @@
         "value": 540226162,
         "hexCode": "r23",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12685,7 +11517,7 @@
         "value": 540291698,
         "hexCode": "r24",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12693,7 +11525,7 @@
         "value": 540357234,
         "hexCode": "r25",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12701,7 +11533,7 @@
         "value": 540422770,
         "hexCode": "r26",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12709,7 +11541,7 @@
         "value": 540488306,
         "hexCode": "r27",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12717,7 +11549,7 @@
         "value": 540553842,
         "hexCode": "r28",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12725,7 +11557,7 @@
         "value": 540619378,
         "hexCode": "r29",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12733,7 +11565,7 @@
         "value": 540029810,
         "hexCode": "r30",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12741,7 +11573,7 @@
         "value": 540095346,
         "hexCode": "r31",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12749,7 +11581,7 @@
         "value": 540160882,
         "hexCode": "r32",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12757,7 +11589,7 @@
         "value": 540226418,
         "hexCode": "r33",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12765,7 +11597,7 @@
         "value": 540095858,
         "hexCode": "r51",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12773,7 +11605,7 @@
         "value": 540161394,
         "hexCode": "r52",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12781,7 +11613,7 @@
         "value": 540226930,
         "hexCode": "r53",
         "category": [
-            "Rune"
+            "#Rune"
         ]
     },
     {
@@ -12789,7 +11621,7 @@
         "value": 540489074,
         "hexCode": "r57",
         "category": [
-            "Elemental Rune"
+            "#Elemental Rune"
         ]
     },
     {
@@ -12797,7 +11629,7 @@
         "value": 540554610,
         "hexCode": "r58",
         "category": [
-            "Elemental Rune"
+            "#Elemental Rune"
         ]
     },
     {
@@ -12805,7 +11637,7 @@
         "value": 540620146,
         "hexCode": "r59",
         "category": [
-            "Elemental Rune"
+            "#Elemental Rune"
         ]
     },
     {
@@ -12813,7 +11645,7 @@
         "value": 540030578,
         "hexCode": "r60",
         "category": [
-            "Elemental Rune"
+            "#Elemental Rune"
         ]
     },
     {
@@ -12821,7 +11653,7 @@
         "value": 540096114,
         "hexCode": "r61",
         "category": [
-            "Elemental Rune"
+            "#Elemental Rune"
         ]
     },
     {
@@ -12829,7 +11661,7 @@
         "value": 540161650,
         "hexCode": "r62",
         "category": [
-            "Elemental Rune"
+            "#Elemental Rune"
         ]
     },
     {
@@ -12837,7 +11669,7 @@
         "value": 540555634,
         "hexCode": "r98",
         "category": [
-            "Elemental Rune"
+            "#Elemental Rune"
         ]
     },
     {
@@ -12845,8 +11677,8 @@
         "value": 540621170,
         "hexCode": "r99",
         "category": [
-            "Other",
-            "Essence"
+            "#Other",
+            "#Essence"
         ]
     },
     {
@@ -12860,7 +11692,7 @@
         "value": 825254770,
         "hexCode": "rc01",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12868,7 +11700,7 @@
         "value": 842031986,
         "hexCode": "rc02",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12876,7 +11708,7 @@
         "value": 858809202,
         "hexCode": "rc03",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12884,7 +11716,7 @@
         "value": 875586418,
         "hexCode": "rc04",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12892,7 +11724,7 @@
         "value": 892363634,
         "hexCode": "rc05",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12900,7 +11732,7 @@
         "value": 909140850,
         "hexCode": "rc06",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12908,7 +11740,7 @@
         "value": 925918066,
         "hexCode": "rc07",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12916,7 +11748,7 @@
         "value": 942695282,
         "hexCode": "rc08",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12924,7 +11756,7 @@
         "value": 959472498,
         "hexCode": "rc09",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12932,7 +11764,7 @@
         "value": 808543090,
         "hexCode": "rc10",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12940,7 +11772,7 @@
         "value": 825320306,
         "hexCode": "rc11",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12948,7 +11780,7 @@
         "value": 842097522,
         "hexCode": "rc12",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12956,7 +11788,7 @@
         "value": 858874738,
         "hexCode": "rc13",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12964,7 +11796,7 @@
         "value": 875651954,
         "hexCode": "rc14",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12972,7 +11804,7 @@
         "value": 892429170,
         "hexCode": "rc15",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12980,7 +11812,7 @@
         "value": 909206386,
         "hexCode": "rc16",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12988,7 +11820,7 @@
         "value": 925983602,
         "hexCode": "rc17",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -12996,7 +11828,7 @@
         "value": 942760818,
         "hexCode": "rc18",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -13004,7 +11836,7 @@
         "value": 959538034,
         "hexCode": "rc19",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -13012,7 +11844,7 @@
         "value": 808608626,
         "hexCode": "rc20",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -13020,7 +11852,7 @@
         "value": 825385842,
         "hexCode": "rc21",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -13028,7 +11860,7 @@
         "value": 842163058,
         "hexCode": "rc22",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -13036,7 +11868,7 @@
         "value": 858940274,
         "hexCode": "rc23",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -13044,7 +11876,7 @@
         "value": 875717490,
         "hexCode": "rc24",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -13052,7 +11884,7 @@
         "value": 892494706,
         "hexCode": "rc25",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -13060,7 +11892,7 @@
         "value": 909271922,
         "hexCode": "rc26",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -13068,7 +11900,7 @@
         "value": 926049138,
         "hexCode": "rc27",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -13076,7 +11908,7 @@
         "value": 942826354,
         "hexCode": "rc28",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -13084,7 +11916,7 @@
         "value": 959603570,
         "hexCode": "rc29",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -13092,7 +11924,7 @@
         "value": 808674162,
         "hexCode": "rc30",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -13100,7 +11932,7 @@
         "value": 825451378,
         "hexCode": "rc31",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -13108,7 +11940,7 @@
         "value": 842228594,
         "hexCode": "rc32",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -13116,7 +11948,7 @@
         "value": 859005810,
         "hexCode": "rc33",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -13148,7 +11980,7 @@
         "value": 825260146,
         "hexCode": "rx01",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13156,7 +11988,7 @@
         "value": 842037362,
         "hexCode": "rx02",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13164,7 +11996,7 @@
         "value": 858814578,
         "hexCode": "rx03",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13172,7 +12004,7 @@
         "value": 875591794,
         "hexCode": "rx04",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13180,7 +12012,7 @@
         "value": 892369010,
         "hexCode": "rx05",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13188,7 +12020,7 @@
         "value": 909146226,
         "hexCode": "rx06",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13196,7 +12028,7 @@
         "value": 925923442,
         "hexCode": "rx07",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13204,7 +12036,7 @@
         "value": 942700658,
         "hexCode": "rx08",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13212,7 +12044,7 @@
         "value": 959477874,
         "hexCode": "rx09",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13220,7 +12052,7 @@
         "value": 808548466,
         "hexCode": "rx10",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13228,7 +12060,7 @@
         "value": 825325682,
         "hexCode": "rx11",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13236,7 +12068,7 @@
         "value": 842102898,
         "hexCode": "rx12",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13244,7 +12076,7 @@
         "value": 858880114,
         "hexCode": "rx13",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13252,7 +12084,7 @@
         "value": 875657330,
         "hexCode": "rx14",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13260,7 +12092,7 @@
         "value": 892434546,
         "hexCode": "rx15",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13268,7 +12100,7 @@
         "value": 909211762,
         "hexCode": "rx16",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13276,7 +12108,7 @@
         "value": 925988978,
         "hexCode": "rx17",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13284,7 +12116,7 @@
         "value": 942766194,
         "hexCode": "rx18",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13292,7 +12124,7 @@
         "value": 959543410,
         "hexCode": "rx19",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13300,7 +12132,7 @@
         "value": 808614002,
         "hexCode": "rx20",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13308,7 +12140,7 @@
         "value": 825391218,
         "hexCode": "rx21",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13316,7 +12148,7 @@
         "value": 842168434,
         "hexCode": "rx22",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13324,7 +12156,7 @@
         "value": 858945650,
         "hexCode": "rx23",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13332,7 +12164,7 @@
         "value": 875722866,
         "hexCode": "rx24",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13340,7 +12172,7 @@
         "value": 892500082,
         "hexCode": "rx25",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13348,7 +12180,7 @@
         "value": 909277298,
         "hexCode": "rx26",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13356,7 +12188,7 @@
         "value": 926054514,
         "hexCode": "rx27",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13364,7 +12196,7 @@
         "value": 942831730,
         "hexCode": "rx28",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13372,7 +12204,7 @@
         "value": 959608946,
         "hexCode": "rx29",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13380,7 +12212,7 @@
         "value": 808679538,
         "hexCode": "rx30",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13388,7 +12220,7 @@
         "value": 825456754,
         "hexCode": "rx31",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13396,7 +12228,7 @@
         "value": 842233970,
         "hexCode": "rx32",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13404,7 +12236,7 @@
         "value": 859011186,
         "hexCode": "rx33",
         "category": [
-            "Enchanted Rune"
+            "#Enchanted Rune"
         ]
     },
     {
@@ -13412,7 +12244,7 @@
         "value": 825241715,
         "hexCode": "s001",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13420,7 +12252,7 @@
         "value": 842018931,
         "hexCode": "s002",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13428,7 +12260,7 @@
         "value": 858796147,
         "hexCode": "s003",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13436,7 +12268,7 @@
         "value": 875573363,
         "hexCode": "s004",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13444,7 +12276,7 @@
         "value": 892350579,
         "hexCode": "s005",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13452,7 +12284,7 @@
         "value": 909127795,
         "hexCode": "s006",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13460,7 +12292,7 @@
         "value": 925905011,
         "hexCode": "s007",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13468,7 +12300,7 @@
         "value": 942682227,
         "hexCode": "s008",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13476,7 +12308,7 @@
         "value": 959459443,
         "hexCode": "s009",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13484,7 +12316,7 @@
         "value": 808530035,
         "hexCode": "s010",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13492,7 +12324,7 @@
         "value": 825307251,
         "hexCode": "s011",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13500,7 +12332,7 @@
         "value": 842084467,
         "hexCode": "s012",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13508,7 +12340,7 @@
         "value": 858861683,
         "hexCode": "s013",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13516,7 +12348,7 @@
         "value": 875638899,
         "hexCode": "s014",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13524,7 +12356,7 @@
         "value": 892416115,
         "hexCode": "s015",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13532,7 +12364,7 @@
         "value": 909193331,
         "hexCode": "s016",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13540,7 +12372,7 @@
         "value": 925970547,
         "hexCode": "s017",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13548,7 +12380,7 @@
         "value": 942747763,
         "hexCode": "s018",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13556,7 +12388,7 @@
         "value": 959524979,
         "hexCode": "s019",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13564,7 +12396,7 @@
         "value": 808595571,
         "hexCode": "s020",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13572,7 +12404,7 @@
         "value": 825372787,
         "hexCode": "s021",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13580,7 +12412,7 @@
         "value": 842150003,
         "hexCode": "s022",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13588,7 +12420,7 @@
         "value": 858927219,
         "hexCode": "s023",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13596,7 +12428,7 @@
         "value": 875704435,
         "hexCode": "s024",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13604,7 +12436,7 @@
         "value": 892481651,
         "hexCode": "s025",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13612,7 +12444,7 @@
         "value": 909258867,
         "hexCode": "s026",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13620,7 +12452,7 @@
         "value": 926036083,
         "hexCode": "s027",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13628,7 +12460,7 @@
         "value": 942813299,
         "hexCode": "s028",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13636,7 +12468,7 @@
         "value": 959590515,
         "hexCode": "s029",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13644,7 +12476,7 @@
         "value": 808661107,
         "hexCode": "s030",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13652,7 +12484,7 @@
         "value": 825438323,
         "hexCode": "s031",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13660,7 +12492,7 @@
         "value": 842215539,
         "hexCode": "s032",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13668,7 +12500,7 @@
         "value": 858992755,
         "hexCode": "s033",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13676,7 +12508,7 @@
         "value": 875769971,
         "hexCode": "s034",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13684,7 +12516,7 @@
         "value": 892547187,
         "hexCode": "s035",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13692,7 +12524,7 @@
         "value": 909324403,
         "hexCode": "s036",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13700,7 +12532,7 @@
         "value": 926101619,
         "hexCode": "s037",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13708,7 +12540,7 @@
         "value": 942878835,
         "hexCode": "s038",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13716,7 +12548,7 @@
         "value": 959656051,
         "hexCode": "s039",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13724,7 +12556,7 @@
         "value": 808726643,
         "hexCode": "s040",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13732,7 +12564,7 @@
         "value": 825503859,
         "hexCode": "s041",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13740,7 +12572,7 @@
         "value": 842281075,
         "hexCode": "s042",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13748,7 +12580,7 @@
         "value": 859058291,
         "hexCode": "s043",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13756,7 +12588,7 @@
         "value": 875835507,
         "hexCode": "s044",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13764,7 +12596,7 @@
         "value": 892612723,
         "hexCode": "s045",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13772,7 +12604,7 @@
         "value": 909389939,
         "hexCode": "s046",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13780,7 +12612,7 @@
         "value": 926167155,
         "hexCode": "s047",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13788,7 +12620,7 @@
         "value": 942944371,
         "hexCode": "s048",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13796,7 +12628,7 @@
         "value": 959721587,
         "hexCode": "s049",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13804,7 +12636,7 @@
         "value": 808792179,
         "hexCode": "s050",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13812,7 +12644,7 @@
         "value": 825569395,
         "hexCode": "s051",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13820,7 +12652,7 @@
         "value": 842346611,
         "hexCode": "s052",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13828,7 +12660,7 @@
         "value": 859123827,
         "hexCode": "s053",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13836,7 +12668,7 @@
         "value": 875901043,
         "hexCode": "s054",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13844,7 +12676,7 @@
         "value": 892678259,
         "hexCode": "s055",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13852,7 +12684,7 @@
         "value": 909455475,
         "hexCode": "s056",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13860,7 +12692,7 @@
         "value": 926232691,
         "hexCode": "s057",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13868,7 +12700,7 @@
         "value": 943009907,
         "hexCode": "s058",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13876,7 +12708,7 @@
         "value": 959787123,
         "hexCode": "s059",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13884,7 +12716,7 @@
         "value": 808857715,
         "hexCode": "s060",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13892,7 +12724,7 @@
         "value": 825634931,
         "hexCode": "s061",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13900,7 +12732,7 @@
         "value": 842412147,
         "hexCode": "s062",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13908,7 +12740,7 @@
         "value": 859189363,
         "hexCode": "s063",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13916,7 +12748,7 @@
         "value": 875966579,
         "hexCode": "s064",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13924,7 +12756,7 @@
         "value": 892743795,
         "hexCode": "s065",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13932,7 +12764,7 @@
         "value": 909521011,
         "hexCode": "s066",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13940,7 +12772,7 @@
         "value": 926298227,
         "hexCode": "s067",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13948,7 +12780,7 @@
         "value": 943075443,
         "hexCode": "s068",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13956,7 +12788,7 @@
         "value": 959852659,
         "hexCode": "s069",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13964,7 +12796,7 @@
         "value": 808923251,
         "hexCode": "s070",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13972,7 +12804,7 @@
         "value": 825700467,
         "hexCode": "s071",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13980,7 +12812,7 @@
         "value": 842477683,
         "hexCode": "s072",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13988,7 +12820,7 @@
         "value": 859254899,
         "hexCode": "s073",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -13996,7 +12828,7 @@
         "value": 876032115,
         "hexCode": "s074",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14004,7 +12836,7 @@
         "value": 892809331,
         "hexCode": "s075",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14012,7 +12844,7 @@
         "value": 909586547,
         "hexCode": "s076",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14020,7 +12852,7 @@
         "value": 926363763,
         "hexCode": "s077",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14028,7 +12860,7 @@
         "value": 943140979,
         "hexCode": "s078",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14036,7 +12868,7 @@
         "value": 959918195,
         "hexCode": "s079",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14044,7 +12876,7 @@
         "value": 808988787,
         "hexCode": "s080",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14052,7 +12884,7 @@
         "value": 825766003,
         "hexCode": "s081",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14060,7 +12892,7 @@
         "value": 842543219,
         "hexCode": "s082",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14068,7 +12900,7 @@
         "value": 859320435,
         "hexCode": "s083",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14076,7 +12908,7 @@
         "value": 876097651,
         "hexCode": "s084",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14084,7 +12916,7 @@
         "value": 892874867,
         "hexCode": "s085",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14092,7 +12924,7 @@
         "value": 909652083,
         "hexCode": "s086",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14100,7 +12932,7 @@
         "value": 926429299,
         "hexCode": "s087",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14108,7 +12940,7 @@
         "value": 943206515,
         "hexCode": "s088",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14116,7 +12948,7 @@
         "value": 959983731,
         "hexCode": "s089",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14124,7 +12956,7 @@
         "value": 809054323,
         "hexCode": "s090",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14132,7 +12964,7 @@
         "value": 825831539,
         "hexCode": "s091",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14140,7 +12972,7 @@
         "value": 842608755,
         "hexCode": "s092",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14148,7 +12980,7 @@
         "value": 859385971,
         "hexCode": "s093",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14156,7 +12988,7 @@
         "value": 876163187,
         "hexCode": "s094",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14164,7 +12996,7 @@
         "value": 892940403,
         "hexCode": "s095",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14172,7 +13004,7 @@
         "value": 909717619,
         "hexCode": "s096",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14180,7 +13012,7 @@
         "value": 926494835,
         "hexCode": "s097",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14188,7 +13020,7 @@
         "value": 943272051,
         "hexCode": "s098",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14196,7 +13028,7 @@
         "value": 960049267,
         "hexCode": "s099",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14204,7 +13036,7 @@
         "value": 808464755,
         "hexCode": "s100",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14212,7 +13044,7 @@
         "value": 825241971,
         "hexCode": "s101",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14220,7 +13052,7 @@
         "value": 842019187,
         "hexCode": "s102",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14228,7 +13060,7 @@
         "value": 858796403,
         "hexCode": "s103",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14236,7 +13068,7 @@
         "value": 875573619,
         "hexCode": "s104",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14244,7 +13076,7 @@
         "value": 892350835,
         "hexCode": "s105",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14252,7 +13084,7 @@
         "value": 909128051,
         "hexCode": "s106",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14260,7 +13092,7 @@
         "value": 925905267,
         "hexCode": "s107",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14268,7 +13100,7 @@
         "value": 942682483,
         "hexCode": "s108",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14276,7 +13108,7 @@
         "value": 959459699,
         "hexCode": "s109",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14284,7 +13116,7 @@
         "value": 808530291,
         "hexCode": "s110",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14292,7 +13124,7 @@
         "value": 825307507,
         "hexCode": "s111",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14300,7 +13132,7 @@
         "value": 842084723,
         "hexCode": "s112",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14308,7 +13140,7 @@
         "value": 858861939,
         "hexCode": "s113",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14316,7 +13148,7 @@
         "value": 875639155,
         "hexCode": "s114",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14324,7 +13156,7 @@
         "value": 892416371,
         "hexCode": "s115",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14332,7 +13164,7 @@
         "value": 909193587,
         "hexCode": "s116",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14340,7 +13172,7 @@
         "value": 925970803,
         "hexCode": "s117",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14348,7 +13180,7 @@
         "value": 942748019,
         "hexCode": "s118",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14356,7 +13188,7 @@
         "value": 959525235,
         "hexCode": "s119",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14364,7 +13196,7 @@
         "value": 808595827,
         "hexCode": "s120",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14372,7 +13204,7 @@
         "value": 825373043,
         "hexCode": "s121",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14380,7 +13212,7 @@
         "value": 842150259,
         "hexCode": "s122",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14388,7 +13220,7 @@
         "value": 858927475,
         "hexCode": "s123",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14396,7 +13228,7 @@
         "value": 875704691,
         "hexCode": "s124",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14404,7 +13236,7 @@
         "value": 892481907,
         "hexCode": "s125",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14412,7 +13244,7 @@
         "value": 909259123,
         "hexCode": "s126",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14420,7 +13252,7 @@
         "value": 926036339,
         "hexCode": "s127",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14428,7 +13260,7 @@
         "value": 942813555,
         "hexCode": "s128",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14436,7 +13268,7 @@
         "value": 959590771,
         "hexCode": "s129",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14444,7 +13276,7 @@
         "value": 808661363,
         "hexCode": "s130",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14452,7 +13284,7 @@
         "value": 825438579,
         "hexCode": "s131",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14460,7 +13292,7 @@
         "value": 842215795,
         "hexCode": "s132",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14468,7 +13300,7 @@
         "value": 858993011,
         "hexCode": "s133",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14476,7 +13308,7 @@
         "value": 875770227,
         "hexCode": "s134",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14484,7 +13316,7 @@
         "value": 892547443,
         "hexCode": "s135",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14492,7 +13324,7 @@
         "value": 909324659,
         "hexCode": "s136",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14500,7 +13332,7 @@
         "value": 926101875,
         "hexCode": "s137",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14508,7 +13340,7 @@
         "value": 942879091,
         "hexCode": "s138",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14516,7 +13348,7 @@
         "value": 959656307,
         "hexCode": "s139",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14524,7 +13356,7 @@
         "value": 808726899,
         "hexCode": "s140",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14532,7 +13364,7 @@
         "value": 825504115,
         "hexCode": "s141",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14540,7 +13372,7 @@
         "value": 842281331,
         "hexCode": "s142",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14548,7 +13380,7 @@
         "value": 859058547,
         "hexCode": "s143",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14556,7 +13388,7 @@
         "value": 875835763,
         "hexCode": "s144",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14564,7 +13396,7 @@
         "value": 892612979,
         "hexCode": "s145",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14572,7 +13404,7 @@
         "value": 909390195,
         "hexCode": "s146",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14580,7 +13412,7 @@
         "value": 926167411,
         "hexCode": "s147",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14588,7 +13420,7 @@
         "value": 942944627,
         "hexCode": "s148",
         "category": [
-            "Lootbox"
+            "#Lootbox"
         ]
     },
     {
@@ -14602,7 +13434,7 @@
         "value": 1752457587,
         "hexCode": "sath",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -14610,7 +13442,7 @@
         "value": 1734435443,
         "hexCode": "sbag",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -14618,7 +13450,7 @@
         "value": 825254771,
         "hexCode": "sc01",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -14626,7 +13458,7 @@
         "value": 842031987,
         "hexCode": "sc02",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -14634,7 +13466,7 @@
         "value": 858809203,
         "hexCode": "sc03",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -14642,7 +13474,7 @@
         "value": 875586419,
         "hexCode": "sc04",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -14650,7 +13482,7 @@
         "value": 828793715,
         "hexCode": "scf1",
         "category": [
-            "Tenet"
+            "#Tenet"
         ]
     },
     {
@@ -14658,7 +13490,7 @@
         "value": 845570931,
         "hexCode": "scf2",
         "category": [
-            "Tenet"
+            "#Tenet"
         ]
     },
     {
@@ -14666,7 +13498,7 @@
         "value": 862348147,
         "hexCode": "scf3",
         "category": [
-            "Tenet"
+            "#Tenet"
         ]
     },
     {
@@ -14674,7 +13506,7 @@
         "value": 879125363,
         "hexCode": "scf4",
         "category": [
-            "Tenet"
+            "#Tenet"
         ]
     },
     {
@@ -14682,7 +13514,7 @@
         "value": 895902579,
         "hexCode": "scf5",
         "category": [
-            "Tenet"
+            "#Tenet"
         ]
     },
     {
@@ -14690,7 +13522,7 @@
         "value": 912679795,
         "hexCode": "scf6",
         "category": [
-            "Tenet"
+            "#Tenet"
         ]
     },
     {
@@ -14698,7 +13530,7 @@
         "value": 846553971,
         "hexCode": "scu2",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -14706,7 +13538,7 @@
         "value": 863331187,
         "hexCode": "scu3",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -14714,7 +13546,7 @@
         "value": 880108403,
         "hexCode": "scu4",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -14722,7 +13554,7 @@
         "value": 1819632499,
         "hexCode": "scul",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -14730,7 +13562,7 @@
         "value": 1836409715,
         "hexCode": "scum",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -14738,7 +13570,7 @@
         "value": 543386483,
         "hexCode": "skc",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -14746,7 +13578,7 @@
         "value": 543583091,
         "hexCode": "skf",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -14754,7 +13586,7 @@
         "value": 543976307,
         "hexCode": "skl",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -14762,7 +13594,7 @@
         "value": 544566131,
         "hexCode": "sku",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -14770,15 +13602,7 @@
         "value": 544893811,
         "hexCode": "skz",
         "category": [
-            "Gem"
-        ]
-    },
-    {
-        "name": "Scroll of Athulua",
-        "value": 828599411,
-        "hexCode": "slc1",
-        "category": [
-            "Other"
+            "#Gem"
         ]
     },
     {
@@ -14786,7 +13610,7 @@
         "value": 845376627,
         "hexCode": "slc2",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -14794,7 +13618,7 @@
         "value": 1684434803,
         "hexCode": "sofd",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -14802,7 +13626,7 @@
         "value": 544489588,
         "hexCode": "t@t",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -14816,7 +13640,7 @@
         "value": 544367220,
         "hexCode": "tbr",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -14830,7 +13654,7 @@
         "value": 544434292,
         "hexCode": "ths",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -14838,7 +13662,7 @@
         "value": 543256436,
         "hexCode": "toa",
         "category": [
-            "Quest Item"
+            "#Quest Item"
         ]
     },
     {
@@ -14846,7 +13670,7 @@
         "value": 540111476,
         "hexCode": "tr1",
         "category": [
-            "Quest Item"
+            "#Quest Item"
         ]
     },
     {
@@ -14854,7 +13678,7 @@
         "value": 540177012,
         "hexCode": "tr2",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -14862,7 +13686,7 @@
         "value": 543388276,
         "hexCode": "trc",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -14876,7 +13700,7 @@
         "value": 543782772,
         "hexCode": "twi",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -14884,7 +13708,7 @@
         "value": 539705461,
         "hexCode": "u@+",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -14894,19 +13718,11 @@
         "category": []
     },
     {
-        "name": "Enchanting Crystal",
-        "value": 1480879990,
-        "hexCode": "voDX",
-        "category": [
-            "Other"
-        ]
-    },
-    {
         "name": "Books of Kalan",
         "value": 1482190710,
         "hexCode": "voXX",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -14914,7 +13730,7 @@
         "value": 828993398,
         "hexCode": "voi1",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -14922,7 +13738,7 @@
         "value": 845770614,
         "hexCode": "voi2",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -14930,7 +13746,7 @@
         "value": 862547830,
         "hexCode": "voi3",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -14938,7 +13754,7 @@
         "value": 879325046,
         "hexCode": "voi4",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -14946,7 +13762,7 @@
         "value": 896102262,
         "hexCode": "voi5",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -14954,7 +13770,7 @@
         "value": 912879478,
         "hexCode": "voi6",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -14974,7 +13790,7 @@
         "value": 829977206,
         "hexCode": "vrx1",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -14982,7 +13798,7 @@
         "value": 846754422,
         "hexCode": "vrx2",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -14990,7 +13806,7 @@
         "value": 863531638,
         "hexCode": "vrx3",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -14998,7 +13814,7 @@
         "value": 544686199,
         "hexCode": "w@w",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -15048,7 +13864,7 @@
         "value": 544747640,
         "hexCode": "x0x",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -15056,7 +13872,7 @@
         "value": 544747896,
         "hexCode": "x1x",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -15064,7 +13880,7 @@
         "value": 544748152,
         "hexCode": "x2x",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -15072,7 +13888,7 @@
         "value": 544748408,
         "hexCode": "x3x",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -15080,7 +13896,7 @@
         "value": 544748664,
         "hexCode": "x4x",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -15088,7 +13904,7 @@
         "value": 544748920,
         "hexCode": "x5x",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -15096,7 +13912,7 @@
         "value": 544749176,
         "hexCode": "x6x",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -15104,7 +13920,7 @@
         "value": 544749432,
         "hexCode": "x7x",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -15112,7 +13928,7 @@
         "value": 544751736,
         "hexCode": "x@x",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -15120,7 +13936,7 @@
         "value": 544897400,
         "hexCode": "xyz",
         "category": [
-            "Quest Item"
+            "#Quest Item"
         ]
     },
     {
@@ -15128,7 +13944,7 @@
         "value": 540110713,
         "hexCode": "yo1",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -15136,7 +13952,7 @@
         "value": 540176249,
         "hexCode": "yo2",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -15144,7 +13960,7 @@
         "value": 540241785,
         "hexCode": "yo3",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -15152,7 +13968,7 @@
         "value": 540307321,
         "hexCode": "yo4",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -15160,7 +13976,7 @@
         "value": 540372857,
         "hexCode": "yo5",
         "category": [
-            "Gem"
+            "#Gem"
         ]
     },
     {
@@ -15168,7 +13984,7 @@
         "value": 540111225,
         "hexCode": "yq1",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -15176,7 +13992,7 @@
         "value": 540176761,
         "hexCode": "yq2",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -15184,7 +14000,7 @@
         "value": 540569977,
         "hexCode": "yq8",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -15192,7 +14008,7 @@
         "value": 543519097,
         "hexCode": "yqe",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -15200,7 +14016,7 @@
         "value": 544764281,
         "hexCode": "yqx",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -15208,7 +14024,7 @@
         "value": 539716474,
         "hexCode": "zk+",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -15216,7 +14032,7 @@
         "value": 543648634,
         "hexCode": "zkg",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -15224,7 +14040,7 @@
         "value": 544369530,
         "hexCode": "zkr",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -15232,7 +14048,7 @@
         "value": 544566138,
         "hexCode": "zku",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -15240,7 +14056,7 @@
         "value": 544697210,
         "hexCode": "zkw",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -15248,7 +14064,7 @@
         "value": 544762746,
         "hexCode": "zkx",
         "category": [
-            "Consumable"
+            "#Consumable"
         ]
     },
     {
@@ -15256,8 +14072,8 @@
         "value": 540094587,
         "hexCode": "{01",
         "category": [
-            "Other",
-            "Fragment"
+            "#Other",
+            "#Fragment"
         ]
     },
     {
@@ -15265,8 +14081,8 @@
         "value": 540160123,
         "hexCode": "{02",
         "category": [
-            "Other",
-            "Fragment"
+            "#Other",
+            "#Fragment"
         ]
     },
     {
@@ -15274,8 +14090,8 @@
         "value": 540225659,
         "hexCode": "{03",
         "category": [
-            "Other",
-            "Fragment"
+            "#Other",
+            "#Fragment"
         ]
     },
     {
@@ -15283,8 +14099,8 @@
         "value": 540291195,
         "hexCode": "{04",
         "category": [
-            "Other",
-            "Fragment"
+            "#Other",
+            "#Fragment"
         ]
     },
     {
@@ -15292,8 +14108,8 @@
         "value": 540356731,
         "hexCode": "{05",
         "category": [
-            "Other",
-            "Fragment"
+            "#Other",
+            "#Fragment"
         ]
     },
     {
@@ -15301,8 +14117,8 @@
         "value": 540422267,
         "hexCode": "{06",
         "category": [
-            "Other",
-            "Fragment"
+            "#Other",
+            "#Fragment"
         ]
     },
     {
@@ -15310,8 +14126,8 @@
         "value": 540487803,
         "hexCode": "{07",
         "category": [
-            "Other",
-            "Fragment"
+            "#Other",
+            "#Fragment"
         ]
     },
     {
@@ -15319,8 +14135,8 @@
         "value": 540553339,
         "hexCode": "{08",
         "category": [
-            "Other",
-            "Fragment"
+            "#Other",
+            "#Fragment"
         ]
     },
     {
@@ -15328,8 +14144,8 @@
         "value": 540618875,
         "hexCode": "{09",
         "category": [
-            "Other",
-            "Fragment"
+            "#Other",
+            "#Fragment"
         ]
     },
     {
@@ -15337,8 +14153,8 @@
         "value": 540029307,
         "hexCode": "{10",
         "category": [
-            "Other",
-            "Fragment"
+            "#Other",
+            "#Fragment"
         ]
     },
     {
@@ -15346,8 +14162,8 @@
         "value": 540094843,
         "hexCode": "{11",
         "category": [
-            "Other",
-            "Fragment"
+            "#Other",
+            "#Fragment"
         ]
     },
     {
@@ -15355,8 +14171,8 @@
         "value": 540160379,
         "hexCode": "{12",
         "category": [
-            "Other",
-            "Fragment"
+            "#Other",
+            "#Fragment"
         ]
     },
     {
@@ -15364,8 +14180,8 @@
         "value": 540225915,
         "hexCode": "{13",
         "category": [
-            "Other",
-            "Fragment"
+            "#Other",
+            "#Fragment"
         ]
     },
     {
@@ -15373,8 +14189,8 @@
         "value": 540291451,
         "hexCode": "{14",
         "category": [
-            "Other",
-            "Fragment"
+            "#Other",
+            "#Fragment"
         ]
     },
     {
@@ -15382,8 +14198,8 @@
         "value": 540356987,
         "hexCode": "{15",
         "category": [
-            "Other",
-            "Fragment"
+            "#Other",
+            "#Fragment"
         ]
     },
     {
@@ -15391,8 +14207,8 @@
         "value": 540422523,
         "hexCode": "{16",
         "category": [
-            "Other",
-            "Fragment"
+            "#Other",
+            "#Fragment"
         ]
     },
     {
@@ -15400,8 +14216,8 @@
         "value": 540488059,
         "hexCode": "{17",
         "category": [
-            "Other",
-            "Fragment"
+            "#Other",
+            "#Fragment"
         ]
     },
     {
@@ -15409,8 +14225,8 @@
         "value": 540553595,
         "hexCode": "{18",
         "category": [
-            "Other",
-            "Fragment"
+            "#Other",
+            "#Fragment"
         ]
     },
     {
@@ -15418,8 +14234,8 @@
         "value": 540619131,
         "hexCode": "{19",
         "category": [
-            "Other",
-            "Fragment"
+            "#Other",
+            "#Fragment"
         ]
     },
     {
@@ -15427,8 +14243,8 @@
         "value": 540029563,
         "hexCode": "{20",
         "category": [
-            "Other",
-            "Fragment"
+            "#Other",
+            "#Fragment"
         ]
     },
     {
@@ -15436,7 +14252,7 @@
         "value": 539188348,
         "hexCode": "|\\#",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -15444,7 +14260,7 @@
         "value": 542923900,
         "hexCode": "|\\\\",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -15452,7 +14268,7 @@
         "value": 543318396,
         "hexCode": "|ab",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -15460,7 +14276,7 @@
         "value": 543384188,
         "hexCode": "|bc",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -15468,7 +14284,7 @@
         "value": 543384700,
         "hexCode": "|dc",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -15476,7 +14292,7 @@
         "value": 829645948,
         "hexCode": "|ds1",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -15484,7 +14300,7 @@
         "value": 846423164,
         "hexCode": "|ds2",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -15492,7 +14308,7 @@
         "value": 829777020,
         "hexCode": "|du1",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -15500,7 +14316,7 @@
         "value": 1819632764,
         "hexCode": "|dul",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -15508,7 +14324,7 @@
         "value": 543452284,
         "hexCode": "|ld",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     },
     {
@@ -15516,7 +14332,7 @@
         "value": 544435580,
         "hexCode": "|ms",
         "category": [
-            "Other"
+            "#Other"
         ]
     },
     {
@@ -15524,7 +14340,7 @@
         "value": 543389564,
         "hexCode": "|wc",
         "category": [
-            "Charm"
+            "#Charm"
         ]
     }
 ]
