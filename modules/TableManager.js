@@ -10,7 +10,6 @@ export class TableManager {
         this.CATEGORY_IMAGES = {
             "#Charm": "charm",
             "#Essence": "essence",
-            "#Trophy": "trophy",
             "#Fragment": "fragment",
             "#Other": "other",
             "#Quest Item": "quest-item",
@@ -19,14 +18,8 @@ export class TableManager {
             "#Rune": "rune",
             "#Elemental Rune": "elemental-rune",
             "#Enchanted Rune": "enchanted-rune",
-            "#Consumable": "consumable",
             "#Mystic Orb": "mystic-orb",
             "#UMO": "umo",
-            "#Emblem": "emblem",
-            "#Shrine": "shrine",
-            "#Vessel": "other",
-            "#Cycle": "cycle",
-            "#Item Design": "item-design",
             "#Gem": "gem"
         };
 

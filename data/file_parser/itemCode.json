@@ -6975,9 +6975,7 @@
         "name": "Signet of Skill",
         "value": 541212705,
         "hexCode": "!@B",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Neutrality Pact",
@@ -6991,49 +6989,37 @@
         "name": "Emblem of Suffering",
         "value": 540104739,
         "hexCode": "#X1",
-        "category": [
-            "#Emblem"
-        ]
+        "category": []
     },
     {
         "name": "Emblem of Pain",
         "value": 540170275,
         "hexCode": "#X2",
-        "category": [
-            "#Emblem"
-        ]
+        "category": []
     },
     {
         "name": "Emblem of Hatred",
         "value": 540235811,
         "hexCode": "#X3",
-        "category": [
-            "#Emblem"
-        ]
+        "category": []
     },
     {
         "name": "Emblem of Terror",
         "value": 540301347,
         "hexCode": "#X4",
-        "category": [
-            "#Emblem"
-        ]
+        "category": []
     },
     {
         "name": "Emblem of Destruction",
         "value": 540366883,
         "hexCode": "#X5",
-        "category": [
-            "#Emblem"
-        ]
+        "category": []
     },
     {
         "name": "Emblem of Lies",
         "value": 540432419,
         "hexCode": "#X6",
-        "category": [
-            "#Emblem"
-        ]
+        "category": []
     },
     {
         "name": "Kara's Trinket",
@@ -7326,9 +7312,7 @@
         "name": "Signet of Learning",
         "value": 543043888,
         "hexCode": "01^",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Mystic Orb (Armor - Dexterity)",
@@ -7342,9 +7326,7 @@
         "name": "Custom Signet of Learning (2)",
         "value": 543044144,
         "hexCode": "02^",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Mystic Orb (Armor - Energy)",
@@ -7358,9 +7340,7 @@
         "name": "Custom Signet of Learning (3)",
         "value": 543044400,
         "hexCode": "03^",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Mystic Orb (Armor - Vitality)",
@@ -7374,9 +7354,7 @@
         "name": "Custom Signet of Learning (4)",
         "value": 543044656,
         "hexCode": "04^",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Mystic Orb (Any - Fire Spell Damage)",
@@ -7390,9 +7368,7 @@
         "name": "Large Signet of Learning",
         "value": 543044912,
         "hexCode": "05^",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Mystic Orb (Any - Cold Spell Damage)",
@@ -7406,9 +7382,7 @@
         "name": "Custom Signet of Learning (6)",
         "value": 543045168,
         "hexCode": "06^",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Mystic Orb (Any - Lightning Spell Damage)",
@@ -7422,9 +7396,7 @@
         "name": "Custom Signet of Learning (7)",
         "value": 543045424,
         "hexCode": "07^",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Mystic Orb (Any - Poison Spell Damage)",
@@ -7438,9 +7410,7 @@
         "name": "Custom Signet of Learning (8)",
         "value": 543045680,
         "hexCode": "08^",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Mystic Orb (Any - Physical/Magic Spell Damage)",
@@ -7454,9 +7424,7 @@
         "name": "Custom Signet of Learning (9)",
         "value": 543045936,
         "hexCode": "09^",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Catalyst of Learning",
@@ -7492,9 +7460,7 @@
         "name": "Custom Signet of Learning (10)",
         "value": 543043633,
         "hexCode": "10^",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Mystic Orb (Jewellry - Regenerate Mana)",
@@ -7508,9 +7474,7 @@
         "name": "Custom Signet of Learning (11)",
         "value": 543043889,
         "hexCode": "11^",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Mystic Orb (Any - Summoned Minion Damage)",
@@ -7524,9 +7488,7 @@
         "name": "Custom Signet of Learning (12)",
         "value": 543044145,
         "hexCode": "12^",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Mystic Orb (Any - Summoned Minion Life)",
@@ -7540,9 +7502,7 @@
         "name": "Custom Signet of Learning (13)",
         "value": 543044401,
         "hexCode": "13^",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Mystic Orb (Any - Summoned Minion Resistances)",
@@ -7556,17 +7516,13 @@
         "name": "Custom Signet of Learning (14)",
         "value": 543044657,
         "hexCode": "14^",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Custom Signet of Learning (15)",
         "value": 543044913,
         "hexCode": "15^",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Mystic Orb (Any - Magic Find)",
@@ -7580,17 +7536,13 @@
         "name": "Custom Signet of Learning (16)",
         "value": 543045169,
         "hexCode": "16^",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Custom Signet of Learning (17)",
         "value": 543045425,
         "hexCode": "17^",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Mystic Orb (Jewellry - Life)",
@@ -7604,9 +7556,7 @@
         "name": "Custom Signet of Learning (18)",
         "value": 543045681,
         "hexCode": "18^",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Mystic Orb (Jewellry - Defense)",
@@ -7620,9 +7570,7 @@
         "name": "Custom Signet of Learning (19)",
         "value": 543045937,
         "hexCode": "19^",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Oil of Augmentation",
@@ -7644,9 +7592,7 @@
         "name": "Custom Signet of Learning (20)",
         "value": 543043634,
         "hexCode": "20^",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Mystic Orb (Jewellry - Fire Resist)",
@@ -7660,9 +7606,7 @@
         "name": "Custom Signet of Learning (21)",
         "value": 543043890,
         "hexCode": "21^",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Mystic Orb (Jewellry - Cold Resist)",
@@ -7676,9 +7620,7 @@
         "name": "Custom Signet of Learning (22)",
         "value": 543044146,
         "hexCode": "22^",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Mystic Orb (Jewellry - Lightning Resist)",
@@ -7692,9 +7634,7 @@
         "name": "Custom Signet of Learning (23)",
         "value": 543044402,
         "hexCode": "23^",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Mystic Orb (Jewellry - Poison Resist)",
@@ -7708,9 +7648,7 @@
         "name": "Custom Signet of Learning (24)",
         "value": 543044658,
         "hexCode": "24^",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Mystic Orb (Armor - Curse Length Reduction)",
@@ -7724,9 +7662,7 @@
         "name": "Greater Signet of Learning",
         "value": 543044914,
         "hexCode": "25^",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Mystic Orb (Armor - Enhanced Defense)",
@@ -8132,177 +8068,133 @@
         "name": "Creepy Shrine (10)",
         "value": 539701313,
         "hexCode": "A0+",
-        "category": [
-            "#Shrine"
-        ]
+        "category": []
     },
     {
         "name": "Creepy Vessel",
         "value": 1395339329,
         "hexCode": "A0+S",
-        "category": [
-            "#Vessel"
-        ]
+        "category": []
     },
     {
         "name": "Abandoned Shrine (10)",
         "value": 539701314,
         "hexCode": "B0+",
-        "category": [
-            "#Shrine"
-        ]
+        "category": []
     },
     {
         "name": "Abandoned Vessel",
         "value": 1395339330,
         "hexCode": "B0+S",
-        "category": [
-            "#Vessel"
-        ]
+        "category": []
     },
     {
         "name": "Quiet Shrine (10)",
         "value": 539701315,
         "hexCode": "C0+",
-        "category": [
-            "#Shrine"
-        ]
+        "category": []
     },
     {
         "name": "Quiet Vessel",
         "value": 1395339331,
         "hexCode": "C0+S",
-        "category": [
-            "#Vessel"
-        ]
+        "category": []
     },
     {
         "name": "Eerie Shrine (10)",
         "value": 539701316,
         "hexCode": "D0+",
-        "category": [
-            "#Shrine"
-        ]
+        "category": []
     },
     {
         "name": "Eerie Vessel",
         "value": 1395339332,
         "hexCode": "D0+S",
-        "category": [
-            "#Vessel"
-        ]
+        "category": []
     },
     {
         "name": "Weird Shrine (10)",
         "value": 539701317,
         "hexCode": "E0+",
-        "category": [
-            "#Shrine"
-        ]
+        "category": []
     },
     {
         "name": "Weird Vessel",
         "value": 1395339333,
         "hexCode": "E0+S",
-        "category": [
-            "#Vessel"
-        ]
+        "category": []
     },
     {
         "name": "Intimidating Shrine (10)",
         "value": 539701318,
         "hexCode": "F0+",
-        "category": [
-            "#Shrine"
-        ]
+        "category": []
     },
     {
         "name": "Intimidating Vessel",
         "value": 1395339334,
         "hexCode": "F0+S",
-        "category": [
-            "#Vessel"
-        ]
+        "category": []
     },
     {
         "name": "Tainted Shrine (10)",
         "value": 539701319,
         "hexCode": "G0+",
-        "category": [
-            "#Shrine"
-        ]
+        "category": []
     },
     {
         "name": "Tainted Vessel",
         "value": 1395339335,
         "hexCode": "G0+S",
-        "category": [
-            "#Vessel"
-        ]
+        "category": []
     },
     {
         "name": "Fascinating Shrine (10)",
         "value": 539701320,
         "hexCode": "H0+",
-        "category": [
-            "#Shrine"
-        ]
+        "category": []
     },
     {
         "name": "Fascinating Vessel",
         "value": 1395339336,
         "hexCode": "H0+S",
-        "category": [
-            "#Vessel"
-        ]
+        "category": []
     },
     {
         "name": "Ornate Shrine (10)",
         "value": 539701321,
         "hexCode": "I0+",
-        "category": [
-            "#Shrine"
-        ]
+        "category": []
     },
     {
         "name": "Ornate Vessel",
         "value": 1395339337,
         "hexCode": "I0+S",
-        "category": [
-            "#Vessel"
-        ]
+        "category": []
     },
     {
         "name": "Sacred Shrine (10)",
         "value": 539701322,
         "hexCode": "J0+",
-        "category": [
-            "#Shrine"
-        ]
+        "category": []
     },
     {
         "name": "Sacred Vessel",
         "value": 1395339338,
         "hexCode": "J0+S",
-        "category": [
-            "#Vessel"
-        ]
+        "category": []
     },
     {
         "name": "Shimmering Shrine (10)",
         "value": 539701323,
         "hexCode": "K0+",
-        "category": [
-            "#Shrine"
-        ]
+        "category": []
     },
     {
         "name": "Shimmering Vessel",
         "value": 1395339339,
         "hexCode": "K0+S",
-        "category": [
-            "#Vessel"
-        ]
+        "category": []
     },
     {
         "name": "Earth Essence",
@@ -8362,81 +8254,61 @@
         "name": "Spiritual Shrine (10)",
         "value": 539701325,
         "hexCode": "M0+",
-        "category": [
-            "#Shrine"
-        ]
+        "category": []
     },
     {
         "name": "Spiritual Vessel",
         "value": 1395339341,
         "hexCode": "M0+S",
-        "category": [
-            "#Vessel"
-        ]
+        "category": []
     },
     {
         "name": "Magical Shrine (10)",
         "value": 539701326,
         "hexCode": "N0+",
-        "category": [
-            "#Shrine"
-        ]
+        "category": []
     },
     {
         "name": "Magical Vessel",
         "value": 1395339342,
         "hexCode": "N0+S",
-        "category": [
-            "#Vessel"
-        ]
+        "category": []
     },
     {
         "name": "Enchanted Shrine (10)",
         "value": 539701327,
         "hexCode": "O0+",
-        "category": [
-            "#Shrine"
-        ]
+        "category": []
     },
     {
         "name": "Enchanted Vessel",
         "value": 1395339343,
         "hexCode": "O0+S",
-        "category": [
-            "#Vessel"
-        ]
+        "category": []
     },
     {
         "name": "Hidden Shrine (10)",
         "value": 539701329,
         "hexCode": "Q0+",
-        "category": [
-            "#Shrine"
-        ]
+        "category": []
     },
     {
         "name": "Hidden Vessel",
         "value": 1395339345,
         "hexCode": "Q0+S",
-        "category": [
-            "#Vessel"
-        ]
+        "category": []
     },
     {
         "name": "Trinity Shrine (10)",
         "value": 539701330,
         "hexCode": "R0+",
-        "category": [
-            "#Shrine"
-        ]
+        "category": []
     },
     {
         "name": "Trinity Vessel",
         "value": 1395339346,
         "hexCode": "R0+S",
-        "category": [
-            "#Vessel"
-        ]
+        "category": []
     },
     {
         "name": "Arcane Seal",
@@ -8455,8 +8327,7 @@
         "value": 540094555,
         "hexCode": "[01",
         "category": [
-            "#Other",
-            "#Trophy"
+            "#Other"
         ]
     },
     {
@@ -8464,8 +8335,7 @@
         "value": 540160091,
         "hexCode": "[02",
         "category": [
-            "#Other",
-            "#Trophy"
+            "#Other"
         ]
     },
     {
@@ -8473,8 +8343,7 @@
         "value": 540225627,
         "hexCode": "[03",
         "category": [
-            "#Other",
-            "#Trophy"
+            "#Other"
         ]
     },
     {
@@ -8482,8 +8351,7 @@
         "value": 540291163,
         "hexCode": "[04",
         "category": [
-            "#Other",
-            "#Trophy"
+            "#Other"
         ]
     },
     {
@@ -8491,8 +8359,7 @@
         "value": 540356699,
         "hexCode": "[05",
         "category": [
-            "#Other",
-            "#Trophy"
+            "#Other"
         ]
     },
     {
@@ -8500,8 +8367,7 @@
         "value": 540422235,
         "hexCode": "[06",
         "category": [
-            "#Other",
-            "#Trophy"
+            "#Other"
         ]
     },
     {
@@ -8509,8 +8375,7 @@
         "value": 540487771,
         "hexCode": "[07",
         "category": [
-            "#Other",
-            "#Trophy"
+            "#Other"
         ]
     },
     {
@@ -8518,8 +8383,7 @@
         "value": 540553307,
         "hexCode": "[08",
         "category": [
-            "#Other",
-            "#Trophy"
+            "#Other"
         ]
     },
     {
@@ -8527,8 +8391,7 @@
         "value": 540618843,
         "hexCode": "[09",
         "category": [
-            "#Other",
-            "#Trophy"
+            "#Other"
         ]
     },
     {
@@ -8536,8 +8399,7 @@
         "value": 540029275,
         "hexCode": "[10",
         "category": [
-            "#Other",
-            "#Trophy"
+            "#Other"
         ]
     },
     {
@@ -8545,8 +8407,7 @@
         "value": 540094811,
         "hexCode": "[11",
         "category": [
-            "#Other",
-            "#Trophy"
+            "#Other"
         ]
     },
     {
@@ -8554,8 +8415,7 @@
         "value": 540160347,
         "hexCode": "[12",
         "category": [
-            "#Other",
-            "#Trophy"
+            "#Other"
         ]
     },
     {
@@ -8563,8 +8423,7 @@
         "value": 540225883,
         "hexCode": "[13",
         "category": [
-            "#Other",
-            "#Trophy"
+            "#Other"
         ]
     },
     {
@@ -8572,8 +8431,7 @@
         "value": 540291419,
         "hexCode": "[14",
         "category": [
-            "#Other",
-            "#Trophy"
+            "#Other"
         ]
     },
     {
@@ -8581,8 +8439,7 @@
         "value": 540356955,
         "hexCode": "[15",
         "category": [
-            "#Other",
-            "#Trophy"
+            "#Other"
         ]
     },
     {
@@ -8590,8 +8447,7 @@
         "value": 540422491,
         "hexCode": "[16",
         "category": [
-            "#Other",
-            "#Trophy"
+            "#Other"
         ]
     },
     {
@@ -8599,8 +8455,7 @@
         "value": 540488027,
         "hexCode": "[17",
         "category": [
-            "#Other",
-            "#Trophy"
+            "#Other"
         ]
     },
     {
@@ -8608,8 +8463,7 @@
         "value": 540553563,
         "hexCode": "[18",
         "category": [
-            "#Other",
-            "#Trophy"
+            "#Other"
         ]
     },
     {
@@ -8617,8 +8471,7 @@
         "value": 540619099,
         "hexCode": "[19",
         "category": [
-            "#Other",
-            "#Trophy"
+            "#Other"
         ]
     },
     {
@@ -8626,8 +8479,7 @@
         "value": 540029531,
         "hexCode": "[20",
         "category": [
-            "#Other",
-            "#Trophy"
+            "#Other"
         ]
     },
     {
@@ -8674,9 +8526,7 @@
         "name": "Golden Cycle",
         "value": 540433500,
         "hexCode": "\\\\6",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Tome of Possession",
@@ -8807,7 +8657,7 @@
         "value": 544437089,
         "hexCode": "ass",
         "category": [
-            "#Quest Item"
+            "#Quest item"
         ]
     },
     {
@@ -8917,7 +8767,7 @@
         "value": 543318626,
         "hexCode": "bbb",
         "category": [
-            "#Quest Item"
+            "#Quest item"
         ]
     },
     {
@@ -8925,7 +8775,7 @@
         "value": 543452002,
         "hexCode": "bkd",
         "category": [
-            "#Quest Item"
+            "#Quest item"
         ]
     },
     {
@@ -8933,7 +8783,7 @@
         "value": 544435042,
         "hexCode": "bks",
         "category": [
-            "#Quest Item"
+            "#Quest item"
         ]
     },
     {
@@ -8949,7 +8799,7 @@
         "value": 544763746,
         "hexCode": "box",
         "category": [
-            "#Quest Item"
+            "#Quest item"
         ]
     },
     {
@@ -8975,24 +8825,6 @@
         "category": [
             "#Other"
         ]
-    },
-    {
-        "name": "Cycle",
-        "value": 540110179,
-        "hexCode": "cm1",
-        "category": []
-    },
-    {
-        "name": "Cycle",
-        "value": 540175715,
-        "hexCode": "cm2",
-        "category": []
-    },
-    {
-        "name": "Cycle",
-        "value": 540241251,
-        "hexCode": "cm3",
-        "category": []
     },
     {
         "name": "Corrupted Cluster",
@@ -9146,345 +8978,259 @@
         "name": "Small Cycle (Strength)",
         "value": 825260387,
         "hexCode": "cy01",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Small Cycle (Dexterity)",
         "value": 842037603,
         "hexCode": "cy02",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Small Cycle (Vitality)",
         "value": 858814819,
         "hexCode": "cy03",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Small Cycle (Energy)",
         "value": 875592035,
         "hexCode": "cy04",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Medium Cycle (Strength)",
         "value": 892369251,
         "hexCode": "cy05",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Medium Cycle (Dexterity)",
         "value": 909146467,
         "hexCode": "cy06",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Medium Cycle (Vitality)",
         "value": 925923683,
         "hexCode": "cy07",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Medium Cycle (Energy)",
         "value": 942700899,
         "hexCode": "cy08",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Large Cycle (Strength)",
         "value": 959478115,
         "hexCode": "cy09",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Large Cycle (Dexterity)",
         "value": 808548707,
         "hexCode": "cy10",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Large Cycle (Vitality)",
         "value": 825325923,
         "hexCode": "cy11",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Large Cycle (Energy)",
         "value": 842103139,
         "hexCode": "cy12",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Small Cycle (Gold Find)",
         "value": 858880355,
         "hexCode": "cy13",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Medium Cycle (Gold Find)",
         "value": 875657571,
         "hexCode": "cy14",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Large Cycle (Gold Find)",
         "value": 892434787,
         "hexCode": "cy15",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Small Cycle (Magic Find)",
         "value": 909212003,
         "hexCode": "cy16",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Medium Cycle (Magic Find)",
         "value": 925989219,
         "hexCode": "cy17",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Large Cycle (Magic Find)",
         "value": 942766435,
         "hexCode": "cy18",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Small Cycle (Combat Speed)",
         "value": 959543651,
         "hexCode": "cy19",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Medium Cycle (Combat Speed)",
         "value": 808614243,
         "hexCode": "cy20",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Large Cycle (Combat Speed)",
         "value": 825391459,
         "hexCode": "cy21",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Large Cycle (Amazon)",
         "value": 842168675,
         "hexCode": "cy22",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Large Cycle (Assassin)",
         "value": 858945891,
         "hexCode": "cy23",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Large Cycle (Barbarian)",
         "value": 875723107,
         "hexCode": "cy24",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Large Cycle (Druid)",
         "value": 892500323,
         "hexCode": "cy25",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Large Cycle (Necromancer)",
         "value": 909277539,
         "hexCode": "cy26",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Large Cycle (Sorceress)",
         "value": 926054755,
         "hexCode": "cy27",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Large Cycle (Paladin)",
         "value": 942831971,
         "hexCode": "cy28",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Small Cycle (Mana)",
         "value": 959609187,
         "hexCode": "cy29",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Medium Cycle (Mana)",
         "value": 808679779,
         "hexCode": "cy30",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Large Cycle (Mana)",
         "value": 825456995,
         "hexCode": "cy31",
-        "category": [
-            "#Cycle"
-        ]
+        "category": []
     },
     {
         "name": "Item Design (MISSING)",
         "value": 825255780,
         "hexCode": "dg01",
-        "category": [
-            "#Item Design"
-        ]
+        "category": []
     },
     {
         "name": "Item Design (Valkyrie's Prime)",
         "value": 842032996,
         "hexCode": "dg02",
-        "category": [
-            "#Item Design"
-        ]
+        "category": []
     },
     {
         "name": "Item Design (MISSING)",
         "value": 858810212,
         "hexCode": "dg03",
-        "category": [
-            "#Item Design"
-        ]
+        "category": []
     },
     {
         "name": "Item Design (Natasha's Legacy)",
         "value": 875587428,
         "hexCode": "dg04",
-        "category": [
-            "#Item Design"
-        ]
+        "category": []
     },
     {
         "name": "Item Design (Tenet of Harmony)",
         "value": 892364644,
         "hexCode": "dg05",
-        "category": [
-            "#Item Design"
-        ]
+        "category": []
     },
     {
         "name": "Item Design (Tenet of Restraint)",
         "value": 909141860,
         "hexCode": "dg06",
-        "category": [
-            "#Item Design"
-        ]
+        "category": []
     },
     {
         "name": "Item Design (Tenet of Vigor)",
         "value": 925919076,
         "hexCode": "dg07",
-        "category": [
-            "#Item Design"
-        ]
+        "category": []
     },
     {
         "name": "Item Design (Tenet of Wisdom)",
         "value": 942696292,
         "hexCode": "dg08",
-        "category": [
-            "#Item Design"
-        ]
+        "category": []
     },
     {
         "name": "Item Design (Tenet of Judgement)",
         "value": 959473508,
         "hexCode": "dg09",
-        "category": [
-            "#Item Design"
-        ]
+        "category": []
     },
     {
         "name": "Item Design (Tenet of Conflict)",
         "value": 808544100,
         "hexCode": "dg10",
-        "category": [
-            "#Item Design"
-        ]
+        "category": []
     },
     {
         "name": "Item Design (Dulra Aegis)",
         "value": 825321316,
         "hexCode": "dg11",
-        "category": [
-            "#Item Design"
-        ]
+        "category": []
     },
     {
         "name": "Apple",
         "value": 543649636,
         "hexCode": "dog",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Dark Tome",
@@ -10351,7 +10097,7 @@
         "value": 540291943,
         "hexCode": "g34",
         "category": [
-            "#Quest Item"
+            "#Quest item"
         ]
     },
     {
@@ -10759,7 +10505,7 @@
         "value": 543515497,
         "hexCode": "ice",
         "category": [
-            "#Quest Item"
+            "#Quest item"
         ]
     },
     {
@@ -10949,7 +10695,7 @@
         "value": 540291946,
         "hexCode": "j34",
         "category": [
-            "#Quest Item"
+            "#Quest item"
         ]
     },
     {
@@ -11205,7 +10951,7 @@
         "value": 544437101,
         "hexCode": "mss",
         "category": [
-            "#Quest Item"
+            "#Quest item"
         ]
     },
     {
@@ -11261,7 +11007,7 @@
         "value": 544367217,
         "hexCode": "qbr",
         "category": [
-            "#Quest Item"
+            "#Quest item"
         ]
     },
     {
@@ -11269,7 +11015,7 @@
         "value": 544826737,
         "hexCode": "qey",
         "category": [
-            "#Quest Item"
+            "#Quest item"
         ]
     },
     {
@@ -11277,7 +11023,7 @@
         "value": 544368753,
         "hexCode": "qhr",
         "category": [
-            "#Quest Item"
+            "#Quest item"
         ]
     },
     {
@@ -13662,7 +13408,7 @@
         "value": 543256436,
         "hexCode": "toa",
         "category": [
-            "#Quest Item"
+            "#Quest item"
         ]
     },
     {
@@ -13670,7 +13416,7 @@
         "value": 540111476,
         "hexCode": "tr1",
         "category": [
-            "#Quest Item"
+            "#Quest item"
         ]
     },
     {
@@ -13936,7 +13682,7 @@
         "value": 544897400,
         "hexCode": "xyz",
         "category": [
-            "#Quest Item"
+            "#Quest item"
         ]
     },
     {
@@ -14023,49 +13769,37 @@
         "name": "Signet of Gold",
         "value": 539716474,
         "hexCode": "zk+",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Greater Signet of Experience",
         "value": 543648634,
         "hexCode": "zkg",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Large Signet of Experience",
         "value": 544369530,
         "hexCode": "zkr",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Signet of Experience",
         "value": 544566138,
         "hexCode": "zku",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Signet of Gold",
         "value": 544697210,
         "hexCode": "zkw",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Greater Signet of Gold",
         "value": 544762746,
         "hexCode": "zkx",
-        "category": [
-            "#Consumable"
-        ]
+        "category": []
     },
     {
         "name": "Lord of Lies Fragment",
