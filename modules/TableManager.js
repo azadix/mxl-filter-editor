@@ -12,7 +12,7 @@ export class TableManager {
             "#Essence": "essence",
             "#Fragment": "fragment",
             "#Other": "other",
-            "#Quest Item": "quest-item",
+            "#Quest item": "quest-item",
             "#Tenet": "tenet",
             "#Lootbox": "lootbox",
             "#Rune": "rune",
