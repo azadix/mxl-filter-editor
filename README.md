@@ -62,10 +62,6 @@ Example JSON structure:
       "max_clvl": 0,
       "min_ilvl": 0,
       "max_ilvl": 0,
-      // "rule_type" determines the "params" structure:
-      // -1: "params" should be null
-      //  0: "params" should contain { "class": value } (filter by category)
-      //  1: "params" should contain { "code": value } (filter by specific item)
       "rule_type": 1,
       "params": { "code": 123 },
       "notify": true,
