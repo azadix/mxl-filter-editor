@@ -429,37 +429,34 @@ export class TableManager {
                 this.toastManager.showToast("Please enter a filter name before saving.");
                 return;
             }
-
+        
             const filterData = this.ruleManager.generateOutput();
-
             this.storageManager.saveFilter(filterName, filterData);
-            this.toastManager.showToast(`Filter "${filterName}" saved to local storage!`, true);
+            this.toastManager.showToast(`Filter "${filterName}" saved!`, true);
             this.dropdownManager.updateFilterSelect();
         });
-
+        
         // Load from localStorage
         $('#loadFromLocalStorage').on('change', () => {
             const filterName = $('#loadFromLocalStorage').val().trim();
-            if (!filterName) { return; }
-
+            if (!filterName) return;
+        
             const filterData = this.storageManager.loadFilter(filterName);
-
             if (filterData) {
-                $('#defaultNotify').prop('checked', filterData.default_notify);
-                $('#defaultMap').prop('checked', filterData.default_map);
-                $('#defaultShowItems').prop('checked', filterData.default_show_items);
-                $('#filterName').val(filterData.name);
-
+                const parsedData = JSON.parse(filterData);
+                $('#defaultShowItems').prop('checked', parsedData.default_show_items);
+                $('#filterName').val(filterName);
+        
                 this.ruleManager.clearRules();
-                filterData.rules.reverse().forEach(rule => this.ruleManager.addRule(rule));
+                parsedData.rules.reverse().forEach(rule => this.ruleManager.addRule(rule));
                 this.renderTable();
-
+        
                 this.toastManager.showToast(`Filter "${filterName}" loaded successfully!`, true);
             } else {
-                this.toastManager.showToast(`Filter "${filterName}" not found in local storage.`, true);
+                this.toastManager.showToast(`Filter "${filterName}" not found.`, true);
             }
         });
-
+        
         // Delete from localStorage
         $('#deleteFromLocalStorage').on('click', () => {
             const filterName = $('#filterName').val().trim();
@@ -467,14 +464,20 @@ export class TableManager {
                 this.toastManager.showToast("Please select a filter to delete.", true);
                 return;
             }
-            const confirmDelete = confirm("Are you sure you want to delete this filter from storage?");
             
+            const confirmDelete = confirm(`Are you sure you want to delete "${filterName}"?`);
             if (confirmDelete) {
                 if (this.storageManager.deleteFilter(filterName)) {
-                    this.toastManager.showToast(`Filter "${filterName}" deleted from local storage!`, true);
+                    this.toastManager.showToast(`Filter "${filterName}" deleted!`, true);
                     this.dropdownManager.updateFilterSelect();
+                    
+                    // Reset the UI
+                    $('#filterName').val('');
+                    $('#loadFromLocalStorage').val('');
+                    this.ruleManager.clearRules();
+                    this.renderTable();
                 } else {
-                    this.toastManager.showToast(`Filter "${filterName}" not found in local storage.`, true);
+                    this.toastManager.showToast(`Filter "${filterName}" not found.`, true);
                 }
             }
         });

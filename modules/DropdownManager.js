@@ -6,15 +6,14 @@ export class DropdownManager {
     }
 
     updateFilterSelect() {
-        const filterNames = this.storageManager.getFilterNames();
-        const filterSelect = $('#loadFromLocalStorage');
-
-        filterSelect.empty();
-        filterSelect.append('<option value="" disabled selected hidden>Select a filter to load</option>');
-
-        filterNames.forEach(filterName => {
-            filterSelect.append(`<option value="${filterName}">${filterName}</option>`);
-        });
+        const $select = $('#loadFromLocalStorage');
+        $select.empty().append('<option hidden value="">Select a filter</option>');
+        
+        this.storageManager.getFilterMetadata()
+            .sort((a, b) => new Date(b.lastSavedAt) - new Date(a.lastSaved))
+            .forEach(filter => {
+                $select.append(`<option value="${filter.name}">${filter.name}</option>`);
+            });
     }
 
     initializeGlobalSelector() {
