@@ -114,7 +114,6 @@ export class TableManager {
                                     </figure></span>
                                     <span class="tag">${category}</span>
                                 </span>`;
-                //itemCategories +=`<span class="tag ml-1">${category}</span>`;
             });
         }
         
@@ -122,23 +121,13 @@ export class TableManager {
     }
 
     openGlobalSelectorModal(ruleType, currentValue, onChangeCallback) {
+        // Clean up previous handlers
+        this._globalSelectorHandlers?.change?.();
+        
+        // Destroy and recreate Select2 to ensure clean state
         if (this.dropdownManager.globalSelector.data('select2')) {
             this.dropdownManager.globalSelector.select2('destroy');
         }
-    
-        // Clean up previous handlers
-        this._globalSelectorHandlers?.change?.();
-        this._globalSelectorHandlers?.close?.();
-        
-        // Store new handler for cleanup
-        this._globalSelectorHandlers = {
-            change: () => {
-                this.dropdownManager.globalSelector.off('change');
-            },
-            close: () => {
-                $('#globalSelectorModal .modal-close, #globalSelectorModal .modal-background').off('click');
-            }
-        };
     
         // Populate Select2 options based on ruleType
         const options = ruleType === this.ruleManager.ruleTypes.ITEM.value
@@ -151,16 +140,16 @@ export class TableManager {
             category: option.category
         }));
     
-        // Clear and populate the global selector
+        // Initialize Select2 with new options
         this.dropdownManager.globalSelector.empty().select2({
             data: select2Data,
-            dropdownParent: $('#globalSelectorModal .modal-content'),
+            dropdownParent: $('#globalSelectorModal .modal-card-body'),
             width: '100%',
-            height: '100%',
+            dropdownAutoWidth: true,
             templateResult: this.formatItem,
             allowClear: false,
             matcher: function(params, data) {
-                if ($.trim(params.term) === '') { return data;}
+                if ($.trim(params.term) === '') return data;
         
                 const term = params.term.toLowerCase();
                 const text = data.text.toLowerCase();
@@ -177,31 +166,21 @@ export class TableManager {
         this.dropdownManager.globalSelector.val(currentValue).trigger('change');
     
         // Handle value change
-        this.dropdownManager.globalSelector.off('change').on('change', (e) => {
+        const changeHandler = (e) => {
             const newValue = $(e.target).val();
             if (newValue !== currentValue) {
                 onChangeCallback(newValue);
                 this.dropdownManager.closeGlobalSelectorModal();
             }
-        });
-    
-        // Show modal
-        document.getElementById('globalSelectorModal').classList.add('is-active');
-        this.dropdownManager.globalSelector.select2('open');
-        $('#globalSelector').next('.select2-container').find('.select2-selection--single').hide();
-        $('.select2-search__field').addClass('input');
-        $('.select2-dropdown--below').addClass('px-2 py-3', '');
-    
-        // Handle modal close
-        const closeHandler = () => {
-            this.dropdownManager.globalSelector.select2('destroy');
-            this.dropdownManager.closeGlobalSelectorModal();
         };
         
-        $('#globalSelectorModal .modal-close, #globalSelectorModal .modal-background').off('click').on('click', closeHandler);
-        this._globalSelectorHandlers.close = () => {
-            $('#globalSelectorModal .modal-close, #globalSelectorModal .modal-background').off('click', closeHandler);
-        };
+        this.dropdownManager.globalSelector.off('change').on('change', changeHandler);
+        this._globalSelectorHandlers = { change: () => this.dropdownManager.globalSelector.off('change', changeHandler) };
+    
+        // Show modal and focus search
+        this.dropdownManager.openGlobalSelectorModal();
+        $('.select2-search__field').addClass('input');
+        $('.select2-search__field').trigger('focus');
     }
 
     createRowData(rule, index) {

@@ -23,18 +23,31 @@ export class DropdownManager {
         modal.classList.add('modal');
         modal.innerHTML = `
             <div class="modal-background"></div>
-            <div class="modal-content" style="height: 55%;">
-                <select class="is-fullwidth" id="globalSelector"></select>
+            <div class="modal-card" style="height: 68vh;">
+                <section class="modal-card-body p-0">
+                    <select class="is-fullwidth" id="globalSelector"></select>
+                </section>
             </div>
-            <button class="modal-close is-large" aria-label="close"></button>
         `;
         document.body.appendChild(modal);
-        $(modal).find('.modal-background, .modal-close').on('click', () => this.closeGlobalSelectorModal());
+        
+        // Close modal when clicking background or close button
+        $(modal).find('.modal-background, .modal-card-head .delete').on('click', () => this.closeGlobalSelectorModal());
+        
+        // Prevent click events from propagating to modal background
+        $(modal).find('.modal-card').on('click', (e) => e.stopPropagation());
 
-        return $('#globalSelector').select2();
+        return $('#globalSelector').select2({
+            dropdownParent: $('#globalSelectorModal .modal-card-body')
+        }).maximizeSelect2Height();
     }
 
     closeGlobalSelectorModal() {
-        document.getElementById('globalSelectorModal').classList.remove('is-active');
+        $('#globalSelectorModal').removeClass('is-active');
+    }
+
+    openGlobalSelectorModal() {
+        $('#globalSelectorModal').addClass('is-active');
+        this.globalSelector.select2('open');
     }
 }
