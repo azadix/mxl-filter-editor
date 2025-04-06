@@ -185,7 +185,7 @@ export class TableManager {
 
     createRowData(rule, index) {
         return [
-            rule.id | Date.now(),
+            rule.id || Date.now(),
             `<span class="handle icon is-normal"><i class="fas fa-arrows-alt-v"></i></span>`,
             `<div class="checkbox-container"><input id="active-${index}" class="checkbox-input rule-is-active" type="checkbox" ${rule.active ? 'checked' : ''}></div>`,
             `<div class="select">
@@ -325,7 +325,7 @@ export class TableManager {
         outerWrapper.appendChild(selectParams);
         return outerWrapper;
     }
-
+    
     initializeEventListeners() {
         if (!this.ruleManager.isDataLoaded()) {
             this.toastManager.showToast('Waiting for data to load...', true);

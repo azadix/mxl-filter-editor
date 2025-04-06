@@ -99,17 +99,17 @@ export class RuleManager {
 
     getRuleTypes() {
         return {
-            "None": this.RuleTypes.NONE.value,
-            "Class": this.RuleTypes.CLASS.value, 
-            "Item": this.RuleTypes.ITEM.value
+            "None": this.ruleTypes.NONE.value,
+            "Class": this.ruleTypes.CLASS.value, 
+            "Item": this.ruleTypes.ITEM.value
         };
     }
 
     getEtherealStates() {
         return {
-            "Either": this.EtherealStates.EITHER.value,
-            "Yes": this.EtherealStates.YES.value,
-            "No": this.EtherealStates.NO.value
+            "Either": this.etherealStates.EITHER.value,
+            "Yes": this.etherealStates.YES.value,
+            "No": this.etherealStates.NO.value
         };
     }
 
@@ -141,8 +141,8 @@ export class RuleManager {
     }
 
     isDataLoaded() {
-        return this.itemCodes !== null && 
-               this.itemClasses !== null && 
-               this.itemQuality !== null;
+        return Array.isArray(this.itemCodes) && this.itemCodes.length > 0 &&
+               Array.isArray(this.itemClasses) && this.itemClasses.length > 0 &&
+               Array.isArray(this.itemQuality) && this.itemQuality.length > 0;
     }
 }
