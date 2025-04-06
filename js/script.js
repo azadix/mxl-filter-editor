@@ -11,12 +11,39 @@ const dataConfigs = [
     { path: './data/itemQuality.json', isSorted: false, method: 'loadItemQuality' }
 ];
 
-$(document).ready(function () {
-    const ruleManager = new RuleManager();
-    const storageManager = new StorageManager();
+async function initializeApp() {
     const toastManager = new ToastManager();
-    const dropdownManager = new DropdownManager(storageManager);
-    const tableManager = new TableManager(ruleManager, storageManager, toastManager, dropdownManager);
+    
+    try {
+        // Create manager instances
+        const ruleManager = new RuleManager();
+        const storageManager = new StorageManager();
+        const dropdownManager = new DropdownManager(storageManager);
+        
+        // Load all data files sequentially
+        for (const config of dataConfigs) {
+            await loadJsonData(
+                config.path, 
+                config.isSorted, 
+                config.method, 
+                ruleManager,
+                toastManager
+            );
+        }
+        
+        // Only initialize table after all data is loaded
+        const tableManager = new TableManager(
+            ruleManager, 
+            storageManager, 
+            toastManager, 
+            dropdownManager
+        );        
+    } catch (error) {
+        toastManager.showToast(`Failed to initialize application: ${error.message}`, false, 'danger');
+        console.error('Initialization error:', error);
+    }
+}
 
-    dataConfigs.forEach(config => loadJsonData(config.path, config.isSorted, config.method, ruleManager));
+$(document).ready(() => {
+    initializeApp();
 });

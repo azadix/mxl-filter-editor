@@ -7,20 +7,31 @@ export function sanitizeFilterName(name) {
     return name.replace(/[^a-zA-Z0-9\s\-_]/g, "");
 }
 
-export function loadJsonData(filePath, isSorted, loaderMethod, manager) {
-    $.ajax({
-        url: filePath,
-        dataType: 'json',
-        success: function(data) {
-            if (isSorted && Array.isArray(data)) {
-                data.sort((a, b) => a.name.localeCompare(b.name));
+export function loadJsonData(filePath, isSorted, loaderMethod, manager, toastManager) {
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            url: filePath,
+            dataType: 'json',
+            success: function(data) {
+                try {
+                    if (isSorted && Array.isArray(data)) {
+                        data.sort((a, b) => a.name.localeCompare(b.name));
+                    }
+                    manager[loaderMethod](data);
+                    resolve();
+                } catch (error) {
+                    reject(new Error(`Error processing ${filePath}: ${error.message}`));
+                }
+            },
+            error: function(xhr, status, error) {
+                const fileName = filePath.split('/').pop();
+                const errorMsg = `Error loading ${fileName}: ${error}`;
+                
+                if (toastManager) {
+                    toastManager.showToast(errorMsg, false, 'danger');
+                }
+                reject(new Error(errorMsg));
             }
-            manager[loaderMethod](data);
-        },
-        error: function(xhr, status, error) {
-            const fileName = filePath.split('/').pop();
-            toastManager.showToast(`Error loading ${fileName}`, false, 'danger');
-            console.error(`Error loading ${fileName}`, error);
-        }
+        });
     });
 }

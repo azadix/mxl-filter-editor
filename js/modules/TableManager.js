@@ -327,6 +327,11 @@ export class TableManager {
     }
 
     initializeEventListeners() {
+        if (!this.ruleManager.isDataLoaded()) {
+            this.toastManager.showToast('Waiting for data to load...', true);
+            return;
+        }
+
         const defaultNotify = localStorage.getItem('defaultNotify') === 'true';
         const defaultMap = localStorage.getItem('defaultMap') === 'true';
 

@@ -139,4 +139,10 @@ export class RuleManager {
             })
         }, null, 2);
     }
+
+    isDataLoaded() {
+        return this.itemCodes !== null && 
+               this.itemClasses !== null && 
+               this.itemQuality !== null;
+    }
 }
