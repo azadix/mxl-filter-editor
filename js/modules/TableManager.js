@@ -671,8 +671,7 @@ export class TableManager {
         });
         this.table.on('click', '.delete-rule', (event) => {
             const $button = $(event.target).closest('.delete-rule');
-            const $icon = $button.find('.icon');
-            const $row = $(event.target).closest('tr');
+            const $row = $button.closest('tr');
             const dataIndex = parseInt($row.data('index'));
             
             if (isNaN(dataIndex)) {
@@ -680,24 +679,21 @@ export class TableManager {
                 return;
             }
 
-            // Show loading spinner
+            // Add Bulma loading state - hides icon and shows spinner
+            $button.addClass('is-loading');
             $button.prop('disabled', true);
-            $button.off();
-            $icon.html('<i class="fas fa-spinner fa-spin"></i>');
 
-            const rules = this.ruleManager.getRules();
-            if (dataIndex >= 0 && dataIndex < rules.length) {
-                // Add slight delay for visual feedback
-                setTimeout(() => {
+            setTimeout(() => {
+                const rules = this.ruleManager.getRules();
+                if (dataIndex >= 0 && dataIndex < rules.length) {
                     this.ruleManager.deleteRule(dataIndex);
                     this.renderTable();
-                }, 50);
-            } else {
-                console.warn("Index out of bounds:", dataIndex);
-                // Reset button if error occurs
-                $button.prop('disabled', false);
-                $icon.html('<i class="fas fa-trash"></i>');
-            }
+                } else {
+                    console.warn("Index out of bounds:", dataIndex);
+                    $button.removeClass('is-loading');
+                    $button.prop('disabled', false);
+                }
+            }, 150); // Short delay for visual feedback
         });
     }
 

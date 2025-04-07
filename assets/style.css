@@ -225,3 +225,11 @@ a svg {
 .select2-container--default .select2-results>.select2-results__options{
     max-height: 60vh !important;
 }
+
+.delete-rule.is-loading .icon {
+    visibility: hidden;
+}
+
+.delete-rule.is-loading::after {
+    border-color: transparent transparent hsl(var(--bulma-button-h), var(--bulma-button-s), var(--bulma-button-l)) hsl(var(--bulma-button-h), var(--bulma-button-s), var(--bulma-button-l)) !important;
+}
