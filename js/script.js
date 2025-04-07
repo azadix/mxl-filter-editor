@@ -6,7 +6,7 @@ import { TableManager } from './modules/TableManager.js';
 import { loadJsonData } from './modules/utils.js';
 
 const dataConfigs = [
-    { path: './data/file_parser/itemCode.json', isSorted: true, method: 'loadItemCodes' },
+    { path: './data/itemCode.json', isSorted: true, method: 'loadItemCodes' },
     { path: './data/itemClass.json', isSorted: true, method: 'loadItemClasses' },
     { path: './data/itemQuality.json', isSorted: false, method: 'loadItemQuality' }
 ];
@@ -30,7 +30,7 @@ async function initializeApp() {
                 toastManager
             );
         }
-        
+
         // Only initialize table after all data is loaded
         const tableManager = new TableManager(
             ruleManager, 
