@@ -128,8 +128,26 @@ td {
     min-width: 100px;
 }
 
-.min-width-500 {
-    min-width: 500px;
+.big-dropdown-width {
+    min-width: 100%; /* Default for very small screens */
+}
+
+@media screen and (min-width: 768px) {
+    .big-dropdown-width {
+        min-width: 400px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .big-dropdown-width {
+        min-width: 500px;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .big-dropdown-width {
+        min-width: 700px;
+    }
 }
 
 .v-center {

@@ -40,7 +40,10 @@ export class TableManager {
                 bottomStart: { info: { empty: '', text: 'Rule count: _TOTAL_' } }
             }
         });
-        
+
+        if (this.ruleManager.getRules().length === 0) {
+            $('.dt-layout-table').hide();
+        }
         this.initializeEventListeners();
         this.initializeSortable();
     }
@@ -49,24 +52,31 @@ export class TableManager {
         const tableElement = document.querySelector('#rulesTable');
         const tableRect = tableElement.getBoundingClientRect();
         const viewportHeight = window.innerHeight;
-        const availableHeight = viewportHeight - tableRect.top - 150;
-        
-        return Math.max(availableHeight, 500);
+
+        // Dynamically calculate the offset based on the height of other elements
+        const headerHeight = document.querySelector('#header')?.offsetHeight || 0;
+        const availableHeight = viewportHeight - tableRect.top - headerHeight;
+    
+        return availableHeight;
     }
 
     initializeSortable() {
         const tableBody = document.querySelector('#rulesTable tbody');
-
+        if (!tableBody) {
+            console.error("Table body not found.");
+            return;
+        }
+    
         if (this._sortableInstance) {
             this._sortableInstance.destroy();
         }
-        
+    
         this._sortableInstance = Sortable.create(tableBody, {
             handle: '.handle',
             animation: 150,
-            onEnd: (event) => {
+            onEnd: () => {
                 const rows = Array.from(tableBody.querySelectorAll('tr'));
-                const newOrder = rows.map(row => row.dataset.index);
+                const newOrder = rows.map(row => parseInt(row.dataset.index, 10));
                 this.ruleManager.reorderRules(newOrder);
                 this.renderTable();
             }
@@ -89,8 +99,16 @@ export class TableManager {
     renderTable() {
         this.table.rows().nodes().to$().off('*');
         this.table.clear();
+        const rules = this.ruleManager.getRules()
 
-        this.ruleManager.getRules().forEach((rule, index) => {
+        // Hide or show the table based on the number of rules
+        if (rules.length === 0) {
+            $('.dt-layout-table').hide();
+        } else {
+            $('.dt-layout-table').show();
+        }
+
+        rules.forEach((rule, index) => {
             const rowData = this.createRowData(rule, index);
             this.table.row.add(rowData).node();
         });
@@ -261,7 +279,7 @@ export class TableManager {
         paramsDatalist.id = `param-value-${jsonIndex}`;
         groupWrapper.appendChild(this.createParamsDropdown(ruleType, jsonIndex));
         groupWrapper.appendChild(paramsWrapper);
-        groupWrapper.classList.add("input-wrapper", "min-width-500");
+        groupWrapper.classList.add("input-wrapper", "big-dropdown-width");
 
         const option = document.createElement("option");
         option.hidden = true;
@@ -682,25 +700,22 @@ export class TableManager {
         this.table.off();
         this.table.destroy(true);
     
-        const tableBody = document.querySelector('#rulesTable tbody');
-        if (tableBody && tableBody.sortable) {
-            tableBody.sortable.destroy();
+        if (this._sortableInstance) {
+            this._sortableInstance.destroy();
         }
     
         this.cleanupSelect2Instances();
     
-        // Clean up other event listeners
+        // Remove all event listeners
         $('#defaultNotify, #defaultMap, #filterSettings, #pasteFromClipboard, #copyToClipboard, #saveToLocalStorage, #loadFromLocalStorage, #deleteFromLocalStorage, #newFilter').off();
-        
         $('#settingsModal .modal-background, #settingsModal .modal-card-foot .button').off();
         $(document).off('click', '.delete-rule');
-        
+    
         // Clean up global selector
         if (this.dropdownManager.globalSelector) {
-            this.dropdownManager.globalSelector.select2('destroy');
-            this.dropdownManager.globalSelector.off();
+            this.dropdownManager.globalSelector.select2('destroy').off();
         }
-        
+    
         $('#globalSelectorModal').remove();
     }
 
