@@ -237,7 +237,7 @@ export class TableManager {
             </div>`,
             `<div class="checkbox-container"><input id="notify-${index}" class="checkbox-input rule-is-notify" type="checkbox" ${rule.notify ? 'checked' : ''}></div>`,
             `<div class="checkbox-container"><input id="automap-${index}" class="checkbox-input rule-is-automap" type="checkbox" ${rule.automap ? 'checked' : ''}></div>`,
-            `<div class="checkbox-container"><a class="button is-danger is-outlined delete-rule"><i class="fas fa-trash pr-1"></i></a></div>`
+            `<div class="checkbox-container"><a class="button is-danger is-outlined delete-rule"><span class="icon"><i class="fas fa-trash"></i></span></a></div>`
         ];
     }
 
@@ -670,6 +670,8 @@ export class TableManager {
             });
         });
         this.table.on('click', '.delete-rule', (event) => {
+            const $button = $(event.target).closest('.delete-rule');
+            const $icon = $button.find('.icon');
             const $row = $(event.target).closest('tr');
             const dataIndex = parseInt($row.data('index'));
             
@@ -677,13 +679,24 @@ export class TableManager {
                 console.warn("Invalid data-index value");
                 return;
             }
-            
+
+            // Show loading spinner
+            $button.prop('disabled', true);
+            $button.off();
+            $icon.html('<i class="fas fa-spinner fa-spin"></i>');
+
             const rules = this.ruleManager.getRules();
             if (dataIndex >= 0 && dataIndex < rules.length) {
-                this.ruleManager.deleteRule(dataIndex);
-                this.renderTable();
+                // Add slight delay for visual feedback
+                setTimeout(() => {
+                    this.ruleManager.deleteRule(dataIndex);
+                    this.renderTable();
+                }, 50);
             } else {
                 console.warn("Index out of bounds:", dataIndex);
+                // Reset button if error occurs
+                $button.prop('disabled', false);
+                $icon.html('<i class="fas fa-trash"></i>');
             }
         });
     }
