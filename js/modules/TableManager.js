@@ -693,7 +693,7 @@ export class TableManager {
                     $button.removeClass('is-loading');
                     $button.prop('disabled', false);
                 }
-            }, 150); // Short delay for visual feedback
+            }, 50);
         });
     }
 
