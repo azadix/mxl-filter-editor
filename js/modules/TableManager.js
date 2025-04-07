@@ -117,12 +117,12 @@ export class TableManager {
     }
 
     formatItem = (value) => {
-        if (!value.id) {
-          return value.text;
+        if (!value?.id) {
+            return value?.text || '';
         }
 
         let itemCategories = '';
-        if (value.category) {
+        if (value.category && Array.isArray(value.category)) {
             value.category.forEach((category) => {
                 const imageName = this.CATEGORY_IMAGES?.[category] || 'default';
 
@@ -703,18 +703,27 @@ export class TableManager {
         if (this._sortableInstance) {
             this._sortableInstance.destroy();
         }
+
+        // Clear any pending timeouts
+        if (this._pendingTimeouts) {
+            this._pendingTimeouts.forEach(timeout => clearTimeout(timeout));
+            this._pendingTimeouts = [];
+        }
     
         this.cleanupSelect2Instances();
     
         // Remove all event listeners
         $('#defaultNotify, #defaultMap, #filterSettings, #pasteFromClipboard, #copyToClipboard, #saveToLocalStorage, #loadFromLocalStorage, #deleteFromLocalStorage, #newFilter').off();
         $('#settingsModal .modal-background, #settingsModal .modal-card-foot .button').off();
+        $(document).off('keydown.globalSelector');
         $(document).off('click', '.delete-rule');
     
         // Clean up global selector
         if (this.dropdownManager.globalSelector) {
             this.dropdownManager.globalSelector.select2('destroy').off();
         }
+
+        
     
         $('#globalSelectorModal').remove();
     }

@@ -5,17 +5,6 @@ export class DropdownManager {
         this.updateFilterSelect();
     }
 
-    updateFilterSelect() {
-        const $select = $('#loadFromLocalStorage');
-        $select.empty().append('<option hidden value="">Select a filter</option>');
-        
-        this.storageManager.getFilterMetadata()
-            .sort((a, b) => new Date(b.lastSavedAt) - new Date(a.lastSaved))
-            .forEach(filter => {
-                $select.append(`<option value="${filter.name}">${filter.name}</option>`);
-            });
-    }
-
     initializeGlobalSelector() {
         // Create modal container
         const modal = document.createElement('div');
@@ -30,6 +19,13 @@ export class DropdownManager {
             </div>
         `;
         document.body.appendChild(modal);
+
+        // Add ESC key handler
+        $(document).on('keydown.globalSelector', (e) => {
+            if (e.key === 'Escape' && $('#globalSelectorModal').hasClass('is-active')) {
+                this.closeGlobalSelectorModal();
+            }
+        });
         
         // Close modal when clicking background or close button
         $(modal).find('.modal-background, .modal-card-head .delete').on('click', () => this.closeGlobalSelectorModal());
@@ -40,6 +36,17 @@ export class DropdownManager {
         return $('#globalSelector').select2({
             dropdownParent: $('#globalSelectorModal .modal-card-body')
         }).maximizeSelect2Height();
+    }
+
+    updateFilterSelect() {
+        const $select = $('#loadFromLocalStorage');
+        $select.empty().append('<option hidden value="">Select a filter</option>');
+        
+        this.storageManager.getFilterMetadata()
+            .sort((a, b) => new Date(b.lastSavedAt) - new Date(a.lastSaved))
+            .forEach(filter => {
+                $select.append(`<option value="${filter.name}">${filter.name}</option>`);
+            });
     }
 
     closeGlobalSelectorModal() {

@@ -18,7 +18,7 @@ export class RuleManager {
             NO: { value: 2, name: 'No' }
         });
 
-        this.ruleTemplate = {
+        this.ruleTemplate = Object.freeze({
             id: Date.now(),
             active: true,
             show_item: true,
@@ -32,7 +32,7 @@ export class RuleManager {
             params: null,
             notify: true,
             automap: true
-        };
+        });
     }
 
     getRuleTypeName(value) {
@@ -125,6 +125,12 @@ export class RuleManager {
         this.itemQuality = itemQuality;
     }
 
+    isDataLoaded() {
+        return Array.isArray(this.itemCodes) && this.itemCodes.length > 0 &&
+               Array.isArray(this.itemClasses) && this.itemClasses.length > 0 &&
+               Array.isArray(this.itemQuality) && this.itemQuality.length > 0;
+    }
+
     generateOutput() {
         const filterName = $('#filterName').val().trim();
         const rules = this.getRules();
@@ -138,11 +144,5 @@ export class RuleManager {
                 return cleanedRule;
             })
         }, null, 2);
-    }
-
-    isDataLoaded() {
-        return Array.isArray(this.itemCodes) && this.itemCodes.length > 0 &&
-               Array.isArray(this.itemClasses) && this.itemClasses.length > 0 &&
-               Array.isArray(this.itemQuality) && this.itemQuality.length > 0;
     }
 }

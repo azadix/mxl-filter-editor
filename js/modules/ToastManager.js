@@ -7,12 +7,18 @@ export class ToastManager {
 
         toast.addEventListener('click', () => this.fadeOutAndRemove(toast));
 
+        let timeoutId;
         if (autoRemove) {
-            setTimeout(() => this.fadeOutAndRemove(toast), 2500);
+            timeoutId = setTimeout(() => this.fadeOutAndRemove(toast), 2500);
         } else {
             toast.classList.add(`is-${toastBgClass}`);
             toast.innerHTML += '<div class="has-text-white">Click to dismiss</div>';
         }
+
+        toast.addEventListener('click', () => {
+            if (timeoutId) clearTimeout(timeoutId);
+            this.fadeOutAndRemove(toast);
+        });
 
         container.appendChild(toast);
     }
