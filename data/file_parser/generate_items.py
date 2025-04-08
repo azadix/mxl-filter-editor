@@ -61,15 +61,25 @@ def process_items(config: Dict[str, Any]) -> List[Dict[str, Any]]:
                     name = config["name_overrides"].get(hex_code, name)
                     seen_hex_codes.add(hex_code)
                     
+                    # Get categories from override if exists, otherwise from TSV
+                    if hex_code in config.get("category_overrides", {}):
+                        categories = [
+                            config["item_categories"][cat]
+                            for cat in config["category_overrides"][hex_code]
+                            if cat in config["item_categories"]
+                        ]
+                    else:
+                        categories = [
+                            config["item_categories"][t.strip()]
+                            for t in row.get("type", "").split(",")
+                            if t.strip() in config["item_categories"]
+                        ]
+                    
                     combined_data.append({
                         "name": name,
                         "value": string_to_decimal_little_endian(hex_code),
                         "hex": hex_code,
-                        "category": [
-                            config["item_categories"][t.strip()]
-                            for t in row.get("type", "").split(",")
-                            if t.strip() in config["item_categories"]
-                        ],
+                        "category": categories,
                     })
         except FileNotFoundError:
             print(f"File {file_path} not found")

@@ -663,6 +663,11 @@
         "ir88": "Occult Effigy (Arcane Hunger)",
         "ir89": "Occult Effigy (Dark Summoning)"
     },
+    "category_overrides": {
+        "f666": ["thng"],
+        "\\\\7": ["thng"],
+        "ebv": []
+    },
     "item_categories": {
         "grtz": "#Charm",
         "esse": "#Essence",

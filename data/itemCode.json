@@ -9474,9 +9474,7 @@
         "name": "Relic",
         "value": 544629349,
         "hex": "ebv",
-        "category": [
-            "#Charm"
-        ]
+        "category": []
     },
     {
         "name": "Dimensional Key",
@@ -10033,7 +10031,7 @@
         "value": 909522534,
         "hex": "f666",
         "category": [
-            "#Charm"
+            "#Other"
         ]
     },
     {
