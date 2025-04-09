@@ -4,7 +4,7 @@
 
 A web-based tool for creating and editing item filters for Median XL (an overhaul mod for Diablo 2). This editor provides an enhanced interface with more features than the in-game filter editor.
 
-**Current Version Support:** MXL 2.10.3
+**Current MedianXL version data:** MXL 2.10.2
 
 ## Features
 
@@ -45,40 +45,33 @@ A web-based tool for creating and editing item filters for Median XL (an overhau
 ## Technical Details
 
 ### Game Data
-All data is current as of **Median XL version 2.10.2**.
+Median XL item data is sourced from the [MedianXLOfflineTools](https://github.com/kambala-decapitator/MedianXLOfflineTools) repository, provided by [@kambala-decapitator](https://github.com/kambala-decapitator).
 
-Median XL item data is sourced from the [MedianXLOfflineTools](https://github.com/kambala-decapitator/MedianXLOfflineTools) repository, provided by [@kambala-decapitator](https://github.com/kambala-decapitator):
-
-- **Base Items & Uniques**   [`items.tsv`](https://github.com/kambala-decapitator/MedianXLOfflineTools/blob/main/utils/txt_parser/generated/en/items.tsv)  
-  Contains all regular items, uniques, charms and other special items
-
-- **Socketables & Crafting Components**  [`socketables.tsv`](https://github.com/kambala-decapitator/MedianXLOfflineTools/blob/main/utils/txt_parser/generated/en/socketables.tsv)  
-  Includes runes, jewels, and other socketable items
-
-### Assets
-- **Logo**  
-  Generated using OpenAI's ChatGPT (DALL-E)  
-  *Last updated: 4th April 2024*
-
-- **Category Icons**   [`MedianXLOfflineTools/images`](https://github.com/kambala-decapitator/MedianXLOfflineTools/tree/main/resources/data/images/items)  
-  Category icons based on Median XL in-game art
+| Asset name | Source | Link | Description |
+|------------|--------|------|-------------|
+| items.tsv | MedianXLOfflineTools | [`items.tsv`](https://github.com/kambala-decapitator/MedianXLOfflineTools/blob/main/utils/txt_parser/generated/en/items.tsv) | Contains most regular items, uniques, charms and other |
+| socketables.tsv | MedianXLOfflineTools | [`socketables.tsv`](https://github.com/kambala-decapitator/MedianXLOfflineTools/blob/main/utils/txt_parser/generated/en/socketables.tsv) | Contains gems, runes |
+| *.png | MedianXLOfflineTools | [`MedianXLOfflineTools/images`](https://github.com/kambala-decapitator/MedianXLOfflineTools/tree/main/resources/data/images/items) | Other images used as category icons |
+| logo.png | OpenAI's ChatGPT | | App logo generated using ChatGPT |
 
 ### Third-Party Libraries
 This project uses several open-source libraries:
 
-| Library | Purpose | Link |
-|---------|---------|------|
-| Bulma CSS | CSS framework | [bulma.io](https://bulma.io/) |
-| DataTables | Table interaction | [datatables.net](https://datatables.net/) |
-| Select2 | Enhanced select elements | [select2.org](https://select2.org/) |
-| SortableJS | Drag-and-drop functionality | [SortableJS](https://sortablejs.github.io/Sortable/) |
-| maximize-select2-height | Select2 enhancement | [Panorama Education](https://github.com/panorama-ed/maximize-select2-height) |
+| Library | Purpose | Version | Link |
+|---------|---------|:-------:|------|
+| jQuery | DOM manipulation | 3.7.1 | [jquery.com](https://jquery.com/) |
+| Bulma CSS | CSS framework | 1.0.1 | [bulma.io](https://bulma.io/) |
+| DataTables | Table interaction | 2.1.8 | [datatables.net](https://datatables.net/) |
+| Select2 | Enhanced select elements | 4.1.0 | [select2.org](https://select2.org/) |
+| SortableJS | Drag-and-drop functionality | 1.14.0 | [SortableJS](https://sortablejs.github.io/Sortable/) |
+| FontAwesome | Icons | 5.15.4 | [FontAwesome](https://fontawesome.com/) |
+| maximize-select2-height | Select2 enhancement | 1.0.4 | [Panorama Education](https://github.com/panorama-ed/maximize-select2-height) |
 
 ### Data Structure
-Filters use a JSON structure that matches the game's export format. The following keys are omitted from exports since modifying them could affect other loaded filters: `"active"` and `"favorite"`.
+Filter editor imports and exports a `.json` file with a structure matches the one used by the game. The following keys are omitted from exports since modifying them could affect other loaded filters: `"active"` and `"favorite"`.
 
-Example JSON structure:
-```json
+Here's the example filter structure with common values explained:
+```jsonc
 {
   "default_show_items": true,
   "name": "My Filter",
@@ -86,16 +79,87 @@ Example JSON structure:
     {
       "active": true,
       "show_item": true,
+      // Item quality decides the "rairty" of the item e.g. Normal, Magic, Unique, Honorific, etc.. Default is "-1" which matches any rarity
       "item_quality": -1,
+      // Ethereal has 3 states:
+      // 0 - Either (default value), 1 - Yes, 2 - No
       "ethereal": 0,
+      // Clvl has a range of 0 - 150
       "min_clvl": 0,
       "max_clvl": 0,
+      // Ilvl has a range of 0 - 150
       "min_ilvl": 0,
       "max_ilvl": 0,
+      // Rule type decides what value should be stored inside the "params". Here's the mappings with example values:
+      // | rule_type |         params        |
+      // |-----------|-----------------------|
+      // |    -1     |          null         |
+      // |     0     |    { "class": 10 }    |
+      // |     1     | { "code": 540291698 } |
       "rule_type": 1,
-      "params": { "code": 123 },
+      "params": { "code": 540291698 },
       "notify": true,
       "automap": true
     }
   ]
 }
+```
+
+## `generate_items.py` - Item Data Processor
+Script is used to transform data coming from `.tsv` files into a `.json` file with a structure expected by the app
+
+### Key Features:
+ - Cleans item names (removes color codes, unused items)
+ - Converts hex codes to little-endian decimals used by the in-game filters
+ - Applies manual overrides from `overrides.json`
+ - Maps item categories to more user friendly ones
+
+### Usage
+  1. Place input files in same directory as the script
+  2. Run: `python generate_items.py`
+  3. Output saves to `../itemCode.json`
+
+### Input files
+| Name | Source | Description |
+|------|--------|-------------|
+| items.tsv | MedianXLOfflineTools | Base items/uniques |
+| socketables.tsv | MedianXLOfflineTools | Runes/jewels |
+| overrides.json | Manual | Custom name/category mappings and ignore list |
+
+### Overrides Guide
+- **ignored_hex_codes**: Skips items from the output file (e.g., `"r00": "El Rune"` hides El Runes)
+- **name_overrides**: Renames items (e.g., `"r24": "Ist Rune (24)"`)
+- **category_overrides**: Forces custom categories (e.g., `"xyz": ["#Charm"]`)
+- **item_categories**: Allows to group types into gategory (e.g. `"gem1": "#Gem", "gem2": "#Gem"`)
+
+```jsonc
+{
+  // Value "name" is only used here to easy determine which item will be hidden
+  "ignored_hex_codes": {
+    "hex": "name"
+  },
+  "name_overrides": {
+    "hex": "new name"
+  },
+  "category_overrides": {
+    "hex": [],
+    "hex": ["type"],
+    "hex": ["type", "type"],
+  },
+  "item_categories": {
+    "type": "category"
+  }
+}
+```
+
+### Output Example
+```jsonc
+[
+  {
+    "name": "Ist Rune (24)",
+    "value": 540291698,
+    "hex": "r24",
+    "category": ["#Rune"]
+  }
+]
+```
