@@ -61,7 +61,7 @@ This project uses several open-source libraries:
 |---------|---------|:-------:|------|
 | jQuery | DOM manipulation | 3.7.1 | [jquery.com](https://jquery.com/) |
 | Bulma CSS | CSS framework | 1.0.1 | [bulma.io](https://bulma.io/) |
-| DataTables | Table interaction | 2.1.8 | [datatables.net](https://datatables.net/) |
+| DataTables | Table interaction | 2.2.2 | [datatables.net](https://datatables.net/) |
 | Select2 | Enhanced select elements | 4.1.0 | [select2.org](https://select2.org/) |
 | SortableJS | Drag-and-drop functionality | 1.14.0 | [SortableJS](https://sortablejs.github.io/Sortable/) |
 | FontAwesome | Icons | 5.15.4 | [FontAwesome](https://fontawesome.com/) |
