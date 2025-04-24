@@ -66,6 +66,7 @@ This project uses several open-source libraries:
 | SortableJS | Drag-and-drop functionality | 1.14.0 | [SortableJS](https://sortablejs.github.io/Sortable/) |
 | FontAwesome | Icons | 5.15.4 | [FontAwesome](https://fontawesome.com/) |
 | maximize-select2-height | Select2 enhancement | 1.0.4 | [Panorama Education](https://github.com/panorama-ed/maximize-select2-height) |
+| LZ-string | Compression | 1.4.4 | [Pieroxy.net](https://cdn.jsdelivr.net/npm/lz-string@1.4.4/libs/lz-string.min.js) |
 
 ### Data Structure
 Filter editor imports and exports a `.json` file with a structure matches the one used by the game. The following keys are omitted from exports since modifying them could affect other loaded filters: `"active"` and `"favorite"`.

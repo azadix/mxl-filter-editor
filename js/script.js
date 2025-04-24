@@ -3,7 +3,7 @@ import { StorageManager } from './modules/StorageManager.js';
 import { ToastManager } from './modules/ToastManager.js';
 import { DropdownManager } from './modules/DropdownManager.js';
 import { TableManager } from './modules/TableManager.js';
-import { loadJsonData } from './modules/utils.js';
+import { loadJsonData, loadFromShortenedLink, initShareFilterButton } from './modules/utils.js';
 
 const dataConfigs = [
     { path: './data/itemCode.json', isSorted: true, method: 'loadItemCodes' },
@@ -31,13 +31,54 @@ async function initializeApp() {
             );
         }
 
-        // Only initialize table after all data is loaded
+        // Check for shared filter in URL
+        const sharedFilter = loadFromShortenedLink();
+        if (sharedFilter) {
+            try {
+                const parsedData = JSON.parse(sharedFilter);
+                $('#defaultShowItems').prop('checked', parsedData.default_show_items);
+                $('#filterName').val(parsedData.name);
+                ruleManager.clearRules();
+                parsedData.rules.reverse().forEach(rule => ruleManager.addRule(rule));
+                
+                toastManager.showToast('Shared filter loaded!', true);
+            } catch (e) {
+                toastManager.showToast('Invalid shared filter', false, 'danger');
+            }
+        }
+
+        // Initialize table and UI
         const tableManager = new TableManager(
             ruleManager, 
             storageManager, 
             toastManager, 
             dropdownManager
-        );        
+        );
+
+
+        // Add share button to UI
+        initShareFilterButton(toastManager, ruleManager);
+
+        window.addEventListener('hashchange', () => {
+            const newHash = window.location.hash.substring(1);
+            if (newHash) {
+                const sharedFilter = loadFromShortenedLink();
+                if (sharedFilter) {
+                    try {
+                        const parsedData = JSON.parse(sharedFilter);
+                        $('#defaultShowItems').prop('checked', parsedData.default_show_items);
+                        $('#filterName').val(parsedData.name);
+                        ruleManager.clearRules();
+                        parsedData.rules.reverse().forEach(rule => ruleManager.addRule(rule));
+                        toastManager.showToast('Shared filter loaded!', true);
+                        tableManager.tableRenderer.render();
+                    } catch (e) {
+                        toastManager.showToast('Invalid shared filter', false, 'danger');
+                    }
+                }
+            }
+        });
+
     } catch (error) {
         toastManager.showToast(`Failed to initialize application: ${error.message}`, false, 'danger');
         console.error('Initialization error:', error);
