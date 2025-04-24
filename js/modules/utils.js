@@ -49,7 +49,10 @@ export function initShareFilterButton(toastManager, ruleManager) {
         
         if (shareLink) {
             navigator.clipboard.writeText(shareLink)
-                .then(() => toastManager.showToast('Share link copied!', true))
+                .then(() => {
+                    toastManager.showToast('Share link copied', true);
+                    toastManager.showToast('WARNING! Experimental feature. \n Links might be still too large to share on Discord.');
+                })
                 .catch(() => {
                     // Fallback if clipboard API fails
                     prompt('Copy this compact link to share your filter:', shareLink);
