@@ -36,7 +36,21 @@ export function loadJsonData(filePath, isSorted, loaderMethod, manager, toastMan
     });
 }
 
-export function initShareFilterButton(toastManager, ruleManager) {
+export function applySharedFilter(sharedFilter, ruleManager, toastManager) {
+    try {
+        $('#defaultShowItems').prop('checked', sharedFilter.default_show_items);
+        $('#filterName').val(sharedFilter.name);
+        ruleManager.clearRules();
+        sharedFilter.rules.reverse().forEach(rule => ruleManager.addRule(rule));
+        toastManager.showToast('Shared filter loaded!', true);
+        return true;
+    } catch (e) {
+        toastManager.showToast('Invalid shared filter', false, 'danger');
+        return false;
+    }
+}
+
+export function createShareButton(toastManager, ruleManager, filterEncoder) {
     const shareButton = document.createElement('button');
     shareButton.id = 'shareFilter';
     shareButton.className = 'button is-info is-inverted is-outlined';
@@ -44,65 +58,43 @@ export function initShareFilterButton(toastManager, ruleManager) {
     shareButton.setAttribute('aria-label', 'Share filter via link');
     
     shareButton.addEventListener('click', () => {
-        const filterData = ruleManager.generateOutput();
-        const shareLink = generateShortenedLink(filterData);
-        
-        if (shareLink) {
-            navigator.clipboard.writeText(shareLink)
-                .then(() => {
-                    toastManager.showToast('Share link copied', true);
-                    toastManager.showToast('WARNING! Experimental feature. \n Links might be still too large to share on Discord.');
-                })
-                .catch(() => {
-                    // Fallback if clipboard API fails
-                    prompt('Copy this compact link to share your filter:', shareLink);
-                });
-        } else {
-            toastManager.showToast('Failed to generate share link', false, 'danger');
+        try {
+            const filterData = ruleManager.generateOutput();
+            const shareLink = filterEncoder.generateShortenedLink(JSON.parse(filterData));
+            
+            if (shareLink) {
+                navigator.clipboard.writeText(shareLink)
+                    .then(() => {
+                        toastManager.showToast('Share link copied', true);
+                        toastManager.showToast('WARNING! Experimental feature. \n Links might be still too large to share on Discord.');
+                    })
+                    .catch(() => {
+                        // Fallback if clipboard API fails
+                        prompt('Copy this compact link to share your filter:', shareLink);
+                    });
+            } else {
+                toastManager.showToast('Failed to generate share link', false, 'danger');
+            }
+        } catch (error) {
+            console.error('Error sharing filter:', error);
+            toastManager.showToast('Error sharing filter', false, 'danger');
         }
     });
     
-    // Add button to UI
-    const buttonGroup = document.querySelector('.field.is-grouped.ml-2');
-    if (buttonGroup) {
-        buttonGroup.insertBefore(shareButton, buttonGroup.children[3]);
-    }
+    return shareButton;
 }
 
-export function generateShortenedLink(filterData) {
-    try {
-        // 1. Stringify the filter data
-        const jsonString = JSON.stringify(filterData);
-        
-        // 2. Compress using LZString
-        const compressed = LZString.compressToEncodedURIComponent(jsonString);
-        
-        // 3. Create the URL
-        return `${window.location.origin}${window.location.pathname}#${compressed}`;
-    } catch (error) {
-        console.error('Error generating shortened link:', error);
-        return null;
-    }
-}
-
-export function loadFromShortenedLink() {
-    try {
-        const hash = window.location.hash.substring(1);
-        if (!hash) return null;
-        
-        // 1. Decompress using LZString
-        const jsonString = LZString.decompressFromEncodedURIComponent(hash);
-        if (!jsonString) return null;
-        
-        // 2. Parse back to JSON
-        const filterData = JSON.parse(jsonString);
-        
-        // 3. Clear hash
-        window.location.hash = '';
-        
-        return filterData;
-    } catch (error) {
-        console.error('Error loading from shortened link:', error);
-        return null;
-    }
+export function initHashChangeListener(ruleManager, toastManager, filterEncoder, tableManager) {
+    window.addEventListener('hashchange', () => {
+        const newHash = window.location.hash.substring(1);
+        if (newHash) {
+            const sharedFilter = filterEncoder.loadFromShortenedLink(newHash);
+            if (sharedFilter) {
+                const success = applySharedFilter(sharedFilter, ruleManager, toastManager);
+                if (success && tableManager?.tableRenderer) {
+                    tableManager.tableRenderer.render();
+                }
+            }
+        }
+    });
 }
