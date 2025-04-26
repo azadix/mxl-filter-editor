@@ -155,20 +155,6 @@ td {
     align-items: center;
 }
 
-.white-fill {
-    fill: #fff;
-}
-
-a:hover svg {
-    fill: #009bee;
-    transform: scale(1.1);
-    transition: fill 0.3s ease, transform 0.3s ease;
-}
-  
-a svg {
-    transition: fill 0.3s ease, transform 0.3s ease;
-}
-
 .toast-container {
     position: fixed;
     bottom: 20px;
@@ -233,3 +219,38 @@ a svg {
 .delete-rule.is-loading::after {
     border-color: transparent transparent hsl(var(--bulma-button-h), var(--bulma-button-s), var(--bulma-button-l)) hsl(var(--bulma-button-h), var(--bulma-button-s), var(--bulma-button-l)) !important;
 }
+
+.white-fill {
+    fill: #fff;
+}
+
+.github-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+  }
+  
+  .contribute-text {
+    color: transparent;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 0;
+  }
+  
+  .github-link:hover .contribute-text {
+    color: var(--bulma-info);
+    max-width: 100px;
+    margin-right: 0.5rem;
+  }
+  
+  .github-link:hover svg {
+    fill: var(--bulma-info);
+    transform: scale(1.1);
+  }
+  
+  .github-link svg {
+    transition: all 0.3s ease;
+  }
