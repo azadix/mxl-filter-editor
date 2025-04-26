@@ -242,7 +242,8 @@ export class FilterEncoder {
                     notify: Boolean(rule?.notify ?? true),
                     automap: Boolean(rule?.automap ?? true)
                 };
-                return this.encodeRule(safeRule);
+                const encoded = this.encodeRule(safeRule);
+                return encoded === '' ? 'DEFAULT' : encoded;
             }).join('|');
     
             return `${header}|${rules}`;
@@ -260,7 +261,12 @@ export class FilterEncoder {
             return {
                 default_show_items: this.DICTIONARIES.boolean[header.substr(0, 2)],
                 name: this.decodeString(header.substr(2)),
-                rules: ruleParts.filter(Boolean).map(part => this.decodeRule(part))
+                rules: ruleParts.map(part => {
+                    if (part === 'DEFAULT') {
+                        return {...this.ruleManager.ruleTemplate}; // Return fresh default rule
+                    }
+                    return this.decodeRule(part);
+                })
             };
         } catch (error) {
             console.error("Decompression failed:", error);
@@ -325,11 +331,15 @@ export class FilterEncoder {
             encodedParts.push(`m${this.REVERSE_DICTS.boolean[rule.automap]}`);
         }
         
-        return encodedParts.join(',');
+        // Return empty string for default rules instead of empty array
+        return encodedParts.length === 0 ? '' : encodedParts.join(',');
     }
     
     decodeRule(encoded) {
+        // Start with default rule template
         const rule = { ...this.ruleManager.ruleTemplate };
+        
+        // If empty string, return default rule as-is
         if (!encoded || encoded === '') return rule;
         
         // Split and process each encoded part
@@ -346,11 +356,17 @@ export class FilterEncoder {
                 case 's': // show_item
                     rule.show_item = this.DICTIONARIES.boolean[valueCode];
                     break;
+                case 'e': // ethereal
+                    rule.ethereal = this.DICTIONARIES.ethereal[valueCode];
+                    break;
                 case 'q': // item_quality
                     rule.item_quality = this.DICTIONARIES.itemQuality[valueCode];
                     break;
-                case 'e': // ethereal
-                    rule.ethereal = this.DICTIONARIES.ethereal[valueCode];
+                case 't': // rule_type
+                    rule.rule_type = this.DICTIONARIES.ruleType[valueCode];
+                    break;
+                case 'p': // params
+                    rule.params = this.decodeParams(valueCode);
                     break;
                 case 'n': // min_clvl
                     rule.min_clvl = this.decodeNumber(valueCode);
@@ -364,29 +380,23 @@ export class FilterEncoder {
                 case 'j': // max_ilvl
                     rule.max_ilvl = this.decodeNumber(valueCode);
                     break;
-                case 't': // rule_type
-                    rule.rule_type = this.DICTIONARIES.ruleType[valueCode];
-                    break;
-                case 'p': // params
-                    rule.params = this.decodeParams(valueCode);
-                    break;
                 case 'o': // notify
                     rule.notify = this.DICTIONARIES.boolean[valueCode];
                     break;
                 case 'm': // automap
                     rule.automap = this.DICTIONARIES.boolean[valueCode];
                     break;
-                    default:
-                        console.warn('Unknown field code:', fieldCode);
-                        // Optionally, store unknown fields for debugging or future use
-                        rule.unknownFields = rule.unknownFields || [];
-                        rule.unknownFields.push({ fieldCode, valueCode });
-                        break;
+                default:
+                    console.warn('Unknown field code:', fieldCode);
+                    rule.unknownFields = rule.unknownFields || [];
+                    rule.unknownFields.push({ fieldCode, valueCode });
+                    break;
             }
         });
         
         return rule;
     }
+
 
     // Parameter Encoding
     encodeParams(params) {
