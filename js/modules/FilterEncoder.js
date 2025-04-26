@@ -188,8 +188,9 @@ export class FilterEncoder {
         
         // Increment for next item (wrap around if needed)
         this.currentCodeIndex++;
-        if (this.currentCodeIndex >= 4096) { // 64*64
-            this.currentCodeIndex = this.codeStartIndex;
+        if (this.currentCodeIndex >= 4096) {
+            console.error('Code generation limit exceeded. Consider increasing the range.');
+            throw new Error('Code generation limit exceeded.');
         }
         
         return code;
@@ -375,8 +376,12 @@ export class FilterEncoder {
                 case 'm': // automap
                     rule.automap = this.DICTIONARIES.boolean[valueCode];
                     break;
-                default:
-                    console.warn('Unknown field code:', fieldCode);
+                    default:
+                        console.warn('Unknown field code:', fieldCode);
+                        // Optionally, store unknown fields for debugging or future use
+                        rule.unknownFields = rule.unknownFields || [];
+                        rule.unknownFields.push({ fieldCode, valueCode });
+                        break;
             }
         });
         
@@ -443,7 +448,9 @@ export class FilterEncoder {
     // String Encoding (for names)
     encodeString(str, maxLength) {
         const trimmed = str.slice(0, maxLength);
-        return btoa(unescape(encodeURIComponent(trimmed)))
+        const encoder = new TextEncoder();
+        const encoded = encoder.encode(trimmed);
+        return btoa(String.fromCharCode(...encoded))
             .replace(/=/g, '')
             .replace(/\+/g, '-')
             .replace(/\//g, '_');
@@ -451,9 +458,9 @@ export class FilterEncoder {
 
     decodeString(encoded) {
         try {
-            return decodeURIComponent(escape(atob(
-                encoded.replace(/-/g, '+').replace(/_/g, '/')
-            )));
+            const decoded = atob(encoded.replace(/-/g, '+').replace(/_/g, '/'));
+            const decoder = new TextDecoder();
+            return decoder.decode(Uint8Array.from(decoded, c => c.charCodeAt(0)));
         } catch {
             return '';
         }
@@ -482,7 +489,8 @@ export class FilterEncoder {
     generateShortenedLink(filterData) {
         try {
             const compressed = this.compressFilter(filterData);
-            return `${window.location.origin}${window.location.pathname}#${compressed}`;
+            const lzCompressed = LZString.compressToEncodedURIComponent(compressed);
+            return `${window.location.origin}${window.location.pathname}#${lzCompressed}`;
         } catch (error) {
             console.error('Error generating shortened link:', error);
             return null;
@@ -493,7 +501,10 @@ export class FilterEncoder {
         if (!hash) return null;
         
         try {
-            const filterData = this.decompressFilter(hash);
+            const decompressed = LZString.decompressFromEncodedURIComponent(hash);
+            if (!decompressed) return null;
+
+            const filterData = this.decompressFilter(decompressed);
             if (!filterData) return null;
             
             // Clear hash
