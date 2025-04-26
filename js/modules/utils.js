@@ -66,7 +66,6 @@ export function createShareButton(toastManager, ruleManager, filterEncoder) {
                 navigator.clipboard.writeText(shareLink)
                     .then(() => {
                         toastManager.showToast('Share link copied', true);
-                        toastManager.showToast('WARNING! Experimental feature. \n Links might be still too large to share on Discord.');
                     })
                     .catch(() => {
                         // Fallback if clipboard API fails
