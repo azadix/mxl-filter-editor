@@ -50,39 +50,6 @@ export function applySharedFilter(sharedFilter, ruleManager, toastManager) {
     }
 }
 
-export function createShareButton(toastManager, ruleManager, filterEncoder) {
-    const shareButton = document.createElement('button');
-    shareButton.id = 'shareFilter';
-    shareButton.className = 'button is-info is-inverted is-outlined';
-    shareButton.innerHTML = '<i class="fas fa-share-alt pr-1"></i> Share';
-    shareButton.setAttribute('aria-label', 'Share filter via link');
-    
-    shareButton.addEventListener('click', () => {
-        try {
-            const filterData = ruleManager.generateOutput();
-            const shareLink = filterEncoder.generateShortenedLink(JSON.parse(filterData));
-            
-            if (shareLink) {
-                navigator.clipboard.writeText(shareLink)
-                    .then(() => {
-                        toastManager.showToast('Share link copied', true);
-                    })
-                    .catch(() => {
-                        // Fallback if clipboard API fails
-                        prompt('Copy this compact link to share your filter:', shareLink);
-                    });
-            } else {
-                toastManager.showToast('Failed to generate share link', false, 'danger');
-            }
-        } catch (error) {
-            console.error('Error sharing filter:', error);
-            toastManager.showToast('Error sharing filter', false, 'danger');
-        }
-    });
-    
-    return shareButton;
-}
-
 export function initHashChangeListener(ruleManager, toastManager, filterEncoder, tableManager) {
     window.addEventListener('hashchange', () => {
         const newHash = window.location.hash.substring(1);

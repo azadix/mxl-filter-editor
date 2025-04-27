@@ -68,8 +68,9 @@ input[type="checkbox"], .checkbox {
     width: 100%;
 }
 
-.column {
-    padding: 0.5rem;
+#rulesTable_wrapper .column:first-child {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
 }
 
 .field-label {
@@ -229,28 +230,28 @@ td {
     align-items: center;
     gap: 0.5rem;
     text-decoration: none;
-  }
+}
   
-  .contribute-text {
+.contribute-text {
     color: transparent;
     font-weight: bold;
     transition: all 0.3s ease;
     white-space: nowrap;
     overflow: hidden;
     max-width: 0;
-  }
-  
-  .github-link:hover .contribute-text {
+}
+
+.github-link:hover .contribute-text {
     color: var(--bulma-info);
     max-width: 100px;
     margin-right: 0.5rem;
-  }
-  
-  .github-link:hover svg {
+}
+
+.github-link:hover svg {
     fill: var(--bulma-info);
     transform: scale(1.1);
-  }
-  
-  .github-link svg {
+}
+
+.github-link svg {
     transition: all 0.3s ease;
-  }
+}

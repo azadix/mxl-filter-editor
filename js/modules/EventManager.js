@@ -1,4 +1,5 @@
 import { clampLvlValues, sanitizeFilterName } from './utils.js';
+import { FilterEncoder } from './FilterEncoder.js';
 
 export class EventManager {
     constructor(table, ruleManager, dropdownManager, toastManager, tableRenderer, storageManager) {
@@ -8,6 +9,7 @@ export class EventManager {
         this.toastManager = toastManager;
         this.tableRenderer = tableRenderer;
         this.storageManager = storageManager;
+        this.filterEncoder = new FilterEncoder(this.ruleManager);
     }
 
     initialize() {
@@ -32,6 +34,29 @@ export class EventManager {
         $('#defaultMap').on('change', (event) => {
             const isChecked = $(event.target).is(':checked');
             localStorage.setItem('defaultMap', isChecked);
+        });
+
+        $('#shareFilter').on('click', () => {
+            try {
+                const filterData = this.ruleManager.generateOutput();
+                const shareLink = this.filterEncoder.generateShortenedLink(JSON.parse(filterData));
+                
+                if (shareLink) {
+                    navigator.clipboard.writeText(shareLink)
+                        .then(() => {
+                            this.toastManager.showToast('Share link copied', true);
+                        })
+                        .catch(() => {
+                            // Fallback if clipboard API fails
+                            prompt('Copy this compact link to share your filter:', shareLink);
+                        });
+                } else {
+                    this.toastManager.showToast('Failed to generate share link', false, 'danger');
+                }
+            } catch (error) {
+                console.error('Error sharing filter:', error);
+                this.toastManager.showToast('Error sharing filter', false, 'danger');
+            }
         });
 
         // Open the settings modal

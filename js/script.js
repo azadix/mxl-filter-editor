@@ -4,8 +4,7 @@ import { ToastManager } from './modules/ToastManager.js';
 import { DropdownManager } from './modules/DropdownManager.js';
 import { TableManager } from './modules/TableManager.js';
 import { FilterEncoder } from './modules/FilterEncoder.js';
-import { loadJsonData, applySharedFilter, createShareButton, initHashChangeListener } from './modules/utils.js';
-
+import { loadJsonData, applySharedFilter, initHashChangeListener } from './modules/utils.js';
 
 const dataConfigs = [
     { path: './data/itemCode.json', isSorted: true, method: 'loadItemCodes' },
@@ -47,13 +46,6 @@ async function initializeApp() {
             toastManager, 
             dropdownManager
         );
-
-        // Initialize share button
-        const shareButton = createShareButton(toastManager, ruleManager, filterEncoder);
-        const buttonGroup = document.querySelector('.field.is-grouped.ml-2');
-        if (buttonGroup) {
-            buttonGroup.insertBefore(shareButton, buttonGroup.children[3]);
-        }
 
         // Initialize hash change listener
         initHashChangeListener(ruleManager, toastManager, filterEncoder, tableManager);
