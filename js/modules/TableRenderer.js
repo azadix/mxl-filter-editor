@@ -259,8 +259,6 @@ export class TableRenderer {
     
         // Show modal and focus search
         this.dropdownManager.openGlobalSelectorModal();
-        $('.select2-search__field').addClass('input');
-        $('.select2-search__field').trigger('focus');
     }
 
     cleanupSelect2Instances() {

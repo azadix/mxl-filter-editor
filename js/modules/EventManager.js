@@ -129,13 +129,22 @@ export class EventManager {
             this.toastManager.showToast(`Filter "${filterName}" saved!`, true);
             this.dropdownManager.updateFilterSelect();
         });
+
+        // Global selector
+        $('#globalSelectorModal').on('select2:open', () => {
+            $('.select2-search__field').addClass('input');
+        });
         
         // Load from localStorage
+        $('#loadFromLocalStorage').on('select2:open', () => {
+            $('.select2-search__field').addClass('input');
+        });
+        
         $('#loadFromLocalStorage').on('change', () => {
             this.toastManager.cleanUpToastMessages();
             const filterName = $('#loadFromLocalStorage').val().trim();
             if (!filterName) return;
-        
+            
             const filterData = this.storageManager.loadFilter(filterName);
             if (filterData) {
                 const parsedData = JSON.parse(filterData);
@@ -183,11 +192,14 @@ export class EventManager {
             if (confirmReset) {
                 this.ruleManager.clearRules();
                 this.toastManager.cleanUpToastMessages();
+                
                 $('#defaultShowItems').prop('checked', true);
-                $('#filterName').val('');
-                $('#loadFromLocalStorage').val('');
-                $('#loadFromLocalStorage option[value=""]').prop('selected', true);
-    
+                $('#filterName').val('').trigger('change');
+                
+                // Properly reset the Select2 dropdown
+                const $filterSelect = $('#loadFromLocalStorage');
+                $filterSelect.val(null).trigger('change');
+
                 this.tableRenderer.render();
             }
         });

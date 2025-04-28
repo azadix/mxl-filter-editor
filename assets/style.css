@@ -33,9 +33,13 @@ html {
     color: black !important;
 }
 
-.select2-results__options {
+.select2-results__options #globalSelectorModal {
     min-height: 400px;
     overflow-y: auto;
+}
+
+.select2-selection__arrow {
+    display: none !important;
 }
 
 *, *:before, *:after {
@@ -94,8 +98,7 @@ th {
     padding: 0.5rem !important;
 }
 
-.checkbox-input,
-input {
+.checkbox-input, input {
     display: inline-block;
     vertical-align: middle;
     margin: 0;
@@ -130,7 +133,7 @@ td {
 }
 
 .big-dropdown-width {
-    min-width: 100%; /* Default for very small screens */
+    min-width: 100%;
 }
 
 @media screen and (min-width: 768px) {
@@ -254,4 +257,21 @@ td {
 
 .github-link svg {
     transition: all 0.3s ease;
+}
+
+.filter-date {
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
+.select2-container--default .select2-results__option .filter-date {
+    margin-left: 8px;
+}
+
+.select2-container--default .select2-selection__rendered .filter-date {
+    margin-right: 20px;
+}
+
+.select2-container .select2-selection--single {
+    height: inherit;
 }
