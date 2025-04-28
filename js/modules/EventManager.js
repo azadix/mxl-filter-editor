@@ -97,6 +97,7 @@ export class EventManager {
                     this.ruleManager.clearRules();
                     data.rules.reverse().forEach(rule => this.ruleManager.addRule(rule));
                     this.tableRenderer.render();
+                    this.toastManager.cleanUpToastMessages();
                 } else {
                     this.toastManager.showToast("Invalid JSON format.");
                 }
@@ -131,6 +132,7 @@ export class EventManager {
         
         // Load from localStorage
         $('#loadFromLocalStorage').on('change', () => {
+            this.toastManager.cleanUpToastMessages();
             const filterName = $('#loadFromLocalStorage').val().trim();
             if (!filterName) return;
         
@@ -180,6 +182,7 @@ export class EventManager {
 
             if (confirmReset) {
                 this.ruleManager.clearRules();
+                this.toastManager.cleanUpToastMessages();
                 $('#defaultShowItems').prop('checked', true);
                 $('#filterName').val('');
                 $('#loadFromLocalStorage').val('');

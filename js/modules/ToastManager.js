@@ -23,6 +23,27 @@ export class ToastManager {
         container.appendChild(toast);
     }
 
+    cleanUpToastMessages() {
+        const container = document.querySelector('.toast-container');
+        if (!container) return;
+    
+        const toasts = container.querySelectorAll('.notification');
+
+        toasts.forEach(toast => {
+            const timeoutId = toast.dataset.timeoutId;
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+            }
+            this.fadeOutAndRemove(toast);
+        });
+    
+        setTimeout(() => {
+            if (container && container.children.length === 0) {
+                container.remove();
+            }
+        }, 500);
+    }
+
     createToastContainer() {
         const container = document.createElement('div');
         container.classList.add('toast-container');
