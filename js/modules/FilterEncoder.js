@@ -171,7 +171,7 @@ export class FilterEncoder {
             this.currentCodeIndex = this.codeStartIndex;
             
             items.forEach(item => {
-                const code = this.generateCodeForValue(item.value);
+                const code = this.generateCodeForValue();
                 this.DICTIONARIES.itemCodes[code] = item.value;
                 this.REVERSE_DICTS.itemCodes[item.value] = code;
             });
@@ -179,17 +179,16 @@ export class FilterEncoder {
     }
     
     // Helper for items without hex codes
-    generateCodeForValue(value) {
+    generateCodeForValue() {
         const base64Chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
         
-        // Generate sequential codes starting from '6A'
+        // Generate sequential codes starting from '9A'
         const code = base64Chars[Math.floor(this.currentCodeIndex / 64)] + 
                      base64Chars[this.currentCodeIndex % 64];
         
         // Increment for next item (wrap around if needed)
         this.currentCodeIndex++;
         if (this.currentCodeIndex >= 4096) {
-            console.error('Code generation limit exceeded. Consider increasing the range.');
             throw new Error('Code generation limit exceeded.');
         }
         
@@ -204,7 +203,7 @@ export class FilterEncoder {
                 console.error("Invalid filter: not an object");
                 return null;
             }
-    
+            
             // Check for required properties
             if (filter.default_show_items === undefined || 
                 filter.name === undefined ||
@@ -212,20 +211,20 @@ export class FilterEncoder {
                 console.error("Invalid filter structure");
                 return null;
             }
-    
+            
             // Process the filter
             const safeFilter = {
                 default_show_items: Boolean(filter.default_show_items),
                 name: String(filter.name),
                 rules: Array.isArray(filter.rules) ? filter.rules : []
             };
-    
+            
             // Encode header
             const header = [
                 safeFilter.default_show_items ? '1A' : '1B',
                 this.encodeString(safeFilter.name, 50)
             ].join('');
-    
+            
             // Encode rules (handle empty array case)
             const rules = safeFilter.rules.map(rule => {
                 const safeRule = {
@@ -245,7 +244,7 @@ export class FilterEncoder {
                 const encoded = this.encodeRule(safeRule);
                 return encoded === '' ? 'DEFAULT' : encoded;
             }).join('|');
-    
+            
             return `${header}|${rules}`;
         } catch (error) {
             console.error("Compression failed:", error);
@@ -396,7 +395,6 @@ export class FilterEncoder {
         
         return rule;
     }
-
 
     // Parameter Encoding
     encodeParams(params) {
