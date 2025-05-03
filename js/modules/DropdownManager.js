@@ -105,7 +105,7 @@ export class DropdownManager {
         $wrapper.css("justify-content", "space-between");
         $wrapper.append(
             $('<span>').text(data.text),
-            $('<span>').addClass('filter-date is-right').text(`Last saved: ${formattedDate}`)
+            $('<span>').addClass('filter-date is-right is-hidden-touch is-hidden-desktop-only').text(`Last saved: ${formattedDate}`)
         );
         
         return $wrapper;
