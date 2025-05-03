@@ -229,17 +229,17 @@ export class FilterEncoder {
             const rules = safeFilter.rules.map(rule => {
                 const safeRule = {
                     active: Boolean(rule?.active ?? true),
-                    show_item: Boolean(rule?.show_item ?? true),
-                    item_quality: Number(rule?.item_quality ?? -1),
+                    automap: Boolean(rule?.automap ?? true),
                     ethereal: Number(rule?.ethereal ?? 0),
-                    min_clvl: Math.max(0, Math.min(Number(rule?.min_clvl ?? 0), 99)),
+                    item_quality: Number(rule?.item_quality ?? -1),
                     max_clvl: Math.max(0, Math.min(Number(rule?.max_clvl ?? 0), 99)),
-                    min_ilvl: Math.max(0, Math.min(Number(rule?.min_ilvl ?? 0), 99)),
                     max_ilvl: Math.max(0, Math.min(Number(rule?.max_ilvl ?? 0), 99)),
-                    rule_type: Number(rule?.rule_type ?? -1),
-                    params: rule?.params ?? null,
+                    min_clvl: Math.max(0, Math.min(Number(rule?.min_clvl ?? 0), 99)),
+                    min_ilvl: Math.max(0, Math.min(Number(rule?.min_ilvl ?? 0), 99)),
                     notify: Boolean(rule?.notify ?? true),
-                    automap: Boolean(rule?.automap ?? true)
+                    params: rule?.params ?? null,
+                    rule_type: Number(rule?.rule_type ?? -1),
+                    show_item: Boolean(rule?.show_item ?? true)
                 };
                 const encoded = this.encodeRule(safeRule);
                 return encoded === '' ? 'DEFAULT' : encoded;
@@ -282,54 +282,43 @@ export class FilterEncoder {
         if (rule.active !== defaults.active) {
             encodedParts.push(`a${this.REVERSE_DICTS.boolean[rule.active]}`);
         }
-        
-        if (rule.show_item !== defaults.show_item) {
-            encodedParts.push(`s${this.REVERSE_DICTS.boolean[rule.show_item]}`);
+        if (rule.automap !== defaults.automap) {
+            encodedParts.push(`m${this.REVERSE_DICTS.boolean[rule.automap]}`);
         }
-        
-        if (rule.item_quality !== defaults.item_quality) {
-            encodedParts.push(`q${this.REVERSE_DICTS.itemQuality[rule.item_quality]}`);
-        }
-        
         if (rule.ethereal !== defaults.ethereal) {
             encodedParts.push(`e${this.REVERSE_DICTS.ethereal[rule.ethereal]}`);
         }
-        
-        if (rule.min_clvl !== defaults.min_clvl) {
-            encodedParts.push(`n${this.encodeNumber(rule.min_clvl)}`);
+        if (rule.item_quality !== defaults.item_quality) {
+            encodedParts.push(`q${this.REVERSE_DICTS.itemQuality[rule.item_quality]}`);
         }
-        
         if (rule.max_clvl !== defaults.max_clvl) {
             encodedParts.push(`x${this.encodeNumber(rule.max_clvl)}`);
         }
-        
-        if (rule.min_ilvl !== defaults.min_ilvl) {
-            encodedParts.push(`i${this.encodeNumber(rule.min_ilvl)}`);
-        }
-        
         if (rule.max_ilvl !== defaults.max_ilvl) {
             encodedParts.push(`j${this.encodeNumber(rule.max_ilvl)}`);
         }
-        
-        if (rule.rule_type !== defaults.rule_type) {
-            encodedParts.push(`t${this.REVERSE_DICTS.ruleType[rule.rule_type]}`);
+        if (rule.min_clvl !== defaults.min_clvl) {
+            encodedParts.push(`n${this.encodeNumber(rule.min_clvl)}`);
         }
-        
+        if (rule.min_ilvl !== defaults.min_ilvl) {
+            encodedParts.push(`i${this.encodeNumber(rule.min_ilvl)}`);
+        }
+        if (rule.notify !== defaults.notify) {
+            encodedParts.push(`o${this.REVERSE_DICTS.boolean[rule.notify]}`);
+        }
         if (JSON.stringify(rule.params) !== JSON.stringify(defaults.params)) {
             const encodedParams = this.encodeParams(rule.params);
             if (encodedParams !== '0000') {
                 encodedParts.push(`p${encodedParams}`);
             }
         }
-        
-        if (rule.notify !== defaults.notify) {
-            encodedParts.push(`o${this.REVERSE_DICTS.boolean[rule.notify]}`);
+        if (rule.rule_type !== defaults.rule_type) {
+            encodedParts.push(`t${this.REVERSE_DICTS.ruleType[rule.rule_type]}`);
         }
-        
-        if (rule.automap !== defaults.automap) {
-            encodedParts.push(`m${this.REVERSE_DICTS.boolean[rule.automap]}`);
+        if (rule.show_item !== defaults.show_item) {
+            encodedParts.push(`s${this.REVERSE_DICTS.boolean[rule.show_item]}`);
         }
-        
+
         // Return empty string for default rules instead of empty array
         return encodedParts.length === 0 ? '' : encodedParts.join(',');
     }

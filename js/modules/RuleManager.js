@@ -21,17 +21,17 @@ export class RuleManager {
         this.ruleTemplate = Object.freeze({
             id: Date.now(),
             active: true,
-            show_item: true,
-            item_quality: -1,
+            automap: true,
             ethereal: 0,
-            min_clvl: 0,
+            item_quality: -1,
             max_clvl: 0,
-            min_ilvl: 0,
             max_ilvl: 0,
-            rule_type: -1,
-            params: null,
+            min_clvl: 0,
+            min_ilvl: 0,
             notify: true,
-            automap: true
+            params: null,
+            rule_type: -1,
+            show_item: true
         });
     }
 
