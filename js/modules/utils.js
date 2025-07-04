@@ -42,10 +42,10 @@ export function applySharedFilter(sharedFilter, ruleManager, toastManager) {
         $('#filterName').val(sharedFilter.name);
         ruleManager.clearRules();
         sharedFilter.rules.reverse().forEach(rule => ruleManager.addRule(rule));
-        toastManager.showToast('Shared filter loaded!', true);
+        toastManager.showToast(`Filter '${sharedFilter.name}' loaded!`, true);
         return true;
     } catch (e) {
-        toastManager.showToast('Invalid shared filter', false, 'danger');
+        toastManager.showToast('Error while loading filter from URL:' + e.message, false, 'danger');
         return false;
     }
 }

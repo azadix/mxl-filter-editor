@@ -38,9 +38,17 @@ async function initializeApp() {
         if (filterId) {
             try {
                 const apiFilter = await fetchFilterFromAPI(filterId);
-                applySharedFilter(apiFilter, ruleManager, toastManager);
+                if (apiFilter) {
+                    applySharedFilter(apiFilter, ruleManager, toastManager);
+                    toastManager.showToast(`Filter ${filterId} loaded successfully!`, true);
+                }
             } catch (error) {
-                toastManager.showToast(`Failed to load filter from API: ${error.message}`, false, 'danger');
+                toastManager.showToast(
+                    `Failed to load filter id:=${filterId} from Filter Exchange API`, 
+                    false, 
+                    'danger'
+                );
+                console.error('API load error:', error);
             }
         }
         // Then check for shared filter in URL hash
@@ -50,7 +58,6 @@ async function initializeApp() {
                 applySharedFilter(sharedFilter, ruleManager, toastManager);
             }
         }
-
 
         // Initialize table and UI
         const tableManager = new TableManager(
