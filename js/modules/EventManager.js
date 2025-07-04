@@ -12,61 +12,6 @@ export class EventManager {
         this.filterEncoder = new FilterEncoder(this.ruleManager);
     }
 
-    setupMessageListener() {
-        window.addEventListener('message', (event) => {
-            // // Security check - only accept messages from trusted origins
-            // const allowedOrigins = [
-            //     window.location.origin,
-            //     'https://tsw.vn.cz/'
-            // ];
-            
-            // if (!allowedOrigins.includes(event.origin)) {
-            //     console.warn('Message from untrusted origin blocked:', event.origin);
-            //     return;
-            // }
-
-            try {
-                // Validate message structure
-                if (!event.data || typeof event.data !== 'object') {
-                    console.warn('Invalid message format - expected object');
-                    return;
-                }
-
-                this.handleIncomingFilter(event.data);
-
-            } catch (error) {
-                console.error('Error processing message:', error);
-                this.toastManager.showToast('Error processing incoming filter', false, 'danger');
-            }
-        });
-    }
-
-    handleIncomingFilter(filterData) {
-        // Validate filter structure
-        if (!filterData || typeof filterData !== 'object') {
-            throw new Error('Invalid filter data format');
-        }
-
-        // Set defaults for optional fields
-        const safeFilter = {
-            default_show_items: filterData.default_show_items !== undefined 
-                ? Boolean(filterData.default_show_items) 
-                : true,
-            name: filterData.name ? String(filterData.name) : 'Imported Filter',
-            rules: Array.isArray(filterData.rules) ? filterData.rules : []
-        };
-
-        // Apply the filter
-        $('#defaultShowItems').prop('checked', safeFilter.default_show_items);
-        $('#filterName').val(safeFilter.name);
-        
-        this.ruleManager.clearRules();
-        safeFilter.rules.reverse().forEach(rule => this.ruleManager.addRule(rule));
-        this.tableRenderer.render();
-        
-        this.toastManager.showToast('Filter loaded successfully!', true);
-    }
-
     initialize() {
         if (!this.ruleManager.isDataLoaded()) {
             this.toastManager.showToast('Waiting for data to load...', true);
@@ -90,8 +35,6 @@ export class EventManager {
             const isChecked = $(event.target).is(':checked');
             localStorage.setItem('defaultMap', isChecked);
         });
-
-        this.setupMessageListener();
         
         $('#shareFilter').on('click', () => {
             try {

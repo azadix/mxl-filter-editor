@@ -64,3 +64,29 @@ export function initHashChangeListener(ruleManager, toastManager, filterEncoder,
         }
     });
 }
+
+export async function fetchFilterFromAPI(filterId) {
+    try {
+        const apiUrl = `https://tsw.vn.cz/filters/?mode=api&id=${filterId}`;
+        
+        const response = await fetch( apiUrl, {
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        });
+        
+        if (!response.ok) {
+            throw new Error(`API returned ${response.status}`);
+        }
+        
+        return await response.json();
+    } catch (error) {
+        console.error('API fetch error:', error);
+        throw error;
+    }
+}
+
+export function getUrlParameter(name) {
+    const params = new URLSearchParams(window.location.search);
+    return params.get(name);
+}
