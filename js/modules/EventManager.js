@@ -12,6 +12,34 @@ export class EventManager {
         this.filterEncoder = new FilterEncoder(this.ruleManager);
     }
 
+    setupMessageListener() {
+        window.addEventListener('message', (event) => {
+            try {
+                // Check if the message contains filter data
+                if (event.data) {
+                    const filterData = event.data;
+                    
+                    // Validate the filter structure
+                    if (filterData.rules && Array.isArray(filterData.rules)) {
+                        $('#defaultShowItems').prop('checked', filterData.default_show_items || true);
+                        $('#filterName').val(filterData.name || 'Imported Filter');
+                        
+                        this.ruleManager.clearRules();
+                        filterData.rules.reverse().forEach(rule => this.ruleManager.addRule(rule));
+                        this.tableRenderer.render();
+                        
+                        this.toastManager.showToast('Filter loaded from external source!', true);
+                    } else {
+                        this.toastManager.showToast('Invalid filter format received', false, 'danger');
+                    }
+                }
+            } catch (error) {
+                console.error('Error processing incoming message:', error);
+                this.toastManager.showToast('Error loading filter from external source', false, 'danger');
+            }
+        });
+    }
+
     initialize() {
         if (!this.ruleManager.isDataLoaded()) {
             this.toastManager.showToast('Waiting for data to load...', true);
@@ -36,6 +64,8 @@ export class EventManager {
             localStorage.setItem('defaultMap', isChecked);
         });
 
+        this.setupMessageListener();
+        
         $('#shareFilter').on('click', () => {
             try {
                 const filterData = this.ruleManager.generateOutput();

@@ -11,7 +11,10 @@ export class FilterEncoder {
     initDictionaries() {
         // Initialize instance dictionaries
         this.DICTIONARIES = {
-            boolean: FilterEncoder.DICTIONARIES.boolean,
+            boolean: {
+                '1A': true,
+                '1B': false
+            },
             itemQuality: FilterEncoder.DICTIONARIES.itemQuality,
             ethereal: FilterEncoder.DICTIONARIES.ethereal,
             ruleType: FilterEncoder.DICTIONARIES.ruleType,
@@ -20,7 +23,10 @@ export class FilterEncoder {
         };
         
         this.REVERSE_DICTS = {
-            boolean: FilterEncoder.REVERSE_DICTS.boolean,
+            boolean: {
+                true: '1A',
+                false: '1B'
+            },
             itemQuality: FilterEncoder.REVERSE_DICTS.itemQuality,
             ethereal: FilterEncoder.REVERSE_DICTS.ethereal,
             ruleType: FilterEncoder.REVERSE_DICTS.ruleType,
@@ -31,10 +37,6 @@ export class FilterEncoder {
 
     // Predefined dictionaries for each parameter
     static DICTIONARIES = {
-        boolean: {
-            '1A': true,
-            '1B': false
-        },
         itemQuality: {
             '2A': -1, '2B': 1, '2C': 2, '2D': 3, '2E': 4, 
             '2F': 5, '2G': 6, '2H': 7, '2I': 8, '2J': 9
@@ -46,7 +48,6 @@ export class FilterEncoder {
             '4A': -1, '4B': 0, '4C': 1
         },
         classType: {
-            // Gold to Weapons (1-20)
             '5A': 1,   // Gold
             '5B': 2,   // Gear
             '5C': 3,   // Armor
@@ -67,8 +68,6 @@ export class FilterEncoder {
             '5R': 18,  // Tier 4
             '5S': 19,  // Tier Sacred
             '5T': 20,  // Tier Mastercrafted
-        
-            // Angelic to Potions (21-40)
             '5U': 21,  // Tier Angelic
             '5V': 22,  // Quest Reward
             '5W': 23,  // Potion
@@ -89,8 +88,6 @@ export class FilterEncoder {
             '6L': 38,  // Gem Sapphire
             '6M': 39,  // Gem Emerald
             '6N': 40,  // Gem Ruby
-        
-            // Gems to Shrines (41-60)
             '6O': 41,  // Gem Diamond
             '6P': 42,  // Gem Skull
             '6Q': 43,  // Gem Onyx
@@ -111,8 +108,6 @@ export class FilterEncoder {
             '7F': 58,  // Shrine Ornate
             '7G': 59,  // Shrine Sacred
             '7H': 60,  // Shrine Shimmering
-        
-            // More Shrines to Misc (61-80)
             '7I': 61,  // Shrine Spirit
             '7J': 62,  // Shrine Magical
             '7K': 63,  // Shrine Enchanted
@@ -133,8 +128,6 @@ export class FilterEncoder {
             '7Z': 78,  // Cycle Medium
             '8A': 79,  // Cycle Large
             '8B': 80,  // Riftstone
-        
-            // Catalysts to End (81-92)
             '8C': 81,  // Catalyst
             '8D': 82,  // Design Scheme
             '8E': 83,  // Quest Item
@@ -336,49 +329,52 @@ export class FilterEncoder {
             
             const fieldCode = part[0];
             const valueCode = part.substring(1);
-            
-            switch(fieldCode) {
-                case 'a': // active
-                    rule.active = this.DICTIONARIES.boolean[valueCode];
-                    break;
-                case 's': // show_item
-                    rule.show_item = this.DICTIONARIES.boolean[valueCode];
-                    break;
-                case 'e': // ethereal
-                    rule.ethereal = this.DICTIONARIES.ethereal[valueCode];
-                    break;
-                case 'q': // item_quality
-                    rule.item_quality = this.DICTIONARIES.itemQuality[valueCode];
-                    break;
-                case 't': // rule_type
-                    rule.rule_type = this.DICTIONARIES.ruleType[valueCode];
-                    break;
-                case 'p': // params
-                    rule.params = this.decodeParams(valueCode);
-                    break;
-                case 'n': // min_clvl
-                    rule.min_clvl = this.decodeNumber(valueCode);
-                    break;
-                case 'x': // max_clvl
-                    rule.max_clvl = this.decodeNumber(valueCode);
-                    break;
-                case 'i': // min_ilvl
-                    rule.min_ilvl = this.decodeNumber(valueCode);
-                    break;
-                case 'j': // max_ilvl
-                    rule.max_ilvl = this.decodeNumber(valueCode);
-                    break;
-                case 'o': // notify
-                    rule.notify = this.DICTIONARIES.boolean[valueCode];
-                    break;
-                case 'm': // automap
-                    rule.automap = this.DICTIONARIES.boolean[valueCode];
-                    break;
-                default:
-                    console.warn('Unknown field code:', fieldCode);
-                    rule.unknownFields = rule.unknownFields || [];
-                    rule.unknownFields.push({ fieldCode, valueCode });
-                    break;
+            try {
+                switch(fieldCode) {
+                    case 'a': // active
+                        rule.active = this.DICTIONARIES.boolean[valueCode];
+                        break;
+                    case 's': // show_item
+                        rule.show_item = this.DICTIONARIES.boolean[valueCode];
+                        break;
+                    case 'e': // ethereal
+                        rule.ethereal = this.DICTIONARIES.ethereal[valueCode];
+                        break;
+                    case 'q': // item_quality
+                        rule.item_quality = this.DICTIONARIES.itemQuality[valueCode];
+                        break;
+                    case 't': // rule_type
+                        rule.rule_type = this.DICTIONARIES.ruleType[valueCode];
+                        break;
+                    case 'p': // params
+                        rule.params = this.decodeParams(valueCode);
+                        break;
+                    case 'n': // min_clvl
+                        rule.min_clvl = this.decodeNumber(valueCode);
+                        break;
+                    case 'x': // max_clvl
+                        rule.max_clvl = this.decodeNumber(valueCode);
+                        break;
+                    case 'i': // min_ilvl
+                        rule.min_ilvl = this.decodeNumber(valueCode);
+                        break;
+                    case 'j': // max_ilvl
+                        rule.max_ilvl = this.decodeNumber(valueCode);
+                        break;
+                    case 'o': // notify
+                        rule.notify = this.DICTIONARIES.boolean[valueCode];
+                        break;
+                    case 'm': // automap
+                        rule.automap = this.DICTIONARIES.boolean[valueCode];
+                        break;
+                    default:
+                        console.warn('Unknown field code:', fieldCode);
+                        rule.unknownFields = rule.unknownFields || [];
+                        rule.unknownFields.push({ fieldCode, valueCode });
+                        break;
+                }
+            } catch (e) {
+                console.warn('Error decoding field:', fieldCode, e);
             }
         });
         
@@ -471,23 +467,43 @@ export class FilterEncoder {
     }
     
     decodeNumber(encoded) {
+        if (!encoded || encoded.length !== 2) return 0;
+    
+        // First try to look up in item codes dictionary
+        if (this.REVERSE_DICTS.itemCodes && this.REVERSE_DICTS.itemCodes[encoded] !== undefined) {
+            return this.REVERSE_DICTS.itemCodes[encoded];
+        }
+        
+        // Fall back to base64 position calculation
         const base64Chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
-        const firstChar = encoded[0];
-        const secondChar = encoded[1];
+        const firstIndex = base64Chars.indexOf(encoded[0]);
+        const secondIndex = base64Chars.indexOf(encoded[1]);
         
-        // Calculate position in the sequence starting from our start index
-        const code = (base64Chars.indexOf(firstChar) * 64 + base64Chars.indexOf(secondChar));
+        // Return 0 for invalid codes instead of -65
+        if (firstIndex === -1 || secondIndex === -1) return 0;
         
-        // Since we generate codes sequentially from startIndex, we need to return
-        // the original item value that was mapped to this code
-        return this.REVERSE_DICTS.itemCodes[encoded] || code;
+        return (firstIndex * 64) + secondIndex;
     }
 
     generateShortenedLink(filterData) {
         try {
             const compressed = this.compressFilter(filterData);
+            if (!compressed) {
+                throw new Error('Compression failed');
+            }
+
             const lzCompressed = LZString.compressToEncodedURIComponent(compressed);
-            return `${window.location.origin}${window.location.pathname}#${lzCompressed}`;
+            if (!lzCompressed) {
+                throw new Error('LZ compression failed');
+            }
+
+            const url = new URL(window.location.href);
+            url.hash = lzCompressed;
+            
+            // Clean up any existing query parameters if needed
+            url.search = '';
+            
+            return url.toString();
         } catch (error) {
             console.error('Error generating shortened link:', error);
             return null;
@@ -504,8 +520,10 @@ export class FilterEncoder {
             const filterData = this.decompressFilter(decompressed);
             if (!filterData) return null;
             
-            // Clear hash
-            window.location.hash = '';
+            // Clear hash using URL API
+            const currentUrl = new URL(window.location.href);
+            currentUrl.hash = '';
+            window.history.replaceState(null, '', currentUrl);
             
             return filterData;
         } catch (error) {

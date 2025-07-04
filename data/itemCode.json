@@ -7301,7 +7301,7 @@
         ]
     },
     {
-        "name": "Mystic Orb (Armor - Strength)",
+        "name": "Mystic Orb (Armor-Strength)",
         "value": 539701552,
         "hex": "01+",
         "category": [
@@ -7315,7 +7315,7 @@
         "category": []
     },
     {
-        "name": "Mystic Orb (Armor - Dexterity)",
+        "name": "Mystic Orb (Armor-Dexterity)",
         "value": 539701808,
         "hex": "02+",
         "category": [
@@ -7329,7 +7329,7 @@
         "category": []
     },
     {
-        "name": "Mystic Orb (Armor - Energy)",
+        "name": "Mystic Orb (Armor-Energy)",
         "value": 539702064,
         "hex": "03+",
         "category": [
@@ -7343,7 +7343,7 @@
         "category": []
     },
     {
-        "name": "Mystic Orb (Armor - Vitality)",
+        "name": "Mystic Orb (Armor-Vitality)",
         "value": 539702320,
         "hex": "04+",
         "category": [
@@ -7357,7 +7357,7 @@
         "category": []
     },
     {
-        "name": "Mystic Orb (Any - Fire Spell Damage)",
+        "name": "Mystic Orb (Any-Fire Spell Damage)",
         "value": 539702576,
         "hex": "05+",
         "category": [
@@ -7371,7 +7371,7 @@
         "category": []
     },
     {
-        "name": "Mystic Orb (Any - Cold Spell Damage)",
+        "name": "Mystic Orb (Any-Cold Spell Damage)",
         "value": 539702832,
         "hex": "06+",
         "category": [
@@ -7385,7 +7385,7 @@
         "category": []
     },
     {
-        "name": "Mystic Orb (Any - Lightning Spell Damage)",
+        "name": "Mystic Orb (Any-Lightning Spell Damage)",
         "value": 539703088,
         "hex": "07+",
         "category": [
@@ -7399,7 +7399,7 @@
         "category": []
     },
     {
-        "name": "Mystic Orb (Any - Poison Spell Damage)",
+        "name": "Mystic Orb (Any-Poison Spell Damage)",
         "value": 539703344,
         "hex": "08+",
         "category": [
@@ -7413,7 +7413,7 @@
         "category": []
     },
     {
-        "name": "Mystic Orb (Any - Physical/Magic Spell Damage)",
+        "name": "Mystic Orb (Any-Physical/Magic Spell Damage)",
         "value": 539703600,
         "hex": "09+",
         "category": [
@@ -7449,7 +7449,7 @@
         ]
     },
     {
-        "name": "Mystic Orb (Jewellry - Physical Damage Reduced)",
+        "name": "Mystic Orb (Jewellry-Physical Damage Reduced)",
         "value": 539701297,
         "hex": "10+",
         "category": [
@@ -7463,7 +7463,7 @@
         "category": []
     },
     {
-        "name": "Mystic Orb (Jewellry - Regenerate Mana)",
+        "name": "Mystic Orb (Jewellry-Regenerate Mana)",
         "value": 539701553,
         "hex": "11+",
         "category": [
@@ -7477,7 +7477,7 @@
         "category": []
     },
     {
-        "name": "Mystic Orb (Any - Summoned Minion Damage)",
+        "name": "Mystic Orb (Any-Summoned Minion Damage)",
         "value": 539701809,
         "hex": "12+",
         "category": [
@@ -7491,7 +7491,7 @@
         "category": []
     },
     {
-        "name": "Mystic Orb (Any - Summoned Minion Life)",
+        "name": "Mystic Orb (Any-Summoned Minion Life)",
         "value": 539702065,
         "hex": "13+",
         "category": [
@@ -7505,7 +7505,7 @@
         "category": []
     },
     {
-        "name": "Mystic Orb (Any - Summoned Minion Resistances)",
+        "name": "Mystic Orb (Any-Summoned Minion Resistances)",
         "value": 539702321,
         "hex": "14+",
         "category": [
@@ -7525,7 +7525,7 @@
         "category": []
     },
     {
-        "name": "Mystic Orb (Any - Magic Find)",
+        "name": "Mystic Orb (Any-Magic Find)",
         "value": 539702833,
         "hex": "16+",
         "category": [
@@ -7545,7 +7545,7 @@
         "category": []
     },
     {
-        "name": "Mystic Orb (Jewellry - Life)",
+        "name": "Mystic Orb (Jewellry-Life)",
         "value": 539703345,
         "hex": "18+",
         "category": [
@@ -7559,7 +7559,7 @@
         "category": []
     },
     {
-        "name": "Mystic Orb (Jewellry - Defense)",
+        "name": "Mystic Orb (Jewellry-Defense)",
         "value": 539703601,
         "hex": "19+",
         "category": [
@@ -7581,7 +7581,7 @@
         ]
     },
     {
-        "name": "Mystic Orb (Jewellry - Poison Length Reduced)",
+        "name": "Mystic Orb (Jewellry-Poison Length Reduced)",
         "value": 539701298,
         "hex": "20+",
         "category": [
@@ -7595,7 +7595,7 @@
         "category": []
     },
     {
-        "name": "Mystic Orb (Jewellry - Fire Resist)",
+        "name": "Mystic Orb (Jewellry-Fire Resist)",
         "value": 539701554,
         "hex": "21+",
         "category": [
@@ -7609,7 +7609,7 @@
         "category": []
     },
     {
-        "name": "Mystic Orb (Jewellry - Cold Resist)",
+        "name": "Mystic Orb (Jewellry-Cold Resist)",
         "value": 539701810,
         "hex": "22+",
         "category": [
@@ -7623,7 +7623,7 @@
         "category": []
     },
     {
-        "name": "Mystic Orb (Jewellry - Lightning Resist)",
+        "name": "Mystic Orb (Jewellry-Lightning Resist)",
         "value": 539702066,
         "hex": "23+",
         "category": [
@@ -7637,7 +7637,7 @@
         "category": []
     },
     {
-        "name": "Mystic Orb (Jewellry - Poison Resist)",
+        "name": "Mystic Orb (Jewellry-Poison Resist)",
         "value": 539702322,
         "hex": "24+",
         "category": [
@@ -7651,7 +7651,7 @@
         "category": []
     },
     {
-        "name": "Mystic Orb (Armor - Curse Length Reduction)",
+        "name": "Mystic Orb (Armor-Curse Length Reduction)",
         "value": 539702578,
         "hex": "25+",
         "category": [
@@ -7665,7 +7665,7 @@
         "category": []
     },
     {
-        "name": "Mystic Orb (Armor - Enhanced Defense)",
+        "name": "Mystic Orb (Armor-Enhanced Defense)",
         "value": 539702834,
         "hex": "26+",
         "category": [
@@ -7673,7 +7673,7 @@
         ]
     },
     {
-        "name": "Mystic Orb (Armor - Bonus to Defense)",
+        "name": "Mystic Orb (Armor-Bonus to Defense)",
         "value": 539703090,
         "hex": "27+",
         "category": [
@@ -7705,7 +7705,7 @@
         ]
     },
     {
-        "name": "Mystic Orb (Armor - Spell Focus)",
+        "name": "Mystic Orb (Armor-Spell Focus)",
         "value": 539701299,
         "hex": "30+",
         "category": [
@@ -7713,7 +7713,7 @@
         ]
     },
     {
-        "name": "Mystic Orb (Weapon - Experience Gained)",
+        "name": "Mystic Orb (Weapon-Experience Gained)",
         "value": 539701555,
         "hex": "31+",
         "category": [
@@ -7721,7 +7721,7 @@
         ]
     },
     {
-        "name": "Mystic Orb (Weapon - Life Stolen per Hit)",
+        "name": "Mystic Orb (Weapon-Life Stolen per Hit)",
         "value": 539701811,
         "hex": "32+",
         "category": [
@@ -7729,7 +7729,7 @@
         ]
     },
     {
-        "name": "Mystic Orb (Weapon - Mana Stolen per Hit)",
+        "name": "Mystic Orb (Weapon-Mana Stolen per Hit)",
         "value": 539702067,
         "hex": "33+",
         "category": [
@@ -7737,7 +7737,7 @@
         ]
     },
     {
-        "name": "Mystic Orb (Weapon - Bonus to Attack Rating)",
+        "name": "Mystic Orb (Weapon-Bonus to Attack Rating)",
         "value": 539702579,
         "hex": "35+",
         "category": [
@@ -7745,7 +7745,7 @@
         ]
     },
     {
-        "name": "Mystic Orb (Weapon - Enhanced Damage)",
+        "name": "Mystic Orb (Weapon-Enhanced Damage)",
         "value": 539702835,
         "hex": "36+",
         "category": [
@@ -7753,7 +7753,7 @@
         ]
     },
     {
-        "name": "Mystic Orb (Weapon - Maximum Damage)",
+        "name": "Mystic Orb (Weapon-Maximum Damage)",
         "value": 539703091,
         "hex": "37+",
         "category": [
@@ -7761,7 +7761,7 @@
         ]
     },
     {
-        "name": "Mystic Orb (Weapon - Deadly Strike)",
+        "name": "Mystic Orb (Weapon-Deadly Strike)",
         "value": 539703347,
         "hex": "38+",
         "category": [
@@ -7769,7 +7769,7 @@
         ]
     },
     {
-        "name": "Mystic Orb (Weapon - Chance of Crushing Blow)",
+        "name": "Mystic Orb (Weapon-Chance of Crushing Blow)",
         "value": 539703603,
         "hex": "39+",
         "category": [
@@ -7785,7 +7785,7 @@
         ]
     },
     {
-        "name": "Mystic Orb (Weapon - Life after each Kill)",
+        "name": "Mystic Orb (Weapon-Life after each Kill)",
         "value": 539701300,
         "hex": "40+",
         "category": [
@@ -7793,7 +7793,7 @@
         ]
     },
     {
-        "name": "Mystic Orb (Armor - Elemental Resists)",
+        "name": "Mystic Orb (Armor-Elemental Resists)",
         "value": 539702836,
         "hex": "46+",
         "category": [
@@ -7801,7 +7801,7 @@
         ]
     },
     {
-        "name": "Mystic Orb (Armor - Requirements)",
+        "name": "Mystic Orb (Armor-Requirements)",
         "value": 539703092,
         "hex": "47+",
         "category": [
@@ -7809,7 +7809,7 @@
         ]
     },
     {
-        "name": "Mystic Orb (Armor - Maximum Damage)",
+        "name": "Mystic Orb (Armor-Maximum Damage)",
         "value": 539703348,
         "hex": "48+",
         "category": [
@@ -7865,7 +7865,7 @@
         ]
     },
     {
-        "name": "Mystic Orb (Armor - Block Speed)",
+        "name": "Mystic Orb (Armor-Block Speed)",
         "value": 539701301,
         "hex": "50+",
         "category": [
@@ -7873,7 +7873,7 @@
         ]
     },
     {
-        "name": "Mystic Orb (Armor - Gold Find)",
+        "name": "Mystic Orb (Armor-Gold Find)",
         "value": 539701557,
         "hex": "51+",
         "category": [
@@ -7881,7 +7881,7 @@
         ]
     },
     {
-        "name": "Mystic Orb (Armor - Hit Recovery)",
+        "name": "Mystic Orb (Armor-Hit Recovery)",
         "value": 539701813,
         "hex": "52+",
         "category": [
@@ -7889,7 +7889,7 @@
         ]
     },
     {
-        "name": "Mystic Orb (Armor - Life Regenerated per Second)",
+        "name": "Mystic Orb (Armor-Life Regenerated per Second)",
         "value": 539702069,
         "hex": "53+",
         "category": [
@@ -7905,7 +7905,7 @@
         ]
     },
     {
-        "name": "Mystic Orb (Weapon - Life on Melee Attack)",
+        "name": "Mystic Orb (Weapon-Life on Melee Attack)",
         "value": 539701302,
         "hex": "60+",
         "category": [
@@ -7913,7 +7913,7 @@
         ]
     },
     {
-        "name": "Mystic Orb (Weapon - Mana on Melee Attack)",
+        "name": "Mystic Orb (Weapon-Mana on Melee Attack)",
         "value": 539701558,
         "hex": "61+",
         "category": [
@@ -7921,7 +7921,7 @@
         ]
     },
     {
-        "name": "Mystic Orb (Weapon - Innate Elemental Damage)",
+        "name": "Mystic Orb (Weapon-Innate Elemental Damage)",
         "value": 539701814,
         "hex": "62+",
         "category": [
@@ -7929,7 +7929,7 @@
         ]
     },
     {
-        "name": "Mystic Orb (Weapon - Weapon Physical Damage)",
+        "name": "Mystic Orb (Weapon-Weapon Physical Damage)",
         "value": 539702070,
         "hex": "63+",
         "category": [
@@ -7937,7 +7937,7 @@
         ]
     },
     {
-        "name": "Mystic Orb (Weapon - Cast Speed)",
+        "name": "Mystic Orb (Weapon-Cast Speed)",
         "value": 539702326,
         "hex": "64+",
         "category": [
@@ -7945,7 +7945,7 @@
         ]
     },
     {
-        "name": "Mystic Orb (Weapon - Attack Speed)",
+        "name": "Mystic Orb (Weapon-Attack Speed)",
         "value": 539702582,
         "hex": "65+",
         "category": [
@@ -8741,7 +8741,7 @@
         ]
     },
     {
-        "name": "Scroll of Summoning (Library of Fate - Area Level 125)",
+        "name": "Scroll of Summoning (Library of Fate-Area Level 125)",
         "value": 1479751266,
         "hex": "b63X",
         "category": [
@@ -8749,7 +8749,7 @@
         ]
     },
     {
-        "name": "Scroll of Summoning (Library of Fate - Area Level 130)",
+        "name": "Scroll of Summoning (Library of Fate-Area Level 130)",
         "value": 1479816802,
         "hex": "b64X",
         "category": [
@@ -9699,7 +9699,7 @@
         ]
     },
     {
-        "name": "Scroll of Enchantment: Boots (Aviud Danage)",
+        "name": "Scroll of Enchantment: Boots (Avoid Damage)",
         "value": 842296933,
         "hex": "en42",
         "category": [
