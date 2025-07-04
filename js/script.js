@@ -40,14 +40,9 @@ async function initializeApp() {
                 const apiFilter = await fetchFilterFromAPI(filterId);
                 if (apiFilter) {
                     applySharedFilter(apiFilter, ruleManager, toastManager);
-                    toastManager.showToast(`Filter ${filterId} loaded successfully!`, true);
                 }
             } catch (error) {
-                toastManager.showToast(
-                    `Failed to load filter id:=${filterId} from Filter Exchange API`, 
-                    false, 
-                    'danger'
-                );
+                toastManager.showToast(`Failed to load filter id:=${filterId} from Filter Exchange API`, false, 'danger');
                 console.error('API load error:', error);
             }
         }
