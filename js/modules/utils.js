@@ -69,11 +69,7 @@ export async function fetchFilterFromAPI(filterId) {
     try {
         const apiUrl = `https://tsw.vn.cz/filters/?mode=api&id=${filterId}`;
         
-        const response = await fetch( apiUrl, {
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest'
-            }
-        });
+        const response = await fetch(apiUrl);
         
         if (!response.ok) {
             throw new Error(`API returned ${response.status}`);
