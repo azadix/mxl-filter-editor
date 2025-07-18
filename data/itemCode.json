@@ -7441,7 +7441,7 @@
         "category": []
     },
     {
-        "name": "Hammer of the Taan Judges",
+        "name": "Paragon's Hammer",
         "value": 540112176,
         "hex": "0u1",
         "category": [
@@ -14073,6 +14073,518 @@
         "hex": "|wc",
         "category": [
             "#Charm"
+        ]
+    },
+    {
+        "name": "Weight of Talent",
+        "value": 540490022,
+        "hex": "&97",
+        "category": [
+            "#UMO"
+        ]
+    },
+    {
+        "name": "Ol Container (01)",
+        "value": 825254757,
+        "hex": "ec01",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Elq Container (02)",
+        "value": 842031973,
+        "hex": "ec02",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Tyr Container (03)",
+        "value": 858809189,
+        "hex": "ec03",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Nif Container (04)",
+        "value": 875586405,
+        "hex": "ec04",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Xeth Container (05)",
+        "value": 892363621,
+        "hex": "ec05",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Xith Container (06)",
+        "value": 909140837,
+        "hex": "ec06",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Thal Container (07)",
+        "value": 925918053,
+        "hex": "ec07",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Rhal Container (08)",
+        "value": 942695269,
+        "hex": "ec08",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Urt Container (09)",
+        "value": 959472485,
+        "hex": "ec09",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Tuul Container (10)",
+        "value": 808543077,
+        "hex": "ec10",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Ahmn Container (11)",
+        "value": 825320293,
+        "hex": "ec11",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Zol Container (12)",
+        "value": 842097509,
+        "hex": "ec12",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Shaen Container (13)",
+        "value": 858874725,
+        "hex": "ec13",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Doj Container (14)",
+        "value": 875651941,
+        "hex": "ec14",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Hem Container (15)",
+        "value": 892429157,
+        "hex": "ec15",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Iu Container (16)",
+        "value": 909206373,
+        "hex": "ec16",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Lux Container (17)",
+        "value": 925983589,
+        "hex": "ec17",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Ka Container (18)",
+        "value": 942760805,
+        "hex": "ec18",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Fel Container (19)",
+        "value": 959538021,
+        "hex": "ec19",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Lew Container (20)",
+        "value": 808608613,
+        "hex": "ec20",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Phul Container (21)",
+        "value": 825385829,
+        "hex": "ec21",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Un Container (22)",
+        "value": 842163045,
+        "hex": "ec22",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Mhal Container (23)",
+        "value": 858940261,
+        "hex": "ec23",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Yst Container (24)",
+        "value": 875717477,
+        "hex": "ec24",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Gur Container (25)",
+        "value": 892494693,
+        "hex": "ec25",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Vez Container (26)",
+        "value": 909271909,
+        "hex": "ec26",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Ohn Container (27)",
+        "value": 926049125,
+        "hex": "ec27",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Loz Container (28)",
+        "value": 942826341,
+        "hex": "ec28",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Zur Container (29)",
+        "value": 959603557,
+        "hex": "ec29",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Bur Container (30)",
+        "value": 808674149,
+        "hex": "ec30",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Iah Container (31)",
+        "value": 825451365,
+        "hex": "ec31",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Yham Container (32)",
+        "value": 842228581,
+        "hex": "ec32",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Xod Container (33)",
+        "value": 859005797,
+        "hex": "ec33",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Imperfect Sphere (Jewellry-Fire/Lightning)",
+        "value": 540555558,
+        "hex": "&98",
+        "category": [
+            "#UMO"
+        ]
+    },
+    {
+        "name": "Imperfect Sphere (Jewellry-Lightning/Cold)",
+        "value": 540621094,
+        "hex": "&99",
+        "category": [
+            "#UMO"
+        ]
+    },
+    {
+        "name": "Imperfect Sphere (Jewellry-Fire/Cold)",
+        "value": 808464678,
+        "hex": "&100",
+        "category": [
+            "#UMO"
+        ]
+    },
+    {
+        "name": "Scroll of Athulua",
+        "value": 828599411,
+        "hex": "slc1",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Soulforged Mystic Orb (Armor-Physical Resist)",
+        "value": 825257837,
+        "hex": "mo01",
+        "category": [
+            "#MO"
+        ]
+    },
+    {
+        "name": "Soulforged Mystic Orb (Armor-Cannot be Frozen)",
+        "value": 842035053,
+        "hex": "mo02",
+        "category": [
+            "#MO"
+        ]
+    },
+    {
+        "name": "Soulforged Mystic Orb (Armor-Max Fire Resist)",
+        "value": 858812269,
+        "hex": "mo03",
+        "category": [
+            "#MO"
+        ]
+    },
+    {
+        "name": "Soulforged Mystic Orb (Armor-Max Cold Resist)",
+        "value": 875589485,
+        "hex": "mo04",
+        "category": [
+            "#MO"
+        ]
+    },
+    {
+        "name": "Soulforged Mystic Orb (Armor-Max Lightning Resist)",
+        "value": 892366701,
+        "hex": "mo05",
+        "category": [
+            "#MO"
+        ]
+    },
+    {
+        "name": "Soulforged Mystic Orb (Armor-Max Poison Resist)",
+        "value": 909143917,
+        "hex": "mo06",
+        "category": [
+            "#MO"
+        ]
+    },
+    {
+        "name": "Soulforged Mystic Orb (Armor-Innate Elemental Damage)",
+        "value": 925921133,
+        "hex": "mo07",
+        "category": [
+            "#MO"
+        ]
+    },
+    {
+        "name": "Soulforged Mystic Orb (Shield-Reduced Block Rate, +Base Block Chance)",
+        "value": 942698349,
+        "hex": "mo081",
+        "category": [
+            "#MO"
+        ]
+    },
+    {
+        "name": "Soulforged Mystic Orb (Shield-Reduced Base Block Chance)",
+        "value": 959475565,
+        "hex": "mo09",
+        "category": [
+            "#MO"
+        ]
+    },
+    {
+        "name": "Soulforged Mystic Orb (Body Armor-Max Life)",
+        "value": 808546157,
+        "hex": "mo10",
+        "category": [
+            "#MO"
+        ]
+    },
+    {
+        "name": "Soulforged Mystic Orb (Armor-Enemy Fire Resist)",
+        "value": 825323373,
+        "hex": "mo11",
+        "category": [
+            "#MO"
+        ]
+    },
+    {
+        "name": "Soulforged Mystic Orb (Armor-Enemy Cold Resist)",
+        "value": 842100589,
+        "hex": "mo12",
+        "category": [
+            "#MO"
+        ]
+    },
+    {
+        "name": "Soulforged Mystic Orb (Armor-Enemy Lightning Resist)",
+        "value": 858877805,
+        "hex": "mo13",
+        "category": [
+            "#MO"
+        ]
+    },
+    {
+        "name": "Soulforged Mystic Orb (Armor-Enemy Poison Resist)",
+        "value": 875655021,
+        "hex": "mo14",
+        "category": [
+            "#MO"
+        ]
+    },
+    {
+        "name": "Soulforged Mystic Orb (Armor-Damage to Demons)",
+        "value": 892432237,
+        "hex": "mo15",
+        "category": [
+            "#MO"
+        ]
+    },
+    {
+        "name": "Soulforged Mystic Orb (Armor-Damage to Undead)",
+        "value": 909209453,
+        "hex": "mo16",
+        "category": [
+            "#MO"
+        ]
+    },
+    {
+        "name": "Mark of Fate",
+        "value": 880308854,
+        "hex": "vrx4",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Insignia of the Based",
+        "value": 1685283170,
+        "hex": "basd",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Container of Knowledge",
+        "value": 828598643,
+        "hex": "sic1",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Oil of Reflection",
+        "value": 542863412,
+        "hex": "4p[",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Enchanting Crystal",
+        "value": 1480879990,
+        "hex": "voDX",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Pearl of Wisdom: Paragon of Fate",
+        "value": 880374390,
+        "hex": "vry4",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Scroll of Summoning (Library of Fate-Area Level 133)",
+        "value": 1479882338,
+        "hex": "b65X",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Scroll of Summoning (Library of Fate-Area Level 136)",
+        "value": 1479947874,
+        "hex": "b66X",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Scroll of Summoning (Library of Fate-Area Level 139)",
+        "value": 1480013410,
+        "hex": "b67X",
+        "category": [
+            "#Other"
+        ]
+    },
+    {
+        "name": "Scroll of Summoning (Library of Fate-Area Level 140)",
+        "value": 1480078946,
+        "hex": "b68X",
+        "category": [
+            "#Other"
         ]
     }
 ]
