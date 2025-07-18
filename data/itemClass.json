@@ -366,5 +366,73 @@
     {
         "name": "Shield",
         "value": 92
+    },
+    {
+        "name": "Weapon type Bow",
+        "value": 93
+    },
+    {
+        "name": "Weapon type Crossbow",
+        "value": 94
+    },
+    {
+        "name": "Weapon type Javelin",
+        "value": 95
+    },
+    {
+        "name": "Weapon type Spear",
+        "value": 96
+    },
+    {
+        "name": "Weapon type Hammer",
+        "value": 97
+    },
+    {
+        "name": "Weapon type Mace",
+        "value": 98
+    },
+    {
+        "name": "Weapon type Scepter",
+        "value": 99
+    },
+    {
+        "name": "Weapon type Throwing Knife",
+        "value": 100
+    },
+    {
+        "name": "Weapon type Throwing Axe",
+        "value": 101
+    },
+    {
+        "name": "Weapon type Claw",
+        "value": 102
+    },
+    {
+        "name": "Weapon type Naginata",
+        "value": 103
+    },
+    {
+        "name": "Weapon type Scythe",
+        "value": 104
+    },
+    {
+        "name": "Weapon type Dagger",
+        "value": 105
+    },
+    {
+        "name": "Weapon type Staff",
+        "value": 106
+    },
+    {
+        "name": "Weapon type Crystal Sword",
+        "value": 107
+    },
+    {
+        "name": "Weapon type Axe",
+        "value": 108
+    },
+    {
+        "name": "Weapon type Sword",
+        "value": 109
     }
 ]
