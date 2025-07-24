@@ -62,10 +62,8 @@ This project uses several open-source libraries:
 | jQuery | DOM manipulation | 3.7.1 | [jquery.com](https://jquery.com/) |
 | Bulma CSS | CSS framework | 1.0.1 | [bulma.io](https://bulma.io/) |
 | DataTables | Table interaction | 2.2.2 | [datatables.net](https://datatables.net/) |
-| Select2 | Enhanced select elements | 4.1.0 | [select2.org](https://select2.org/) |
 | SortableJS | Drag-and-drop functionality | 1.14.0 | [SortableJS](https://sortablejs.github.io/Sortable/) |
 | FontAwesome | Icons | 5.15.4 | [FontAwesome](https://fontawesome.com/) |
-| maximize-select2-height | Select2 enhancement | 1.0.4 | [Panorama Education](https://github.com/panorama-ed/maximize-select2-height) |
 | LZ-string | Compression | 1.4.4 | [Pieroxy](https://github.com/pieroxy/lz-string/) |
 
 ### Data Structure

@@ -1,20 +1,20 @@
 import { clampLvlValues, sanitizeFilterName } from './utils.js';
-import { FilterEncoder } from './FilterEncoder.js';
-
+import { 
+    ruleManager,
+    dropdownManager,
+    toastManager,
+    tableRenderer,
+    storageManager,
+    filterEncoder
+} from '../globals.js';
 export class EventManager {
-    constructor(table, ruleManager, dropdownManager, toastManager, tableRenderer, storageManager) {
+    constructor(table) {
         this.table = table;
-        this.ruleManager = ruleManager;
-        this.dropdownManager = dropdownManager;
-        this.toastManager = toastManager;
-        this.tableRenderer = tableRenderer;
-        this.storageManager = storageManager;
-        this.filterEncoder = new FilterEncoder(this.ruleManager);
     }
 
     initialize() {
-        if (!this.ruleManager.isDataLoaded()) {
-            this.toastManager.showToast('Waiting for data to load...', true);
+        if (!ruleManager.isDataLoaded()) {
+            toastManager.showToast('Waiting for data to load...', true);
             return;
         }
 
@@ -38,24 +38,24 @@ export class EventManager {
         
         $('#shareFilter').on('click', () => {
             try {
-                const filterData = this.ruleManager.generateOutput();
-                const shareLink = this.filterEncoder.generateShortenedLink(JSON.parse(filterData));
+                const filterData = ruleManager.generateOutput();
+                const shareLink = filterEncoder.generateShortenedLink(JSON.parse(filterData));
                 
                 if (shareLink) {
                     navigator.clipboard.writeText(shareLink)
                         .then(() => {
-                            this.toastManager.showToast('Share link copied', true);
+                            toastManager.showToast('Share link copied', true);
                         })
                         .catch(() => {
                             // Fallback if clipboard API fails
                             prompt('Copy this compact link to share your filter:', shareLink);
                         });
                 } else {
-                    this.toastManager.showToast('Failed to generate share link', false, 'danger');
+                    toastManager.showToast('Failed to generate share link', false, 'danger');
                 }
             } catch (error) {
                 console.error('Error sharing filter:', error);
-                this.toastManager.showToast('Error sharing filter', false, 'danger');
+                toastManager.showToast('Error sharing filter', false, 'danger');
             }
         });
 
@@ -76,7 +76,7 @@ export class EventManager {
 
         // Handle Save changes in the modal
         $('#settingsModal .modal-card-foot .is-success').on('click', () => {
-            this.toastManager.showToast("Preferences saved!", true);
+            toastManager.showToast("Preferences saved!", true);
             $('#settingsModal').removeClass('is-active');
         });
 
@@ -85,7 +85,7 @@ export class EventManager {
             try {
                 const text = prompt("Please paste the JSON data here:");
                 if (!text) {
-                    this.toastManager.showToast("No data pasted.", true);
+                    toastManager.showToast("No data pasted.", true);
                     return;
                 }
 
@@ -94,70 +94,60 @@ export class EventManager {
                     $('#defaultShowItems').prop('checked', data.default_show_items);
                     $('#filterName').val(data.name);
 
-                    this.ruleManager.clearRules();
-                    data.rules.reverse().forEach(rule => this.ruleManager.addRule(rule));
-                    this.tableRenderer.render();
-                    this.toastManager.cleanUpToastMessages();
+                    ruleManager.clearRules();
+                    data.rules.reverse().forEach(rule => ruleManager.addRule(rule));
+                    tableRenderer.render();
+                    toastManager.cleanUpToastMessages();
                 } else {
-                    this.toastManager.showToast("Invalid JSON format.");
+                    toastManager.showToast("Invalid JSON format.");
                 }
             } catch (error) {
-                this.toastManager.showToast("Failed to paste: " + error);
+                toastManager.showToast("Failed to paste: " + error);
             }
         });
 
         // Copy to clipboard
         $('#copyToClipboard').on('click', () => {
             const filterName = $('#filterName').val().trim();
-            const output = this.ruleManager.generateOutput();
+            const output = ruleManager.generateOutput();
 
             navigator.clipboard.writeText(output)
-                .then(() => this.toastManager.showToast(`Filter "${filterName}" copied to clipboard!`, true))
-                .catch(err => this.toastManager.showToast("Failed to copy: " + err));
+                .then(() => toastManager.showToast(`Filter "${filterName}" copied to clipboard!`, true))
+                .catch(err => toastManager.showToast("Failed to copy: " + err));
         });
 
         // Save to localStorage
         $('#saveToLocalStorage').on('click', () => {
             const filterName = sanitizeFilterName($('#filterName').val()).trim();
             if (!filterName) {
-                this.toastManager.showToast("Please enter a filter name before saving.");
+                toastManager.showToast("Please enter a filter name before saving.");
                 return;
             }
         
-            const filterData = this.ruleManager.generateOutput();
-            this.storageManager.saveFilter(filterName, filterData);
-            this.toastManager.showToast(`Filter "${filterName}" saved!`, true);
-            this.dropdownManager.updateFilterSelect();
-        });
-
-        // Global selector
-        $('#globalSelectorModal').on('select2:open', () => {
-            $('.select2-search__field').addClass('input');
-        });
-        
-        // Load from localStorage
-        $('#loadFromLocalStorage').on('select2:open', () => {
-            $('.select2-search__field').addClass('input');
+            const filterData = ruleManager.generateOutput();
+            storageManager.saveFilter(filterName, filterData);
+            toastManager.showToast(`Filter "${filterName}" saved!`, true);
+            dropdownManager.updateFilterSelect();
         });
         
         $('#loadFromLocalStorage').on('change', () => {
-            this.toastManager.cleanUpToastMessages();
+            toastManager.cleanUpToastMessages();
             const filterName = $('#loadFromLocalStorage').val().trim();
             if (!filterName) return;
             
-            const filterData = this.storageManager.loadFilter(filterName);
+            const filterData = storageManager.loadFilter(filterName);
             if (filterData) {
                 const parsedData = JSON.parse(filterData);
                 $('#defaultShowItems').prop('checked', parsedData.default_show_items);
                 $('#filterName').val(filterName);
         
-                this.ruleManager.clearRules();
-                parsedData.rules.reverse().forEach(rule => this.ruleManager.addRule(rule));
-                this.tableRenderer.render();
+                ruleManager.clearRules();
+                parsedData.rules.reverse().forEach(rule => ruleManager.addRule(rule));
+                tableRenderer.render();
         
-                this.toastManager.showToast(`Filter "${filterName}" loaded successfully!`, true);
+                toastManager.showToast(`Filter "${filterName}" loaded successfully!`, true);
             } else {
-                this.toastManager.showToast(`Filter "${filterName}" not found.`, true);
+                toastManager.showToast(`Filter "${filterName}" not found.`, true);
             }
         });
         
@@ -165,23 +155,23 @@ export class EventManager {
         $('#deleteFromLocalStorage').on('click', () => {
             const filterName = $('#filterName').val().trim();
             if (!filterName) {
-                this.toastManager.showToast("Please select a filter to delete.", true);
+                toastManager.showToast("Please select a filter to delete.", true);
                 return;
             }
             
             const confirmDelete = confirm(`Are you sure you want to delete "${filterName}"?`);
             if (confirmDelete) {
-                if (this.storageManager.deleteFilter(filterName)) {
-                    this.toastManager.showToast(`Filter "${filterName}" deleted!`, true);
-                    this.dropdownManager.updateFilterSelect();
+                if (storageManager.deleteFilter(filterName)) {
+                    toastManager.showToast(`Filter "${filterName}" deleted!`, true);
+                    dropdownManager.updateFilterSelect();
                     
                     // Reset the UI
                     $('#filterName').val('');
                     $('#loadFromLocalStorage').val('');
-                    this.ruleManager.clearRules();
-                    this.tableRenderer.render();
+                    ruleManager.clearRules();
+                    tableRenderer.render();
                 } else {
-                    this.toastManager.showToast(`Filter "${filterName}" not found.`, true);
+                    toastManager.showToast(`Filter "${filterName}" not found.`, true);
                 }
             }
         });
@@ -190,17 +180,17 @@ export class EventManager {
             const confirmReset = confirm("Are you sure you want to create a new filter? This will clear all current rules and reset the filter.");
 
             if (confirmReset) {
-                this.ruleManager.clearRules();
-                this.toastManager.cleanUpToastMessages();
+                ruleManager.clearRules();
+                toastManager.cleanUpToastMessages();
                 
                 $('#defaultShowItems').prop('checked', true);
                 $('#filterName').val('').trigger('change');
                 
-                // Properly reset the Select2 dropdown
+                // Properly reset the dropdown
                 const $filterSelect = $('#loadFromLocalStorage');
                 $filterSelect.val(null).trigger('change');
 
-                this.tableRenderer.render();
+                tableRenderer.render();
             }
         });
 
@@ -210,10 +200,10 @@ export class EventManager {
             const dataIndex = $(event.target).closest('tr').data('index');
 
             if (dataIndex !== undefined) {
-                this.ruleManager.updateRule(dataIndex, { active: paramValue });
+                ruleManager.updateRule(dataIndex, { active: paramValue });
 
-                const updatedRowData = this.tableRenderer.createRowData(this.ruleManager.getRules()[dataIndex], dataIndex);
-                this.tableRenderer.updateTableRow(dataIndex, updatedRowData);
+                const updatedRowData = tableRenderer.createRowData(ruleManager.getRules()[dataIndex], dataIndex);
+                tableRenderer.updateTableRow(dataIndex, updatedRowData);
             } else {
                 console.warn('Row does not have a valid data-index');
             }
@@ -223,9 +213,9 @@ export class EventManager {
             const dataIndex = $(event.target).closest('tr').data('index');
         
             if (dataIndex !== undefined) {
-                this.ruleManager.updateRule(dataIndex, { show_item: paramValue == "1" })
+                ruleManager.updateRule(dataIndex, { show_item: paramValue == "1" })
         
-                $(event.target).removeClass("has-text-success has-text-danger").addClass(this.tableRenderer.getShowClassName(dataIndex));
+                $(event.target).removeClass("has-text-success has-text-danger").addClass(tableRenderer.getShowClassName(dataIndex));
             } else {
                 console.warn('Row does not have a valid data-index');
             }
@@ -235,10 +225,10 @@ export class EventManager {
             const dataIndex = $(event.target).closest('tr').data('index');
         
             if (dataIndex !== undefined) {
-                this.ruleManager.updateRule(dataIndex, { item_quality: Number(paramValue) })
+                ruleManager.updateRule(dataIndex, { item_quality: Number(paramValue) })
 
-                $(event.target).removeClass(this.ruleManager.getItemQuality().map(quality => quality.class).join(" "));
-                $(event.target).addClass(this.tableRenderer.getQualityClassName(dataIndex));
+                $(event.target).removeClass(ruleManager.getItemQuality().map(quality => quality.class).join(" "));
+                $(event.target).addClass(tableRenderer.getQualityClassName(dataIndex));
             } else {
                 console.warn('Row does not have a valid data-index');
             }
@@ -248,7 +238,7 @@ export class EventManager {
             const dataIndex = $(event.target).closest('tr').data('index');
     
             if (dataIndex !== undefined) {
-                this.ruleManager.updateRule(dataIndex, { ethereal: Number(paramValue) })
+                ruleManager.updateRule(dataIndex, { ethereal: Number(paramValue) })
             } else {
                 console.warn('Row does not have a valid data-index');
             }
@@ -258,48 +248,23 @@ export class EventManager {
             const dataIndex = $(event.target).closest('tr').data('index');
             
             if (dataIndex !== undefined) {
-                this.ruleManager.updateRule(dataIndex, { rule_type: Number(paramValue) });
+                ruleManager.updateRule(dataIndex, { rule_type: Number(paramValue) });
                 
                 switch (Number(paramValue)) {
-                    case this.ruleManager.ruleTypes.NONE.value:
-                        this.ruleManager.updateRule(dataIndex, { params: null });
+                    case ruleManager.ruleTypes.NONE.value:
+                        ruleManager.updateRule(dataIndex, { params: null });
                         break;
-                    case this.ruleManager.ruleTypes.CLASS.value:
-                        this.ruleManager.updateRule(dataIndex, { params: { class: 0 } });
+                    case ruleManager.ruleTypes.CLASS.value:
+                        ruleManager.updateRule(dataIndex, { params: { class: 0 } });
                         break;
-                    case this.ruleManager.ruleTypes.ITEM.value:
-                        this.ruleManager.updateRule(dataIndex, { params: { code: 0 } });
+                    case ruleManager.ruleTypes.ITEM.value:
+                        ruleManager.updateRule(dataIndex, { params: { code: 0 } });
                         break;
                 }
                 
-                const updatedRowData = this.tableRenderer.createRowData(this.ruleManager.getRules()[dataIndex], dataIndex);
-                this.tableRenderer.updateTableRow(dataIndex, updatedRowData);
+                const updatedRowData = tableRenderer.createRowData(ruleManager.getRules()[dataIndex], dataIndex);
+                tableRenderer.updateTableRow(dataIndex, updatedRowData);
             }
-        });
-        this.table.on('click', '.rule-param-value', (event) => {
-            const dataIndex = $(event.target).closest('tr').data('index');
-            const rule = this.ruleManager.getRules()[dataIndex];  
-            const currentValue = rule.rule_type === this.ruleManager.ruleTypes.ITEM.value 
-                                ? rule.params?.code 
-                                : rule.params?.class;
-
-            this.tableRenderer.openGlobalSelectorModal(rule.rule_type, currentValue, (newValue) => {
-                if (rule.rule_type === this.ruleManager.ruleTypes.CLASS.value) {
-                    this.ruleManager.updateRule(dataIndex, { params: { class: Number(newValue) } });
-                } else if (rule.rule_type === this.ruleManager.ruleTypes.ITEM.value) {
-                    this.ruleManager.updateRule(dataIndex, { params: { code: Number(newValue) } });
-                } else {
-                    console.warn('Invalid rule type:', rule.rule_type);
-                }
-                
-                // Update the parent dropdown with the new value
-                const parentDropdown = $(event.target).closest('tr').find('.rule-param-value');
-                parentDropdown.val(newValue).trigger('change');
-
-                const updatedRowData = this.tableRenderer.createRowData(this.ruleManager.getRules()[dataIndex], dataIndex);
-                this.tableRenderer.updateTableRow(dataIndex, updatedRowData);
-                this.dropdownManager.closeGlobalSelectorModal();
-            });
         });
         this.table.on('change', '.rule-min-clvl', (event) => {
             const paramValue = $(event.target).val();
@@ -308,7 +273,7 @@ export class EventManager {
             $(event.target).val(clampedValue);
 
             if (dataIndex !== undefined) {
-                this.ruleManager.updateRule(dataIndex, { min_clvl: clampedValue });
+                ruleManager.updateRule(dataIndex, { min_clvl: clampedValue });
             } else {
                 console.warn('Row does not have a valid data-index');
             }
@@ -320,7 +285,7 @@ export class EventManager {
             $(event.target).val(clampedValue);
             
             if (dataIndex !== undefined) {
-                this.ruleManager.updateRule(dataIndex, { max_clvl: clampedValue });
+                ruleManager.updateRule(dataIndex, { max_clvl: clampedValue });
             } else {
                 console.warn('Row does not have a valid data-index');
             }
@@ -332,7 +297,7 @@ export class EventManager {
             $(event.target).val(clampedValue);
             
             if (dataIndex !== undefined) {
-                this.ruleManager.updateRule(dataIndex, { min_ilvl: clampedValue });
+                ruleManager.updateRule(dataIndex, { min_ilvl: clampedValue });
             } else {
                 console.warn('Row does not have a valid data-index');
             }
@@ -344,7 +309,7 @@ export class EventManager {
             $(event.target).val(clampedValue);
             
             if (dataIndex !== undefined) {
-                this.ruleManager.updateRule(dataIndex, { max_ilvl: clampedValue });
+                ruleManager.updateRule(dataIndex, { max_ilvl: clampedValue });
             } else {
                 console.warn('Row does not have a valid data-index');
             }
@@ -354,7 +319,7 @@ export class EventManager {
             const dataIndex =  $(event.target).closest('tr').data('index');
             
             if (dataIndex !== undefined) {
-                this.ruleManager.updateRule(dataIndex, { notify: paramValue });
+                ruleManager.updateRule(dataIndex, { notify: paramValue });
             } else {
                 console.warn('Row does not have a valid data-index');
             }
@@ -364,7 +329,7 @@ export class EventManager {
             const dataIndex =  $(event.target).closest('tr').data('index');
             
             if (dataIndex !== undefined) {
-                this.ruleManager.updateRule(dataIndex, { automap: paramValue });
+                ruleManager.updateRule(dataIndex, { automap: paramValue });
             } else {
                 console.warn('Row does not have a valid data-index');
             }
@@ -392,10 +357,10 @@ export class EventManager {
             $button.prop('disabled', true);
 
             setTimeout(() => {
-                const rules = this.ruleManager.getRules();
+                const rules = ruleManager.getRules();
                 if (dataIndex >= 0 && dataIndex < rules.length) {
-                    this.ruleManager.deleteRule(dataIndex);
-                    this.tableRenderer.render();
+                    ruleManager.deleteRule(dataIndex);
+                    tableRenderer.render();
                 } else {
                     console.warn("Index out of bounds:", dataIndex);
                     $button.removeClass('is-loading');

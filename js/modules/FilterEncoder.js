@@ -1,7 +1,9 @@
+import { 
+    ruleManager
+} from '../globals.js';
 export class FilterEncoder {
     constructor(ruleManager) {
-        this.ruleManager = ruleManager;
-        this.defaultRule =  this.ruleManager.ruleTemplate;
+        this.defaultRule =  ruleManager.ruleTemplate;
         this.codeStartIndex = 9 * 64 + 10; // Start at '9A'
         this.currentCodeIndex = this.codeStartIndex;
         this.initDictionaries();
@@ -158,7 +160,7 @@ export class FilterEncoder {
 
     initItemCodeDictionary() {
         if (Object.keys(this.DICTIONARIES.itemCodes).length === 0) {
-            const items = this.ruleManager.getItemCodes();
+            const items = ruleManager.getItemCodes();
             
             // Reset counter when initializing dictionary
             this.currentCodeIndex = this.codeStartIndex;
@@ -255,7 +257,7 @@ export class FilterEncoder {
                 name: this.decodeString(header.substr(2)),
                 rules: ruleParts.map(part => {
                     if (part === 'DEFAULT') {
-                        return {...this.ruleManager.ruleTemplate}; // Return fresh default rule
+                        return {...ruleManager.ruleTemplate}; // Return fresh default rule
                     }
                     return this.decodeRule(part);
                 })
@@ -268,7 +270,7 @@ export class FilterEncoder {
 
     // Rule Encoding/Decoding
     encodeRule(rule) {
-        const defaults = this.ruleManager.ruleTemplate;
+        const defaults = ruleManager.ruleTemplate;
         const encodedParts = [];
         
         // Field markers and encodings
@@ -318,7 +320,7 @@ export class FilterEncoder {
     
     decodeRule(encoded) {
         // Start with default rule template
-        const rule = { ...this.ruleManager.ruleTemplate };
+        const rule = { ...ruleManager.ruleTemplate };
         
         // If empty string, return default rule as-is
         if (!encoded || encoded === '') return rule;

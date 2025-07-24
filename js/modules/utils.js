@@ -1,3 +1,10 @@
+import { 
+    ruleManager, 
+    toastManager, 
+    filterEncoder, 
+    tableManager 
+} from '../globals.js';
+
 export function clampLvlValues(value) {
     const numericValue = Number(value);
     return !isNaN(numericValue) && value !== "" ? Math.min(Math.max(numericValue, 0), 150) : 0;

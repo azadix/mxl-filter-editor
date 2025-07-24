@@ -1,9 +1,10 @@
-import { RuleManager } from './modules/RuleManager.js';
-import { StorageManager } from './modules/StorageManager.js';
-import { ToastManager } from './modules/ToastManager.js';
-import { DropdownManager } from './modules/DropdownManager.js';
-import { TableManager } from './modules/TableManager.js';
-import { FilterEncoder } from './modules/FilterEncoder.js';
+import { 
+    toastManager,
+    ruleManager,
+    filterEncoder,
+    completeInitialization
+} from './globals.js';
+
 import { loadJsonData, applySharedFilter, initHashChangeListener, getUrlParameter, fetchFilterFromAPI } from './modules/utils.js';
 
 const dataConfigs = [
@@ -13,25 +14,17 @@ const dataConfigs = [
 ];
 
 async function initializeApp() {
-    const toastManager = new ToastManager();
-    
     try {
-        // Create manager instances
-        const ruleManager = new RuleManager();
-        const storageManager = new StorageManager();
-        const dropdownManager = new DropdownManager(storageManager);
-        const filterEncoder = new FilterEncoder(ruleManager);
-        
-        // Load all data files sequentially
-        for (const config of dataConfigs) {
-            await loadJsonData(
+        // Load all data files in parallel
+        await Promise.all(dataConfigs.map(config => 
+            loadJsonData(
                 config.path, 
                 config.isSorted, 
                 config.method, 
                 ruleManager,
                 toastManager
-            );
-        }
+            )
+        ));
 
         // Check for ID parameter first
         const filterId = getUrlParameter('id');
@@ -54,16 +47,11 @@ async function initializeApp() {
             }
         }
 
-        // Initialize table and UI
-        const tableManager = new TableManager(
-            ruleManager, 
-            storageManager, 
-            toastManager, 
-            dropdownManager
-        );
+        // Complete initialization with table-related managers
+        await completeInitialization();
 
         // Initialize hash change listener
-        initHashChangeListener(ruleManager, toastManager, filterEncoder, tableManager);
+        initHashChangeListener();
 
     } catch (error) {
         toastManager.showToast(`Failed to initialize application: ${error.message}`, false, 'danger');
