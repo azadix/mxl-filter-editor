@@ -231,6 +231,7 @@ td {
 }
 
 .filter-date {
+    margin-left: 1em;
     font-size: 0.8em;
     opacity: 0.7;
 }

@@ -8,14 +8,15 @@ import { DropdownList } from './DropdownList.js';
 
 export class DropdownManager {
     constructor() {
+        this.filterSelect = null;
         this.initializeFilterSelect();
     }
 
     initializeFilterSelect() {
-        const selectElement = document.getElementById('loadFromLocalStorage');
-        this.filterSelect = new DropdownList(selectElement, {
-            placeholder: 'Select a filter',
+        this.filterSelect = new DropdownList(document.getElementById('loadFromLocalStorage'), {
+            placeholder: 'Load saved filter...',
             doNotFilterElement: true,
+            isReadOnly: true,
             template: (item) => this.formatFilterOption(item),
             onSelect: (item) => this.handleFilterSelection(item)
         });
@@ -34,6 +35,13 @@ export class DropdownManager {
         this.filterSelect.container.addEventListener('click', (e) => {
             e.stopPropagation();
         });
+    }
+
+    clearInputValue() {
+        if (this.filterSelect != null) {
+            this.filterSelect.input.value ='';
+            this.filterSelect.selectedItem = null;
+        }
     }
 
     handleFilterSelection(item) {

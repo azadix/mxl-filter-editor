@@ -13,16 +13,18 @@
     position: absolute;
     cursor: pointer;
     left: 0;
-    min-width: 500px;
+    min-width: 450px;
     width: auto;
-    max-height: 50vh;
+    max-height: 30vh;
     overflow-y: auto;
     background-color: var(--bg-color);
     border: 1px solid var(--text-color);
-    border-radius: 4px;
+    border-radius: 3px;
     box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,0.1), 0 0 0 1px rgba(10,10,10,0.02);
     z-index: 20;
     transform-origin: top center;
+    margin-inline-start: 0 !important; 
+    margin-top: 0 !important;
 }
 
 .dropdown-list[hidden] {

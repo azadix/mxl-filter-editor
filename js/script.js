@@ -5,7 +5,7 @@ import {
     completeInitialization
 } from './globals.js';
 
-import { loadJsonData, applySharedFilter, initHashChangeListener, getUrlParameter, fetchFilterFromAPI } from './modules/utils.js';
+import { loadJsonData, applySharedFilter, fetchFilterFromAPI } from './modules/utils.js';
 
 const dataConfigs = [
     { path: './data/itemCode.json', isSorted: true, method: 'loadItemCodes' },
@@ -26,32 +26,41 @@ async function initializeApp() {
             )
         ));
 
-        // Check for ID parameter first
-        const filterId = getUrlParameter('id');
-        if (filterId) {
-            try {
-                const apiFilter = await fetchFilterFromAPI(filterId);
-                if (apiFilter) {
-                    applySharedFilter(apiFilter, ruleManager, toastManager);
-                }
-            } catch (error) {
-                toastManager.showToast(`Failed to load filter id:=${filterId} from Filter Exchange API`, false, 'danger');
-                console.error('API load error:', error);
-            }
-        }
-        // Then check for shared filter in URL hash
-        else {
-            const sharedFilter = filterEncoder.loadFromShortenedLink(window.location.hash.substring(1));
-            if (sharedFilter) {
-                applySharedFilter(sharedFilter, ruleManager, toastManager);
+        // Get all URL parameters
+        const params = new URLSearchParams(window.location.search);
+        let filterApplied = false;
+
+        for (const [key, value] of params.entries()) {
+            switch (key) {
+                case 'id':
+                    try {
+                        const apiTSW = `https://tsw.vn.cz/filters/?mode=api&id=${value}`;
+                        const apiFilter = await fetchFilterFromAPI(apiTSW);
+                        if (apiFilter) {
+                            applySharedFilter(apiFilter, ruleManager, toastManager);
+                            filterApplied = true;
+                        }
+                    } catch (error) {
+                        toastManager.showToast(`Failed to load filter id:=${value} from Filter Exchange API`, false, 'danger');
+                        console.error('API load error:', error);
+                    }
+                    break;
+                    
+                case 'filter':
+                    // Only process if we haven't already applied a filter from 'id'
+                    if (!filterApplied) {
+                        const sharedFilter = filterEncoder.loadFromShortenedLink(value);
+                        if (sharedFilter) {
+                            applySharedFilter(sharedFilter, ruleManager, toastManager);
+                            filterApplied = true;
+                        }
+                    }
+                    break;
             }
         }
 
         // Complete initialization with table-related managers
         await completeInitialization();
-
-        // Initialize hash change listener
-        initHashChangeListener();
 
     } catch (error) {
         toastManager.showToast(`Failed to initialize application: ${error.message}`, false, 'danger');

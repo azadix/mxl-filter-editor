@@ -6,6 +6,7 @@ export class DropdownList {
             searchable: true,
             template: (item) => item.text,
             doNotFilterElement: false,
+            isReadOnly: false,
             ...options
         };
         this.items = [];
@@ -23,6 +24,7 @@ export class DropdownList {
         this.input = document.createElement('input');
         this.input.className = 'input dropdown-list-input';
         this.input.placeholder = this.options.placeholder;
+        this.input.readOnly = this.options.isReadOnly;
         this.input.type = 'text';
         
         // Create dropdown list
@@ -90,10 +92,9 @@ export class DropdownList {
         }
         
         const term = searchTerm.toLowerCase();
-        
         // If search term is empty, show all items
         if (term === '') {
-            this.renderItems(this.items); // Show full list
+            this.renderItems(this.items);
             return;
         }
         
@@ -146,24 +147,24 @@ export class DropdownList {
         Object.entries(orderedGroups).forEach(([type, groupItems]) => {
             if (groupItems.length === 0) return;
         
-                const header = document.createElement('li');
-                header.className = 'dropdown-list-header';
-                
-                // Create header text with count
-                const headerText = document.createElement('span');
-                headerText.className = 'dropdown-header-text';
-                headerText.textContent = type === 'class' ? 'Classes' : 'Items';
-                
-                // Create count badge
-                const countBadge = document.createElement('span');
-                countBadge.className = 'dropdown-header-count';
-                countBadge.textContent = ` (${groupItems.length})`;
-                
-                // Append both elements to header
-                header.appendChild(headerText);
-                header.appendChild(countBadge);
-                
-                this.list.appendChild(header);
+            const header = document.createElement('li');
+            header.className = 'dropdown-list-header';
+            
+            // Create header text with count
+            const headerText = document.createElement('span');
+            headerText.className = 'dropdown-header-text';
+            headerText.textContent = type === 'class' ? 'Classes' : 'Items';
+            
+            // Create count badge
+            const countBadge = document.createElement('span');
+            countBadge.className = 'dropdown-header-count';
+            countBadge.textContent = ` (${groupItems.length})`;
+            
+            // Append both elements to header
+            header.appendChild(headerText);
+            header.appendChild(countBadge);
+            
+            this.list.appendChild(header);
             
             groupItems.forEach(item => {
                 const li = document.createElement('li');
