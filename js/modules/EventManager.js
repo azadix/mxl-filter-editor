@@ -167,7 +167,7 @@ export class EventManager {
                     
                     // Reset the UI
                     $('#filterName').val('');
-                    $('#loadFromLocalStorage').val('');
+                    dropdownManager.clearInputValue();
                     ruleManager.clearRules();
                     tableRenderer.render();
                 } else {
@@ -185,11 +185,7 @@ export class EventManager {
                 
                 $('#defaultShowItems').prop('checked', true);
                 $('#filterName').val('').trigger('change');
-                
-                // Properly reset the dropdown
-                const $filterSelect = $('#loadFromLocalStorage');
-                $filterSelect.val(null).trigger('change');
-
+                dropdownManager.clearInputValue();
                 tableRenderer.render();
             }
         });

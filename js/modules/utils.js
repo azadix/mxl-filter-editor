@@ -72,10 +72,8 @@ export function initHashChangeListener(ruleManager, toastManager, filterEncoder,
     });
 }
 
-export async function fetchFilterFromAPI(filterId) {
-    try {
-        const apiUrl = `https://tsw.vn.cz/filters/?mode=api&id=${filterId}`;
-        
+export async function fetchFilterFromAPI(apiUrl) {
+    try {        
         const response = await fetch(apiUrl);
         
         if (!response.ok) {

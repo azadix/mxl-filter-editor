@@ -500,10 +500,9 @@ export class FilterEncoder {
             }
 
             const url = new URL(window.location.href);
-            url.hash = lzCompressed;
-            
-            // Clean up any existing query parameters if needed
             url.search = '';
+            
+            url.searchParams.set('filter', lzCompressed);
             
             return url.toString();
         } catch (error) {
@@ -512,19 +511,19 @@ export class FilterEncoder {
         }
     }
 
-    loadFromShortenedLink(hash) {
-        if (!hash) return null;
+    loadFromShortenedLink(compressedFilter) {
+        if (!compressedFilter) return null;
         
         try {
-            const decompressed = LZString.decompressFromEncodedURIComponent(hash);
+            const decompressed = LZString.decompressFromEncodedURIComponent(compressedFilter);
             if (!decompressed) return null;
 
             const filterData = this.decompressFilter(decompressed);
             if (!filterData) return null;
             
-            // Clear hash using URL API
+            // Clear filter parameter using URL API
             const currentUrl = new URL(window.location.href);
-            currentUrl.hash = '';
+            currentUrl.searchParams.delete('filter');
             window.history.replaceState(null, '', currentUrl);
             
             return filterData;

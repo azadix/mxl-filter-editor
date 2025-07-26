@@ -8,7 +8,6 @@ import { TableRenderer } from './TableRenderer.js';
 import { EventManager } from './EventManager.js';
 export class TableManager {
     constructor() {
-
         this.table = new DataTable('#rulesTable', {
             autoWidth: true,
             paging: false,
@@ -19,10 +18,13 @@ export class TableManager {
             targets: 'no-sort',
             scrollY: this.calculateTableHeight(),
             scrollCollapse: false,
-            columnDefs: [{ targets: 0, visible: false }],
+            columnDefs: [
+                { targets: 0, visible: false },
+                { targets: 6, width: '30%' }
+            ],
             layout: {
                 topStart: () => this.createAddRuleButton(),
-                topEnd: 'search',
+                topEnd: '',
                 bottomStart: { info: { empty: '', text: 'Rule count: _TOTAL_' } }
             }
         });
@@ -76,23 +78,6 @@ export class TableManager {
                 await this.tableRenderer.render();
             }
         });
-
-        // Disiable sorting if searching is in progress
-        const searchInput = document.querySelector('#dt-search-0');
-        if (searchInput) {
-            searchInput.addEventListener('input', (e) => {
-                const hasSearch = e.target.value.trim() !== '';
-                
-                this._sortableInstance.option('disabled', hasSearch);
-                
-                // Visual feedback
-                const handles = document.querySelectorAll('.handle');
-                handles.forEach(handle => {
-                    handle.style.cursor = hasSearch ? 'not-allowed' : 'ns-resize';
-                    handle.style.opacity = hasSearch ? '0.5' : '1';
-                });
-            });
-        }
     }
 
     createAddRuleButton() {
@@ -123,7 +108,7 @@ export class TableManager {
         }
     
         // Remove all event listeners
-        $('#defaultNotify, #defaultMap, #filterSettings, #pasteFromClipboard, #copyToClipboard, #saveToLocalStorage, #loadFromLocalStorage, #deleteFromLocalStorage, #newFilter').off();
+        $('#defaultNotify, #defaultMap, #filterSettings, #pasteFromClipboard, #copyToClipboard, #saveToLocalStorage, #deleteFromLocalStorage, #newFilter').off();
         $('#settingsModal .modal-background, #settingsModal .modal-card-foot .button').off();
         $(document).off('click', '.delete-rule');
     }
