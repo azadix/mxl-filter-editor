@@ -191,14 +191,17 @@ export class EventManager {
         });
 
         // Table event listeners
-        this.table.on('change', '.rule-is-active', (event) => {
+        this.table.on('change', '.rule-is-active', async (event) => {
             const paramValue = $(event.target).is(":checked");
             const dataIndex = $(event.target).closest('tr').data('index');
 
             if (dataIndex !== undefined) {
                 ruleManager.updateRule(dataIndex, { active: paramValue });
-
-                const updatedRowData = tableRenderer.createRowData(ruleManager.getRules()[dataIndex], dataIndex);
+                
+                // Get the updated row data
+                const updatedRowData = await tableRenderer.createRowData(ruleManager.getRules()[dataIndex], dataIndex);
+                
+                // Update the table row
                 tableRenderer.updateTableRow(dataIndex, updatedRowData);
             } else {
                 console.warn('Row does not have a valid data-index');
@@ -237,29 +240,6 @@ export class EventManager {
                 ruleManager.updateRule(dataIndex, { ethereal: Number(paramValue) })
             } else {
                 console.warn('Row does not have a valid data-index');
-            }
-        });
-        this.table.on('change', '.rule-param-type', (event) => {
-            const paramValue = $(event.target).val();
-            const dataIndex = $(event.target).closest('tr').data('index');
-            
-            if (dataIndex !== undefined) {
-                ruleManager.updateRule(dataIndex, { rule_type: Number(paramValue) });
-                
-                switch (Number(paramValue)) {
-                    case ruleManager.ruleTypes.NONE.value:
-                        ruleManager.updateRule(dataIndex, { params: null });
-                        break;
-                    case ruleManager.ruleTypes.CLASS.value:
-                        ruleManager.updateRule(dataIndex, { params: { class: 0 } });
-                        break;
-                    case ruleManager.ruleTypes.ITEM.value:
-                        ruleManager.updateRule(dataIndex, { params: { code: 0 } });
-                        break;
-                }
-                
-                const updatedRowData = tableRenderer.createRowData(ruleManager.getRules()[dataIndex], dataIndex);
-                tableRenderer.updateTableRow(dataIndex, updatedRowData);
             }
         });
         this.table.on('change', '.rule-min-clvl', (event) => {
