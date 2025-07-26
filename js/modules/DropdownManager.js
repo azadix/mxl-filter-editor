@@ -1,114 +1,83 @@
+import { 
+    storageManager,
+    toastManager,
+    ruleManager,
+    tableRenderer
+} from '../globals.js';
+import { DropdownList } from './DropdownList.js';
+
 export class DropdownManager {
-    constructor(storageManager) {
-        this.storageManager = storageManager;
-        this.globalSelector = this.initializeGlobalSelector();
+    constructor() {
         this.initializeFilterSelect();
     }
 
-    initializeGlobalSelector() {
-        // Create modal container
-        const modal = document.createElement('div');
-        modal.id = 'globalSelectorModal';
-        modal.classList.add('modal');
-        modal.innerHTML = `
-            <div class="modal-background"></div>
-            <div class="modal-card" style="height: 68vh;">
-                <section class="modal-card-body p-0">
-                    <select class="is-fullwidth" id="globalSelector"></select>
-                </section>
-            </div>
-        `;
-        document.body.appendChild(modal);
-
-        // Add ESC key handler
-        $(document).on('keydown.globalSelector', (e) => {
-            if (e.key === 'Escape' && $('#globalSelectorModal').hasClass('is-active')) { this.closeGlobalSelectorModal(); }
-        });
-        
-        // Close modal when clicking background or close button
-        $(modal).find('.modal-background, .modal-card-head .delete').on('click', () => this.closeGlobalSelectorModal());
-        
-        // Prevent click events from propagating to modal background
-        $(modal).find('.modal-card').on('click', (e) => e.stopPropagation());
-        
-        return $('#globalSelector').select2({
-            dropdownParent: $('#globalSelectorModal .modal-card-body')
-        }).maximizeSelect2Height();   
-    }
-
-    closeGlobalSelectorModal() {
-        $('#globalSelectorModal').removeClass('is-active');
-    }
-
-    openGlobalSelectorModal() {
-        $('#globalSelectorModal').addClass('is-active');
-        this.globalSelector.select2('open');
-    }
-
     initializeFilterSelect() {
-        const $select = $('#loadFromLocalStorage');
-        
-        $select.select2({
-            width: '100%',
+        const selectElement = document.getElementById('loadFromLocalStorage');
+        this.filterSelect = new DropdownList(selectElement, {
             placeholder: 'Select a filter',
-            allowClear: false,
-            minimumResultsForSearch: 5,
-            templateResult: this.formatFilterOption.bind(this),
-            templateSelection: this.formatFilterOption.bind(this),
+            doNotFilterElement: true,
+            template: (item) => this.formatFilterOption(item),
+            onSelect: (item) => this.handleFilterSelection(item)
         });
-    
-        // Update the empty option to be a placeholder only
-        $select.empty().append('<option></option>');
+
         this.updateFilterSelect();
 
-        $(document).on('mousedown.select2', (e) => {
-            if (!$select.has(e.target).length && 
-                !$(e.target).closest('.select2-container').length) {
-                $select.select2('close');
+        // Improved outside click handling
+        document.addEventListener('click', (e) => {
+            const isClickInside = this.filterSelect.container.contains(e.target);
+            if (!isClickInside) {
+                this.filterSelect.hideList();
             }
         });
-    }
-    
-    updateFilterSelect() {
-        const $select = $('#loadFromLocalStorage');
-        const currentValue = $select.val();
-        $select.find('option:not(:empty)').remove();
-        
-        this.storageManager.getFilterMetadata()
-            .sort((a, b) => new Date(b.lastSavedAt) - new Date(a.lastSavedAt))
-            .forEach(filter => {
-                $select.append(
-                    `<option value="${filter.name}" data-last-saved="${filter.lastSavedAt}">
-                        ${filter.name}
-                    </option>`
-                );
-            });
-        
-        // Restore selection if it still exists
-        if (currentValue && $select.find(`option[value="${currentValue}"]`).length) {
-            $select.val(currentValue);
-        }
-        
-        $select.trigger('change');
+
+        // Prevent hiding when clicking on the dropdown itself
+        this.filterSelect.container.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
     }
 
-    formatFilterOption(data) {
-        if (!data.id) return data.text;
+    handleFilterSelection(item) {
+        if (!item || !item.value) return;
         
-        const $option = $(data.element);
-        const lastSaved = $option.data('last-saved');
-        if (!lastSaved) return data.text;
+        const filterName = item.value;
+        const filterData = storageManager.loadFilter(filterName);
         
-        const formattedDate = this.formatDate(lastSaved);
-        
-        const $wrapper = $('<div>').addClass('is-flex is-fullwidth');
-        $wrapper.css("justify-content", "space-between");
-        $wrapper.append(
-            $('<span>').text(data.text),
-            $('<span>').addClass('filter-date is-right is-hidden-touch is-hidden-desktop-only').text(`Last saved: ${formattedDate}`)
-        );
-        
-        return $wrapper;
+        if (filterData) {
+            const parsedData = JSON.parse(filterData);
+            $('#defaultShowItems').prop('checked', parsedData.default_show_items);
+            $('#filterName').val(filterName);
+
+            // Use the eventManager to handle the filter loading
+            ruleManager.clearRules();
+            parsedData.rules.reverse().forEach(rule => ruleManager.addRule(rule));
+            tableRenderer.render();
+            
+            toastManager.showToast(`Filter "${filterName}" loaded successfully!`, true);
+        } else {
+            toastManager.showToast(`Filter "${filterName}" not found.`, false, 'danger');
+        }
+    }
+
+    updateFilterSelect() {
+        const filters = storageManager.getFilterMetadata()
+            .sort((a, b) => new Date(b.lastSavedAt) - new Date(a.lastSavedAt))
+            .map(filter => ({
+                value: filter.name,
+                text: filter.name,
+                lastSavedAt: filter.lastSavedAt
+            }));
+
+        this.filterSelect.setItems(filters);
+    }
+
+    formatFilterOption(item) {
+        const formattedDate = this.formatDate(item.lastSavedAt);
+        return `
+            <div class="is-flex is-fullwidth" style="justify-content: space-between;">
+                <span>${item.text}</span>
+                <span class="filter-date">Last saved: ${formattedDate}</span>
+            </div>
+        `;
     }
 
     formatDate(dateString) {

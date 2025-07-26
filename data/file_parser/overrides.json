@@ -576,7 +576,7 @@
         "63+": "Mystic Orb (Weapon-Weapon Physical Damage)",
         "64+": "Mystic Orb (Weapon-Cast Speed)",
         "65+": "Mystic Orb (Weapon-Attack Speed)",
-        "dg01": "Item Design (MISSING)",
+        "dg01": "Item Design (Book of Cain)",
         "dg02": "Item Design (Valkyrie's Prime)",
         "dg03": "Item Design (MISSING)",
         "dg04": "Item Design (Natasha's Legacy)",
@@ -682,30 +682,5 @@
         "&98": "Imperfect Sphere (Jewelry-Fire/Lightning)",
         "&99": "Imperfect Sphere (Jewelry-Lightning/Cold)",
         "&100": "Imperfect Sphere (Jewelry-Fire/Cold)"
-    },
-    "category_overrides": {
-        "f666": ["thng"],
-        "\\\\7": ["thng"],
-        "ebv": []
-    },
-    "item_categories": {
-        "grtz": "#Charm",
-        "esse": "#Essence",
-        "trfr": "#Fragment",
-        "thng": "#Other",
-        "scuu": "#Other",
-        "ques": "#Quest item",
-        "tent": "#Tenet",
-        "loot": "#Lootbox",
-        "rune": "#Rune",
-        "xrun": "#Elemental Rune",
-        "erun": "#Enchanted Rune",
-        "myst": "#Mystic Orb",
-        "asa#": "#UMO",
-        "gem0": "#Gem",
-        "gem1": "#Gem",
-        "gem2": "#Gem",
-        "gem3": "#Gem",
-        "gem4": "#Gem"
     }
 }

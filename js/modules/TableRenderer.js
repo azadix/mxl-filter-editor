@@ -1,51 +1,59 @@
-export class TableRenderer {
+import { 
+    ruleManager
+} from '../globals.js';
 
-    constructor(table, ruleManager, dropdownManager, categoryImages) {
+import { DropdownList } from './DropdownList.js';
+export class TableRenderer {
+    constructor(table) {
         this.table = table;
-        this.ruleManager = ruleManager;
-        this.dropdownManager = dropdownManager;
-        this.CATEGORY_IMAGES = Object.freeze(categoryImages);
     }
 
-    render() {
+    async render() {
         this.table.rows().nodes().to$().off('*');
         this.table.clear();
-        const rules = this.ruleManager.getRules()
+        const rules = ruleManager.getRules();
 
-        // Hide or show the table based on the number of rules
         if (rules.length === 0) {
             $('.dt-layout-table').hide();
         } else {
             $('.dt-layout-table').show();
         }
 
-        rules.forEach((rule, index) => {
-            const rowData = this.createRowData(rule, index);
+        // Create all row data first
+        const rowDataPromises = rules.map((rule, index) => 
+            this.createRowData(rule, index)
+        );
+        
+        // Wait for all row data to be ready
+        const allRowData = await Promise.all(rowDataPromises);
+        
+        // Add rows to table
+        allRowData.forEach(rowData => {
             this.table.row.add(rowData).node();
         });
+        
         this.table.draw();
         this.table.columns.adjust();
     }
 
     getShowClassName(index) {
-        const rule = this.ruleManager.getRules()[index];
+        const rule = ruleManager.getRules()[index];
         return rule.show_item ? "has-text-success" : "has-text-danger";
     }
 
     createEtherealStateOptions(rule) {
-        return Object.values(this.ruleManager.etherealStates).map(state => `
+        return Object.values(ruleManager.etherealStates).map(state => `
             <option value="${state.value}" ${rule.ethereal === state.value ? 'selected' : ''}>
                 ${state.name}
             </option>`).join("");
     }
 
     getQualityClassName(index) {
-        return this.ruleManager.getItemQuality().find(quality => quality.value === Number(this.ruleManager.getRules()[index].item_quality)).class;
+        return ruleManager.getItemQuality().find(quality => quality.value === Number(ruleManager.getRules()[index].item_quality)).class;
     }
 
     updateTableRow(rowIndex, rowData) {
         const rowNode = this.table.row(rowIndex).node();
-    
         if (rowNode) {
             this.table.row(rowIndex).data(rowData).draw(false);
             rowNode.dataset.index = rowIndex;
@@ -54,80 +62,117 @@ export class TableRenderer {
         }
     }
 
-    createOptionParams(ruleType, jsonIndex) {
-        const rule = this.ruleManager.getRules()[jsonIndex];
-        const groupWrapper = document.createElement('div');
-        const paramsWrapper = document.createElement('div');
-        const paramsDatalist = document.createElement('select');
+    async createOptionParams(jsonIndex) {
+        const rule = ruleManager.getRules()[jsonIndex];
+        const wrapper = document.createElement('div');
+        wrapper.classList.add("field");
 
-        paramsWrapper.classList.add("select", "width-100");
-        paramsDatalist.classList.add("rule-param-value", "width-100");
-        paramsDatalist.id = `param-value-${jsonIndex}`;
-        groupWrapper.appendChild(this.createParamsDropdown(ruleType, jsonIndex));
-        groupWrapper.appendChild(paramsWrapper);
-        groupWrapper.classList.add("input-wrapper", "big-dropdown-width");
+        const selectElement = document.createElement('select');
+        selectElement.id = `param-value-${jsonIndex}`;
+        selectElement.style.display = 'none';
+        wrapper.appendChild(selectElement);
 
-        const option = document.createElement("option");
-        option.hidden = true;
-
-        switch (ruleType) {
-            case this.ruleManager.ruleTypes.ITEM.value:
-                if (rule.params?.code === undefined) {
-                    rule.params = { code: 0 };
-                }
-
-                option.value = rule.params?.code;
-                option.text = this.ruleManager.getItemCodes().find(item => item.value === rule.params.code)?.name || "";
-                paramsDatalist.appendChild(option);
-
-                if (rule.params?.code !== undefined) {
-                    paramsDatalist.value = rule.params.code;
-                }
-
-                paramsWrapper.appendChild(paramsDatalist);
-                break;
-
-            case this.ruleManager.ruleTypes.CLASS.value:
-                if (rule.params?.class === undefined) {
-                    rule.params = { class: 0 };
-                }
-
-                option.value = rule.params?.class;
-                option.text = this.ruleManager.getItemClasses().find(item => item.value === rule.params.class)?.name || "";
-                paramsDatalist.appendChild(option);
-
-                if (rule.params?.class !== undefined) {
-                    paramsDatalist.value = rule.params.class;
-                }
-
-                paramsWrapper.appendChild(paramsDatalist);
-                break;
-            default:
-                paramsWrapper.classList.remove("width-100");
-                break;
-        }
-
-        return groupWrapper;
-    }
-
-    createParamsDropdown(ruleType, index) {
-        const outerWrapper = document.createElement('div');
-        const selectParams = document.createElement('select');
-        outerWrapper.classList.add("select");
-        selectParams.classList.add("rule-param-type");
-        selectParams.id = `param-type-${index}`;
-        
-        // Use the enum values directly
-        Object.values(this.ruleManager.ruleTypes).forEach(type => {
-            const option = document.createElement("option");
-            option.value = type.value;
-            option.text = type.name;
-            selectParams.appendChild(option);
+        const dropdown = new DropdownList(selectElement, {
+            placeholder: 'Type to search...',
+            searchable: true,
+            template: (item) => {
+                if (!item) return '<div>No item</div>';
+                return `
+                    <div class="is-flex">
+                        <span>${item.name || item.text || 'Unknown'}</span>
+                    </div>`;
+            }
         });
 
-        selectParams.value = ruleType;
-        outerWrapper.appendChild(selectParams);
-        return outerWrapper;
+        const loadItems = async () => {
+            const options = [
+                ...ruleManager.getItemClasses().map(c => ({
+                    ...c,
+                    type: 'class'
+                })),
+                ...ruleManager.getItemCodes().map(i => ({
+                    ...i,
+                    type: 'item'
+                }))
+            ];
+            
+            return options.map(opt => ({
+                value: opt.value,
+                text: opt.name,
+                name: opt.name,
+                type: opt.type,
+                original: opt
+            }));
+        };
+
+        // Load initial items
+        const initialItems = await loadItems();
+        dropdown.setItems(initialItems);
+
+        // Set current value if exists
+        if (rule.params?.code !== undefined) {
+            const currentValue = initialItems.find(i => i.value === rule.params.code);
+            if (currentValue) {
+                dropdown.value = currentValue.value;
+                dropdown.input.value = currentValue.name;
+            }
+        } else if (rule.params?.class !== undefined) {
+            const currentValue = initialItems.find(i => i.value === rule.params.class);
+            if (currentValue) {
+                dropdown.value = currentValue.value;
+                dropdown.input.value = currentValue.name;
+            }
+        }
+
+        // Handle input clearing
+        dropdown.input.addEventListener('input', (e) => {
+            if (e.target.value === '') {
+                // Clear the selection
+                dropdown.value = null;
+                dropdown.selectedItem = null;
+                // Reset to show all items
+                dropdown.renderItems(initialItems);
+                // Update the rule
+                ruleManager.updateRule(jsonIndex, {
+                    rule_type: -1,
+                    params: null
+                });
+            }
+        });
+
+        // Handle selection changes
+        selectElement.addEventListener('change', (e) => {
+            if (!e.detail || !e.detail.value) {
+                ruleManager.updateRule(jsonIndex, {
+                    rule_type: -1,
+                    params: null
+                });
+                return;
+            }
+
+            const selectedValue = parseInt(e.detail.value);
+            const selectedItem = dropdown.items.find(item => item.value === selectedValue);
+            
+            if (selectedItem) {
+                const newRuleType = selectedItem.type === 'item' 
+                    ? ruleManager.ruleTypes.ITEM.value 
+                    : ruleManager.ruleTypes.CLASS.value;
+                
+                ruleManager.updateRule(jsonIndex, {
+                    rule_type: newRuleType,
+                    params: selectedItem.type === 'item' 
+                        ? { code: selectedItem.value } 
+                        : { class: selectedItem.value }
+                });
+                
+                // Update the dropdown items
+                loadItems().then(items => {
+                    dropdown.setItems(items);
+                });
+            }
+        });
+
+        return wrapper;
     }
 
     updateRowIndexes() {
@@ -138,7 +183,9 @@ export class TableRenderer {
         });
     }
 
-    createRowData(rule, index) {
+    async createRowData(rule, index) {
+        const optionParams = await this.createOptionParams(index);
+        
         return [
             rule.id || Date.now(),
             `<span class="handle icon is-normal"><i class="fas fa-arrows-alt-v"></i></span>`,
@@ -156,14 +203,14 @@ export class TableRenderer {
             </div>`,
             `<div class="select">
                 <select id="quality-${index}" class="rule-quality ${this.getQualityClassName(index)}">
-                    ${this.ruleManager.getItemQuality().map(quality => `
+                    ${ruleManager.getItemQuality().map(quality => `
                         <option class="${quality.class}" value="${quality.value}" ${rule.item_quality === quality.value ? 'selected' : ''}>
                             ${quality.name}
                         </option>
                     `).join("")}
                 </select>
             </div>`,
-            this.createOptionParams(rule.rule_type, index),
+            optionParams,
             `<div class="input-wrapper">
                 <div><input class="input form-group-input rule-min-clvl" placeholder="0" id="min_clvl-${index}" type="number" value="${rule.min_clvl}"></div>
                 <div><input class="input form-group-input rule-max-clvl" placeholder="0" id="max_clvl-${index}" type="number" value="${rule.max_clvl}"></div>
@@ -182,105 +229,6 @@ export class TableRenderer {
         if (!value?.id) {
             return value?.text || '';
         }
-
-        let itemCategories = '';
-        if (value.category && Array.isArray(value.category)) {
-            value.category.forEach((category) => {
-                const imageName = this.CATEGORY_IMAGES?.[category] || 'default';
-
-                itemCategories +=`<span class="tag has-addons">
-                                    <span class="tag p-0"><figure class="image is-16x16">
-                                        <img src="assets/${imageName}.png" />
-                                    </figure></span>
-                                    <span class="tag">${category}</span>
-                                </span>`;
-            });
-        }
-        
-        return $(`<span class="is-flex is-fullwidth" style="justify-content: space-between;">${value.text}<span class="is-right">${itemCategories}</span></span>`);
-    }
-
-    openGlobalSelectorModal(ruleType, currentValue, onChangeCallback) {
-        // Clean up previous handlers
-        this._globalSelectorHandlers?.change?.();
-        
-        // Destroy and recreate Select2 to ensure clean state
-        if (this.dropdownManager.globalSelector.data('select2')) {
-            this.dropdownManager.globalSelector.select2('destroy');
-        }
-    
-        // Populate Select2 options based on ruleType
-        const options = ruleType === this.ruleManager.ruleTypes.ITEM.value
-                        ? this.ruleManager.getItemCodes()
-                        : this.ruleManager.getItemClasses();
-    
-        const select2Data = options.map(option => ({
-            id: option.value,
-            text: option.name,
-            category: option.category
-        }));
-    
-        // Initialize Select2 with new options
-        this.dropdownManager.globalSelector.empty().select2({
-            data: select2Data,
-            dropdownParent: $('#globalSelectorModal .modal-card-body'),
-            width: '100%',
-            dropdownAutoWidth: true,
-            templateResult: this.formatItem,
-            allowClear: false,
-            matcher: function(params, data) {
-                if ($.trim(params.term) === '') return data;
-        
-                const term = params.term.toLowerCase();
-                const text = data.text.toLowerCase();
-                const categories = Array.isArray(data.category) ? data.category : [];
-    
-                if (text.indexOf(term) > -1 || categories.some(cat => cat.toLowerCase().indexOf(term) > -1)) {
-                    return data;
-                }
-                return null;
-            }
-        });
-    
-        // Set the current value
-        this.dropdownManager.globalSelector.val(currentValue).trigger('change');
-    
-        // Handle value change
-        const changeHandler = (e) => {
-            const newValue = $(e.target).val();
-            if (newValue !== currentValue) {
-                onChangeCallback(newValue);
-                this.dropdownManager.closeGlobalSelectorModal();
-            }
-        };
-        
-        this.dropdownManager.globalSelector.off('change').on('change', changeHandler);
-        this._globalSelectorHandlers = { change: () => this.dropdownManager.globalSelector.off('change', changeHandler) };
-    
-        // Show modal and focus search
-        this.dropdownManager.openGlobalSelectorModal();
-    }
-
-    cleanupSelect2Instances() {
-        // Clean up any Select2 instances in table rows
-        this.table.$('.rule-param-value').each(function() {
-            if ($(this).data('select2')) {
-                $(this).select2('destroy');
-            }
-        });
-        
-        // Clean up quality dropdowns
-        this.table.$('.rule-quality').each(function() {
-            if ($(this).data('select2')) {
-                $(this).select2('destroy');
-            }
-        });
-        
-        // Clean up other dropdowns
-        this.table.$('.rule-is-shown, .rule-is-eth').each(function() {
-            if ($(this).data('select2')) {
-                $(this).select2('destroy');
-            }
-        });
+        return $(`<span class="is-flex is-fullwidth">${value.text}</span>`);
     }
 }

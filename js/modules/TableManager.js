@@ -1,28 +1,13 @@
-import { EventManager } from './EventManager.js';
+import { 
+    ruleManager, 
+    storageManager, 
+    toastManager, 
+    dropdownManager 
+} from '../globals.js';
 import { TableRenderer } from './TableRenderer.js';
-
+import { EventManager } from './EventManager.js';
 export class TableManager {
-    constructor(ruleManager, storageManager, toastManager, dropdownManager) {
-        this.ruleManager = ruleManager;
-        this.storageManager = storageManager;
-        this.toastManager = toastManager;
-        this.dropdownManager = dropdownManager;
-
-        this.CATEGORY_IMAGES = {
-            "#Charm": "charm",
-            "#Essence": "essence",
-            "#Fragment": "fragment",
-            "#Other": "other",
-            "#Quest item": "quest-item",
-            "#Tenet": "tenet",
-            "#Lootbox": "lootbox",
-            "#Rune": "rune",
-            "#Elemental Rune": "elemental-rune",
-            "#Enchanted Rune": "enchanted-rune",
-            "#Mystic Orb": "mystic-orb",
-            "#UMO": "umo",
-            "#Gem": "gem"
-        };
+    constructor() {
 
         this.table = new DataTable('#rulesTable', {
             autoWidth: true,
@@ -42,19 +27,19 @@ export class TableManager {
             }
         });
 
-        if (this.ruleManager.getRules().length === 0) {
+        if (ruleManager.getRules().length === 0) {
             $('.dt-layout-table').hide();
         }
 
-        this.tableRenderer = new TableRenderer(this.table, this.ruleManager, this.dropdownManager, this.CATEGORY_IMAGES);
-        this.eventManager = new EventManager(this.table, this.ruleManager, this.dropdownManager, this.toastManager, this.tableRenderer, this.storageManager);
+        this.tableRenderer = new TableRenderer(this.table, ruleManager, dropdownManager);
+        this.eventManager = new EventManager(this.table, ruleManager, dropdownManager, toastManager, this.tableRenderer, storageManager);
         
         this.initialize();
     }
 
-    initialize() {
+    async initialize() {
         this.eventManager.initialize();
-        this.tableRenderer.render();
+        await this.tableRenderer.render();
         this.initializeSortable();
     }
 
@@ -84,11 +69,11 @@ export class TableManager {
         this._sortableInstance = Sortable.create(tableBody, {
             handle: '.handle',
             animation: 150,
-            onEnd: () => {
+            onEnd: async () => {
                 const rows = Array.from(tableBody.querySelectorAll('tr'));
                 const newOrder = rows.map(row => parseInt(row.dataset.index, 10));
-                this.ruleManager.reorderRules(newOrder);
-                this.tableRenderer.render();
+                ruleManager.reorderRules(newOrder);
+                await this.tableRenderer.render();
             }
         });
 
@@ -115,9 +100,9 @@ export class TableManager {
         addRuleButton.classList.add("button", "is-success", "is-outlined", "is-inverted");
         addRuleButton.innerHTML = '<span class="icon is-small"><i class="fas fa-plus"></i></span><span>Add new rule</span>';
 
-        addRuleButton.addEventListener("click", () => {
-            this.ruleManager.addRule();
-            this.tableRenderer.render();
+        addRuleButton.addEventListener("click", async () => {
+            ruleManager.addRule();
+            await this.tableRenderer.render();
         });
 
         return addRuleButton;
@@ -137,19 +122,9 @@ export class TableManager {
             this._pendingTimeouts = [];
         }
     
-        this.cleanupSelect2Instances();
-    
         // Remove all event listeners
         $('#defaultNotify, #defaultMap, #filterSettings, #pasteFromClipboard, #copyToClipboard, #saveToLocalStorage, #loadFromLocalStorage, #deleteFromLocalStorage, #newFilter').off();
         $('#settingsModal .modal-background, #settingsModal .modal-card-foot .button').off();
-        $(document).off('keydown.globalSelector');
         $(document).off('click', '.delete-rule');
-    
-        // Clean up global selector
-        if (this.dropdownManager.globalSelector) {
-            this.dropdownManager.globalSelector.select2('destroy').off();
-        }
-
-        $('#globalSelectorModal').remove();
     }
 }
