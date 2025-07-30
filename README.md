@@ -4,7 +4,7 @@
 
 A web-based tool for creating and editing item filters for Median XL (an overhaul mod for Diablo 2). This editor provides an enhanced interface with more features than the in-game filter editor.
 
-**Current MedianXL version data:** MXL 2.11.0
+**Current MedianXL version data:** MXL 2.11.1
 
 ## Features
 
