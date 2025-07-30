@@ -165,10 +165,10 @@ export class FilterEncoder {
             // Reset counter when initializing dictionary
             this.currentCodeIndex = this.codeStartIndex;
             
-            items.forEach(item => {
+            Object.entries(items).forEach(([value, name]) => {
                 const code = this.generateCodeForValue();
-                this.DICTIONARIES.itemCodes[code] = item.value;
-                this.REVERSE_DICTS.itemCodes[item.value] = code;
+                this.DICTIONARIES.itemCodes[code] = parseInt(value); // Convert key to number
+                this.REVERSE_DICTS.itemCodes[parseInt(value)] = code;
             });
         }
     }

@@ -5,6 +5,8 @@ export class RuleManager {
         this.itemCodes = []; // Loaded from JSON
         this.itemClasses = []; // Loaded from JSON
         this.itemQuality = []; // Loaded from JSON
+        this.itemNameOverrides = []; // Loaded from JSON
+        this.itemHideList = []; // Loaded from JSON
 
         this.ruleTypes = Object.freeze({
             NONE: { value: -1, name: 'None' },
@@ -97,6 +99,36 @@ export class RuleManager {
         return this.itemQuality;
     }
 
+    getItemNameOverrides() {
+        return this.itemNameOverrides;
+    }
+
+    getItemHideList() {
+        return this.itemHideList;
+    }
+
+    overrideItemNames() {
+        // Only proceed if we have both itemCodes and name overrides loaded
+        if (!this.itemCodes || !this.itemNameOverrides) {
+            return;
+        }
+
+        // Create a new object to hold the overridden names
+        const overriddenCodes = { ...this.itemCodes };
+
+        // Iterate through each override
+        for (const [key, newName] of Object.entries(this.itemNameOverrides)) {
+            // Check if this key exists in the item codes
+            if (key in overriddenCodes) {
+                // Override the name
+                overriddenCodes[key] = newName;
+            }
+        }
+
+        // Update the itemCodes with the overridden names
+        this.itemCodes = overriddenCodes;
+    }
+
     getRuleTypes() {
         return {
             "None": this.ruleTypes.NONE.value,
@@ -125,10 +157,20 @@ export class RuleManager {
         this.itemQuality = itemQuality;
     }
 
+    loadItemNameOverrides(itemNameOverrides) {
+        this.itemNameOverrides = itemNameOverrides;
+    }
+
+    loadItemHideList(itemHideList) {
+        this.itemHideList = itemHideList;
+    }
+
     isDataLoaded() {
-        return Array.isArray(this.itemCodes) && this.itemCodes.length > 0 &&
-               Array.isArray(this.itemClasses) && this.itemClasses.length > 0 &&
-               Array.isArray(this.itemQuality) && this.itemQuality.length > 0;
+        return (
+            (typeof this.itemCodes === 'object' && this.itemCodes !== null && Object.keys(this.itemCodes).length > 0) &&
+            (typeof this.itemClasses === 'object' && this.itemClasses !== null && Object.keys(this.itemClasses).length > 0) &&
+            Array.isArray(this.itemQuality) && this.itemQuality.length > 0
+        );
     }
 
     generateOutput() {

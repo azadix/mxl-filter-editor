@@ -8,9 +8,11 @@ import {
 import { loadJsonData, applySharedFilter, fetchFilterFromAPI } from './modules/utils.js';
 
 const dataConfigs = [
-    { path: './data/itemCode.json', isSorted: true, method: 'loadItemCodes' },
-    { path: './data/itemClass.json', isSorted: true, method: 'loadItemClasses' },
-    { path: './data/itemQuality.json', isSorted: false, method: 'loadItemQuality' }
+    { path: './data/items.json', shouldSort: true, shouldClean: true,  method: 'loadItemCodes' },
+    { path: './data/item_classes.json', shouldSort: true, method: 'loadItemClasses' },
+    { path: './data/item_quality.json', shouldSort: false, method: 'loadItemQuality' },
+    { path: './data/item_name_overrides.json', shouldSort: false, method: 'loadItemNameOverrides' },
+    { path: './data/item_hide_list.json', shouldSort: false, method: 'loadItemHideList' }
 ];
 
 async function initializeApp() {
@@ -19,12 +21,16 @@ async function initializeApp() {
         await Promise.all(dataConfigs.map(config => 
             loadJsonData(
                 config.path, 
-                config.isSorted, 
+                config.shouldSort, 
+                config.shouldClean,
                 config.method, 
                 ruleManager,
                 toastManager
             )
         ));
+
+        // Apply name overrides to item codes
+        ruleManager.overrideItemNames();
 
         // Get all URL parameters
         const params = new URLSearchParams(window.location.search);
