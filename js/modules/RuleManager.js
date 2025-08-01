@@ -107,26 +107,32 @@ export class RuleManager {
         return this.itemHideList;
     }
 
-    overrideItemNames() {
-        // Only proceed if we have both itemCodes and name overrides loaded
-        if (!this.itemCodes || !this.itemNameOverrides) {
+    processItems() {
+        if (!Array.isArray(this.itemCodes)) {
+            console.warn('itemCodes must be an array');
             return;
         }
 
-        // Create a new object to hold the overridden names
-        const overriddenCodes = { ...this.itemCodes };
+        // Process name overrides and filtering
+        const processedItems = this.itemCodes
+            .map(itemArray => {
+                const [value, name] = itemArray;
+                const itemKey = value.toString();
+                
+                // Apply name override if exists
+                return [
+                    value, 
+                    this.itemNameOverrides?.[itemKey] || name
+                ];
+            })
+            .filter(itemArray => {
+                // Filter out items in hide list
+                const [value] = itemArray;
+                return !this.itemHideList?.[value.toString()];
+            });
 
-        // Iterate through each override
-        for (const [key, newName] of Object.entries(this.itemNameOverrides)) {
-            // Check if this key exists in the item codes
-            if (key in overriddenCodes) {
-                // Override the name
-                overriddenCodes[key] = newName;
-            }
-        }
-
-        // Update the itemCodes with the overridden names
-        this.itemCodes = overriddenCodes;
+        this.itemCodes = processedItems;
+        console.log('Processed items:', processedItems.length);
     }
 
     getRuleTypes() {
@@ -146,11 +152,25 @@ export class RuleManager {
     }
 
     loadItemCodes(itemCodes) {
-        this.itemCodes = itemCodes;
+        // Convert object to array if needed
+        this.itemCodes = Array.isArray(itemCodes) 
+            ? itemCodes 
+            : Object.entries(itemCodes).map(([value, name]) => ({
+                value,
+                name,
+                type: 'item'
+            }));
     }
 
     loadItemClasses(itemClasses) {
-        this.itemClasses = itemClasses;
+        // Convert object to array if needed
+        this.itemClasses = Array.isArray(itemClasses)
+            ? itemClasses
+            : Object.entries(itemClasses).map(([value, name]) => ({
+                value,
+                name,
+                type: 'class'
+            }));
     }
 
     loadItemQuality(itemQuality) {

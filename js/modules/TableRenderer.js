@@ -88,20 +88,20 @@ export class TableRenderer {
             // Get sorted data from manager
             const itemClasses = ruleManager.getItemClasses();
             const itemCodes = ruleManager.getItemCodes();
-            
+
             // Convert to array format that dropdown expects
-            const classOptions = Object.entries(itemClasses).map(([value, name]) => ({
-                value: parseInt(value),
-                name: name,
+            const classOptions = Object.entries(itemClasses).map(([index, value]) => ({
+                value: parseInt(value[0]),
+                name: value[1],
                 type: 'class'
             }));
 
-            const itemOptions = Object.entries(itemCodes).map(([value, name]) => ({
-                value: parseInt(value),
-                name: name,
+            const itemOptions = Object.entries(itemCodes).map(([index, value]) => ({
+                value: parseInt(value[0]),
+                name: value[1],
                 type: 'item'
             }));
-            
+
             // Combine and maintain sort order
             return [...classOptions, ...itemOptions];
         };

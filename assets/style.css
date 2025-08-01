@@ -13,7 +13,7 @@
 }
 
 html {
-    scrollbar-color: rgba(0, 0, 0, 0.556) rgba(0, 0, 0, 0);
+    scrollbar-color: rgb(174, 174, 174) rgba(0, 0, 0, 0);
     box-sizing: border-box;
 }
 
@@ -97,36 +97,6 @@ td {
     display: flex;
     justify-content: flex-start;
     width: 100%;
-}
-
-.width-100 {
-    width: 100%;
-}
-
-.min-width-100 {
-    min-width: 100px;
-}
-
-.big-dropdown-width {
-    min-width: 100%;
-}
-
-@media screen and (min-width: 768px) {
-    .big-dropdown-width {
-        min-width: 400px;
-    }
-}
-
-@media screen and (min-width: 1024px) {
-    .big-dropdown-width {
-        min-width: 500px;
-    }
-}
-
-@media screen and (min-width: 1920px) {
-    .big-dropdown-width {
-        min-width: 700px;
-    }
 }
 
 .v-center {

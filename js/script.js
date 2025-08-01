@@ -2,7 +2,8 @@ import {
     toastManager,
     ruleManager,
     filterEncoder,
-    completeInitialization
+    completeInitialization,
+    intializeFilterEncoder
 } from './globals.js';
 
 import { loadJsonData, applySharedFilter, fetchFilterFromAPI } from './modules/utils.js';
@@ -30,7 +31,7 @@ async function initializeApp() {
         ));
 
         // Apply name overrides to item codes
-        ruleManager.overrideItemNames();
+        ruleManager.processItems();
 
         // Get all URL parameters
         const params = new URLSearchParams(window.location.search);
@@ -55,6 +56,7 @@ async function initializeApp() {
                 case 'filter':
                     // Only process if we haven't already applied a filter from 'id'
                     if (!filterApplied) {
+                        intializeFilterEncoder();
                         const sharedFilter = filterEncoder.loadFromShortenedLink(value);
                         if (sharedFilter) {
                             applySharedFilter(sharedFilter, ruleManager, toastManager);
@@ -66,6 +68,7 @@ async function initializeApp() {
         }
 
         // Complete initialization with table-related managers
+        intializeFilterEncoder();
         await completeInitialization();
 
     } catch (error) {

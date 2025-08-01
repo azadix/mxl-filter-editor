@@ -38,12 +38,7 @@ export function loadJsonData(filePath, shouldSort, shouldClean, loaderMethod, ma
                                 });
                             });
                         
-                        // Build new sorted object
-                        entries.forEach(([key, value]) => {
-                            sortedData[key] = value;
-                        });
-                    
-                        data = sortedData;
+                        data = entries;
                     }
                     
                     manager[loaderMethod](data);
@@ -95,21 +90,6 @@ export function applySharedFilter(sharedFilter, ruleManager, toastManager) {
         toastManager.showToast('Error while loading filter from URL:' + e.message, false, 'danger');
         return false;
     }
-}
-
-export function initHashChangeListener(ruleManager, toastManager, filterEncoder, tableManager) {
-    window.addEventListener('hashchange', () => {
-        const newHash = window.location.hash.substring(1);
-        if (newHash) {
-            const sharedFilter = filterEncoder.loadFromShortenedLink(newHash);
-            if (sharedFilter) {
-                const success = applySharedFilter(sharedFilter, ruleManager, toastManager);
-                if (success && tableManager?.tableRenderer) {
-                    tableManager.tableRenderer.render();
-                }
-            }
-        }
-    });
 }
 
 export async function fetchFilterFromAPI(apiUrl) {
