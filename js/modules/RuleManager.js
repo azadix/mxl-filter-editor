@@ -132,7 +132,6 @@ export class RuleManager {
             });
 
         this.itemCodes = processedItems;
-        console.log('Processed items:', processedItems.length);
     }
 
     getRuleTypes() {
