@@ -108,23 +108,10 @@ The following files allow for overriding full item data:
 - **item_hide_list**: Hides specific items from item dropdown e.g., `"540094578": "El Rune"`
 - **item_name_overrides**: Allows to change in-game item names to more specific ones e.g., `"825260387": "Small Cycle (Strength)"`
 
+File structure:
 ```jsonc
 {
-  // Value "name" is only used here to easy determine which item will be hidden
-  "item_hide_list": {
-    "value": "name"
-  },
-  "item_name_overrides": {
-    "value": "new name"
-  }
+   // Value "itemName" is only used here to easy determine which item will be hidden
+   "value": "itemName"
 }
-```
-
-### Output Example
-```jsonc
-[
-  {
-    "540291698": "Ist Rune (24)",
-  }
-]
 ```
