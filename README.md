@@ -43,7 +43,7 @@ A web-based tool for creating and editing item filters for Median XL (an overhau
 
 ## Technical Details
 
-### Game Data
+### Resources
 Median XL item and class data is sourced from the Not Armory website, provided by Aahz.
 
 | Asset name | Source | Link | Description |
