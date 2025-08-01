@@ -48,7 +48,7 @@ Median XL item and class data is sourced from the Not Armory website, provided b
 
 | Asset name | Source | Link | Description |
 |------------|--------|------|-------------|
-| items.json | Not Armory | [`items.json`](https://tsw.vn.cz/filters/item.json) | Contains item codes |
+| items.json | Not Armory | [`items.json`](https://tsw.vn.cz/filters/items.json) | Contains item codes |
 | item_classes.json | Not Armory | [`item_classes.json`](https://tsw.vn.cz/filters/item_classes.json) | Contains item classes |
 | logo.png | OpenAI's ChatGPT | | App logo generated using ChatGPT |
 
