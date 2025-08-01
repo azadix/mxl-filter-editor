@@ -2,15 +2,18 @@ import {
     toastManager,
     ruleManager,
     filterEncoder,
-    completeInitialization
+    completeInitialization,
+    intializeFilterEncoder
 } from './globals.js';
 
 import { loadJsonData, applySharedFilter, fetchFilterFromAPI } from './modules/utils.js';
 
 const dataConfigs = [
-    { path: './data/itemCode.json', isSorted: true, method: 'loadItemCodes' },
-    { path: './data/itemClass.json', isSorted: true, method: 'loadItemClasses' },
-    { path: './data/itemQuality.json', isSorted: false, method: 'loadItemQuality' }
+    { path: './data/items.json', shouldSort: true, shouldClean: true,  method: 'loadItemCodes' },
+    { path: './data/item_classes.json', shouldSort: true, method: 'loadItemClasses' },
+    { path: './data/item_quality.json', shouldSort: false, method: 'loadItemQuality' },
+    { path: './data/item_name_overrides.json', shouldSort: false, method: 'loadItemNameOverrides' },
+    { path: './data/item_hide_list.json', shouldSort: false, method: 'loadItemHideList' }
 ];
 
 async function initializeApp() {
@@ -19,12 +22,16 @@ async function initializeApp() {
         await Promise.all(dataConfigs.map(config => 
             loadJsonData(
                 config.path, 
-                config.isSorted, 
+                config.shouldSort, 
+                config.shouldClean,
                 config.method, 
                 ruleManager,
                 toastManager
             )
         ));
+
+        // Apply name overrides to item codes
+        ruleManager.processItems();
 
         // Get all URL parameters
         const params = new URLSearchParams(window.location.search);
@@ -49,6 +56,7 @@ async function initializeApp() {
                 case 'filter':
                     // Only process if we haven't already applied a filter from 'id'
                     if (!filterApplied) {
+                        intializeFilterEncoder();
                         const sharedFilter = filterEncoder.loadFromShortenedLink(value);
                         if (sharedFilter) {
                             applySharedFilter(sharedFilter, ruleManager, toastManager);
@@ -60,6 +68,7 @@ async function initializeApp() {
         }
 
         // Complete initialization with table-related managers
+        intializeFilterEncoder();
         await completeInitialization();
 
     } catch (error) {

@@ -5,6 +5,8 @@ export class RuleManager {
         this.itemCodes = []; // Loaded from JSON
         this.itemClasses = []; // Loaded from JSON
         this.itemQuality = []; // Loaded from JSON
+        this.itemNameOverrides = []; // Loaded from JSON
+        this.itemHideList = []; // Loaded from JSON
 
         this.ruleTypes = Object.freeze({
             NONE: { value: -1, name: 'None' },
@@ -97,6 +99,41 @@ export class RuleManager {
         return this.itemQuality;
     }
 
+    getItemNameOverrides() {
+        return this.itemNameOverrides;
+    }
+
+    getItemHideList() {
+        return this.itemHideList;
+    }
+
+    processItems() {
+        if (!Array.isArray(this.itemCodes)) {
+            console.warn('itemCodes must be an array');
+            return;
+        }
+
+        // Process name overrides and filtering
+        const processedItems = this.itemCodes
+            .map(itemArray => {
+                const [value, name] = itemArray;
+                const itemKey = value.toString();
+                
+                // Apply name override if exists
+                return [
+                    value, 
+                    this.itemNameOverrides?.[itemKey] || name
+                ];
+            })
+            .filter(itemArray => {
+                // Filter out items in hide list
+                const [value] = itemArray;
+                return !this.itemHideList?.[value.toString()];
+            });
+
+        this.itemCodes = processedItems;
+    }
+
     getRuleTypes() {
         return {
             "None": this.ruleTypes.NONE.value,
@@ -114,21 +151,45 @@ export class RuleManager {
     }
 
     loadItemCodes(itemCodes) {
-        this.itemCodes = itemCodes;
+        // Convert object to array if needed
+        this.itemCodes = Array.isArray(itemCodes) 
+            ? itemCodes 
+            : Object.entries(itemCodes).map(([value, name]) => ({
+                value,
+                name,
+                type: 'item'
+            }));
     }
 
     loadItemClasses(itemClasses) {
-        this.itemClasses = itemClasses;
+        // Convert object to array if needed
+        this.itemClasses = Array.isArray(itemClasses)
+            ? itemClasses
+            : Object.entries(itemClasses).map(([value, name]) => ({
+                value,
+                name,
+                type: 'class'
+            }));
     }
 
     loadItemQuality(itemQuality) {
         this.itemQuality = itemQuality;
     }
 
+    loadItemNameOverrides(itemNameOverrides) {
+        this.itemNameOverrides = itemNameOverrides;
+    }
+
+    loadItemHideList(itemHideList) {
+        this.itemHideList = itemHideList;
+    }
+
     isDataLoaded() {
-        return Array.isArray(this.itemCodes) && this.itemCodes.length > 0 &&
-               Array.isArray(this.itemClasses) && this.itemClasses.length > 0 &&
-               Array.isArray(this.itemQuality) && this.itemQuality.length > 0;
+        return (
+            (typeof this.itemCodes === 'object' && this.itemCodes !== null && Object.keys(this.itemCodes).length > 0) &&
+            (typeof this.itemClasses === 'object' && this.itemClasses !== null && Object.keys(this.itemClasses).length > 0) &&
+            Array.isArray(this.itemQuality) && this.itemQuality.length > 0
+        );
     }
 
     generateOutput() {

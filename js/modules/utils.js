@@ -14,16 +14,33 @@ export function sanitizeFilterName(name) {
     return name.replace(/[^a-zA-Z0-9\s\-_]/g, "");
 }
 
-export function loadJsonData(filePath, isSorted, loaderMethod, manager, toastManager) {
+export function loadJsonData(filePath, shouldSort, shouldClean, loaderMethod, manager, toastManager) {
     return new Promise((resolve, reject) => {
         $.ajax({
             url: filePath,
             dataType: 'json',
             success: function(data) {
                 try {
-                    if (isSorted && Array.isArray(data)) {
-                        data.sort((a, b) => a.name.localeCompare(b.name));
+                    if (shouldClean) {
+                        data = cleanItemNames(data);
                     }
+                    
+                    if (shouldSort && typeof data === 'object' && data !== null) {
+                        // Create a new object to store sorted data
+                        const sortedData = {};
+                        
+                        // Get sorted entries
+                        const entries = Object.entries(data)
+                            .sort(([keyA, valueA], [keyB, valueB]) => {
+                                return valueA.localeCompare(valueB, undefined, { 
+                                    sensitivity: 'base',
+                                    numeric: true 
+                                });
+                            });
+                        
+                        data = entries;
+                    }
+                    
                     manager[loaderMethod](data);
                     resolve();
                 } catch (error) {
@@ -43,6 +60,24 @@ export function loadJsonData(filePath, isSorted, loaderMethod, manager, toastMan
     });
 }
 
+function cleanItemNames(data) {
+    if (typeof data !== 'object' || data === null) return data;
+    
+    const cleanedData = {};
+    const spanRegex = /<span[^>]*>(.*?)<\/span>/gi;
+    
+    for (const [key, value] of Object.entries(data)) {
+        if (typeof value === 'string') {
+            // Remove span tags but keep their content
+            cleanedData[key] = value.replace(spanRegex, '$1').trim();
+        } else {
+            cleanedData[key] = value;
+        }
+    }
+    
+    return cleanedData;
+}
+
 export function applySharedFilter(sharedFilter, ruleManager, toastManager) {
     try {
         $('#defaultShowItems').prop('checked', sharedFilter.default_show_items);
@@ -55,21 +90,6 @@ export function applySharedFilter(sharedFilter, ruleManager, toastManager) {
         toastManager.showToast('Error while loading filter from URL:' + e.message, false, 'danger');
         return false;
     }
-}
-
-export function initHashChangeListener(ruleManager, toastManager, filterEncoder, tableManager) {
-    window.addEventListener('hashchange', () => {
-        const newHash = window.location.hash.substring(1);
-        if (newHash) {
-            const sharedFilter = filterEncoder.loadFromShortenedLink(newHash);
-            if (sharedFilter) {
-                const success = applySharedFilter(sharedFilter, ruleManager, toastManager);
-                if (success && tableManager?.tableRenderer) {
-                    tableManager.tableRenderer.render();
-                }
-            }
-        }
-    });
 }
 
 export async function fetchFilterFromAPI(apiUrl) {

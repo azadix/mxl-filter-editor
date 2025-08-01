@@ -100,7 +100,7 @@ export class DropdownList {
         
         // Otherwise filter items
         const filtered = this.items.filter(item => 
-            item.text.toLowerCase().includes(term) || 
+            item.name.toLowerCase().includes(term) || 
             (item.searchText && item.searchText.toLowerCase().includes(term))
         );
         this.renderItems(filtered);

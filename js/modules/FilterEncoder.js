@@ -161,14 +161,13 @@ export class FilterEncoder {
     initItemCodeDictionary() {
         if (Object.keys(this.DICTIONARIES.itemCodes).length === 0) {
             const items = ruleManager.getItemCodes();
-            
             // Reset counter when initializing dictionary
             this.currentCodeIndex = this.codeStartIndex;
             
-            items.forEach(item => {
+            Object.entries(items).forEach(([index, value]) => {
                 const code = this.generateCodeForValue();
-                this.DICTIONARIES.itemCodes[code] = item.value;
-                this.REVERSE_DICTS.itemCodes[item.value] = code;
+                this.DICTIONARIES.itemCodes[code] = parseInt(value[0]); // Convert key to number
+                this.REVERSE_DICTS.itemCodes[parseInt(value[0])] = code;
             });
         }
     }

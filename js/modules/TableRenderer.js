@@ -79,30 +79,31 @@ export class TableRenderer {
                 if (!item) return '<div>No item</div>';
                 return `
                     <div class="is-flex">
-                        <span>${item.name || item.text || 'Unknown'}</span>
+                        <span>${item.name || 'Unknown'}</span>
                     </div>`;
             }
         });
 
         const loadItems = async () => {
-            const options = [
-                ...ruleManager.getItemClasses().map(c => ({
-                    ...c,
-                    type: 'class'
-                })),
-                ...ruleManager.getItemCodes().map(i => ({
-                    ...i,
-                    type: 'item'
-                }))
-            ];
-            
-            return options.map(opt => ({
-                value: opt.value,
-                text: opt.name,
-                name: opt.name,
-                type: opt.type,
-                original: opt
+            // Get sorted data from manager
+            const itemClasses = ruleManager.getItemClasses();
+            const itemCodes = ruleManager.getItemCodes();
+
+            // Convert to array format that dropdown expects
+            const classOptions = Object.entries(itemClasses).map(([index, value]) => ({
+                value: parseInt(value[0]),
+                name: value[1],
+                type: 'class'
             }));
+
+            const itemOptions = Object.entries(itemCodes).map(([index, value]) => ({
+                value: parseInt(value[0]),
+                name: value[1],
+                type: 'item'
+            }));
+
+            // Combine and maintain sort order
+            return [...classOptions, ...itemOptions];
         };
 
         // Load initial items
@@ -227,8 +228,8 @@ export class TableRenderer {
 
     formatItem = (value) => {
         if (!value?.id) {
-            return value?.text || '';
+            return value?.name || '';
         }
-        return $(`<span class="is-flex is-fullwidth">${value.text}</span>`);
+        return $(`<span class="is-flex is-fullwidth">${value.name}</span>`);
     }
 }

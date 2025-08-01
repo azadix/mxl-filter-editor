@@ -11,13 +11,17 @@ import { EventManager } from './modules/EventManager.js';
 export const toastManager = new ToastManager();
 export const ruleManager = new RuleManager();
 export const storageManager = new StorageManager();
-export const filterEncoder = new FilterEncoder(ruleManager);
 export const dropdownManager = new DropdownManager(storageManager);
 
 // These will be initialized later
 export let tableManager = null;
 export let tableRenderer = null;
 export let eventManager = null;
+export let filterEncoder = null; // Changed from const to let
+
+export function intializeFilterEncoder() {
+    filterEncoder = new FilterEncoder(ruleManager);
+}
 
 // Function to complete initialization after data loads
 export async function completeInitialization() {
