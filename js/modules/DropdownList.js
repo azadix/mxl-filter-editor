@@ -91,18 +91,23 @@ export class DropdownList {
             return;
         }
         
-        const term = searchTerm.toLowerCase();
+        const terms = searchTerm.toLowerCase().trim().split(/\s+/);
+        
         // If search term is empty, show all items
-        if (term === '') {
+        if (terms.length === 0 || (terms.length === 1 && terms[0] === '')) {
             this.renderItems(this.items);
             return;
         }
         
-        // Otherwise filter items
-        const filtered = this.items.filter(item => 
-            item.name.toLowerCase().includes(term) || 
-            (item.searchText && item.searchText.toLowerCase().includes(term))
-        );
+        // Otherwise filter items with fuzzy matching
+        const filtered = this.items.filter(item => {
+            const itemText = (item.name.toLowerCase() + 
+                            (item.searchText ? ' ' + item.searchText.toLowerCase() : ''));
+            
+            // All search terms must be found in the item text
+            return terms.every(term => itemText.includes(term));
+        });
+        
         this.renderItems(filtered);
     }
 
