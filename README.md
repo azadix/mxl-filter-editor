@@ -43,12 +43,12 @@ A web-based tool for creating and editing item filters for Median XL (an overhau
 
 ## Technical Details
 
-### Game Data
+### Resources
 Median XL item and class data is sourced from the Not Armory website, provided by Aahz.
 
 | Asset name | Source | Link | Description |
 |------------|--------|------|-------------|
-| items.json | Not Armory | [`items.json`](https://tsw.vn.cz/filters/item.json) | Contains item codes |
+| items.json | Not Armory | [`items.json`](https://tsw.vn.cz/filters/items.json) | Contains item codes |
 | item_classes.json | Not Armory | [`item_classes.json`](https://tsw.vn.cz/filters/item_classes.json) | Contains item classes |
 | logo.png | OpenAI's ChatGPT | | App logo generated using ChatGPT |
 
@@ -108,23 +108,10 @@ The following files allow for overriding full item data:
 - **item_hide_list**: Hides specific items from item dropdown e.g., `"540094578": "El Rune"`
 - **item_name_overrides**: Allows to change in-game item names to more specific ones e.g., `"825260387": "Small Cycle (Strength)"`
 
+File structure:
 ```jsonc
 {
-  // Value "name" is only used here to easy determine which item will be hidden
-  "item_hide_list": {
-    "value": "name"
-  },
-  "item_name_overrides": {
-    "value": "new name"
-  }
+   // Value "itemName" is only used here to easy determine which item will be hidden
+   "value": "itemName"
 }
-```
-
-### Output Example
-```jsonc
-[
-  {
-    "540291698": "Ist Rune (24)",
-  }
-]
 ```
