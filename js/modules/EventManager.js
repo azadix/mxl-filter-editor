@@ -20,9 +20,11 @@ export class EventManager {
 
         const defaultNotify = localStorage.getItem('defaultNotify') === 'true';
         const defaultMap = localStorage.getItem('defaultMap') === 'true';
+        const defaultUnobtainableFilter = localStorage.getItem('defaultUnobtainableFilter') === 'true';
 
         $('#defaultNotify').prop('checked', defaultNotify);
         $('#defaultMap').prop('checked', defaultMap);
+        $('#defaultUnobtainableFilter').prop('checked', defaultUnobtainableFilter);
 
         // Handle changes to defaultNotify
         $('#defaultNotify').on('change', (event) => {
@@ -34,6 +36,13 @@ export class EventManager {
         $('#defaultMap').on('change', (event) => {
             const isChecked = $(event.target).is(':checked');
             localStorage.setItem('defaultMap', isChecked);
+        });
+
+        // Handle changes to defaultUnobtainableFilter
+        $('#defaultUnobtainableFilter').on('change', (event) => {
+            const isChecked = $(event.target).is(':checked');
+            localStorage.setItem('defaultUnobtainableFilter', isChecked);
+            ruleManager.processItems();
         });
         
         $('#shareFilter').on('click', () => {

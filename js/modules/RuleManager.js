@@ -113,23 +113,32 @@ export class RuleManager {
             return;
         }
 
-        // Process name overrides and filtering
-        const processedItems = this.itemCodes
-            .map(itemArray => {
-                const [value, name] = itemArray;
-                const itemKey = value.toString();
-                
-                // Apply name override if exists
-                return [
-                    value, 
-                    this.itemNameOverrides?.[itemKey] || name
-                ];
-            })
-            .filter(itemArray => {
-                // Filter out items in hide list
+        // Process name overrides first
+        let processedItems = this.itemCodes.map(itemArray => {
+            if (!Array.isArray(itemArray)) {
+                console.warn('Invalid item format, expected array:', itemArray);
+                return itemArray; // Return as-is if invalid format
+            }
+
+            const [value, name] = itemArray;
+            const itemKey = value?.toString();
+            
+            // Apply name override if exists
+            return [
+                value, 
+                (itemKey && this.itemNameOverrides?.[itemKey]) || name || ''
+            ];
+        });
+
+        // Apply hide list filter if checkbox is checked
+        if (localStorage.getItem("defaultUnobtainableFilter") === "true" && this.itemHideList) {
+            processedItems = processedItems.filter(itemArray => {
+                if (!Array.isArray(itemArray)) return true; // Keep invalid items
                 const [value] = itemArray;
-                return !this.itemHideList?.[value.toString()];
+                const itemKey = value?.toString();
+                return !(itemKey && this.itemHideList[itemKey]);
             });
+        }
 
         this.itemCodes = processedItems;
     }
