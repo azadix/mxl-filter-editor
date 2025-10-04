@@ -1,4 +1,4 @@
-import { clampLvlValues, sanitizeFilterName } from './utils.js';
+import { clampLvlValues, sanitizeFilterName, loadFilterFromStorage } from './utils.js';
 import { 
     ruleManager,
     dropdownManager,
@@ -142,22 +142,7 @@ export class EventManager {
         $('#loadFromLocalStorage').on('change', () => {
             toastManager.cleanUpToastMessages();
             const filterName = $('#loadFromLocalStorage').val().trim();
-            if (!filterName) return;
-            
-            const filterData = storageManager.loadFilter(filterName);
-            if (filterData) {
-                const parsedData = JSON.parse(filterData);
-                $('#defaultShowItems').prop('checked', parsedData.default_show_items);
-                $('#filterName').val(filterName);
-        
-                ruleManager.clearRules();
-                parsedData.rules.reverse().forEach(rule => ruleManager.addRule(rule));
-                tableRenderer.render();
-        
-                toastManager.showToast(`Filter "${filterName}" loaded successfully!`, true);
-            } else {
-                toastManager.showToast(`Filter "${filterName}" not found.`, true);
-            }
+            loadFilterFromStorage(filterName, ruleManager, tableRenderer, toastManager);
         });
         
         // Delete from localStorage

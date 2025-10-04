@@ -5,6 +5,7 @@ import {
     tableRenderer
 } from '../globals.js';
 import { DropdownList } from './DropdownList.js';
+import { loadFilterFromStorage } from './utils.js';
 
 export class DropdownManager {
     constructor() {
@@ -48,22 +49,7 @@ export class DropdownManager {
         if (!item || !item.value) return;
         
         const filterName = item.value;
-        const filterData = storageManager.loadFilter(filterName);
-        
-        if (filterData) {
-            const parsedData = JSON.parse(filterData);
-            $('#defaultShowItems').prop('checked', parsedData.default_show_items);
-            $('#filterName').val(filterName);
-
-            // Use the eventManager to handle the filter loading
-            ruleManager.clearRules();
-            parsedData.rules.reverse().forEach(rule => ruleManager.addRule(rule));
-            tableRenderer.render();
-            
-            toastManager.showToast(`Filter "${filterName}" loaded successfully!`, true);
-        } else {
-            toastManager.showToast(`Filter "${filterName}" not found.`, false, 'danger');
-        }
+        loadFilterFromStorage(filterName, ruleManager, tableRenderer, toastManager);
     }
 
     updateFilterSelect() {

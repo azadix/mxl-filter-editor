@@ -2,7 +2,8 @@ import {
     ruleManager, 
     toastManager, 
     filterEncoder, 
-    tableManager 
+    tableManager,
+    storageManager
 } from '../globals.js';
 
 export function clampLvlValues(value) {
@@ -110,4 +111,28 @@ export async function fetchFilterFromAPI(apiUrl) {
 export function getUrlParameter(name) {
     const params = new URLSearchParams(window.location.search);
     return params.get(name);
+}
+
+export function loadFilterFromStorage(filterName, ruleManager, tableRenderer, toastManager) {
+    if (!filterName) {
+        toastManager.showToast("Please select a filter to load.", true);
+        return false;
+    }
+    
+    const filterData = storageManager.loadFilter(filterName);
+    if (filterData) {
+        const parsedData = JSON.parse(filterData);
+        $('#defaultShowItems').prop('checked', parsedData.default_show_items);
+        $('#filterName').val(filterName);
+
+        ruleManager.clearRules();
+        parsedData.rules.reverse().forEach(rule => ruleManager.addRule(rule));
+        tableRenderer.render();
+        
+        toastManager.showToast(`Filter "${filterName}" loaded successfully!`, true);
+        return true;
+    } else {
+        toastManager.showToast(`Filter "${filterName}" not found.`, true);
+        return false;
+    }
 }

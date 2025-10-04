@@ -94,11 +94,15 @@ export class TableManager {
     }
 
     destroy() {
+        // Remove all DataTable event listeners and destroy table
         this.table.off();
+        this.table.clear();
         this.table.destroy(true);
     
+        // Destroy sortable instance
         if (this._sortableInstance) {
             this._sortableInstance.destroy();
+            this._sortableInstance = null;
         }
 
         // Clear any pending timeouts
@@ -106,10 +110,22 @@ export class TableManager {
             this._pendingTimeouts.forEach(timeout => clearTimeout(timeout));
             this._pendingTimeouts = [];
         }
+
+        // Clean up table renderer and event manager
+        if (this.tableRenderer) {
+            this.tableRenderer = null;
+        }
+        
+        if (this.eventManager) {
+            this.eventManager = null;
+        }
     
         // Remove all event listeners
         $('#defaultNotify, #defaultMap, #filterSettings, #pasteFromClipboard, #copyToClipboard, #saveToLocalStorage, #deleteFromLocalStorage, #newFilter').off();
         $('#settingsModal .modal-background, #settingsModal .modal-card-foot .button').off();
         $(document).off('click', '.delete-rule');
+        
+        // Clear table reference
+        this.table = null;
     }
 }

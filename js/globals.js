@@ -19,7 +19,7 @@ export let tableRenderer = null;
 export let eventManager = null;
 export let filterEncoder = null; // Changed from const to let
 
-export function intializeFilterEncoder() {
+export function initializeFilterEncoder() {
     filterEncoder = new FilterEncoder(ruleManager);
 }
 

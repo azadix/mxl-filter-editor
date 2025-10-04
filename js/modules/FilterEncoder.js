@@ -205,6 +205,19 @@ export class FilterEncoder {
                 console.error("Invalid filter structure");
                 return null;
             }
+
+            // Validate filter size limits
+            const filterString = JSON.stringify(filter);
+            if (filterString.length > 1000000) { // 1MB limit
+                console.error("Filter data too large for compression");
+                return null;
+            }
+
+            // Validate rules array size
+            if (filter.rules.length > 1000) {
+                console.error("Too many rules in filter");
+                return null;
+            }
             
             // Process the filter
             const safeFilter = {
@@ -247,13 +260,47 @@ export class FilterEncoder {
     }
 
     decompressFilter(compressed) {
-        if (!compressed) return null;
+        if (!compressed || typeof compressed !== 'string') {
+            console.error("Invalid compressed data");
+            return null;
+        }
+
+        // Validate compressed data size
+        if (compressed.length > 1000000) { // 1MB limit for compressed data
+            console.error("Compressed data too large");
+            return null;
+        }
         
         try {
-            const [header, ...ruleParts] = compressed.split('|');
+            const parts = compressed.split('|');
+            if (parts.length < 2) {
+                console.error("Invalid compressed format");
+                return null;
+            }
+
+            const [header, ...ruleParts] = parts;
+            
+            // Validate header format
+            if (!header || header.length < 2) {
+                console.error("Invalid header format");
+                return null;
+            }
+
+            const booleanCode = header.substring(0, 2);
+            if (!this.DICTIONARIES.boolean[booleanCode]) {
+                console.error("Invalid boolean code in header");
+                return null;
+            }
+
+            // Validate rule parts count
+            if (ruleParts.length > 1000) {
+                console.error("Too many rule parts");
+                return null;
+            }
+
             return {
-                default_show_items: this.DICTIONARIES.boolean[header.substr(0, 2)],
-                name: this.decodeString(header.substr(2)),
+                default_show_items: this.DICTIONARIES.boolean[booleanCode],
+                name: this.decodeString(header.substring(2)),
                 rules: ruleParts.map(part => {
                     if (part === 'DEFAULT') {
                         return {...ruleManager.ruleTemplate}; // Return fresh default rule
@@ -410,8 +457,8 @@ export class FilterEncoder {
     decodeParams(encoded) {
         if (!encoded || encoded === '0000') return null;
         
-        const classCode = encoded.substr(0, 2);
-        const itemCode = encoded.substr(2, 2);
+        const classCode = encoded.substring(0, 2);
+        const itemCode = encoded.substring(2, 4);
         
         // For class rules (rule_type = 0), only decode class
         if (classCode !== '00') {

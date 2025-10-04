@@ -3,7 +3,7 @@ import {
     ruleManager,
     filterEncoder,
     completeInitialization,
-    intializeFilterEncoder
+    initializeFilterEncoder
 } from './globals.js';
 
 import { loadJsonData, applySharedFilter, fetchFilterFromAPI } from './modules/utils.js';
@@ -37,6 +37,9 @@ async function initializeApp() {
         const params = new URLSearchParams(window.location.search);
         let filterApplied = false;
 
+        // Initialize filter encoder once before processing URL parameters
+        initializeFilterEncoder();
+
         for (const [key, value] of params.entries()) {
             switch (key) {
                 case 'id':
@@ -56,7 +59,6 @@ async function initializeApp() {
                 case 'filter':
                     // Only process if we haven't already applied a filter from 'id'
                     if (!filterApplied) {
-                        intializeFilterEncoder();
                         const sharedFilter = filterEncoder.loadFromShortenedLink(value);
                         if (sharedFilter) {
                             applySharedFilter(sharedFilter, ruleManager, toastManager);
@@ -66,9 +68,6 @@ async function initializeApp() {
                     break;
             }
         }
-
-        // Complete initialization with table-related managers
-        intializeFilterEncoder();
         await completeInitialization();
 
     } catch (error) {
