@@ -39,10 +39,24 @@ export class EventManager {
         });
 
         // Handle changes to defaultUnobtainableFilter
-        $('#defaultUnobtainableFilter').on('change', (event) => {
+        $('#defaultUnobtainableFilter').on('change', async (event) => {
             const isChecked = $(event.target).is(':checked');
             localStorage.setItem('defaultUnobtainableFilter', isChecked);
-            ruleManager.processItems();
+            
+            // Reload items data with the new filter setting
+            await ruleManager.reloadItemsData();
+            
+            // Force complete table re-render to refresh all dropdowns
+            await tableRenderer.render();
+            
+            // Refresh the filter selection dropdown as well
+            if (dropdownManager && dropdownManager.refreshFilterDropdown) {
+                dropdownManager.refreshFilterDropdown();
+            }
+            
+            // Show notification that filter has been applied
+            const filterStatus = isChecked ? 'enabled' : 'disabled';
+            toastManager.showToast(`Unobtainable items filter ${filterStatus}. Table refreshed.`, true);
         });
         
         $('#shareFilter').on('click', () => {
@@ -87,6 +101,11 @@ export class EventManager {
         $('#settingsModal .modal-card-foot .is-success').on('click', () => {
             toastManager.showToast("Preferences saved!", true);
             $('#settingsModal').removeClass('is-active');
+        });
+
+        // Handle show unobtainable items list button
+        $('#showUnobtainableList').on('click', () => {
+            this.showUnobtainableItemsList();
         });
 
         // Paste from clipboard
@@ -338,5 +357,69 @@ export class EventManager {
                 }
             }, 50);
         });
+    }
+
+    async showUnobtainableItemsList() {
+        // Remove any existing unobtainable list modal
+        $('#unobtainableListModal').remove();
+        
+        try {
+            // Fetch the unobtainable items data
+            const response = await fetch('./data/item_hide_list.json');
+            const hideListData = await response.json();
+            
+            // Create formatted list HTML
+            const itemsList = Object.entries(hideListData)
+                .map(([itemId, itemName]) => `<li><strong>${itemId}:</strong> ${itemName}</li>`)
+                .join('');
+            
+            // Create modal
+            const modal = $(`
+                <div class="modal is-active" id="unobtainableListModal">
+                    <div class="modal-background"></div>
+                    <div class="modal-card" style="width: 80%; max-width: 900px;">
+                        <header class="modal-card-head p-3">
+                            <p class="modal-card-title m-3 is-size-3 has-text-weight-bold">Unobtainable Items List</p>
+                        </header>
+                        <section class="modal-card-body p-3">
+                            <div class="content">
+                                <p class="mb-4">Items that are filtered out when "Remove unobtainable items" is enabled:</p>
+                                <div style="max-height: 500px; overflow-y: auto;">
+                                    <p class="mb-3"><strong>Total items: ${Object.keys(hideListData).length}</strong></p>
+                                    <div class="is-size-7">
+                                        <ul class="is-family-monospace" style="columns: 2; column-gap: 2rem;">
+                                            ${itemsList}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <footer class="modal-card-foot p-3">
+                            <button class="button" id="closeUnobtainableList">Close</button>
+                        </footer>
+                    </div>
+                </div>
+            `);
+            
+            // Add modal to body
+            $('body').append(modal);
+            
+            // Handle close events
+            $('#unobtainableListModal .modal-background, #unobtainableListModal .delete, #closeUnobtainableList').on('click', () => {
+                $('#unobtainableListModal').remove();
+            });
+            
+            // Handle escape key
+            $(document).on('keydown.unobtainableList', (e) => {
+                if (e.key === 'Escape') {
+                    $('#unobtainableListModal').remove();
+                    $(document).off('keydown.unobtainableList');
+                }
+            });
+            
+        } catch (error) {
+            console.error('Failed to load unobtainable items list:', error);
+            toastManager.showToast('Failed to load unobtainable items list', false, 'danger');
+        }
     }
 }

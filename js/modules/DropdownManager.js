@@ -64,6 +64,11 @@ export class DropdownManager {
         this.filterSelect.setItems(filters);
     }
 
+    // Refresh the filter selection dropdown (for when unobtainable filter changes)
+    refreshFilterDropdown() {
+        this.updateFilterSelect();
+    }
+
     formatFilterOption(item) {
         const formattedDate = this.formatDate(item.lastSavedAt);
         return `

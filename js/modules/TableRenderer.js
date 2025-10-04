@@ -39,6 +39,60 @@ export class TableRenderer {
         this.table.columns.adjust();
     }
 
+    // Refresh all dropdowns with updated item data
+    async refreshDropdowns() {
+        const rows = this.table.rows().nodes();
+        
+        // Update each dropdown in the table
+        for (let i = 0; i < rows.length; i++) {
+            const row = rows[i];
+            const dropdownContainer = row.querySelector('.field');
+            if (dropdownContainer) {
+                const selectElement = dropdownContainer.querySelector('select');
+                if (selectElement && selectElement.dropdownInstance) {
+                    // Get fresh data from ruleManager
+                    const itemClasses = ruleManager.getItemClasses();
+                    const itemCodes = ruleManager.getItemCodes();
+
+                    // Handle both array and object formats
+                    let classOptions = [];
+                    let itemOptions = [];
+
+                    if (Array.isArray(itemClasses)) {
+                        classOptions = itemClasses.map((item, index) => ({
+                            value: parseInt(item[0]),
+                            name: item[1],
+                            type: 'class'
+                        }));
+                    } else {
+                        classOptions = Object.entries(itemClasses).map(([index, value]) => ({
+                            value: parseInt(value[0]),
+                            name: value[1],
+                            type: 'class'
+                        }));
+                    }
+
+                    if (Array.isArray(itemCodes)) {
+                        itemOptions = itemCodes.map((item, index) => ({
+                            value: parseInt(item[0]),
+                            name: item[1],
+                            type: 'item'
+                        }));
+                    } else {
+                        itemOptions = Object.entries(itemCodes).map(([index, value]) => ({
+                            value: parseInt(value[0]),
+                            name: value[1],
+                            type: 'item'
+                        }));
+                    }
+
+                    const freshItems = [...classOptions, ...itemOptions];
+                    selectElement.dropdownInstance.setItems(freshItems);
+                }
+            }
+        }
+    }
+
     getShowClassName(index) {
         const rule = ruleManager.getRules()[index];
         return rule.show_item ? "has-text-success" : "has-text-danger";
@@ -87,23 +141,45 @@ export class TableRenderer {
             }
         });
 
+        // Store reference to dropdown instance for later refresh
+        selectElement.dropdownInstance = dropdown;
+
         const loadItems = async () => {
             // Get sorted data from manager
             const itemClasses = ruleManager.getItemClasses();
             const itemCodes = ruleManager.getItemCodes();
 
-            // Convert to array format that dropdown expects
-            const classOptions = Object.entries(itemClasses).map(([index, value]) => ({
-                value: parseInt(value[0]),
-                name: value[1],
-                type: 'class'
-            }));
+            // Handle both array and object formats
+            let classOptions = [];
+            let itemOptions = [];
 
-            const itemOptions = Object.entries(itemCodes).map(([index, value]) => ({
-                value: parseInt(value[0]),
-                name: value[1],
-                type: 'item'
-            }));
+            if (Array.isArray(itemClasses)) {
+                classOptions = itemClasses.map((item, index) => ({
+                    value: parseInt(item[0]),
+                    name: item[1],
+                    type: 'class'
+                }));
+            } else {
+                classOptions = Object.entries(itemClasses).map(([index, value]) => ({
+                    value: parseInt(value[0]),
+                    name: value[1],
+                    type: 'class'
+                }));
+            }
+
+            if (Array.isArray(itemCodes)) {
+                itemOptions = itemCodes.map((item, index) => ({
+                    value: parseInt(item[0]),
+                    name: item[1],
+                    type: 'item'
+                }));
+            } else {
+                itemOptions = Object.entries(itemCodes).map(([index, value]) => ({
+                    value: parseInt(value[0]),
+                    name: value[1],
+                    type: 'item'
+                }));
+            }
 
             // Combine and maintain sort order
             return [...classOptions, ...itemOptions];

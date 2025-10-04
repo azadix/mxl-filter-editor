@@ -143,6 +143,45 @@ export class RuleManager {
         this.itemCodes = processedItems;
     }
 
+    // Reload items data from original source and apply current filter settings
+    async reloadItemsData() {
+        // We need to reload from the original JSON data
+        // This is a simplified approach - in a real app you'd want to cache the original data
+        try {
+            const response = await fetch('./data/items.json');
+            const originalData = await response.json();
+            
+            // Convert to array format and apply name overrides
+            let processedItems = Object.entries(originalData).map(([value, name]) => [
+                parseInt(value),
+                name
+            ]);
+            
+            // Apply name overrides
+            processedItems = processedItems.map(itemArray => {
+                const [value, name] = itemArray;
+                const itemKey = value?.toString();
+                return [
+                    value, 
+                    (itemKey && this.itemNameOverrides?.[itemKey]) || name || ''
+                ];
+            });
+            
+            // Apply hide list filter if enabled
+            if (localStorage.getItem("defaultUnobtainableFilter") === "true" && this.itemHideList) {
+                processedItems = processedItems.filter(itemArray => {
+                    const [value] = itemArray;
+                    const itemKey = value?.toString();
+                    return !(itemKey && this.itemHideList[itemKey]);
+                });
+            }
+            
+            this.itemCodes = processedItems;
+        } catch (error) {
+            console.error('Failed to reload items data:', error);
+        }
+    }
+
     getRuleTypes() {
         return {
             "None": this.ruleTypes.NONE.value,

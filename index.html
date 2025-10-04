@@ -173,7 +173,7 @@
         </div>
 
         <!-- Setting 4 -->
-        <div class="field mb-5">
+        <div class="field mb-2">
           <div class="control">
             <label class="checkbox is-size-4" for="defaultUnobtainableFilter">
               <input id="defaultUnobtainableFilter" type="checkbox" class="checkbox-input m-3" aria-describedby="defaultUnobtainableFilterHelp">
@@ -183,7 +183,14 @@
               This option changes the allowed item list to also contain items that are not longer present in-game or are otherwise unobtainable by normal means.
               When disabled all items will be visible.
             </p>
-            <p class="has-text-danger help is-size-6 mx-3 my-1">REQUIRES MANUAL PAGE RELOAD</p>
+            <div class="mx-3 my-2">
+              <button id="showUnobtainableList" class="button is-small is-outlined is-info">
+                <span class="icon is-small">
+                  <i class="fas fa-list"></i>
+                </span>
+                <span>View unobtainable items</span>
+              </button>
+            </div>
           </div>
         </div>
       </section>
