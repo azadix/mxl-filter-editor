@@ -9,8 +9,10 @@ export class TableRenderer {
     }
 
     async render() {
+        // Clear existing event listeners
         this.table.rows().nodes().to$().off('*');
         this.table.clear();
+        
         const rules = ruleManager.getRules();
 
         if (rules.length === 0) {
@@ -32,7 +34,8 @@ export class TableRenderer {
             this.table.row.add(rowData).node();
         });
         
-        this.table.draw();
+        // Draw and adjust columns to fix header compression
+        this.table.draw(false); // Don't reset paging
         this.table.columns.adjust();
     }
 

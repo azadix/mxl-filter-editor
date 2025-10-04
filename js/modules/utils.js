@@ -3,7 +3,8 @@ import {
     toastManager, 
     filterEncoder, 
     tableManager,
-    storageManager
+    storageManager,
+    tableRenderer
 } from '../globals.js';
 
 export function clampLvlValues(value) {
@@ -85,6 +86,7 @@ export function applySharedFilter(sharedFilter, ruleManager, toastManager) {
         $('#filterName').val(sharedFilter.name);
         ruleManager.clearRules();
         sharedFilter.rules.reverse().forEach(rule => ruleManager.addRule(rule));
+        tableRenderer.render();
         toastManager.showToast(`Filter '${sharedFilter.name}' loaded!`, true);
         return true;
     } catch (e) {
