@@ -80,14 +80,13 @@ function cleanItemNames(data) {
     return cleanedData;
 }
 
-export function applySharedFilter(sharedFilter, ruleManager, toastManager) {
+export function applySharedFilter(filter, ruleManager, toastManager) {
     try {
-        $('#defaultShowItems').prop('checked', sharedFilter.default_show_items);
-        $('#filterName').val(sharedFilter.name);
+        $('#defaultShowItems').prop('checked', filter.default_show_items);
+        $('#filterName').val(filter.name);
         ruleManager.clearRules();
-        sharedFilter.rules.reverse().forEach(rule => ruleManager.addRule(rule));
-        tableRenderer.render();
-        toastManager.showToast(`Filter '${sharedFilter.name}' loaded!`, true);
+        filter.rules.reverse().forEach(rule => ruleManager.addRule(rule));
+        toastManager.showToast(`Filter '${filter.name}' loaded!`, true);
         return true;
     } catch (e) {
         toastManager.showToast('Error while loading filter from URL:' + e.message, false, 'danger');
