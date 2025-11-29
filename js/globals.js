@@ -30,4 +30,5 @@ export async function completeInitialization() {
     tableManager = new TableManager();
     tableRenderer = tableManager.tableRenderer;
     eventManager = tableManager.eventManager;
+    tableRenderer.render();
 }

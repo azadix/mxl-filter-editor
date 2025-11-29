@@ -69,7 +69,6 @@ async function initializeApp() {
             }
         }
         await completeInitialization();
-        tableRenderer.render();
 
     } catch (error) {
         toastManager.showToast(`Failed to initialize application: ${error.message}`, false, 'danger');
