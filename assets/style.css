@@ -205,3 +205,32 @@ td {
     font-size: 0.8em;
     opacity: 0.7;
 }
+
+/* Filter controls alignment */
+.field.has-addons .field-body {
+    align-items: flex-end;
+}
+
+.field.is-horizontal .field-body.is-align-items-center .field.is-grouped {
+    align-self: flex-end;
+}
+
+/* Selected row highlight */
+#rulesTable tbody tr {
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-left-color 0.2s ease;
+    border-left: 4px solid transparent;
+}
+
+#rulesTable tbody tr:hover {
+    background-color: rgba(72, 199, 142, 0.08) !important;
+}
+
+#rulesTable tbody tr.selected-row {
+    background-color: rgba(72, 199, 142, 0.25) !important;
+    border-left-color: var(--green);
+}
+
+#rulesTable tbody tr.selected-row:hover {
+    background-color: rgba(72, 199, 142, 0.35) !important;
+}

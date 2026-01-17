@@ -151,19 +151,20 @@ export class EventManager {
                 toastManager.showToast("Please enter a filter name before saving.");
                 return;
             }
-        
+
             const filterData = ruleManager.generateOutput();
             storageManager.saveFilter(filterName, filterData);
             toastManager.showToast(`Filter "${filterName}" saved!`, true);
             dropdownManager.updateFilterSelect();
+
+            // Auto-select the saved filter
+            const savedFilter = {
+                value: filterName,
+                text: filterName
+            };
+            dropdownManager.filterSelect.selectItem(savedFilter);
         });
-        
-        $('#loadFromLocalStorage').on('change', () => {
-            toastManager.cleanUpToastMessages();
-            const filterName = $('#loadFromLocalStorage').val().trim();
-            loadFilterFromStorage(filterName, ruleManager, tableRenderer, toastManager);
-        });
-        
+
         // Delete from localStorage
         $('#deleteFromLocalStorage').on('click', () => {
             const filterName = $('#filterName').val().trim();

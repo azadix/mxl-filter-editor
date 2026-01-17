@@ -1,13 +1,14 @@
-import { 
-    ruleManager, 
-    storageManager, 
-    toastManager, 
-    dropdownManager 
+import {
+    ruleManager,
+    storageManager,
+    toastManager,
+    dropdownManager
 } from '../globals.js';
 import { TableRenderer } from './TableRenderer.js';
 import { EventManager } from './EventManager.js';
 export class TableManager {
     constructor() {
+        this.selectedRowIndex = null; // Track selected row
         this.table = new DataTable('#rulesTable', {
             autoWidth: true,
             paging: false,
@@ -23,7 +24,6 @@ export class TableManager {
                 { targets: 6, width: '30%' }
             ],
             layout: {
-                topStart: () => this.createAddRuleButton(),
                 topEnd: '',
                 bottomStart: { info: { empty: '', text: 'Rule count: _TOTAL_' } }
             }
@@ -35,14 +35,49 @@ export class TableManager {
 
         this.tableRenderer = new TableRenderer(this.table, ruleManager, dropdownManager);
         this.eventManager = new EventManager(this.table, ruleManager, dropdownManager, toastManager, this.tableRenderer, storageManager);
-        
+
         this.initialize();
+        this.bindAddRuleButton();
+    }
+
+    bindAddRuleButton() {
+        const addRuleButton = document.getElementById('addNewRule');
+        if (addRuleButton) {
+            addRuleButton.addEventListener('click', async () => {
+                // Insert at selected position, or at top if no selection
+                const insertIndex = this.selectedRowIndex !== null ? this.selectedRowIndex + 1 : 0;
+                ruleManager.addRule(null, insertIndex);
+                await this.tableRenderer.render();
+
+                // Select the newly added row
+                this.selectRow(insertIndex);
+            });
+        }
     }
 
     async initialize() {
         this.eventManager.initialize();
         await this.tableRenderer.render();
         this.initializeSortable();
+        this.initializeRowSelection();
+    }
+
+    initializeRowSelection() {
+        const tableBody = document.querySelector('#rulesTable tbody');
+        if (!tableBody) return;
+
+        // Add click handler to track selected row
+        tableBody.addEventListener('click', (e) => {
+            const row = e.target.closest('tr');
+            if (!row) return;
+
+            // Remove previous selection
+            tableBody.querySelectorAll('tr').forEach(r => r.classList.remove('selected-row'));
+
+            // Add selection to clicked row
+            row.classList.add('selected-row');
+            this.selectedRowIndex = parseInt(row.dataset.index, 10);
+        });
     }
 
     calculateTableHeight() {
@@ -53,7 +88,7 @@ export class TableManager {
         // Dynamically calculate the offset based on the height of other elements
         const headerHeight = document.querySelector('#header')?.offsetHeight || 0;
         const availableHeight = viewportHeight - tableRect.top - headerHeight;
-    
+
         return availableHeight;
     }
 
@@ -63,7 +98,7 @@ export class TableManager {
             console.error("Table body not found.");
             return;
         }
-    
+
         if (this._sortableInstance) {
             this._sortableInstance.destroy();
         }
@@ -80,17 +115,19 @@ export class TableManager {
         });
     }
 
-    createAddRuleButton() {
-        const addRuleButton = document.createElement('button');
-        addRuleButton.classList.add("button", "is-success", "is-outlined", "is-inverted");
-        addRuleButton.innerHTML = '<span class="icon is-small"><i class="fas fa-plus"></i></span><span>Add new rule</span>';
+    selectRow(index) {
+        const tableBody = document.querySelector('#rulesTable tbody');
+        if (!tableBody) return;
 
-        addRuleButton.addEventListener("click", async () => {
-            ruleManager.addRule();
-            await this.tableRenderer.render();
-        });
+        // Remove previous selection
+        tableBody.querySelectorAll('tr').forEach(r => r.classList.remove('selected-row'));
 
-        return addRuleButton;
+        // Find and select the row with the specified index
+        const rows = tableBody.querySelectorAll('tr');
+        if (rows[index]) {
+            rows[index].classList.add('selected-row');
+            this.selectedRowIndex = parseInt(rows[index].dataset.index, 10);
+        }
     }
 
     destroy() {
@@ -98,7 +135,7 @@ export class TableManager {
         this.table.off();
         this.table.clear();
         this.table.destroy(true);
-    
+
         // Destroy sortable instance
         if (this._sortableInstance) {
             this._sortableInstance.destroy();
@@ -115,16 +152,16 @@ export class TableManager {
         if (this.tableRenderer) {
             this.tableRenderer = null;
         }
-        
+
         if (this.eventManager) {
             this.eventManager = null;
         }
-    
+
         // Remove all event listeners
         $('#defaultNotify, #defaultMap, #filterSettings, #pasteFromClipboard, #copyToClipboard, #saveToLocalStorage, #deleteFromLocalStorage, #newFilter').off();
         $('#settingsModal .modal-background, #settingsModal .modal-card-foot .button').off();
         $(document).off('click', '.delete-rule');
-        
+
         // Clear table reference
         this.table = null;
     }

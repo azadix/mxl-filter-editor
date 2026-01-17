@@ -47,7 +47,7 @@ export class RuleManager {
             .find(type => type.value === value)?.name || 'Unknown';
     }
 
-    addRule(rule) {
+    addRule(rule, insertIndex = null) {
         let newRule;
         if (rule) {
             newRule = rule;
@@ -57,8 +57,13 @@ export class RuleManager {
             newRule.notify = $('#defaultNotify').is(':checked');
             newRule.automap = $('#defaultMap').is(':checked');
         }
-        
-        this.rules.unshift(newRule);
+
+        // Insert at specified position, or at top if no position specified
+        if (insertIndex !== null && insertIndex >= 0 && insertIndex <= this.rules.length) {
+            this.rules.splice(insertIndex, 0, newRule);
+        } else {
+            this.rules.unshift(newRule);
+        }
         return newRule;
     }
 
