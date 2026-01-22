@@ -26,9 +26,12 @@ export function initializeFilterEncoder() {
 // Function to complete initialization after data loads
 export async function completeInitialization() {
     const { TableManager } = await import('./modules/TableManager.js');
-    
+
     tableManager = new TableManager();
     tableRenderer = tableManager.tableRenderer;
     eventManager = tableManager.eventManager;
     tableRenderer.render();
+
+    // Auto-load first filter if available
+    dropdownManager.loadFirstFilter();
 }

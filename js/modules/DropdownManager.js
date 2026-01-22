@@ -47,21 +47,31 @@ export class DropdownManager {
 
     handleFilterSelection(item) {
         if (!item || !item.value) return;
-        
+
         const filterName = item.value;
         loadFilterFromStorage(filterName, ruleManager, tableRenderer, toastManager);
     }
 
-    updateFilterSelect() {
-        const filters = storageManager.getFilterMetadata()
+    getSortedFilters() {
+        return storageManager.getFilterMetadata()
             .sort((a, b) => new Date(b.lastSavedAt) - new Date(a.lastSavedAt))
             .map(filter => ({
                 value: filter.name,
                 text: filter.name,
                 lastSavedAt: filter.lastSavedAt
             }));
+    }
 
+    updateFilterSelect() {
+        const filters = this.getSortedFilters();
         this.filterSelect.setItems(filters);
+    }
+
+    loadFirstFilter() {
+        const filters = this.getSortedFilters();
+        if (filters.length > 0) {
+            this.filterSelect.selectItem(filters[0]);
+        }
     }
 
     // Refresh the filter selection dropdown (for when unobtainable filter changes)
