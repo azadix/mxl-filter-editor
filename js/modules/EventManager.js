@@ -175,11 +175,13 @@ export class EventManager {
                     toastManager.showToast(`Filter "${filterName}" deleted!`, true);
                     dropdownManager.updateFilterSelect();
 
-                    // Reset the UI
-                    $('#filterName').val('');
-                    dropdownManager.clearInputValue();
-                    ruleManager.clearRules();
-                    tableRenderer.render();
+                    if (!dropdownManager.loadFirstFilter()) {
+                        // Reset the UI
+                        $('#filterName').val('');
+                        dropdownManager.clearInputValue();
+                        ruleManager.clearRules();
+                        tableRenderer.render();
+                    }
                 } else {
                     toastManager.showToast(`Filter "${filterName}" not found.`, true);
                 }
