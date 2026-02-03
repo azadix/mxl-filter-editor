@@ -1,5 +1,5 @@
 import { clampLvlValues, sanitizeFilterName, loadFilterFromStorage } from './utils.js';
-import { 
+import {
     ruleManager,
     dropdownManager,
     toastManager,
@@ -42,28 +42,28 @@ export class EventManager {
         $('#defaultUnobtainableFilter').on('change', async (event) => {
             const isChecked = $(event.target).is(':checked');
             localStorage.setItem('defaultUnobtainableFilter', isChecked);
-            
+
             // Reload items data with the new filter setting
             await ruleManager.reloadItemsData();
-            
+
             // Force complete table re-render to refresh all dropdowns
             await tableRenderer.render();
-            
+
             // Refresh the filter selection dropdown as well
             if (dropdownManager && dropdownManager.refreshFilterDropdown) {
                 dropdownManager.refreshFilterDropdown();
             }
-            
+
             // Show notification that filter has been applied
             const filterStatus = isChecked ? 'enabled' : 'disabled';
             toastManager.showToast(`Unobtainable items filter ${filterStatus}. Table refreshed.`, true);
         });
-        
+
         $('#shareFilter').on('click', () => {
             try {
                 const filterData = ruleManager.generateOutput();
                 const shareLink = filterEncoder.generateShortenedLink(JSON.parse(filterData));
-                
+
                 if (shareLink) {
                     navigator.clipboard.writeText(shareLink)
                         .then(() => {
@@ -157,12 +157,8 @@ export class EventManager {
             toastManager.showToast(`Filter "${filterName}" saved!`, true);
             dropdownManager.updateFilterSelect();
 
-            // Auto-select the saved filter
-            const savedFilter = {
-                value: filterName,
-                text: filterName
-            };
-            dropdownManager.filterSelect.selectItem(savedFilter);
+            dropdownManager.filterSelect.selectedItem = { value: filterName, text: filterName };
+            dropdownManager.filterSelect.input.value = filterName;
         });
 
         // Delete from localStorage
@@ -172,18 +168,20 @@ export class EventManager {
                 toastManager.showToast("Please select a filter to delete.", true);
                 return;
             }
-            
+
             const confirmDelete = confirm(`Are you sure you want to delete "${filterName}"?`);
             if (confirmDelete) {
                 if (storageManager.deleteFilter(filterName)) {
                     toastManager.showToast(`Filter "${filterName}" deleted!`, true);
                     dropdownManager.updateFilterSelect();
-                    
-                    // Reset the UI
-                    $('#filterName').val('');
-                    dropdownManager.clearInputValue();
-                    ruleManager.clearRules();
-                    tableRenderer.render();
+
+                    if (!dropdownManager.loadFirstFilter()) {
+                        // Reset the UI
+                        $('#filterName').val('');
+                        dropdownManager.clearInputValue();
+                        ruleManager.clearRules();
+                        tableRenderer.render();
+                    }
                 } else {
                     toastManager.showToast(`Filter "${filterName}" not found.`, true);
                 }
@@ -196,7 +194,7 @@ export class EventManager {
             if (confirmReset) {
                 ruleManager.clearRules();
                 toastManager.cleanUpToastMessages();
-                
+
                 $('#defaultShowItems').prop('checked', true);
                 $('#filterName').val('').trigger('change');
                 dropdownManager.clearInputValue();
@@ -211,10 +209,10 @@ export class EventManager {
 
             if (dataIndex !== undefined) {
                 ruleManager.updateRule(dataIndex, { active: paramValue });
-                
+
                 // Get the updated row data
                 const updatedRowData = await tableRenderer.createRowData(ruleManager.getRules()[dataIndex], dataIndex);
-                
+
                 // Update the table row
                 tableRenderer.updateTableRow(dataIndex, updatedRowData);
             } else {
@@ -224,10 +222,10 @@ export class EventManager {
         this.table.on('change', '.rule-is-shown', (event) => {
             const paramValue = $(event.target).val();
             const dataIndex = $(event.target).closest('tr').data('index');
-        
+
             if (dataIndex !== undefined) {
                 ruleManager.updateRule(dataIndex, { show_item: paramValue == "1" })
-        
+
                 $(event.target).removeClass("has-text-success has-text-danger").addClass(tableRenderer.getShowClassName(dataIndex));
             } else {
                 console.warn('Row does not have a valid data-index');
@@ -236,7 +234,7 @@ export class EventManager {
         this.table.on('change', '.rule-quality', (event) => {
             const paramValue = $(event.target).val();
             const dataIndex = $(event.target).closest('tr').data('index');
-        
+
             if (dataIndex !== undefined) {
                 ruleManager.updateRule(dataIndex, { item_quality: Number(paramValue) })
 
@@ -249,7 +247,7 @@ export class EventManager {
         this.table.on('change', '.rule-is-eth', (event) => {
             const paramValue = $(event.target).val();
             const dataIndex = $(event.target).closest('tr').data('index');
-    
+
             if (dataIndex !== undefined) {
                 ruleManager.updateRule(dataIndex, { ethereal: Number(paramValue) })
             } else {
@@ -273,7 +271,7 @@ export class EventManager {
             const dataIndex = $(event.target).closest('tr').data('index');
             const clampedValue = clampLvlValues(paramValue);
             $(event.target).val(clampedValue);
-            
+
             if (dataIndex !== undefined) {
                 ruleManager.updateRule(dataIndex, { max_clvl: clampedValue });
             } else {
@@ -285,7 +283,7 @@ export class EventManager {
             const dataIndex = $(event.target).closest('tr').data('index');
             const clampedValue = clampLvlValues(paramValue);
             $(event.target).val(clampedValue);
-            
+
             if (dataIndex !== undefined) {
                 ruleManager.updateRule(dataIndex, { min_ilvl: clampedValue });
             } else {
@@ -297,7 +295,7 @@ export class EventManager {
             const dataIndex = $(event.target).closest('tr').data('index');
             const clampedValue = clampLvlValues(paramValue);
             $(event.target).val(clampedValue);
-            
+
             if (dataIndex !== undefined) {
                 ruleManager.updateRule(dataIndex, { max_ilvl: clampedValue });
             } else {
@@ -307,7 +305,7 @@ export class EventManager {
         this.table.on('change', '.rule-is-notify', (event) => {
             const paramValue = $(event.target).is(":checked");
             const dataIndex =  $(event.target).closest('tr').data('index');
-            
+
             if (dataIndex !== undefined) {
                 ruleManager.updateRule(dataIndex, { notify: paramValue });
             } else {
@@ -317,7 +315,7 @@ export class EventManager {
         this.table.on('change', '.rule-is-automap', (event) => {
             const paramValue = $(event.target).is(":checked");
             const dataIndex =  $(event.target).closest('tr').data('index');
-            
+
             if (dataIndex !== undefined) {
                 ruleManager.updateRule(dataIndex, { automap: paramValue });
             } else {
@@ -336,7 +334,7 @@ export class EventManager {
             const $button = $(event.target).closest('.delete-rule');
             const $row = $button.closest('tr');
             const dataIndex = parseInt($row.data('index'));
-            
+
             if (isNaN(dataIndex)) {
                 console.warn("Invalid data-index value");
                 return;
@@ -363,17 +361,17 @@ export class EventManager {
     async showUnobtainableItemsList() {
         // Remove any existing unobtainable list modal
         $('#unobtainableListModal').remove();
-        
+
         try {
             // Fetch the unobtainable items data
             const response = await fetch('./data/item_hide_list.json');
             const hideListData = await response.json();
-            
+
             // Create formatted list HTML
             const itemsList = Object.entries(hideListData)
                 .map(([itemId, itemName]) => `<li><strong>${itemId}:</strong> ${itemName}</li>`)
                 .join('');
-            
+
             // Create modal
             const modal = $(`
                 <div class="modal is-active" id="unobtainableListModal">
@@ -401,15 +399,15 @@ export class EventManager {
                     </div>
                 </div>
             `);
-            
+
             // Add modal to body
             $('body').append(modal);
-            
+
             // Handle close events
             $('#unobtainableListModal .modal-background, #unobtainableListModal .delete, #closeUnobtainableList').on('click', () => {
                 $('#unobtainableListModal').remove();
             });
-            
+
             // Handle escape key
             $(document).on('keydown.unobtainableList', (e) => {
                 if (e.key === 'Escape') {
@@ -417,7 +415,7 @@ export class EventManager {
                     $(document).off('keydown.unobtainableList');
                 }
             });
-            
+
         } catch (error) {
             console.error('Failed to load unobtainable items list:', error);
             toastManager.showToast('Failed to load unobtainable items list', false, 'danger');

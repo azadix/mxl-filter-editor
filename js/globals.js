@@ -31,7 +31,4 @@ export async function completeInitialization() {
     tableRenderer = tableManager.tableRenderer;
     eventManager = tableManager.eventManager;
     tableRenderer.render();
-
-    // Auto-load first filter if available
-    dropdownManager.loadFirstFilter();
 }

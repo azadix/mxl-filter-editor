@@ -71,7 +71,9 @@ export class DropdownManager {
         const filters = this.getSortedFilters();
         if (filters.length > 0) {
             this.filterSelect.selectItem(filters[0]);
+            return true;
         }
+        return false;
     }
 
     // Refresh the filter selection dropdown (for when unobtainable filter changes)
