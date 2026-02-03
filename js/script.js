@@ -1,4 +1,5 @@
-import { 
+import {
+    dropdownManager,
     toastManager,
     ruleManager,
     filterEncoder,
@@ -19,12 +20,12 @@ const dataConfigs = [
 async function initializeApp() {
     try {
         // Load all data files in parallel
-        await Promise.all(dataConfigs.map(config => 
+        await Promise.all(dataConfigs.map(config =>
             loadJsonData(
-                config.path, 
-                config.shouldSort, 
+                config.path,
+                config.shouldSort,
                 config.shouldClean,
-                config.method, 
+                config.method,
                 ruleManager,
                 toastManager
             )
@@ -55,7 +56,7 @@ async function initializeApp() {
                         console.error('API load error:', error);
                     }
                     break;
-                    
+
                 case 'filter':
                     // Only process if we haven't already applied a filter from 'id'
                     if (!filterApplied) {
@@ -70,6 +71,10 @@ async function initializeApp() {
         }
         await completeInitialization();
 
+        // Load first local filter only if no filter has been loaded through any other method.
+        if (!filterApplied) {
+            dropdownManager.loadFirstFilter();
+        }
     } catch (error) {
         toastManager.showToast(`Failed to initialize application: ${error.message}`, false, 'danger');
         console.error('Initialization error:', error);
