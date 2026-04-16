@@ -23,15 +23,14 @@ export class TableManager {
                 { targets: 0, visible: false },
                 { targets: 6, width: '30%' }
             ],
+            language: {
+                emptyTable: 'No rules added'
+            },
             layout: {
                 topEnd: '',
                 bottomStart: { info: { empty: '', text: 'Rule count: _TOTAL_' } }
             }
         });
-
-        if (ruleManager.getRules().length === 0) {
-            $('.dt-layout-table').hide();
-        }
 
         this.tableRenderer = new TableRenderer(this.table, ruleManager, dropdownManager);
         this.tableRenderer.onAfterRender = () => this.syncRowSelectionFromState();
@@ -90,6 +89,10 @@ export class TableManager {
             }
             const row = e.target.closest('#rulesTable tbody tr');
             if (row) {
+                if (row.classList.contains('dt-empty')) {
+                    this.clearRowSelection();
+                    return;
+                }
                 const tableBody = document.querySelector('#rulesTable tbody');
                 if (!tableBody) return;
                 tableBody.querySelectorAll('tr').forEach(r => r.classList.remove('selected-row'));
@@ -129,9 +132,19 @@ export class TableManager {
             handle: '.handle',
             animation: 150,
             onEnd: async () => {
-                const rows = Array.from(tableBody.querySelectorAll('tr'));
-                const newOrder = rows.map(row => parseInt(row.dataset.index, 10));
+                const selectedId =
+                    this.selectedRowIndex !== null
+                        ? ruleManager.getRules()[this.selectedRowIndex]?.id
+                        : null;
+                const rows = Array.from(tableBody.querySelectorAll('tr')).filter(
+                    (row) => !row.classList.contains('dt-empty')
+                );
+                const newOrder = rows.map((row) => parseInt(row.dataset.index, 10));
                 ruleManager.reorderRules(newOrder);
+                if (selectedId != null) {
+                    const newIdx = ruleManager.getRules().findIndex((r) => r.id === selectedId);
+                    this.selectedRowIndex = newIdx >= 0 ? newIdx : null;
+                }
                 await this.tableRenderer.render();
             }
         });
@@ -147,6 +160,10 @@ export class TableManager {
         // Find and select the row with the specified index
         const rows = tableBody.querySelectorAll('tr');
         if (rows[index]) {
+            if (rows[index].classList.contains('dt-empty')) {
+                this.selectedRowIndex = null;
+                return;
+            }
             rows[index].classList.add('selected-row');
             this.selectedRowIndex = parseInt(rows[index].dataset.index, 10);
         } else {

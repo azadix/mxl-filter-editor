@@ -15,11 +15,7 @@ export class TableRenderer {
         
         const rules = ruleManager.getRules();
 
-        if (rules.length === 0) {
-            $('.dt-layout-table').hide();
-        } else {
-            $('.dt-layout-table').show();
-        }
+        $('.dt-layout-table').show();
 
         // Create all row data first
         const rowDataPromises = rules.map((rule, index) => 
