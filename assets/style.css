@@ -215,6 +215,11 @@ td {
     align-self: flex-end;
 }
 
+/* Header toolbar: middle column uses remaining width; nested fields can shrink in flex layout */
+.filter-toolbar .filter-toolbar-middle {
+    min-width: 0;
+}
+
 /* Selected row highlight */
 #rulesTable tbody tr {
     cursor: pointer;
@@ -233,4 +238,18 @@ td {
 
 #rulesTable tbody tr.selected-row:hover {
     background-color: rgba(72, 199, 142, 0.35) !important;
+}
+
+/* Action column: duplicate / delete — black fill behind outlined buttons */
+#rulesTable tbody .duplicate-rule.button.is-outlined,
+#rulesTable tbody .delete-rule.button.is-outlined {
+    background-color: var(--bg-color) !important;
+}
+
+#rulesTable tbody .delete-rule.button.is-loading {
+    background-color: var(--bg-color) !important;
+}
+
+.small-gap {
+    gap: 0.25rem !important;
 }

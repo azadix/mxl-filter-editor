@@ -34,6 +34,7 @@ export class TableManager {
         }
 
         this.tableRenderer = new TableRenderer(this.table, ruleManager, dropdownManager);
+        this.tableRenderer.onAfterRender = () => this.syncRowSelectionFromState();
         this.eventManager = new EventManager(this.table, ruleManager, dropdownManager, toastManager, this.tableRenderer, storageManager);
 
         this.initialize();
@@ -62,22 +63,43 @@ export class TableManager {
         this.initializeRowSelection();
     }
 
-    initializeRowSelection() {
+    clearRowSelection() {
         const tableBody = document.querySelector('#rulesTable tbody');
         if (!tableBody) return;
+        tableBody.querySelectorAll('tr').forEach(r => r.classList.remove('selected-row'));
+        this.selectedRowIndex = null;
+    }
 
-        // Add click handler to track selected row
-        tableBody.addEventListener('click', (e) => {
-            const row = e.target.closest('tr');
-            if (!row) return;
+    syncRowSelectionFromState() {
+        if (this.selectedRowIndex === null) return;
+        const tableBody = document.querySelector('#rulesTable tbody');
+        if (!tableBody) return;
+        const rows = tableBody.querySelectorAll('tr');
+        const idx = this.selectedRowIndex;
+        if (idx < 0 || idx >= rows.length) {
+            this.selectedRowIndex = null;
+            return;
+        }
+        this.selectRow(idx);
+    }
 
-            // Remove previous selection
-            tableBody.querySelectorAll('tr').forEach(r => r.classList.remove('selected-row'));
-
-            // Add selection to clicked row
-            row.classList.add('selected-row');
-            this.selectedRowIndex = parseInt(row.dataset.index, 10);
-        });
+    initializeRowSelection() {
+        this._documentRowSelectionClick = (e) => {
+            if (e.target.closest('.delete-rule, .duplicate-rule')) {
+                return;
+            }
+            const row = e.target.closest('#rulesTable tbody tr');
+            if (row) {
+                const tableBody = document.querySelector('#rulesTable tbody');
+                if (!tableBody) return;
+                tableBody.querySelectorAll('tr').forEach(r => r.classList.remove('selected-row'));
+                row.classList.add('selected-row');
+                this.selectedRowIndex = parseInt(row.dataset.index, 10);
+            } else {
+                this.clearRowSelection();
+            }
+        };
+        document.addEventListener('click', this._documentRowSelectionClick);
     }
 
     calculateTableHeight() {
@@ -127,6 +149,8 @@ export class TableManager {
         if (rows[index]) {
             rows[index].classList.add('selected-row');
             this.selectedRowIndex = parseInt(rows[index].dataset.index, 10);
+        } else {
+            this.selectedRowIndex = null;
         }
     }
 
@@ -155,6 +179,11 @@ export class TableManager {
 
         if (this.eventManager) {
             this.eventManager = null;
+        }
+
+        if (this._documentRowSelectionClick) {
+            document.removeEventListener('click', this._documentRowSelectionClick);
+            this._documentRowSelectionClick = null;
         }
 
         // Remove all event listeners

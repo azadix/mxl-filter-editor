@@ -51,9 +51,9 @@
         </div>
       </nav>
 
-      <div class="field has-addons my-1">
-        <div class="field-body">
-          <div class="field is-narrow is-grouped">
+      <div class="columns is-variable is-2 is-align-items-flex-end is-multiline m-0 filter-toolbar">
+        <div class="column p-0 is-narrow">
+          <div class="field small-gap is-grouped is-grouped-multiline mb-0">
             <div class="control">
               <button class="button is-success is-inverted is-outlined" id="newFilter" aria-label="Create new filter">
                 <i class="fas fa-plus pr-1"></i>
@@ -79,56 +79,64 @@
               </button>
             </div>
           </div>
+        </div>
 
-          <div class="field is-horizontal">
-            <div class="field-body is-align-items-center">
-              <div class="field">
-                <label class="label is-small mb-1" for="loadFromLocalStorage">Load Filter</label>
-                <div class="control is-expanded">
-                  <div class="select is-fullwidth">
-                    <select id="loadFromLocalStorage"></select>
-                  </div>
-                </div>
-              </div>
-              <div class="field ml-2">
-                <label class="label is-small mb-1" for="filterName">Edit Filter Name</label>
-                <div class="control is-expanded">
-                  <input class="input" id="filterName" type="text" placeholder="Filter name" autocomplete="off" aria-label="Filter name">
-                </div>
-              </div>
-              <div class="field is-grouped ml-2">
-                <div class="control">
-                  <button class="button is-warning is-inverted is-outlined" id="saveToLocalStorage" aria-label="Save filter in storage">
-                    <i class="fas fa-cloud-upload-alt pr-1"></i>
-                    Save
-                  </button>
-                </div>
-                <div class="control">
-                  <button class="button is-danger is-inverted is-outlined" id="deleteFromLocalStorage" aria-label="Delete filter from storage">
-                    <i class="fas fa-trash-alt pr-1"></i>
-                    Delete
-                  </button>
-                </div>
-                <div class="control">
-                  <button class="button is-info is-inverted is-outlined" id="filterSettings" aria-label="Filter settings">
-                    <i class="fas fa-cog pr-1"></i>
-                    Settings
-                  </button>
-                </div>
-                <div class="control">
-                  <button class="button is-info is-inverted is-outlined" id="shareFilter" aria-label="Share filter via link">
-                    <i class="fas fa-share-alt pr-1"></i>
-                    Share
-                  </button>
-                </div>
-                <div class="control">
-                  <button class="button is-link is-outlined" id="browseTswFilters" type="button" aria-label="Browse cached TSW filters">
-                    <i class="fas fa-folder-open pr-1"></i>
-                    Browse filters
-                  </button>
+        <div class="column py-0 filter-toolbar-middle">
+          <div class="columns is-variable is-2 is-mobile mb-0">
+            <div class="column py-0">
+              <label class="label is-small mb-1" for="loadFromLocalStorage">Load Filter</label>
+              <div class="control">
+                <div class="select is-fullwidth">
+                  <select id="loadFromLocalStorage"></select>
                 </div>
               </div>
             </div>
+            <div class="column py-0 pl-0">
+              <label class="label is-small mb-1" for="filterName">Edit Filter Name</label>
+              <div class="control">
+                <input class="input" id="filterName" type="text" placeholder="Filter name" autocomplete="off" aria-label="Filter name">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="column p-0 is-narrow">
+          <label class="label is-small mb-1 filter-toolbar-actions-spacer" aria-hidden="true">&nbsp;</label>
+          <div class="field small-gap is-grouped is-grouped-multiline mb-0">
+            <div class="control">
+              <button class="button is-warning is-inverted is-outlined" id="saveToLocalStorage" aria-label="Save filter in storage">
+                <i class="fas fa-cloud-upload-alt pr-1"></i>
+                Save
+              </button>
+            </div>
+            <div class="control">
+              <button class="button is-danger is-inverted is-outlined" id="deleteFromLocalStorage" aria-label="Delete filter from storage">
+                <i class="fas fa-trash-alt pr-1"></i>
+                Delete
+              </button>
+            </div>
+            <div class="control">
+              <button class="button is-info is-inverted is-outlined" id="filterSettings" aria-label="Filter settings">
+                <i class="fas fa-cog pr-1"></i>
+                Settings
+              </button>
+            </div>
+            <div class="control">
+              <button class="button is-info is-inverted is-outlined" id="shareFilter" aria-label="Share filter via link">
+                <i class="fas fa-share-alt pr-1"></i>
+                Share
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="column py-0 pr-0 is-narrow">
+          <label class="label is-small mb-1 filter-toolbar-actions-spacer" aria-hidden="true">&nbsp;</label>
+          <div class="control">
+            <button class="button is-link is-outlined" id="browseTswFilters" type="button" aria-label="Browse cached TSW filters">
+              <i class="fas fa-folder-open pr-1"></i>
+              Browse filters
+            </button>
           </div>
         </div>
       </div>

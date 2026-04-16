@@ -37,6 +37,10 @@ export class TableRenderer {
         // Draw and adjust columns to fix header compression
         this.table.draw(false); // Don't reset paging
         this.table.columns.adjust();
+
+        if (typeof this.onAfterRender === 'function') {
+            this.onAfterRender();
+        }
     }
 
     // Refresh all dropdowns with updated item data
