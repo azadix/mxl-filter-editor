@@ -301,7 +301,10 @@ export class TableRenderer {
             </div>`,
             `<div class="checkbox-container"><input id="notify-${index}" class="checkbox-input rule-is-notify" type="checkbox" ${rule.notify ? 'checked' : ''}></div>`,
             `<div class="checkbox-container"><input id="automap-${index}" class="checkbox-input rule-is-automap" type="checkbox" ${rule.automap ? 'checked' : ''}></div>`,
-            `<div class="checkbox-container"><a class="button is-danger is-outlined delete-rule"><span class="icon"><i class="fas fa-trash"></i></span></a></div>`
+            `<div class="checkbox-container is-flex is-align-items-center" style="gap: 0.25rem;">
+                <a class="button is-info is-outlined duplicate-rule" title="Duplicate rule" aria-label="Duplicate rule"><span class="icon"><i class="fas fa-copy"></i></span></a>
+                <a class="button is-danger is-outlined delete-rule" title="Delete rule" aria-label="Delete rule"><span class="icon"><i class="fas fa-trash"></i></span></a>
+            </div>`
         ];
     }
 

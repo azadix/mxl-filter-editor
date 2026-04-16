@@ -362,6 +362,26 @@ export class EventManager {
                 }
             });
         });
+        this.table.on('click', '.duplicate-rule', (event) => {
+            event.preventDefault();
+            const $row = $(event.target).closest('tr');
+            const dataIndex = parseInt($row.data('index'), 10);
+
+            if (isNaN(dataIndex)) {
+                console.warn('Invalid data-index value');
+                return;
+            }
+
+            const rules = ruleManager.getRules();
+            if (dataIndex >= 0 && dataIndex < rules.length) {
+                if (ruleManager.duplicateRuleAt(dataIndex)) {
+                    tableRenderer.render();
+                }
+            } else {
+                console.warn('Index out of bounds:', dataIndex);
+            }
+        });
+
         this.table.on('click', '.delete-rule', (event) => {
             const $button = $(event.target).closest('.delete-rule');
             const $row = $button.closest('tr');

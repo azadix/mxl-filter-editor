@@ -73,6 +73,18 @@ export class RuleManager {
         }
     }
 
+    /** Deep-clone the rule at `index` and insert it immediately below (at `index + 1`). */
+    duplicateRuleAt(index) {
+        if (index < 0 || index >= this.rules.length) {
+            return false;
+        }
+        const original = this.rules[index];
+        const clone = JSON.parse(JSON.stringify(original));
+        clone.id = Date.now();
+        this.rules.splice(index + 1, 0, clone);
+        return true;
+    }
+
     updateRule(index, updates) {
         if (index >= 0 && index < this.rules.length) {
             this.rules[index] = { ...this.rules[index], ...updates };
