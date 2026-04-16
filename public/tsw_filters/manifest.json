@@ -1,0 +1,177 @@
+{
+  "source": "https://tsw.vn.cz/filters/",
+  "listing_url": "https://tsw.vn.cz/filters/?mode=show",
+  "synced_at": "2026-04-16T20:25:55.662399+00:00",
+  "filter_count_listed": 24,
+  "filter_count_saved": 24,
+  "filters": [
+    {
+      "id": 1,
+      "url": "https://tsw.vn.cz/filters/?mode=api&id=1",
+      "bytes": 64039,
+      "format": "json",
+      "ok": true
+    },
+    {
+      "id": 7,
+      "url": "https://tsw.vn.cz/filters/?mode=api&id=7",
+      "bytes": 19621,
+      "format": "json",
+      "ok": true
+    },
+    {
+      "id": 8,
+      "url": "https://tsw.vn.cz/filters/?mode=api&id=8",
+      "bytes": 19224,
+      "format": "json",
+      "ok": true
+    },
+    {
+      "id": 9,
+      "url": "https://tsw.vn.cz/filters/?mode=api&id=9",
+      "bytes": 19602,
+      "format": "json",
+      "ok": true
+    },
+    {
+      "id": 10,
+      "url": "https://tsw.vn.cz/filters/?mode=api&id=10",
+      "bytes": 19200,
+      "format": "json",
+      "ok": true
+    },
+    {
+      "id": 12,
+      "url": "https://tsw.vn.cz/filters/?mode=api&id=12",
+      "bytes": 15174,
+      "format": "json",
+      "ok": true
+    },
+    {
+      "id": 13,
+      "url": "https://tsw.vn.cz/filters/?mode=api&id=13",
+      "bytes": 19582,
+      "format": "json",
+      "ok": true
+    },
+    {
+      "id": 14,
+      "url": "https://tsw.vn.cz/filters/?mode=api&id=14",
+      "bytes": 64039,
+      "format": "json",
+      "ok": true
+    },
+    {
+      "id": 15,
+      "url": "https://tsw.vn.cz/filters/?mode=api&id=15",
+      "bytes": 26253,
+      "format": "json",
+      "ok": true
+    },
+    {
+      "id": 16,
+      "url": "https://tsw.vn.cz/filters/?mode=api&id=16",
+      "bytes": 14771,
+      "format": "json",
+      "ok": true
+    },
+    {
+      "id": 12263,
+      "url": "https://tsw.vn.cz/filters/?mode=api&id=12263",
+      "bytes": 17117,
+      "format": "json",
+      "ok": true
+    },
+    {
+      "id": 12264,
+      "url": "https://tsw.vn.cz/filters/?mode=api&id=12264",
+      "bytes": 52330,
+      "format": "json",
+      "ok": true
+    },
+    {
+      "id": 12265,
+      "url": "https://tsw.vn.cz/filters/?mode=api&id=12265",
+      "bytes": 16099,
+      "format": "json",
+      "ok": true
+    },
+    {
+      "id": 12266,
+      "url": "https://tsw.vn.cz/filters/?mode=api&id=12266",
+      "bytes": 68291,
+      "format": "json",
+      "ok": true
+    },
+    {
+      "id": 12267,
+      "url": "https://tsw.vn.cz/filters/?mode=api&id=12267",
+      "bytes": 36198,
+      "format": "json",
+      "ok": true
+    },
+    {
+      "id": 12273,
+      "url": "https://tsw.vn.cz/filters/?mode=api&id=12273",
+      "bytes": 22377,
+      "format": "json",
+      "ok": true
+    },
+    {
+      "id": 12274,
+      "url": "https://tsw.vn.cz/filters/?mode=api&id=12274",
+      "bytes": 9047,
+      "format": "json",
+      "ok": true
+    },
+    {
+      "id": 12275,
+      "url": "https://tsw.vn.cz/filters/?mode=api&id=12275",
+      "bytes": 13595,
+      "format": "json",
+      "ok": true
+    },
+    {
+      "id": 12276,
+      "url": "https://tsw.vn.cz/filters/?mode=api&id=12276",
+      "bytes": 17833,
+      "format": "json",
+      "ok": true
+    },
+    {
+      "id": 12277,
+      "url": "https://tsw.vn.cz/filters/?mode=api&id=12277",
+      "bytes": 16828,
+      "format": "json",
+      "ok": true
+    },
+    {
+      "id": 12278,
+      "url": "https://tsw.vn.cz/filters/?mode=api&id=12278",
+      "bytes": 23871,
+      "format": "json",
+      "ok": true
+    },
+    {
+      "id": 12279,
+      "url": "https://tsw.vn.cz/filters/?mode=api&id=12279",
+      "bytes": 18088,
+      "format": "json",
+      "ok": true
+    },
+    {
+      "id": 12280,
+      "url": "https://tsw.vn.cz/filters/?mode=api&id=12280",
+      "bytes": 23508,
+      "format": "json",
+      "ok": true
+    },
+    {
+      "id": 12281,
+      "url": "https://tsw.vn.cz/filters/?mode=api&id=12281",
+      "bytes": 21903,
+      "format": "json",
+      "ok": true
+    }
+  ]
+}
