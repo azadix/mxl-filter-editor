@@ -109,6 +109,21 @@ export async function fetchFilterFromAPI(apiUrl) {
     }
 }
 
+/** Synced TSW filters from `public/tsw_filters/filters/{id}.json` (see scripts/sync_tsw_filters.py). */
+const TSW_PUBLIC_FILTERS_BASE = './public/tsw_filters/filters';
+
+export async function fetchTswFilterFromPublic(id) {
+    const idStr = String(id).trim();
+    if (!/^\d+$/.test(idStr)) {
+        throw new Error('Invalid filter id');
+    }
+    const response = await fetch(`${TSW_PUBLIC_FILTERS_BASE}/${idStr}.json`);
+    if (!response.ok) {
+        throw new Error(`Filter not found (${response.status})`);
+    }
+    return await response.json();
+}
+
 export function getUrlParameter(name) {
     const params = new URLSearchParams(window.location.search);
     return params.get(name);

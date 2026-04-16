@@ -7,7 +7,7 @@ import {
     initializeFilterEncoder
 } from './globals.js';
 
-import { loadJsonData, applySharedFilter, fetchFilterFromAPI } from './modules/utils.js';
+import { loadJsonData, applySharedFilter, fetchTswFilterFromPublic } from './modules/utils.js';
 
 const dataConfigs = [
     { path: './data/items.json', shouldSort: true, shouldClean: true,  method: 'loadItemCodes' },
@@ -45,20 +45,27 @@ async function initializeApp() {
             switch (key) {
                 case 'id':
                     try {
-                        const apiTSW = `https://tsw.vn.cz/filters/?mode=api&id=${value}`;
-                        const apiFilter = await fetchFilterFromAPI(apiTSW);
+                        if (!value) break;
+                        const apiFilter = await fetchTswFilterFromPublic(value);
                         if (apiFilter) {
                             applySharedFilter(apiFilter, ruleManager, toastManager);
                             filterApplied = true;
                         }
                     } catch (error) {
-                        toastManager.showToast(`Failed to load filter id:=${value} from Filter Exchange API`, false, 'danger');
-                        console.error('API load error:', error);
+                        toastManager.showToast(`Failed to load filter id:=${value} from public/tsw_filters`, false, 'danger');
+                        console.error('TSW filter load error:', error);
+                        const filterParam = params.get('filter');
+                        if (filterParam) {
+                            const sharedFilter = filterEncoder.loadFromShortenedLink(filterParam);
+                            if (sharedFilter) {
+                                applySharedFilter(sharedFilter, ruleManager, toastManager);
+                                filterApplied = true;
+                            }
+                        }
                     }
                     break;
 
                 case 'filter':
-                    // Only process if we haven't already applied a filter from 'id'
                     if (!filterApplied) {
                         const sharedFilter = filterEncoder.loadFromShortenedLink(value);
                         if (sharedFilter) {
@@ -69,6 +76,7 @@ async function initializeApp() {
                     break;
             }
         }
+
         await completeInitialization();
 
         // Load first local filter only if no filter has been loaded through any other method.
