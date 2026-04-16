@@ -1,0 +1,34 @@
+name: Sync TSW filters
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-tsw-filters
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sync filters from tsw.vn.cz
+        run: python scripts/sync_tsw_filters.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/tsw_filters
+          if git diff --staged --quiet; then
+            echo "No changes."
+          else
+            git commit -m "Synced TSW filters"
+            git push
+          fi
