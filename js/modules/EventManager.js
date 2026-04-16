@@ -1,4 +1,10 @@
-import { clampLvlValues, sanitizeFilterName, loadFilterFromStorage } from './utils.js';
+import {
+    clampLvlValues,
+    sanitizeFilterName,
+    applySharedFilter,
+    fetchTswFilterFromPublic,
+    fetchTswFilterManifest
+} from './utils.js';
 import {
     ruleManager,
     dropdownManager,
@@ -10,6 +16,7 @@ import {
 export class EventManager {
     constructor(table) {
         this.table = table;
+        this._selectedTswBrowseId = null;
     }
 
     initialize() {
@@ -79,6 +86,31 @@ export class EventManager {
             } catch (error) {
                 console.error('Error sharing filter:', error);
                 toastManager.showToast('Error sharing filter', false, 'danger');
+            }
+        });
+
+        $('#browseTswFilters').on('click', async () => {
+            await this.populateBrowseTswFiltersModal();
+            $('#browseTswFiltersModal')
+                .removeAttr('inert')
+                .addClass('is-active')
+                .attr('aria-hidden', 'false');
+        });
+
+        $('#browseTswFiltersModal .modal-background, #browseTswFiltersCancel, #browseTswFiltersClose').on('click', () => {
+            this.closeBrowseTswFiltersModal();
+        });
+
+        $('#browseTswFiltersLoad').on('click', async () => {
+            if (this._selectedTswBrowseId == null) return;
+            try {
+                const filterJson = await fetchTswFilterFromPublic(this._selectedTswBrowseId);
+                applySharedFilter(filterJson, ruleManager, toastManager);
+                tableRenderer.render();
+                this.closeBrowseTswFiltersModal();
+            } catch (error) {
+                toastManager.showToast(`Failed to load filter: ${error.message}`, false, 'danger');
+                console.error(error);
             }
         });
 
@@ -419,6 +451,67 @@ export class EventManager {
         } catch (error) {
             console.error('Failed to load unobtainable items list:', error);
             toastManager.showToast('Failed to load unobtainable items list', false, 'danger');
+        }
+    }
+
+    closeBrowseTswFiltersModal() {
+        const opener = document.getElementById('browseTswFilters');
+        const modal = document.getElementById('browseTswFiltersModal');
+        if (opener) {
+            opener.focus();
+        } else if (modal && modal.contains(document.activeElement)) {
+            document.activeElement.blur();
+        }
+        if (modal) {
+            modal.classList.remove('is-active');
+            modal.setAttribute('aria-hidden', 'true');
+            modal.setAttribute('inert', '');
+        }
+    }
+
+    async populateBrowseTswFiltersModal() {
+        this._selectedTswBrowseId = null;
+        $('#browseTswFiltersLoad').prop('disabled', true);
+        const $list = $('#tswBrowseFilterList');
+        $list.html('<p class="p-4 has-text-grey">Loading…</p>');
+        try {
+            const manifest = await fetchTswFilterManifest();
+            const filters = (manifest.filters || []).filter(f => f.ok && f.id != null);
+            const displayName = (f) => String(f.title || f.name || `Filter #${f.id}`);
+            filters.sort((a, b) => {
+                const na = displayName(a).toLowerCase();
+                const nb = displayName(b).toLowerCase();
+                return na.localeCompare(nb, undefined, { sensitivity: 'base' });
+            });
+            if (filters.length === 0) {
+                $list.html('<p class="p-4 has-text-grey">No cached filters found. Run <code>python scripts/sync_tsw_filters.py</code> to sync.</p>');
+                return;
+            }
+            const $menu = $('<aside class="menu py-2"></aside>');
+            const $ul = $('<ul class="menu-list"></ul>');
+            filters.forEach((f) => {
+                const label = displayName(f);
+                const $a = $('<a href="#"></a>');
+                $a.text(`${label} `);
+                const metaBits = [];
+                if (f.author) metaBits.push(f.author);
+                metaBits.push(`#${f.id}`);
+                $a.append($('<span class="is-size-7 has-text-grey"></span>').text(`(${metaBits.join(' · ')})`));
+                $a.on('click', (e) => {
+                    e.preventDefault();
+                    $ul.find('a').removeClass('is-active');
+                    $a.addClass('is-active');
+                    this._selectedTswBrowseId = f.id;
+                    $('#browseTswFiltersLoad').prop('disabled', false);
+                });
+                $ul.append($('<li></li>').append($a));
+            });
+            $menu.append($ul);
+            $list.empty().append($menu);
+        } catch (error) {
+            $list.html('<p class="p-4 has-text-danger">Could not load the filter list.</p>');
+            toastManager.showToast(`Failed to load filter list: ${error.message}`, false, 'danger');
+            console.error(error);
         }
     }
 }

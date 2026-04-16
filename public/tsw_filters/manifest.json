@@ -1,176 +1,248 @@
 {
   "source": "https://tsw.vn.cz/filters/",
   "listing_url": "https://tsw.vn.cz/filters/?mode=show",
-  "synced_at": "2026-04-16T20:25:55.662399+00:00",
+  "synced_at": "2026-04-16T21:14:30.202445+00:00",
   "filter_count_listed": 24,
   "filter_count_saved": 24,
   "filters": [
     {
       "id": 1,
       "url": "https://tsw.vn.cz/filters/?mode=api&id=1",
+      "title": "generic lootfilter",
+      "author": "elementling",
       "bytes": 64039,
       "format": "json",
+      "name": "Elementling",
       "ok": true
     },
     {
       "id": 7,
       "url": "https://tsw.vn.cz/filters/?mode=api&id=7",
+      "title": "LazyFilter",
+      "author": "ywinel",
       "bytes": 19621,
       "format": "json",
+      "name": "SimpleFilter",
       "ok": true
     },
     {
       "id": 8,
       "url": "https://tsw.vn.cz/filters/?mode=api&id=8",
+      "title": "LazyFilter-Soft",
+      "author": "ywinel",
       "bytes": 19224,
       "format": "json",
+      "name": "SimpleFilterSoft",
       "ok": true
     },
     {
       "id": 9,
       "url": "https://tsw.vn.cz/filters/?mode=api&id=9",
+      "title": "LazyFilter(Notifications)",
+      "author": "ywinel",
       "bytes": 19602,
       "format": "json",
+      "name": "SimpleFilterNotify",
       "ok": true
     },
     {
       "id": 10,
       "url": "https://tsw.vn.cz/filters/?mode=api&id=10",
+      "title": "LazyFilter-Soft(Notifications)",
+      "author": "ywinel",
       "bytes": 19200,
       "format": "json",
+      "name": "SimpleFilterSoftNotify",
       "ok": true
     },
     {
       "id": 12,
       "url": "https://tsw.vn.cz/filters/?mode=api&id=12",
+      "title": "OroboriussFilter",
+      "author": "oroborius",
       "bytes": 15174,
       "format": "json",
+      "name": "Oroborius' Filter",
       "ok": true
     },
     {
       "id": 13,
       "url": "https://tsw.vn.cz/filters/?mode=api&id=13",
+      "title": "nuticfilter(bowzon)",
+      "author": "nutic",
       "bytes": 19582,
       "format": "json",
+      "name": "nutic Bowzon",
       "ok": true
     },
     {
       "id": 14,
       "url": "https://tsw.vn.cz/filters/?mode=api&id=14",
+      "title": "abcd12345_20250122014028",
+      "author": "abcd12345",
       "bytes": 64039,
       "format": "json",
+      "name": "Elementling",
       "ok": true
     },
     {
       "id": 15,
       "url": "https://tsw.vn.cz/filters/?mode=api&id=15",
+      "title": "progressivefilter",
+      "author": "breathingbomb",
       "bytes": 26253,
       "format": "json",
+      "name": "general",
       "ok": true
     },
     {
       "id": 16,
       "url": "https://tsw.vn.cz/filters/?mode=api&id=16",
+      "title": "EQBarbFilter212",
+      "author": "jackel6672",
       "bytes": 14771,
       "format": "json",
+      "name": "EQBarb",
       "ok": true
     },
     {
       "id": 12263,
       "url": "https://tsw.vn.cz/filters/?mode=api&id=12263",
+      "title": "2hMeleeNecro",
+      "author": "giu",
       "bytes": 17117,
       "format": "json",
+      "name": "stupid idiot",
       "ok": true
     },
     {
       "id": 12264,
       "url": "https://tsw.vn.cz/filters/?mode=api&id=12264",
+      "title": "Zeni1",
+      "author": "roceteo242",
       "bytes": 52330,
       "format": "json",
+      "name": "Elementling no notification",
       "ok": true
     },
     {
       "id": 12265,
       "url": "https://tsw.vn.cz/filters/?mode=api&id=12265",
+      "title": "AzadisFilter",
+      "author": "azadi",
       "bytes": 16099,
       "format": "json",
+      "name": "AzFilter",
       "ok": true
     },
     {
       "id": 12266,
       "url": "https://tsw.vn.cz/filters/?mode=api&id=12266",
+      "title": "Leveling(HolyMeleePaladin)",
+      "author": "elementling",
       "bytes": 68291,
       "format": "json",
+      "name": "Leveling",
       "ok": true
     },
     {
       "id": 12267,
       "url": "https://tsw.vn.cz/filters/?mode=api&id=12267",
+      "title": "HideBadItems",
+      "author": "milkshake",
       "bytes": 36198,
       "format": "json",
+      "name": "Filter",
       "ok": true
     },
     {
       "id": 12273,
       "url": "https://tsw.vn.cz/filters/?mode=api&id=12273",
+      "title": "BOMBOBEDROS",
+      "author": "mahi",
       "bytes": 22377,
       "format": "json",
+      "name": "govno",
       "ok": true
     },
     {
       "id": 12274,
       "url": "https://tsw.vn.cz/filters/?mode=api&id=12274",
+      "title": "Earlygame-Item-Filter",
+      "author": "drumxl",
       "bytes": 9047,
       "format": "json",
+      "name": "Earlygame Item Filter",
       "ok": true
     },
     {
       "id": 12275,
       "url": "https://tsw.vn.cz/filters/?mode=api&id=12275",
+      "title": "Midgame-Item-Filter",
+      "author": "drumxl",
       "bytes": 13595,
       "format": "json",
+      "name": "Midgame Item Filter",
       "ok": true
     },
     {
       "id": 12276,
       "url": "https://tsw.vn.cz/filters/?mode=api&id=12276",
+      "title": "Endgame-Item-Filter",
+      "author": "drumxl",
       "bytes": 17833,
       "format": "json",
+      "name": "Endgame Item Filter",
       "ok": true
     },
     {
       "id": 12277,
       "url": "https://tsw.vn.cz/filters/?mode=api&id=12277",
+      "title": "A_loot_filter",
+      "author": "jacko",
       "bytes": 16828,
       "format": "json",
+      "name": "A loot filter",
       "ok": true
     },
     {
       "id": 12278,
       "url": "https://tsw.vn.cz/filters/?mode=api&id=12278",
+      "title": "NagisinSeasonStart",
+      "author": "dpspersecond",
       "bytes": 23871,
       "format": "json",
+      "name": "Default",
       "ok": true
     },
     {
       "id": 12279,
       "url": "https://tsw.vn.cz/filters/?mode=api&id=12279",
+      "title": "Throwsin_into_nagisin(sandstorm)",
+      "author": "giu",
       "bytes": 18088,
       "format": "json",
+      "name": "stupid idiot throw into nagi sin",
       "ok": true
     },
     {
       "id": 12280,
       "url": "https://tsw.vn.cz/filters/?mode=api&id=12280",
+      "title": "1",
+      "author": "toctep",
       "bytes": 23508,
       "format": "json",
+      "name": "1semistrict",
       "ok": true
     },
     {
       "id": 12281,
       "url": "https://tsw.vn.cz/filters/?mode=api&id=12281",
+      "title": "forme",
+      "author": "edentra1312",
       "bytes": 21903,
       "format": "json",
+      "name": "SimpleFilterNotify",
       "ok": true
     }
   ]

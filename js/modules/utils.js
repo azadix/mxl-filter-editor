@@ -112,6 +112,16 @@ export async function fetchFilterFromAPI(apiUrl) {
 /** Synced TSW filters from `public/tsw_filters/filters/{id}.json` (see scripts/sync_tsw_filters.py). */
 const TSW_PUBLIC_FILTERS_BASE = './public/tsw_filters/filters';
 
+export const TSW_MANIFEST_URL = './public/tsw_filters/manifest.json';
+
+export async function fetchTswFilterManifest() {
+    const response = await fetch(TSW_MANIFEST_URL);
+    if (!response.ok) {
+        throw new Error(`Manifest not found (${response.status})`);
+    }
+    return await response.json();
+}
+
 export async function fetchTswFilterFromPublic(id) {
     const idStr = String(id).trim();
     if (!/^\d+$/.test(idStr)) {

@@ -158,8 +158,9 @@ export class TableManager {
         }
 
         // Remove all event listeners
-        $('#defaultNotify, #defaultMap, #filterSettings, #pasteFromClipboard, #copyToClipboard, #saveToLocalStorage, #deleteFromLocalStorage, #newFilter').off();
+        $('#defaultNotify, #defaultMap, #filterSettings, #pasteFromClipboard, #copyToClipboard, #saveToLocalStorage, #deleteFromLocalStorage, #newFilter, #browseTswFilters').off();
         $('#settingsModal .modal-background, #settingsModal .modal-card-foot .button').off();
+        $('#browseTswFiltersModal .modal-background, #browseTswFiltersCancel, #browseTswFiltersClose, #browseTswFiltersLoad').off();
         $(document).off('click', '.delete-rule');
 
         // Clear table reference
