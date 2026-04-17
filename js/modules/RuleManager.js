@@ -1,4 +1,16 @@
 import { sanitizeFilterName } from './utils.js';
+
+function sortItemCodeRowsByName(rows) {
+    rows.sort((a, b) => {
+        const nameA = Array.isArray(a) ? (a[1] ?? '') : '';
+        const nameB = Array.isArray(b) ? (b[1] ?? '') : '';
+        return String(nameA).localeCompare(String(nameB), undefined, {
+            sensitivity: 'base',
+            numeric: true
+        });
+    });
+}
+
 export class RuleManager {
     constructor() {
         this.rules = [];
@@ -157,6 +169,7 @@ export class RuleManager {
             });
         }
 
+        sortItemCodeRowsByName(processedItems);
         this.itemCodes = processedItems;
     }
 
@@ -192,7 +205,8 @@ export class RuleManager {
                     return !(itemKey && this.itemHideList[itemKey]);
                 });
             }
-            
+
+            sortItemCodeRowsByName(processedItems);
             this.itemCodes = processedItems;
         } catch (error) {
             console.error('Failed to reload items data:', error);

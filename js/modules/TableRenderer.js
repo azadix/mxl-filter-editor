@@ -3,9 +3,57 @@ import {
 } from '../globals.js';
 
 import { DropdownList } from './DropdownList.js';
+
+const compareDropdownDisplayName = (a, b) =>
+    String(a.name ?? '').localeCompare(String(b.name ?? ''), undefined, {
+        sensitivity: 'base',
+        numeric: true
+    });
+
 export class TableRenderer {
     constructor(table) {
         this.table = table;
+    }
+
+    /** Class and item rows for the rule param dropdown, sorted A–Z within each section. */
+    buildRuleItemAndClassDropdownOptions() {
+        const itemClasses = ruleManager.getItemClasses();
+        const itemCodes = ruleManager.getItemCodes();
+
+        let classOptions = [];
+        let itemOptions = [];
+
+        if (Array.isArray(itemClasses)) {
+            classOptions = itemClasses.map((item) => ({
+                value: parseInt(item[0], 10),
+                name: item[1],
+                type: 'class'
+            }));
+        } else {
+            classOptions = Object.entries(itemClasses).map(([, value]) => ({
+                value: parseInt(value[0], 10),
+                name: value[1],
+                type: 'class'
+            }));
+        }
+
+        if (Array.isArray(itemCodes)) {
+            itemOptions = itemCodes.map((item) => ({
+                value: parseInt(item[0], 10),
+                name: item[1],
+                type: 'item'
+            }));
+        } else {
+            itemOptions = Object.entries(itemCodes).map(([, value]) => ({
+                value: parseInt(value[0], 10),
+                name: value[1],
+                type: 'item'
+            }));
+        }
+
+        classOptions.sort(compareDropdownDisplayName);
+        itemOptions.sort(compareDropdownDisplayName);
+        return [...classOptions, ...itemOptions];
     }
 
     async render() {
@@ -50,43 +98,7 @@ export class TableRenderer {
             if (dropdownContainer) {
                 const selectElement = dropdownContainer.querySelector('select');
                 if (selectElement && selectElement.dropdownInstance) {
-                    // Get fresh data from ruleManager
-                    const itemClasses = ruleManager.getItemClasses();
-                    const itemCodes = ruleManager.getItemCodes();
-
-                    // Handle both array and object formats
-                    let classOptions = [];
-                    let itemOptions = [];
-
-                    if (Array.isArray(itemClasses)) {
-                        classOptions = itemClasses.map((item, index) => ({
-                            value: parseInt(item[0]),
-                            name: item[1],
-                            type: 'class'
-                        }));
-                    } else {
-                        classOptions = Object.entries(itemClasses).map(([index, value]) => ({
-                            value: parseInt(value[0]),
-                            name: value[1],
-                            type: 'class'
-                        }));
-                    }
-
-                    if (Array.isArray(itemCodes)) {
-                        itemOptions = itemCodes.map((item, index) => ({
-                            value: parseInt(item[0]),
-                            name: item[1],
-                            type: 'item'
-                        }));
-                    } else {
-                        itemOptions = Object.entries(itemCodes).map(([index, value]) => ({
-                            value: parseInt(value[0]),
-                            name: value[1],
-                            type: 'item'
-                        }));
-                    }
-
-                    const freshItems = [...classOptions, ...itemOptions];
+                    const freshItems = this.buildRuleItemAndClassDropdownOptions();
                     selectElement.dropdownInstance.setItems(freshItems);
                 }
             }
@@ -144,46 +156,7 @@ export class TableRenderer {
         // Store reference to dropdown instance for later refresh
         selectElement.dropdownInstance = dropdown;
 
-        const loadItems = async () => {
-            // Get sorted data from manager
-            const itemClasses = ruleManager.getItemClasses();
-            const itemCodes = ruleManager.getItemCodes();
-
-            // Handle both array and object formats
-            let classOptions = [];
-            let itemOptions = [];
-
-            if (Array.isArray(itemClasses)) {
-                classOptions = itemClasses.map((item, index) => ({
-                    value: parseInt(item[0]),
-                    name: item[1],
-                    type: 'class'
-                }));
-            } else {
-                classOptions = Object.entries(itemClasses).map(([index, value]) => ({
-                    value: parseInt(value[0]),
-                    name: value[1],
-                    type: 'class'
-                }));
-            }
-
-            if (Array.isArray(itemCodes)) {
-                itemOptions = itemCodes.map((item, index) => ({
-                    value: parseInt(item[0]),
-                    name: item[1],
-                    type: 'item'
-                }));
-            } else {
-                itemOptions = Object.entries(itemCodes).map(([index, value]) => ({
-                    value: parseInt(value[0]),
-                    name: value[1],
-                    type: 'item'
-                }));
-            }
-
-            // Combine and maintain sort order
-            return [...classOptions, ...itemOptions];
-        };
+        const loadItems = async () => this.buildRuleItemAndClassDropdownOptions();
 
         // Load initial items
         const initialItems = await loadItems();
