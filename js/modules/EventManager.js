@@ -516,7 +516,7 @@ export class EventManager {
                 const metaBits = [];
                 if (f.author) metaBits.push(f.author);
                 metaBits.push(`#${f.id}`);
-                $a.append($('<span class="is-size-7 has-text-grey"></span>').text(`(${metaBits.join(' · ')})`));
+                $a.append($('<span class="tsw-filter-meta"></span>').text(`(${metaBits.join(' · ')})`));
                 $a.on('click', (e) => {
                     e.preventDefault();
                     $ul.find('a').removeClass('is-active');

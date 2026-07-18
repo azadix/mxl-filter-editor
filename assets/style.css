@@ -253,3 +253,13 @@ td {
 .small-gap {
     gap: 0.25rem !important;
 }
+
+/* Browse public filters — author / id meta */
+.tsw-filter-meta {
+    font-size: 0.9rem;
+    color: hsl(0, 0%, 72%);
+}
+
+.menu-list a.is-active .tsw-filter-meta {
+    color: hsl(0, 0%, 90%);
+}
