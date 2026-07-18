@@ -1,4 +1,4 @@
-import { sanitizeFilterName } from './utils.js';
+import { sanitizeFilterName, parseItemName } from './utils.js';
 
 function sortItemCodeRowsByName(rows) {
     rows.sort((a, b) => {
@@ -19,6 +19,8 @@ export class RuleManager {
         this.itemQuality = []; // Loaded from JSON
         this.itemNameOverrides = []; // Loaded from JSON
         this.itemHideList = []; // Loaded from JSON
+        this.itemColorClasses = {}; // TSW color-* class by item id (primary/fallback)
+        this.itemColorSegments = {}; // TSW multi-span color segments by item id
 
         this.ruleTypes = Object.freeze({
             NONE: { value: -1, name: 'None' },
@@ -136,6 +138,16 @@ export class RuleManager {
         return this.itemHideList;
     }
 
+    getItemColorClass(itemId) {
+        const key = itemId?.toString();
+        return (key && this.itemColorClasses?.[key]) || null;
+    }
+
+    getItemColorSegments(itemId) {
+        const key = itemId?.toString();
+        return (key && this.itemColorSegments?.[key]) || null;
+    }
+
     processItems() {
         if (!Array.isArray(this.itemCodes)) {
             console.warn('itemCodes must be an array');
@@ -180,23 +192,32 @@ export class RuleManager {
         try {
             const response = await fetch('./data/items.json');
             const originalData = await response.json();
-            
-            // Convert to array format and apply name overrides
-            let processedItems = Object.entries(originalData).map(([value, name]) => [
-                parseInt(value),
-                name
-            ]);
-            
+
+            const colorClasses = {};
+            const colorSegments = {};
+            let processedItems = Object.entries(originalData).map(([value, rawName]) => {
+                const parsed = parseItemName(rawName);
+                if (parsed.colorClass) {
+                    colorClasses[value] = parsed.colorClass;
+                }
+                if (parsed.colorSegments?.length) {
+                    colorSegments[value] = parsed.colorSegments;
+                }
+                return [parseInt(value, 10), parsed.name];
+            });
+            this.itemColorClasses = colorClasses;
+            this.itemColorSegments = colorSegments;
+
             // Apply name overrides
             processedItems = processedItems.map(itemArray => {
                 const [value, name] = itemArray;
                 const itemKey = value?.toString();
                 return [
-                    value, 
+                    value,
                     (itemKey && this.itemNameOverrides?.[itemKey]) || name || ''
                 ];
             });
-            
+
             // Apply hide list filter if enabled
             if (localStorage.getItem("defaultUnobtainableFilter") === "true" && this.itemHideList) {
                 processedItems = processedItems.filter(itemArray => {
@@ -261,6 +282,14 @@ export class RuleManager {
 
     loadItemHideList(itemHideList) {
         this.itemHideList = itemHideList;
+    }
+
+    loadItemColorClasses(itemColorClasses) {
+        this.itemColorClasses = itemColorClasses || {};
+    }
+
+    loadItemColorSegments(itemColorSegments) {
+        this.itemColorSegments = itemColorSegments || {};
     }
 
     isDataLoaded() {

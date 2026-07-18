@@ -1,3 +1,5 @@
+import { formatItemNameHtml } from './utils.js';
+
 export class DropdownList {
     constructor(element, options = {}) {
         this.element = element;
@@ -26,6 +28,16 @@ export class DropdownList {
         this.input.placeholder = this.options.placeholder;
         this.input.readOnly = this.options.isReadOnly;
         this.input.type = 'text';
+
+        // Colored HTML overlay (native inputs can't show multi-span colors)
+        this.display = document.createElement('div');
+        this.display.className = 'dropdown-list-display';
+        this.display.hidden = true;
+        this.display.addEventListener('mousedown', (e) => {
+            e.preventDefault();
+            this.input.focus();
+            this.input.select();
+        });
         
         // Create dropdown list
         this.list = document.createElement('ul');
@@ -34,6 +46,7 @@ export class DropdownList {
         
         // Assemble the structure
         this.container.appendChild(this.input);
+        this.container.appendChild(this.display);
         this.container.appendChild(this.list);
         
         // Replace original element
@@ -41,6 +54,7 @@ export class DropdownList {
         
         // Add event listeners
         this.input.addEventListener('focus', () => {
+            this.hideColorDisplay();
             if (this.list.style.display === 'block') {
                 if (this.input.value && !this.options.doNotFilterElement) {
                     this.filterItems(this.input.value);
@@ -54,10 +68,17 @@ export class DropdownList {
             if (!this.isMouseDown) {
                 this.hideList();
             }
+            // Restore multi-color display when leaving the field (only if text still matches selection)
+            if (this.selectedItem && this.input.value === (this.selectedItem.name || this.selectedItem.text || '')) {
+                this.updateInputColor(this.selectedItem);
+            } else {
+                this.hideColorDisplay();
+            }
         });
 
         if (!this.options.doNotFilterElement) {
             this.input.addEventListener('input', (e) => {
+                this.hideColorDisplay();
                 this.filterItems(e.target.value);
                 // Ensure dropdown stays open when filtering
                 if (this.list.style.display !== 'block') {
@@ -187,10 +208,43 @@ export class DropdownList {
     selectItem(item) {
         this.selectedItem = item;
         this.input.value = item?.name || item?.text || '';
+        this.updateInputColor(item);
         if (this.options.onSelect) {
             this.options.onSelect(item);
         }
         this.element.dispatchEvent(new CustomEvent('change', { detail: item }));
+    }
+
+    /** Apply TSW colors on the main field (multi-span via overlay). */
+    updateInputColor(item = this.selectedItem) {
+        this.clearInputColor();
+        this.hideColorDisplay();
+
+        const useColors = localStorage.getItem('useTswColors') === 'true';
+        if (!useColors || !item) {
+            return;
+        }
+
+        const hasSegments = Array.isArray(item.colorSegments) && item.colorSegments.some((s) => s.colorClass);
+        if (hasSegments || item.colorClass) {
+            this.display.innerHTML = formatItemNameHtml(item.name, item.colorClass, item.colorSegments);
+            this.display.hidden = false;
+            this.input.classList.add('has-color-display');
+        }
+    }
+
+    hideColorDisplay() {
+        this.display.hidden = true;
+        this.display.innerHTML = '';
+        this.input.classList.remove('has-color-display');
+    }
+
+    clearInputColor() {
+        [...this.input.classList].forEach((cls) => {
+            if (cls.startsWith('color-')) {
+                this.input.classList.remove(cls);
+            }
+        });
     }
 
     showList() {
@@ -223,6 +277,8 @@ export class DropdownList {
             // Clear the input if no matching item found
             this.input.value = '';
             this.selectedItem = null;
+            this.clearInputColor();
+            this.hideColorDisplay();
         }
     }
 

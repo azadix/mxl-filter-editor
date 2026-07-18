@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.2.2/css/dataTables.bulma.min.css" />
     <link rel="stylesheet" type="text/css" href="assets/style.css" />
     <link rel="stylesheet" type="text/css" href="assets/dropdown-style.css" />
+    <link rel="stylesheet" type="text/css" href="assets/tsw-item-colors.css" />
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
@@ -193,7 +194,7 @@
           </div>
 
           <!-- Setting 4 -->
-          <div class="field mb-2">
+          <div class="field mb-5">
             <div class="control">
               <label class="checkbox is-size-4" for="defaultUnobtainableFilter">
                 <input id="defaultUnobtainableFilter" type="checkbox" class="checkbox-input m-3" aria-describedby="defaultUnobtainableFilterHelp">
@@ -211,6 +212,19 @@
                   <span>View unobtainable items</span>
                 </button>
               </div>
+            </div>
+          </div>
+
+          <!-- Setting 5 -->
+          <div class="field mb-2">
+            <div class="control">
+              <label class="checkbox is-size-4" for="useTswColors">
+                <input id="useTswColors" type="checkbox" class="checkbox-input m-3" aria-describedby="useTswColorsHelp">
+                <span class="has-text-weight-bold">Use TSW item name colors</span>
+              </label>
+              <p id="useTswColorsHelp" class="help is-size-7 mx-3 my-1">
+                When enabled, item names in the condition dropdown use the color classes from Filter Exchange (orange runes, purple, gold, etc.).
+              </p>
             </div>
           </div>
         </section>

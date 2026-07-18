@@ -24,13 +24,17 @@ export function loadJsonData(filePath, shouldSort, shouldClean, loaderMethod, ma
             success: function(data) {
                 try {
                     if (shouldClean) {
-                        data = cleanItemNames(data);
+                        const parsed = parseItemNames(data);
+                        data = parsed.names;
+                        if (typeof manager.loadItemColorClasses === 'function') {
+                            manager.loadItemColorClasses(parsed.colorClasses);
+                        }
+                        if (typeof manager.loadItemColorSegments === 'function') {
+                            manager.loadItemColorSegments(parsed.colorSegments);
+                        }
                     }
                     
                     if (shouldSort && typeof data === 'object' && data !== null) {
-                        // Create a new object to store sorted data
-                        const sortedData = {};
-                        
                         // Get sorted entries
                         const entries = Object.entries(data)
                             .sort(([keyA, valueA], [keyB, valueB]) => {
@@ -62,22 +66,100 @@ export function loadJsonData(filePath, shouldSort, shouldClean, loaderMethod, ma
     });
 }
 
-function cleanItemNames(data) {
-    if (typeof data !== 'object' || data === null) return data;
-    
-    const cleanedData = {};
-    const spanRegex = /<span[^>]*>(.*?)<\/span>/gi;
-    
+/** Parse TSW `<span class='color-*'>…</span>` into plain name + color segments. */
+export function parseItemName(raw) {
+    if (typeof raw !== 'string') {
+        return { name: '', colorClass: null, colorSegments: [] };
+    }
+
+    const spanRegex = /<span[^>]*class\s*=\s*['"]([^'"]+)['"][^>]*>([\s\S]*?)<\/span>/gi;
+    const spans = [];
+    let match;
+    while ((match = spanRegex.exec(raw)) !== null) {
+        const colorClass = match[1].trim();
+        const text = match[2].replace(/<[^>]+>/g, '');
+        spans.push({
+            colorClass: /^color-[a-z0-9]+$/i.test(colorClass) ? colorClass : null,
+            text
+        });
+    }
+
+    if (spans.length > 0) {
+        const name = spans.map((s) => s.text).join('').replace(/\s+/g, ' ').trim();
+        const primary = spans.reduce((best, span) =>
+            span.text.trim().length > best.text.trim().length ? span : best
+        );
+        return {
+            name,
+            colorClass: primary.colorClass || null,
+            colorSegments: spans
+        };
+    }
+
+    const name = raw.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+    return {
+        name,
+        colorClass: null,
+        colorSegments: name ? [{ colorClass: null, text: name }] : []
+    };
+}
+
+function parseItemNames(data) {
+    if (typeof data !== 'object' || data === null) {
+        return { names: data, colorClasses: {}, colorSegments: {} };
+    }
+
+    const names = {};
+    const colorClasses = {};
+    const colorSegments = {};
+
     for (const [key, value] of Object.entries(data)) {
         if (typeof value === 'string') {
-            // Remove span tags but keep their content
-            cleanedData[key] = value.replace(spanRegex, '$1').trim();
+            const parsed = parseItemName(value);
+            names[key] = parsed.name;
+            if (parsed.colorClass) {
+                colorClasses[key] = parsed.colorClass;
+            }
+            if (parsed.colorSegments?.length) {
+                colorSegments[key] = parsed.colorSegments;
+            }
         } else {
-            cleanedData[key] = value;
+            names[key] = value;
         }
     }
-    
-    return cleanedData;
+
+    return { names, colorClasses, colorSegments };
+}
+
+export function escapeHtml(text) {
+    return String(text)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+}
+
+/** Render item name with optional TSW color spans (when setting enabled). */
+export function formatItemNameHtml(name, colorClass, colorSegments) {
+    const useColors = localStorage.getItem('useTswColors') === 'true';
+
+    if (useColors && Array.isArray(colorSegments) && colorSegments.length > 0) {
+        return colorSegments.map((seg) => {
+            const safe = escapeHtml(seg.text ?? '');
+            const cls = seg.colorClass && /^color-[a-z0-9]+$/i.test(seg.colorClass)
+                ? seg.colorClass
+                : null;
+            return cls ? `<span class="${cls}">${safe}</span>` : `<span>${safe}</span>`;
+        }).join('');
+    }
+
+    const safeName = escapeHtml(name || 'Unknown');
+    const safeClass = colorClass && /^color-[a-z0-9]+$/i.test(colorClass) ? colorClass : null;
+
+    if (useColors && safeClass) {
+        return `<span class="${safeClass}">${safeName}</span>`;
+    }
+    return `<span>${safeName}</span>`;
 }
 
 export function applySharedFilter(filter, ruleManager, toastManager) {

@@ -28,10 +28,12 @@ export class EventManager {
         const defaultNotify = localStorage.getItem('defaultNotify') === 'true';
         const defaultMap = localStorage.getItem('defaultMap') === 'true';
         const defaultUnobtainableFilter = localStorage.getItem('defaultUnobtainableFilter') === 'true';
+        const useTswColors = localStorage.getItem('useTswColors') === 'true';
 
         $('#defaultNotify').prop('checked', defaultNotify);
         $('#defaultMap').prop('checked', defaultMap);
         $('#defaultUnobtainableFilter').prop('checked', defaultUnobtainableFilter);
+        $('#useTswColors').prop('checked', useTswColors);
 
         // Handle changes to defaultNotify
         $('#defaultNotify').on('change', (event) => {
@@ -64,6 +66,17 @@ export class EventManager {
             // Show notification that filter has been applied
             const filterStatus = isChecked ? 'enabled' : 'disabled';
             toastManager.showToast(`Unobtainable items filter ${filterStatus}. Table refreshed.`, true);
+        });
+
+        // Handle changes to useTswColors
+        $('#useTswColors').on('change', async (event) => {
+            const isChecked = $(event.target).is(':checked');
+            localStorage.setItem('useTswColors', isChecked);
+
+            await tableRenderer.refreshDropdowns();
+
+            const status = isChecked ? 'enabled' : 'disabled';
+            toastManager.showToast(`TSW item name colors ${status}.`, true);
         });
 
         $('#shareFilter').on('click', () => {

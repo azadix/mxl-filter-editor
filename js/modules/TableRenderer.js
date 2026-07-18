@@ -3,6 +3,7 @@ import {
 } from '../globals.js';
 
 import { DropdownList } from './DropdownList.js';
+import { formatItemNameHtml } from './utils.js';
 
 const compareDropdownDisplayName = (a, b) =>
     String(a.name ?? '').localeCompare(String(b.name ?? ''), undefined, {
@@ -41,13 +42,17 @@ export class TableRenderer {
             itemOptions = itemCodes.map((item) => ({
                 value: parseInt(item[0], 10),
                 name: item[1],
-                type: 'item'
+                type: 'item',
+                colorClass: ruleManager.getItemColorClass(item[0]),
+                colorSegments: ruleManager.getItemColorSegments(item[0])
             }));
         } else {
             itemOptions = Object.entries(itemCodes).map(([, value]) => ({
                 value: parseInt(value[0], 10),
                 name: value[1],
-                type: 'item'
+                type: 'item',
+                colorClass: ruleManager.getItemColorClass(value[0]),
+                colorSegments: ruleManager.getItemColorSegments(value[0])
             }));
         }
 
@@ -94,12 +99,16 @@ export class TableRenderer {
         // Update each dropdown in the table
         for (let i = 0; i < rows.length; i++) {
             const row = rows[i];
-            const dropdownContainer = row.querySelector('.field');
-            if (dropdownContainer) {
-                const selectElement = dropdownContainer.querySelector('select');
-                if (selectElement && selectElement.dropdownInstance) {
-                    const freshItems = this.buildRuleItemAndClassDropdownOptions();
-                    selectElement.dropdownInstance.setItems(freshItems);
+            const dropdownContainer = row.querySelector('.dropdown-list-container');
+            if (dropdownContainer?.dropdownInstance) {
+                const dropdown = dropdownContainer.dropdownInstance;
+                const freshItems = this.buildRuleItemAndClassDropdownOptions();
+                const previousValue = dropdown.value;
+                dropdown.setItems(freshItems);
+                if (previousValue != null) {
+                    dropdown.value = previousValue;
+                } else {
+                    dropdown.updateInputColor();
                 }
             }
         }
@@ -148,13 +157,14 @@ export class TableRenderer {
                 if (!item) return '<div>No item</div>';
                 return `
                     <div class="is-flex">
-                        <span>${item.name || 'Unknown'}</span>
+                        ${formatItemNameHtml(item.name, item.colorClass, item.colorSegments)}
                     </div>`;
             }
         });
 
         // Store reference to dropdown instance for later refresh
         selectElement.dropdownInstance = dropdown;
+        dropdown.container.dropdownInstance = dropdown;
 
         const loadItems = async () => this.buildRuleItemAndClassDropdownOptions();
 
@@ -167,13 +177,11 @@ export class TableRenderer {
             const currentValue = initialItems.find(i => i.value === rule.params.code);
             if (currentValue) {
                 dropdown.value = currentValue.value;
-                dropdown.input.value = currentValue.name;
             }
         } else if (rule.params?.class !== undefined) {
             const currentValue = initialItems.find(i => i.value === rule.params.class);
             if (currentValue) {
                 dropdown.value = currentValue.value;
-                dropdown.input.value = currentValue.name;
             }
         }
 
@@ -183,6 +191,7 @@ export class TableRenderer {
                 // Clear the selection
                 dropdown.value = null;
                 dropdown.selectedItem = null;
+                dropdown.clearInputColor();
                 // Reset to show all items
                 dropdown.renderItems(initialItems);
                 // Update the rule

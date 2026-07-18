@@ -1,0 +1,15 @@
+/* TSW Filter Exchange item name colors (!important beats Bulma .input color) */
+.color-white { color: white !important; }
+.color-red { color: red !important; }
+.color-grey { color: grey !important; }
+.color-green { color: green !important; }
+.color-blue { color: #5050c8 !important; }
+.color-gold { color: #a09169 !important; }
+.color-dgrey { color: darkgrey !important; }
+.color-tan { color: #aaa078 !important; }
+.color-orange { color: #faaa23 !important; }
+.color-yellow { color: yellow !important; }
+.color-dgreen { color: darkgreen !important; }
+.color-purple { color: #B700FF !important; }
+.color-black { color: black !important; }
+.color-dgreen2 { color: #007100 !important; }
