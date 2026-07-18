@@ -142,20 +142,28 @@ export function escapeHtml(text) {
 /** Render item name with optional TSW color spans (when setting enabled). */
 export function formatItemNameHtml(name, colorClass, colorSegments) {
     const useColors = localStorage.getItem('useTswColors') === 'true';
+    const displayName = name || 'Unknown';
+    const safeName = escapeHtml(displayName);
 
     if (useColors && Array.isArray(colorSegments) && colorSegments.length > 0) {
-        return colorSegments.map((seg) => {
-            const safe = escapeHtml(seg.text ?? '');
-            const cls = seg.colorClass && /^color-[a-z0-9]+$/i.test(seg.colorClass)
-                ? seg.colorClass
-                : null;
-            return cls ? `<span class="${cls}">${safe}</span>` : `<span>${safe}</span>`;
-        }).join('');
+        const segmentName = colorSegments
+            .map((s) => s.text ?? '')
+            .join('')
+            .replace(/\s+/g, ' ')
+            .trim();
+        // Multi-span markup only when it matches the display name (no override applied)
+        if (segmentName === displayName.trim()) {
+            return colorSegments.map((seg) => {
+                const safe = escapeHtml(seg.text ?? '');
+                const cls = seg.colorClass && /^color-[a-z0-9]+$/i.test(seg.colorClass)
+                    ? seg.colorClass
+                    : null;
+                return cls ? `<span class="${cls}">${safe}</span>` : `<span>${safe}</span>`;
+            }).join('');
+        }
     }
 
-    const safeName = escapeHtml(name || 'Unknown');
     const safeClass = colorClass && /^color-[a-z0-9]+$/i.test(colorClass) ? colorClass : null;
-
     if (useColors && safeClass) {
         return `<span class="${safeClass}">${safeName}</span>`;
     }
