@@ -1,9 +1,9 @@
 {
   "source": "https://tsw.vn.cz/filters/",
   "listing_url": "https://tsw.vn.cz/filters/?mode=show",
-  "synced_at": "2026-07-15T01:11:46.281604+00:00",
-  "filter_count_listed": 24,
-  "filter_count_saved": 24,
+  "synced_at": "2026-08-01T01:29:29.253816+00:00",
+  "filter_count_listed": 23,
+  "filter_count_saved": 23,
   "filters": [
     {
       "id": 1,
@@ -153,16 +153,6 @@
       "bytes": 36198,
       "format": "json",
       "name": "Filter",
-      "ok": true
-    },
-    {
-      "id": 12273,
-      "url": "https://tsw.vn.cz/filters/?mode=api&id=12273",
-      "title": "BOMBOBEDROS",
-      "author": "mahi",
-      "bytes": 22377,
-      "format": "json",
-      "name": "govno",
       "ok": true
     },
     {
