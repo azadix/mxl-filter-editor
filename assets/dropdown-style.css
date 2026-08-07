@@ -64,8 +64,7 @@
 }
 
 .dropdown-list-item:hover {
-    background-color: rgb(244, 173, 8);
-    color: #0a0a0a;
+    background: linear-gradient(135deg, transparent, rgba(244, 173, 8, 0.7));
 }
 
 .dropdown-list-header {
