@@ -9,11 +9,14 @@ export class DropdownList {
             template: (item) => item.text,
             doNotFilterElement: false,
             isReadOnly: false,
+            floating: false,
             ...options
         };
         this.items = [];
         this.selectedItem = null;
         this.shouldRenderOnShow = true;
+        this._scrollParents = [];
+        this._boundRepositionList = () => this.repositionList();
         this.initialize();
     }
 
@@ -203,6 +206,10 @@ export class DropdownList {
                 this.list.appendChild(li);
             });
         });
+
+        if (this.options.floating && this.list.style.display === 'block') {
+            this.repositionList();
+        }
     }
 
     selectItem(item) {
@@ -249,7 +256,7 @@ export class DropdownList {
 
     showList() {
         this.list.style.display = 'block';
-        
+
         // Only render items if needed
         if (this.shouldRenderOnShow) {
             if (this.input.value && !this.options.doNotFilterElement) {
@@ -259,10 +266,118 @@ export class DropdownList {
             }
             this.shouldRenderOnShow = false;
         }
+
+        if (this.options.floating) {
+            this.attachFloatingList();
+        }
     }
 
     hideList() {
         this.list.style.display = 'none';
+
+        if (this.options.floating) {
+            this.detachFloatingList();
+        }
+    }
+
+    getScrollParents(element) {
+        const parents = [];
+        let el = element?.parentElement;
+
+        while (el) {
+            const style = getComputedStyle(el);
+            const overflow = `${style.overflow} ${style.overflowX} ${style.overflowY}`;
+            if (/(auto|scroll|overlay)/.test(overflow)) {
+                parents.push(el);
+            }
+            el = el.parentElement;
+        }
+
+        return parents;
+    }
+
+    attachFloatingList() {
+        if (this.list.parentElement !== document.body) {
+            document.body.appendChild(this.list);
+        }
+
+        this.list.classList.add('dropdown-list-floating');
+        this.repositionList();
+        this.bindFloatingListeners();
+    }
+
+    detachFloatingList() {
+        this.unbindFloatingListeners();
+        this.list.classList.remove('dropdown-list-floating');
+
+        if (this.list.parentElement !== this.container) {
+            this.container.appendChild(this.list);
+        }
+
+        this.list.style.position = '';
+        this.list.style.left = '';
+        this.list.style.top = '';
+        this.list.style.width = '';
+        this.list.style.minWidth = '';
+        this.list.style.maxHeight = '';
+        this.list.style.zIndex = '';
+    }
+
+    repositionList() {
+        if (!this.options.floating || this.list.style.display === 'none') {
+            return;
+        }
+
+        const rect = this.input.getBoundingClientRect();
+        const minWidth = 450;
+        const width = Math.max(rect.width, minWidth);
+
+        this.list.style.position = 'fixed';
+        this.list.style.left = `${rect.left}px`;
+        this.list.style.width = `${width}px`;
+        this.list.style.minWidth = `${minWidth}px`;
+        this.list.style.zIndex = '1000';
+
+        const maxHeight = Math.min(window.innerHeight * 0.3, window.innerHeight - 16);
+        this.list.style.maxHeight = `${maxHeight}px`;
+
+        const spaceBelow = window.innerHeight - rect.bottom;
+        const spaceAbove = rect.top;
+        const listHeight = this.list.offsetHeight;
+
+        if (spaceBelow < listHeight && spaceAbove > spaceBelow) {
+            this.list.style.top = `${Math.max(8, rect.top - listHeight)}px`;
+        } else {
+            this.list.style.top = `${rect.bottom}px`;
+        }
+    }
+
+    bindFloatingListeners() {
+        if (this._floatingListenersBound) {
+            return;
+        }
+
+        this._scrollParents = this.getScrollParents(this.container);
+        window.addEventListener('resize', this._boundRepositionList);
+        window.addEventListener('scroll', this._boundRepositionList, true);
+        this._scrollParents.forEach((parent) => {
+            parent.addEventListener('scroll', this._boundRepositionList);
+        });
+        this._floatingListenersBound = true;
+    }
+
+    unbindFloatingListeners() {
+        if (!this._floatingListenersBound) {
+            return;
+        }
+
+        window.removeEventListener('resize', this._boundRepositionList);
+        window.removeEventListener('scroll', this._boundRepositionList, true);
+        this._scrollParents.forEach((parent) => {
+            parent.removeEventListener('scroll', this._boundRepositionList);
+        });
+        this._scrollParents = [];
+        this._floatingListenersBound = false;
     }
 
     get value() {
@@ -283,6 +398,7 @@ export class DropdownList {
     }
 
     destroy() {
+        this.detachFloatingList();
         this.container.replaceWith(this.element);
     }
 

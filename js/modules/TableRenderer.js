@@ -153,6 +153,7 @@ export class TableRenderer {
         const dropdown = new DropdownList(selectElement, {
             placeholder: 'Type to search...',
             searchable: true,
+            floating: true,
             template: (item) => {
                 if (!item) return '<div>No item</div>';
                 return `

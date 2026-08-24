@@ -49,6 +49,12 @@
     margin-top: 0 !important;
 }
 
+.dropdown-list.dropdown-list-floating {
+    position: fixed;
+    left: auto;
+    margin: 0 !important;
+}
+
 .dropdown-list[hidden] {
     opacity: 0;
     transform: scale(0.95);
