@@ -5,6 +5,118 @@
     {
       "active": true,
       "automap": true,
+      "ethereal": 1,
+      "item_quality": 3,
+      "max_clvl": 0,
+      "max_ilvl": 0,
+      "min_clvl": 0,
+      "min_ilvl": 0,
+      "notify": true,
+      "params": {
+        "class": 19
+      },
+      "rule_type": 0,
+      "show_item": true
+    },
+    {
+      "active": true,
+      "automap": false,
+      "ethereal": 0,
+      "item_quality": 6,
+      "max_clvl": 0,
+      "max_ilvl": 0,
+      "min_clvl": 0,
+      "min_ilvl": 0,
+      "notify": true,
+      "params": {
+        "code": 541078321
+      },
+      "rule_type": 1,
+      "show_item": true
+    },
+    {
+      "active": true,
+      "automap": false,
+      "ethereal": 0,
+      "item_quality": 6,
+      "max_clvl": 0,
+      "max_ilvl": 0,
+      "min_clvl": 0,
+      "min_ilvl": 0,
+      "notify": true,
+      "params": {
+        "code": 541078065
+      },
+      "rule_type": 1,
+      "show_item": true
+    },
+    {
+      "active": true,
+      "automap": false,
+      "ethereal": 1,
+      "item_quality": 6,
+      "max_clvl": 0,
+      "max_ilvl": 0,
+      "min_clvl": 0,
+      "min_ilvl": 0,
+      "notify": true,
+      "params": {
+        "code": 875591521
+      },
+      "rule_type": 1,
+      "show_item": true
+    },
+    {
+      "active": true,
+      "automap": true,
+      "ethereal": 0,
+      "item_quality": -1,
+      "max_clvl": 0,
+      "max_ilvl": 0,
+      "min_clvl": 0,
+      "min_ilvl": 0,
+      "notify": true,
+      "params": {
+        "code": 959478115
+      },
+      "rule_type": 1,
+      "show_item": true
+    },
+    {
+      "active": true,
+      "automap": true,
+      "ethereal": 0,
+      "item_quality": -1,
+      "max_clvl": 0,
+      "max_ilvl": 0,
+      "min_clvl": 0,
+      "min_ilvl": 0,
+      "notify": true,
+      "params": {
+        "code": 825260387
+      },
+      "rule_type": 1,
+      "show_item": true
+    },
+    {
+      "active": true,
+      "automap": false,
+      "ethereal": 0,
+      "item_quality": -1,
+      "max_clvl": 0,
+      "max_ilvl": 0,
+      "min_clvl": 0,
+      "min_ilvl": 0,
+      "notify": false,
+      "params": {
+        "class": 76
+      },
+      "rule_type": 0,
+      "show_item": true
+    },
+    {
+      "active": true,
+      "automap": true,
       "ethereal": 0,
       "item_quality": -1,
       "max_clvl": 0,
@@ -256,20 +368,6 @@
         "class": 35
       },
       "rule_type": 0,
-      "show_item": true
-    },
-    {
-      "active": true,
-      "automap": false,
-      "ethereal": 1,
-      "item_quality": 3,
-      "max_clvl": 0,
-      "max_ilvl": 0,
-      "min_clvl": 0,
-      "min_ilvl": 30,
-      "notify": true,
-      "params": null,
-      "rule_type": -1,
       "show_item": true
     },
     {
@@ -675,13 +773,15 @@
       "automap": true,
       "ethereal": 0,
       "item_quality": 7,
-      "max_clvl": 150,
-      "max_ilvl": 150,
-      "min_clvl": 80,
-      "min_ilvl": 40,
+      "max_clvl": 0,
+      "max_ilvl": 0,
+      "min_clvl": 0,
+      "min_ilvl": 0,
       "notify": true,
-      "params": null,
-      "rule_type": -1,
+      "params": {
+        "class": 19
+      },
+      "rule_type": 0,
       "show_item": true
     },
     {
@@ -689,11 +789,25 @@
       "automap": true,
       "ethereal": 0,
       "item_quality": 7,
-      "max_clvl": 80,
-      "max_ilvl": 90,
+      "max_clvl": 140,
+      "max_ilvl": 0,
       "min_clvl": 1,
-      "min_ilvl": 1,
+      "min_ilvl": 0,
       "notify": true,
+      "params": null,
+      "rule_type": -1,
+      "show_item": true
+    },
+    {
+      "active": true,
+      "automap": false,
+      "ethereal": 0,
+      "item_quality": 7,
+      "max_clvl": 0,
+      "max_ilvl": 0,
+      "min_clvl": 140,
+      "min_ilvl": 0,
+      "notify": false,
       "params": null,
       "rule_type": -1,
       "show_item": true
@@ -712,20 +826,6 @@
         "class": 1
       },
       "rule_type": 0,
-      "show_item": false
-    },
-    {
-      "active": true,
-      "automap": false,
-      "ethereal": 0,
-      "item_quality": -1,
-      "max_clvl": 0,
-      "max_ilvl": 40,
-      "min_clvl": 120,
-      "min_ilvl": 1,
-      "notify": false,
-      "params": null,
-      "rule_type": -1,
       "show_item": false
     }
   ]
