@@ -13,7 +13,7 @@
       "min_ilvl": 0,
       "notify": false,
       "params": {
-        "class": 19
+        "class": 27
       },
       "rule_type": 0,
       "show_item": true
@@ -21,15 +21,15 @@
     {
       "active": true,
       "automap": false,
-      "ethereal": 1,
-      "item_quality": 3,
+      "ethereal": 0,
+      "item_quality": 6,
       "max_clvl": 0,
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
-        "class": 3
+        "class": 19
       },
       "rule_type": 0,
       "show_item": true

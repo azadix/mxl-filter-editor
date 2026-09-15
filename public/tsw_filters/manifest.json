@@ -1,9 +1,9 @@
 {
   "source": "https://tsw.vn.cz/filters/",
   "listing_url": "https://tsw.vn.cz/filters/?mode=show",
-  "synced_at": "2026-09-08T01:44:41.122918+00:00",
-  "filter_count_listed": 27,
-  "filter_count_saved": 27,
+  "synced_at": "2026-09-15T02:09:24.215826+00:00",
+  "filter_count_listed": 28,
+  "filter_count_saved": 28,
   "filters": [
     {
       "id": 1,
@@ -190,7 +190,7 @@
       "url": "https://tsw.vn.cz/filters/?mode=api&id=12276",
       "title": "Endgame-Item-Filter",
       "author": "drumxl",
-      "bytes": 19510,
+      "bytes": 19512,
       "format": "json",
       "name": "Endgame Item Filter",
       "ok": true
@@ -273,6 +273,16 @@
       "bytes": 75193,
       "format": "json",
       "name": "Leveling",
+      "ok": true
+    },
+    {
+      "id": 12285,
+      "url": "https://tsw.vn.cz/filters/?mode=api&id=12285",
+      "title": "Alex",
+      "author": "exctues",
+      "bytes": 64359,
+      "format": "json",
+      "name": "Elementling",
       "ok": true
     }
   ]
