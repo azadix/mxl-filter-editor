@@ -1,7 +1,103 @@
 {
-  "default_show_items": false,
+  "default_show_items": true,
   "name": "Endgame Item Filter",
   "rules": [
+    {
+      "active": true,
+      "automap": false,
+      "ethereal": 0,
+      "item_quality": 6,
+      "max_clvl": 0,
+      "max_ilvl": 0,
+      "min_clvl": 0,
+      "min_ilvl": 0,
+      "notify": false,
+      "params": {
+        "class": 27
+      },
+      "rule_type": 0,
+      "show_item": true
+    },
+    {
+      "active": true,
+      "automap": false,
+      "ethereal": 0,
+      "item_quality": 6,
+      "max_clvl": 0,
+      "max_ilvl": 0,
+      "min_clvl": 0,
+      "min_ilvl": 0,
+      "notify": false,
+      "params": {
+        "class": 19
+      },
+      "rule_type": 0,
+      "show_item": true
+    },
+    {
+      "active": true,
+      "automap": false,
+      "ethereal": 0,
+      "item_quality": -1,
+      "max_clvl": 0,
+      "max_ilvl": 0,
+      "min_clvl": 0,
+      "min_ilvl": 0,
+      "notify": true,
+      "params": {
+        "class": 67
+      },
+      "rule_type": 0,
+      "show_item": true
+    },
+    {
+      "active": true,
+      "automap": false,
+      "ethereal": 0,
+      "item_quality": -1,
+      "max_clvl": 0,
+      "max_ilvl": 0,
+      "min_clvl": 0,
+      "min_ilvl": 0,
+      "notify": false,
+      "params": {
+        "class": 28
+      },
+      "rule_type": 0,
+      "show_item": true
+    },
+    {
+      "active": true,
+      "automap": true,
+      "ethereal": 0,
+      "item_quality": -1,
+      "max_clvl": 0,
+      "max_ilvl": 0,
+      "min_clvl": 0,
+      "min_ilvl": 0,
+      "notify": false,
+      "params": {
+        "class": 35
+      },
+      "rule_type": 0,
+      "show_item": true
+    },
+    {
+      "active": true,
+      "automap": true,
+      "ethereal": 0,
+      "item_quality": 7,
+      "max_clvl": 0,
+      "max_ilvl": 0,
+      "min_clvl": 0,
+      "min_ilvl": 0,
+      "notify": false,
+      "params": {
+        "class": 2
+      },
+      "rule_type": 0,
+      "show_item": true
+    },
     {
       "active": true,
       "automap": false,
@@ -11,7 +107,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "class": 27
       },
@@ -27,7 +123,7 @@
       "max_ilvl": 0,
       "min_clvl": 100,
       "min_ilvl": 105,
-      "notify": true,
+      "notify": false,
       "params": {
         "class": 2
       },
@@ -42,8 +138,8 @@
       "max_clvl": 0,
       "max_ilvl": 0,
       "min_clvl": 100,
-      "min_ilvl": 120,
-      "notify": true,
+      "min_ilvl": 0,
+      "notify": false,
       "params": {
         "class": 2
       },
@@ -59,7 +155,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "class": 2
       },
@@ -75,7 +171,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "class": 2
       },
@@ -91,7 +187,7 @@
       "max_ilvl": 0,
       "min_clvl": 100,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "class": 21
       },
@@ -107,7 +203,7 @@
       "max_ilvl": 0,
       "min_clvl": 100,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "class": 20
       },
@@ -123,25 +219,11 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "class": 5
       },
       "rule_type": 0,
-      "show_item": true
-    },
-    {
-      "active": true,
-      "automap": false,
-      "ethereal": 0,
-      "item_quality": 3,
-      "max_clvl": 0,
-      "max_ilvl": 0,
-      "min_clvl": 0,
-      "min_ilvl": 0,
-      "notify": true,
-      "params": null,
-      "rule_type": -1,
       "show_item": true
     },
     {
@@ -153,7 +235,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "code": 543649636
       },
@@ -169,7 +251,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "class": 71
       },
@@ -185,7 +267,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "class": 70
       },
@@ -201,7 +283,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "code": 543256436
       },
@@ -217,7 +299,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "class": 81
       },
@@ -233,7 +315,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "class": 73
       },
@@ -249,7 +331,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "code": 2020831075
       },
@@ -265,7 +347,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "code": 2020565615
       },
@@ -281,7 +363,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "code": 943076966
       },
@@ -297,7 +379,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "class": 74
       },
@@ -313,7 +395,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "code": 540433500
       },
@@ -329,7 +411,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "class": 79
       },
@@ -345,7 +427,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "class": 78
       },
@@ -361,7 +443,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "class": 89
       },
@@ -377,7 +459,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "class": 87
       },
@@ -393,7 +475,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "class": 85
       },
@@ -409,7 +491,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "code": 543979122
       },
@@ -425,7 +507,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "code": 926299750
       },
@@ -441,7 +523,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "class": 66
       },
@@ -457,7 +539,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "code": 543499317
       },
@@ -473,7 +555,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "code": 543499321
       },
@@ -489,7 +571,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "code": 543499367
       },
@@ -505,7 +587,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "code": 543499319
       },
@@ -521,7 +603,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "code": 544893811
       },
@@ -537,7 +619,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "code": 540372857
       },
@@ -553,7 +635,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "code": 542863409
       },
@@ -569,7 +651,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "code": 543387503
       },
@@ -585,7 +667,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "code": 542863161
       },
@@ -601,7 +683,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "code": 542863410
       },
@@ -617,7 +699,7 @@
       "max_ilvl": 0,
       "min_clvl": 100,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "code": 542863412
       },
@@ -633,7 +715,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "class": 83
       },
@@ -649,7 +731,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "class": 22
       },
@@ -665,7 +747,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "class": 80
       },
@@ -681,7 +763,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "class": 84
       },
@@ -697,7 +779,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "code": 540621170
       },
@@ -713,7 +795,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "class": 31
       },
@@ -729,7 +811,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "class": 29
       },
@@ -745,7 +827,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "class": 30
       },
@@ -761,7 +843,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "class": 88
       },
@@ -809,7 +891,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "code": 540373096
       },
@@ -825,7 +907,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "code": 540373101
       },
@@ -841,7 +923,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "class": 75
       },
@@ -857,7 +939,7 @@
       "max_ilvl": 0,
       "min_clvl": 0,
       "min_ilvl": 0,
-      "notify": true,
+      "notify": false,
       "params": {
         "code": 2020632946
       },
