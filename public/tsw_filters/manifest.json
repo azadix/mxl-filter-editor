@@ -1,9 +1,9 @@
 {
   "source": "https://tsw.vn.cz/filters/",
   "listing_url": "https://tsw.vn.cz/filters/?mode=show",
-  "synced_at": "2026-09-22T02:07:48.949166+00:00",
-  "filter_count_listed": 28,
-  "filter_count_saved": 28,
+  "synced_at": "2026-09-29T03:00:37.564956+00:00",
+  "filter_count_listed": 29,
+  "filter_count_saved": 29,
   "filters": [
     {
       "id": 1,
@@ -283,6 +283,16 @@
       "bytes": 64359,
       "format": "json",
       "name": "Elementling",
+      "ok": true
+    },
+    {
+      "id": 12286,
+      "url": "https://tsw.vn.cz/filters/?mode=api&id=12286",
+      "title": "11111111111111",
+      "author": "valakardin",
+      "bytes": 21466,
+      "format": "json",
+      "name": "SimpleFilterSoftNotify",
       "ok": true
     }
   ]
