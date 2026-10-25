@@ -15,8 +15,13 @@ concurrency:
 jobs:
   sync:
     runs-on: ubuntu-latest
+    timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            scripts
+            public/tsw_filters
 
       - name: Sync filters from tsw.vn.cz
         run: python scripts/sync_tsw_filters.py
