@@ -1,7 +1,7 @@
 {
   "source": "https://tsw.vn.cz/filters/",
   "listing_url": "https://tsw.vn.cz/filters/?mode=show",
-  "synced_at": "2026-10-29T03:10:24.611188+00:00",
+  "synced_at": "2026-11-01T02:53:22.813466+00:00",
   "filter_count_listed": 29,
   "filter_count_saved": 29,
   "filters": [
@@ -272,9 +272,9 @@
     {
       "id": 12282,
       "url": "https://tsw.vn.cz/filters/?mode=api&id=12282",
-      "title": "abc",
+      "title": "lootfilterforsin",
       "author": "koaibit",
-      "last_update": "2026-08-02",
+      "last_update": "2026-10-31",
       "bytes": 11245,
       "format": "json",
       "name": "BEllag",
